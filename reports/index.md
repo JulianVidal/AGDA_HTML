@@ -15,6 +15,7 @@
 - [X] Download head HTML file
 - [X] Parse HTML file
 - [ ] Note down the data that can be gathered
+- [ ] Found a why to only get base level function definitions
 - [ ] Search graph algorithm
 - [ ] Draft bullet points for canvas registration questions
 
@@ -72,11 +73,26 @@ file, it has a variety of symbols and keywords.
 HTML parser for python
 (beautifulsoup4)[https://www.crummy.com/software/BeautifulSoup/bs4/doc/].
 
+I was able to get the "Function" class from the HTML and list out all of the
+functions with links to where they are defined.
+
 ---
 
 # Week 2
 
 ## 2 - Pre-meeting report
+(1) What you've done the previous week
+- Read and parsed example HTML file
+- Explored the data that can be gathered
+- Created python project
+- Answered the canvas questions
+
+(2) what we should discuss in the meeting.
+- What is the overall structure of the project i.e.
+  - A research paper where I explore different graphs and traversing
+    algorithms.
+  - A software engineering project where I create a product for a userbase.
+
  
 ## 2 - Post Meeting report
 

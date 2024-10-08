@@ -2,7 +2,7 @@
 
 1. What is the title of your project?
 
-Indexing and parsing AGDA HTML files
+Building a graph from AGDA HTML files to allow for complex queries
  
 2. Who is your supervisor?
 
@@ -14,7 +14,10 @@ Martin Escardo
 The main aim of the project is to make it easier to search through the HTML
 files AGDA can generate. I will create a program that reads the HTML files and
 creates a queriable graph, so the user can easily search for function
-declarations and references or symbols or any other definition.
+declarations and references or symbols or any other definition. Users will be
+able to make complex queries, for example, finding all of the modules that
+directly or indirectly use a function. 
+
 
 4. Why is your project challenging and relevant to your degree programme?
 

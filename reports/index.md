@@ -20,9 +20,9 @@
 - [ ] Search graph algorithm
 
 # Week 2 - TODO
-- [ ] Search reachability theory
-- [ ] Think of useful queries that could be made
-- [ ] Research similar work and graph theory
+- [X] Search reachability theory
+- [X] Think of useful queries that could be made
+- [X] Research similar work and graph theory
 - [ ] Can this be done with an LSP?
 
 # Context
@@ -126,3 +126,51 @@ being used.
 - Length from theorem to axiom
 - Given a function what indirectly does it do
 - Research similar work
+
+- Come up with useful queries to implement
+  - What functions are being used in another funciont so you can trace bugs
+  - Function usage, analyze how much a function is being imported to other
+    modules. If they are used to little, they could be made more broad.
+  - Module usage, less popular modules could be merged or larger modules could
+    be separated
+  - Generate a list of related modules (i.e. modules that are closely and
+    repeatedly connected to the current module)
+  - List of functions available in a module
+
+- Research related works and graph theory
+- [CTags](https://github.com/universal-ctags/ctags)
+  - CTags indexes all the symbols of a project
+  - This works only on definitions of functions, not where they are referenced
+- [Jedi - an awesome autocompletion, static analysis and refactoring library
+  for Python](https://jedi.readthedocs.io/)
+  - It finds function definitions and references which is what we are looking
+    for
+- [Agda-Language-Server](https://github.com/agda/agda-language-server/tree/master)
+  - An LSP for agda, it parses the files and analysis them, similar to what we
+    want but it doesn't seem to index them
+- [Application-only Call Graph Construction
+  ](https://cormack.uwaterloo.ca/~olhotak/pubs/ecoop12.pdf)
+  - A call graph represents the relationships between functions
+- [Precise Interprocedural Dataflow Analysis via Graph
+  Reachabilit](https://dl.acm.org/doi/pdf/10.1145/199448.199462)
+  - Data flow is a way to statically analyse code before running it, this is
+    far more complex than what I want.
+- [CFL/Dyck Reachability: An Algorithmic Perspective](https://dl.acm.org/doi/abs/10.1145/3583660.3583664)
+  - Analyses the decidability and complexity of this problem
+
+This project has overlap with language servers, which analyzes code to support
+features like go to definition, autocompletion, getting function references,
+renaming definitions, etc. They work by parsing the files in a project into
+Abstract Syntax Tree and analysing that.
+
+- Queries:
+  - Amount of imports a function uses
+  - Where a functions is being referenced
+  - Where a function is defined
+  - What module depends on another module, so refactoring is safer
+  - Find the complexity of a function based on how far it is from its
+    assumptions
+
+- Software Languages: Syntax, Semantics, and Metaprogramming
+- Language Server Protocol and Implementation Supporting Language-Smart Editing
+  and Programming Tools

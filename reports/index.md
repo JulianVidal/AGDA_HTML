@@ -1,14 +1,19 @@
 <!--toc:start-->
 - [Week 1 - TODO](#week-1-todo)
 - [Week 2 - TODO](#week-2-todo)
+- [Week 3 - TODO](#week-3-todo)
+- [Context](#context)
 - [Week 1](#week-1)
   - [1 - Pre-meeting report](#1-pre-meeting-report)
-  - [1 - Post Meeting report](#1-post-meeting-report)
+  - [1 - Post-Meeting report](#1-post-meeting-report)
   - [1 - Notes](#1-notes)
 - [Week 2](#week-2)
   - [2 - Pre-meeting report](#2-pre-meeting-report)
-  - [2 - Post Meeting report](#2-post-meeting-report)
+  - [2 - Post-Meeting report](#2-post-meeting-report)
   - [2 - Notes](#2-notes)
+- [3 - Pre-Meeting Report](#3-pre-meeting-report)
+- [3 - Post-Meeting Report](#3-post-meeting-report)
+- [3 - Notes](#3-notes)
 <!--toc:end-->
 
 # Week 1 - TODO
@@ -25,14 +30,16 @@
 - [X] Research similar work and graph theory
 - [ ] Can this be done with an LSP?
 
+# Week 3 - TODO
+
 # Context
 
-Top html file: (HTML)[https://www.cs.bham.ac.uk/~mhe/TypeTopology/AllModulesIndex.html]
+Top html file: [HTML](https://www.cs.bham.ac.uk/~mhe/TypeTopology/AllModulesIndex.html)
  
-Also (CSS)[https://www.cs.bham.ac.uk/~mhe/TypeTopology/Agda.css]
+Also [CSS](https://www.cs.bham.ac.uk/~mhe/TypeTopology/Agda.css)
  
 The source code that generates these html pages is here:
-(source code)[https://github.com/martinescardo/TypeTopology]
+[source code](https://github.com/martinescardo/TypeTopology)
 
 # Week 1
 ## 1 - Pre-meeting report
@@ -48,7 +55,7 @@ Project Ideas:
 - I am having trouble coming up with project ideas so I would like to discuss
   what projects you are working on and previous projects you have supervised.
  
-## 1 - Post Meeting report
+## 1 - Post-Meeting report
 
 Discussed the project ideas listed,
  
@@ -71,11 +78,11 @@ this project could move forward.
 ## 1 - Notes
 
 I am going to start with this
-(html)[https://www.cs.bham.ac.uk/~mhe/TypeTopology/InfinitePigeon.Addition.html]
+[html](https://www.cs.bham.ac.uk/~mhe/TypeTopology/InfinitePigeon.Addition.html)
 file, it has a variety of symbols and keywords.
 
 HTML parser for python
-(beautifulsoup4)[https://www.crummy.com/software/BeautifulSoup/bs4/doc/].
+[beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
 
 I was able to get the "Function" class from the HTML and list out all of the
 functions with links to where they are defined.
@@ -98,7 +105,7 @@ functions with links to where they are defined.
   - A software engineering project where I create a product for a user base.
 
  
-## 2 - Post Meeting report
+## 2 - Post-Meeting report
 
 For next week:
 - Come up with useful queries to implement
@@ -174,3 +181,45 @@ Abstract Syntax Tree and analysing that.
 - Software Languages: Syntax, Semantics, and Metaprogramming
 - Language Server Protocol and Implementation Supporting Language-Smart Editing
   and Programming Tools
+
+# 3 - Pre-Meeting Report
+
+These are some queries I came up with:
+  - List functions used within your function so you can trace bugs
+  - Function size, how many calls to other functions is it doing. Another way
+    to measure complexity, how many different definitions does it use.
+  - Module size and usage, less popular modules could be merged or larger modules could
+    be separated.
+  - Generate a list of related modules (i.e. modules that are closely and
+    repeatedly connected to the current module)
+  - List of functions available in a module (including from imported modules)
+
+For related works I found Ctags, which indexes all the symbols of a
+project. This is partly what we want to do but it doesn't keep track of the
+relationship between functions or modules.
+
+Also found language servers, which in real-time statically analyze your code
+for bugs while you are writing and powers features which are close to what we
+want to do. Some of these features are "Go to Definition", "Go to References",
+auto completion and type inference. This project doesn't require features this
+advanced or to analyze code at all, the subset of features we need is "Go to
+Definition" and "Go to References". Example of language servers are Jedi
+Language Server for Python and Agda Language Server.
+
+It seems that most of the focus today is analyzing code before it runs (for
+use in compilers or for developer experience).
+- [Application-only Call Graph
+Construction](https://cormack.uwaterloo.ca/~olhotak/pubs/ecoop12.pdf)
+  - A call graph represents the relationships between functions, used for more
+  efficient compilation.
+- [Precise Interprocedural Dataflow Analysis via Graph
+Reachability](https://dl.acm.org/doi/pdf/10.1145/199448.199462)
+  - Data flow is a way to statically analyse code before running it, this is
+  far more complex than what I want.
+- [CFL/Dyck Reachability: An Algorithmic
+Perspective](https://dl.acm.org/doi/abs/10.1145/3583660.3583664)
+  - Analyses the decidability and complexity of this problem, still quite more
+  complex than what we want
+
+# 3 - Post-Meeting Report
+# 3 - Notes

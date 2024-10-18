@@ -31,6 +31,11 @@
 - [ ] Can this be done with an LSP?
 
 # Week 3 - TODO
+- [ ] Develop a weekly plan outlining the goals to achieve in project
+- [ ] Research basic graph theory
+- [ ] Explore different implementations and algorithms of graphs
+- [ ] Implement one basic query (does an specific function exist and where is
+it defined)
 
 # Context
 

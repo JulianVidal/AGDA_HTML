@@ -222,4 +222,19 @@ Perspective](https://dl.acm.org/doi/abs/10.1145/3583660.3583664)
   complex than what we want
 
 # 3 - Post-Meeting Report
+For next week:
+- Develop a weekly plan outlining the goals to achieve in project
+- Research basic graph theory
+- Explore different implementations and algorithms of graphs
+- Implement one basic query (does an specific function exist and where is it
+defined)
+
+Discussed parsing the Agda files into abstract syntax trees instead of HTML
+files, this would add complexity to the project but there is a researcher that
+has done something similar that can be used.
+
+The high-level path for the project is to implement basic queries first, then
+implement more advanced queries over time. I came up with some queries but I
+will also receive a list of queries from my supervisor. 
+
 # 3 - Notes

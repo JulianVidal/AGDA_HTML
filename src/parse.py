@@ -71,28 +71,29 @@ def parse_functions(soup):
     uses = {}
     context = None
     indent = 0
-    print(list(soup.find('pre').children))
+    # print(list(soup.find('pre').children))
     for el in soup.find('pre').children:
         if "\n\n" in el and el.count(' ') == 0:
             context = None
         if "\n" in el:
             indent = el.count(' ')
-            print(indent, el.text)
+            # print(indent, el.text)
         if el.name == 'a':
             classes = ' '.join( el['class']) if 'class' in el.attrs else "None"
-            print(indent, el.text)
+            # print(indent, el.text)
             if "Function" in classes:
                 if indent == 0 and context is None:
-                    uses[el.text] = uses.get(el.text, set())
-                    context = el.text
+                    f = (el.text, el['href'])
+                    uses[f] = uses.get(f, set())
+                    context = f
             if el.text not in uses and context is not None:
                 if 'href' in el.attrs and module_name not in el['href']:
                     uses[context].add((el.text, el['href']))
     return uses
 
-html_name = "./output1.html"
-f = parse_module_html(html_name)
-print(f)
+# html_name = "./output1.html"
+# f = parse_module_html(html_name)
+# print(f)
 
 # for name, children in uses.items():
 #     print(name, children)

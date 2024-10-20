@@ -1,38 +1,54 @@
-class Node():
-    """
-    Stores values for the graph
-    """
-    def __init__(self, value: str):
-        self.value = value
+import typing
+from collections import namedtuple
 
-class ADJGraph():
-    """
-    This graph implementation is similar to an adjancecy list except
-    the graph is a dictionar and the relations are sets
+class FNode():
+    """docstring for FNode."""
+    def __init__(self, name: str, href:str):
+        self.name: str = name
+        self.href: str = href
+        self.calls: list[any] = []
+        self.refs: list[any] = []
 
-    """
-    def __init__(self):
-        self.nodes = dict()
+    def __str__(self):
+        return f"""Name: {self.name}
+Href: {self.href}
+Calls: {[call.name for call in self.calls]}
+Refs: {[ref.name for ref in self.refs]}"""
 
-    def add_node(self, node: Node):
-        if node in self.nodes:
-            raise ValueError("node already in graph")
-        self.nodes[node] = set()
+    def add_call(self, call):
+        self.calls.append(call)
 
-    def add_arc(self, nodeA: Node, nodeB: Node):
-        if nodeA not in self.nodes or nodeB not in self.nodes:
-            raise ValueError("Can't create edge with missing nodes")
-        self.nodes[nodeA].add(nodeB)
+    def add_ref(self, refs):
+        self.refs.append(refs)
 
-    def rm_node(self, node: Node):
-        if node in self.nodes:
-            raise ValueError("Node not in graph")
-        del self.nodes[node]
-
-    def rm_arc(self, nodeA: Node, nodeB: Node):
-        if nodeA not in self.nodes or nodeB not in self.nodes:
-            raise ValueError("Can't create edge with missing nodes")
-        self.nodes[nodeA].remove(nodeB)
+# class HashGraph():
+#     """
+#     This graph implementation is similar to an adjancecy list except
+#     the graph is a dictionar and the relations are sets
+#
+#     """
+#     def __init__(self):
+#         self.nodes = dict()
+#
+#     def add_node(self, node: typing.Hashable() ):
+#         if node in self.nodes:
+#             raise ValueError("node already in graph")
+#         self.nodes[node] = set()
+#
+#     def add_arc(self, nodeA: typing.Hashable, nodeB: typing.Hashable):
+#         if nodeA not in self.nodes or nodeB not in self.nodes:
+#             raise ValueError("Can't create edge with missing nodes")
+#         self.nodes[nodeA].add(nodeB)
+#
+#     def rm_node(self, node: typing.Hashable):
+#         if node in self.nodes:
+#             raise ValueError("typing.Hashable not in graph")
+#         del self.nodes[node]
+#
+#     def rm_arc(self, nodeA: typing.Hashable, nodeB: typing.Hashable):
+#         if nodeA not in self.nodes or nodeB not in self.nodes:
+#             raise ValueError("Can't create edge with missing nodes")
+#         self.nodes[nodeA].remove(nodeB)
 
 # class ProgramGraph():
 #     """

@@ -1,13 +1,14 @@
 import typing
 from collections import namedtuple
+import parse
 
 class FNode():
     """docstring for FNode."""
     def __init__(self, name: str, href:str):
         self.name: str = name
         self.href: str = href
-        self.calls: list[any] = []
-        self.refs: list[any] = []
+        self.calls: list[FNode] = []
+        self.refs: list[FNode] = []
 
     def __str__(self):
         return f"""Name: {self.name}
@@ -20,6 +21,63 @@ Refs: {[ref.name for ref in self.refs]}"""
 
     def add_ref(self, refs):
         self.refs.append(refs)
+
+class MNode():
+    """docstring for MNode."""
+    def __init__(self, name: str):
+        self.name: str = name
+        self.imports: list[any] = []
+        self.refs: list[any] = []
+
+    def __str__(self):
+        return f"""Name: {self.name}
+Imports: {[imprt.name for imprt in self.imports]}
+Refs: {[ref.name for ref in self.refs]}"""
+
+    def add_import(self, imprt):
+        self.imports.append(imprt)
+
+    def add_ref(self, refs):
+        self.refs.append(refs)
+
+class AgdaGraph():
+    """docstring for AgdaGraph."""
+    def __init__(self):
+        self.funcs = dict()
+        self.modules = dict()
+
+    def build(self, htmls: list[str]):
+        for html in htmls:
+            symbols = parse.parse_module_html(html)
+            # print(symbols)
+
+            for (f_name, f_href), calls in symbols['functions'].items():
+                self.funcs[f_name] = self.funcs.get(f_name, FNode(f_name, f_href))
+
+                for (c_name, c_href) in calls:
+                    self.funcs[c_name] = self.funcs.get(c_name, FNode(c_name, c_href))
+
+                    self.funcs[c_name].add_ref(self.funcs[f_name])
+                    self.funcs[f_name].add_call(self.funcs[c_name])
+
+
+            module = symbols['name']
+            self.modules[module] = self.modules.get(symbols['name'], MNode(module))
+
+            for imprt in symbols['imports']:
+                self.modules[imprt] = self.modules.get(imprt, MNode(imprt))
+
+                self.modules[imprt].add_ref(self.modules[module])
+                self.modules[module].add_import(self.modules[imprt])
+
+    def function_imports(self, func: str):
+        f: FNode = self.funcs[func]
+        imports = list()
+        for c in f.calls:
+            imports.append(c.href)
+        return imports
+
+
 
 # class HashGraph():
 #     """

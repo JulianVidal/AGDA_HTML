@@ -71,6 +71,7 @@ def parse_functions(soup):
     uses = {}
     context = None
     indent = 0
+    new_line = False
     # print(list(soup.find('pre').children))
     for el in soup.find('pre').children:
         if "\n\n" in el and el.count(' ') == 0:
@@ -78,17 +79,23 @@ def parse_functions(soup):
         if "\n" in el:
             indent = el.count(' ')
             # print(indent, el.text)
+
         if el.name == 'a':
             classes = ' '.join( el['class']) if 'class' in el.attrs else "None"
             # print(indent, el.text)
             if "Function" in classes:
-                if indent == 0 and context is None:
+                # print(new_line, indent, context, new_line and indent == 0 and context is None)
+                if new_line and indent == 0 and context is None:
                     f = (el.text, el['href'])
                     uses[f] = uses.get(f, set())
                     context = f
-            if el.text not in uses and context is not None:
-                if 'href' in el.attrs and module_name not in el['href']:
-                    uses[context].add((el.text, el['href']))
+                # print(context, (el.text, el['href']) not in uses and context is not None)
+                if (el.text, el['href']) not in uses and context is not None:
+                    if 'href' in el.attrs and module_name not in el['href']:
+                        uses[context].add((el.text, el['href']))
+        new_line = "\n" in el.text or el.text == ""
+        # print(new_line, f"'{el.text}'")
+
     return uses
 
 # html_name = "./output1.html"

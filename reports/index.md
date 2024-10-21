@@ -31,10 +31,10 @@
 - [ ] Can this be done with an LSP?
 
 # Week 3 - TODO
-- [ ] Develop a weekly plan outlining the goals to achieve in project
-- [ ] Research basic graph theory
+- [X] Develop a weekly plan outlining the goals to achieve in project
+- [X] Research basic graph theory
 - [ ] Explore different implementations and algorithms of graphs
-- [ ] Implement one basic query (does an specific function exist and where is
+- [X] Implement one basic query (does an specific function exist and where is
 it defined)
 
 # Context
@@ -243,3 +243,24 @@ implement more advanced queries over time. I came up with some queries but I
 will also receive a list of queries from my supervisor. 
 
 # 3 - Notes
+
+Created a adjacency graph using linked lists, basic structure is a node that
+points to other nodes. For example, Function Node (FNode) stores the name and
+locations of a function and points to other FNodes that it either calls in its
+definitions or itself is called by another function.
+
+So far I have read in 4 HTML files, it runs fairly quickly but this is a tiny
+sample, implemented a query where you give it a function and it returns the
+modules that it needs to be imported.
+
+Created weekly plan, overall aim is to "finish" the software before christmas
+break, and focus on writting the report during the second semester.
+
+There are some question to ask:
+- I am only keeping track of functions that come from other files and ignoring
+function calls to the same module.
+- There are operators which aren't functions but seem to serve a similar
+purpose, should those be tracked?
+- Did some research on google on how to write a graph, should I be reading
+textbooks and referencing that instead?
+

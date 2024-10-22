@@ -248,6 +248,8 @@ Created a adjacency graph using linked lists, basic structure is a node that
 points to other nodes. For example, Function Node (FNode) stores the name and
 locations of a function and points to other FNodes that it either calls in its
 definitions or itself is called by another function.
+[Graphs](https://stevenschmatz.gitbooks.io/data-structures-and-algorithms/content/281/lecture_16.html)
+
 
 So far I have read in 4 HTML files, it runs fairly quickly but this is a tiny
 sample, implemented a query where you give it a function and it returns the
@@ -263,4 +265,59 @@ function calls to the same module.
 purpose, should those be tracked?
 - Did some research on google on how to write a graph, should I be reading
 textbooks and referencing that instead?
+
+The parser is hacky... what it does is it keeps track of the current
+indentation, storest the first function it sees at context and anything after
+(i.e. anything indented or after the function) gets added as part of the
+context's definition. Currently I only focus on functions from outside files,
+as if I keep local functions I would get lemmas which I don't believe are very
+useful. Agda also includes "Constructive Operators" which aren't functions, but
+still seem very useful, so I don't know what to do with those.The modules were
+easy to parse, they preceded a Module class and import keyword. 
+
+For each html file I find every function defined without indentation, the
+current module, imported module and the functions used by the defined
+functions. With this informaiton I have the information needed to build the
+graph. As mentioned, FNodes point to each other but there is a dictionary with
+function names as keys which point to FNodes so you can access the graph.
+
+Beautiful Soup doesn't keep the indents of each link, but when I do
+soup.children, I get a list of strings with links and the indents from there I
+can figure out the indentation by counting the spaces and line breaks.
+
+The html files are currently being locally downloaded and then imported
+one-by-one, I could consider some spider algorithm that clicks through all the
+links and imports them that way, but that would be many files that I may not be
+able to handle, maybe later. 
+
+Created query that returns all the imports needed to define a function. Also
+created query that checks the imports used by a module and if it is importing
+all of them (this is a  bit buggy as my functions don't seem to be using all
+the imports)
+
+# 4 - Pre-Meeting Report
+Created a adjacency graph using linked lists, basic structure is a node that
+points to other nodes. For example, Function Node (FNode) stores the name and
+locations of a function and points to other FNodes that it either calls in its
+definitions or itself is called by another function.
+
+So far I have read in 4 HTML files, it runs fairly quickly but this is a tiny
+sample, implemented a query where you give it a function and it returns the
+modules that it needs to be imported.
+
+Created weekly plan, overall aim is to "finish" the software before Christmas
+break, and focus on writing the report during the second semester.
+
+Questions:
+- I am only keeping track of functions that come from other files and ignoring
+function calls to the same module.
+- There are operators which aren't functions but seem to serve a similar
+purpose, should those be tracked?
+- Did some research on google on how to write a graph, should I be reading
+textbooks and referencing that instead?
+
+
+# 4 - Post-meeting report
+
+# 4 - Notes
 

@@ -90,8 +90,8 @@ def parse_functions(soup):
                     uses[f] = uses.get(f, set())
                     context = f
                 # print(context, (el.text, el['href']) not in uses and context is not None)
-                if (el.text, el['href']) not in uses and context is not None:
-                    if 'href' in el.attrs and module_name not in el['href']:
+                if 'href' in el.attrs and module_name not in el['href']:
+                    if (el.text, el['href']) not in uses and context is not None:
                         uses[context].add((el.text, el['href']))
         new_line = "\n" in el.text or el.text == ""
         # print(new_line, f"'{el.text}'")

@@ -72,10 +72,22 @@ class AgdaGraph():
 
     def function_imports(self, func: str):
         f: FNode = self.funcs[func]
-        imports = list()
+        imports = set()
         for c in f.calls:
-            imports.append(c.href)
-        return imports
+            imports.add(c.href.split('.html')[0])
+        return list(imports)
+
+    def check_imports(self, mod: str):
+        module: MNode = self.modules[mod]
+        req_imprts = set()
+        imprts = set([m.name for m in module.imports])
+        for _, fNode in self.funcs.items():
+            if module.name in fNode.href:
+                req_imprts.update([call.href.split('.html')[0] for call in fNode.calls])
+
+        print(req_imprts, imprts)
+        return req_imprts.issubset(imprts)
+
 
 
 

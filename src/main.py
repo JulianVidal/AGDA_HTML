@@ -39,4 +39,9 @@ g.build(htmls)
 #     print(n)
 #     print()
 
+print("Imports needed by addition-communtatitivy")
 print(g.function_imports('addition-commutativity'))
+print()
+
+print("Checking required imports for InfinitePigeon.Addition")
+print(g.check_imports('InfinitePigeon.Addition'))

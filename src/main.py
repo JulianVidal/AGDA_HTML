@@ -13,7 +13,7 @@ htmls = [os.path.join(root, p) for p in os.listdir(root)]
 # index = dict()
 # print(symbols)
 # for f, calls in symbols['functions'].items():
-#     node = graph.FNode(*f)    
+#     node = graph.FNode(*f)
 #     index[node.name] = index.get(node.name, node)
 #
 #     for call in calls:
@@ -31,9 +31,9 @@ g = graph.AgdaGraph()
 
 g.build(htmls)
 
-# for f, n in g.funcs.items():
-#     print(n)
-#     print()
+for f, n in g.funcs.items():
+    print(n)
+    print()
 
 # for f, n in g.modules.items():
 #     print(n)

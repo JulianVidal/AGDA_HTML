@@ -320,4 +320,4 @@ textbooks and referencing that instead?
 # 4 - Post-meeting report
 
 # 4 - Notes
-
+Add all elements, not only symbols marked as functions

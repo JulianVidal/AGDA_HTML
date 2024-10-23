@@ -318,6 +318,16 @@ textbooks and referencing that instead?
 
 
 # 4 - Post-meeting report
+For next week:
+ - Implement more queries and read more files
+  - Change graph implementation and parsing to fit the extra queries
+
+Using indentation for parsing is fragile as formatting will vary widely between
+files, so this will likely lead to many bugs. It would be useful to find a more
+reliable way to parse the HTML files. Also, I should keep track of what
+definitions are being used even if they are not marked as Functions in the
+HTML.
+
 
 # 4 - Notes
 Add all elements, not only symbols marked as functions

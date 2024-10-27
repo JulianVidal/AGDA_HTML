@@ -331,3 +331,37 @@ HTML.
 
 # 4 - Notes
 Add all elements, not only symbols marked as functions
+
+Received information about queries and about a backend for Agda that allows
+access into its internal representation.
+
+To build follow Agda's installation process, except on install run:
+
+``` !bin/bash 
+# stack build compiles the project (stack install would add the compiled binary to PATH)
+stack build --stack-yaml stack-[GHC-Version].yaml 
+
+# To compile agda files
+sexp --sexp [file]
+
+# Where the sexp files will be stored
+sexp --sexp-dir [dir]
+```
+
+Added the binary as an alias in ~/.zshrc, now it can be accessed through "sexp"
+command.
+
+Looking at Job's code, I see that he has already parsed the sexp_agda files and
+created a tree from them. In theory I should be able to use that tree to then
+create a prolog database and from there be able to query everything I want.
+
+I was able to use Job's code and get the tree, currently I could get all the
+function definitions which is promising. This would replace the html parsing,
+now I need to find if I should use datalog or my own graph.
+
+Researching datalog, many implentations are in Clojure using the JVM so I will
+see how to get that working.
+
+Question:
+ - How do I credit the code I didn't write?
+ - Use datalog or my own graphs?

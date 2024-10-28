@@ -107,6 +107,14 @@ class AgdaNode:
         return n
 
     @property
+    def rev_nodes(self) -> Iterator["AgdaNode"]:
+        stack = [self]
+        while stack:
+            current = stack.pop()
+            yield current
+            stack.extend(list(reversed(current.children)))
+
+    @property
     def nodes(self) -> Iterator["AgdaNode"]:
         stack = [self]
         while stack:

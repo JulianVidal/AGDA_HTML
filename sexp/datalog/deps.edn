@@ -1,0 +1,2 @@
+{:deps
+{io.replikativ/datahike {:mvn/version "0.6.1591"}}}

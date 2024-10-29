@@ -394,6 +394,29 @@ Questions:
  - How should sub functions be represented?
    - As their own function that get called
    - Or should they be ignored and merged into the outer function
+
 # 5 - Post-Meeting Report
+For next week:
+ - Keep implementing queries from Mathtodon thread
+   - Keep track on how each query could be answered by a python graph and
+   datalog
+ - Research about parallelization in general and in compilers
+ - Search about cmake
+ - Use graphviz to plot the dependency tree of TypeTopology
+
+Discussed how slow Agda compilation is, and how it could be parallelized. If
+you had a module A that has many dependencies and module B that has many
+dependencies which are different to the ones in module A. Those two modules
+could be compiled in parallel while avoiding the issue of overhead. As
+compiling based on topological sort would lead to loading of interface files
+that were previously loaded and removed. If module A and module B could be
+found with this project, it could lead to a significant speed up.
 
 # 5 - Notes
+Compilation strategy, topological sort
+Find the modules that are connected.
+Operation reserach, how to paralelize a task.
+FInd files that are most connece=ted but not connected to each other.
+Biggest subgraphs that aren't connceted
+Search cmake.
+graphviz - creates graph from agda

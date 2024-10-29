@@ -35,11 +35,11 @@
 (d/transact conn data/d)
 
 ; Get all modules
-(d/q '[:find ?m
-       :where
-       [_ :func/mod ?mi]
-       [?mi :mod/def ?m]]
-     @conn)
+; (d/q '[:find ?m
+;        :where
+;        [_ :func/mod ?mi]
+;        [?mi :mod/def ?m]]
+;      @conn)
 
 ; Get dependencies from function 15
 ; (d/q '[:find ?u 
@@ -48,12 +48,12 @@
 ;        [?ui :func/def ?u]]
 ;    @conn)
 
-; Get dependencies from function 15
-; (d/q '[:find ?u 
-;        :where
-;        [24 :func/dep ?ui]
-;        [?ui :func/def ?u]]
-;    @conb)
+; Get dependencies from function 24
+(d/q '[:find ?u ?ui
+       :where
+       [24 :func/dep ?ui]
+       [?ui :func/def ?u]]
+   @conn)
 
 ; Get dependents of function 15
 ; (d/q '[:find ?u 

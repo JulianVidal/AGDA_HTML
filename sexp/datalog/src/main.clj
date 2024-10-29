@@ -1,7 +1,10 @@
 (ns main
   (:require
    [datahike.api :as d]
-   [data]))
+   [data]
+   [clojure.core.reducers :as r]
+   [clojure.set :as set]
+   ))
 
 ;; use the filesystem as storage medium
 ; (def cfg {:store {:backend :file :path "/tmp/example"} :schema-flexibility :read})
@@ -24,57 +27,38 @@
 ;; lets add some data and wait for the transaction
 (d/transact conn data/d)
 
-(d/q '[:find ?ui 
-       :where
-       [15 :func/dep ?ui]]
-     @conn)
-
-(d/pull @conn '[:func/def {:func/dep ...}] 15)
-
-; (d/q '[:find ?u
+; Get dependencies from function 15
+; (d/q '[:find ?u 
 ;        :where
-;        [?e :func/ref 15]
-;        [?e :func/dep ?ui]
+;        [15 :func/dep ?ui]
 ;        [?ui :func/def ?u]]
-;      @conn)
+;    @conn)
 
-
-;; Find what this function is defined by
-; (d/q '[:find ?u
+; Get dependents from function 15
+; (d/q '[:find ?u 
 ;        :where
-;        [?e :func/def "InfinitePigeon.Addition._+_ 4"]
-;        [?i :func/ref ?e]
-;        [?i :func/dep ?ui]
+;        [?ui :func/dep 15]
 ;        [?ui :func/def ?u]]
-;      @conn)
+;    @conn)
 
-;; Find which functions reference this function
-; (d/q '[:find ?u
+; Get dependency tree from function 15
+;(def t (d/pull @conn '[:func/def {:func/dep ...}] 15))
+
+; Get leafs from tree
+; (defn leafs [m]
+;   (if (nil? (m :func/dep))
+;     #{(m :func/def)}
+;     (r/fold set/union (for [d (m :func/dep)] (leafs d)))
+;     )
+;   )
+; (leafs t)
+
+; Get all the functions without dependcies
+; (d/q '[:find ?f
 ;        :where
-;        [?e :func/def "InfinitePigeon.Naturals.induction 10"]   
-;        [?i :func/ref ?ui]
-;        [?i :func/dep ?e]
-;        [?ui :func/def ?u]]
+;        [?e :func/def ?f]
+;        (not [?e :func/dep _])]
 ;      @conn)
-
-;; Find what this function is defind by indirectly
-; (d/q '[:find ?u
-;        :where
-;        [?e :func "InfinitePigeon.Addition.zero-plus-n-equals-n 20"]
-;        [?e :uses ?u]]
-;      @conn)
-
-;; Find what this function is defind by indirectly
-; (d/q '[:find ?u ?v
-;        :where
-;        [?e :func "InfinitePigeon.Addition.zero-plus-n-equals-n 20"]
-;        [?e :uses ?u]
-;        [?i :func ?u]
-;        [?i :uses ?v]]
-     ; @conn)
-
-; (d/pull @conn '[:db/id :func/def {:func/deps ...}] 15)
-; (d/pull @conn '[:name] 1)
 
 ;; you might need to release the connection for specific stores
 (d/release conn)

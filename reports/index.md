@@ -387,13 +387,14 @@ create a Datalog database using Datahiker.
 With the database, I am able to make complex queries about the relationship
 between the functions. So far I am able to get all the function definitions,
 what dependencies those functions have and the "dependency tree" of a function
-(with this tree the leafs represents the basic definitions).
+(with the leaves of the tree representing the most basic definitions).
 
 Questions:
  - How do I credit the code I didn't write?
  - How should sub functions be represented?
    - As their own function that get called
    - Or should they be ignored and merged into the outer function
+
 # 5 - Post-Meeting Report
 
 # 5 - Notes

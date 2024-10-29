@@ -14,17 +14,30 @@ forest = parser.data.structures.AgdaForest.create_from_files(DIR)
 # print(dir(t.root))
 # print()
 
+entries_to_module = {}
+modules = set()
 entries = {}
 for t in forest.trees:
+    module_name = None
     for n in t.root.children:
+        if n.node_type == NodeType.MODULE_NAME:
+            module_name = n.node_description
+            modules.add(module_name)
         if n.node_type == NodeType.ENTRY:
             c = n.children[0]
             if c.node_type == NodeType.NAME:
-                if "._." not in c.node_description:
-                    entries[c.node_description] = n
+                entries[c.node_description] = n
+                entries_to_module[c.node_description] = module_name
 
-for k, v in entries.items():
-    print(k)
+
+# for k, v in modules.items():
+#     print()
+#     print(k)
+#     print(v)
+#     print()
+
+# for k, v in entries.items():
+#     print(k)
 
 deps = {}
 for desc, n in entries.items():
@@ -32,15 +45,14 @@ for desc, n in entries.items():
     for c in n.nodes:
         if c.node_description != desc and\
             c.node_type == NodeType.NAME and\
-            "._." not in c.node_description and\
             desc.split(" ")[0] not in c.node_description:
                 deps[desc].add(c.node_description)
 
-for k, v in deps.items():
-    print()
-    print(k)
-    print(v)
-    print()
+# for k, v in deps.items():
+#     print()
+#     print(k)
+#     print(v)
+#     print()
 
 
 # clj = """
@@ -58,27 +70,19 @@ clj = """
 
 (def d ["""
 
-# for k, v in deps.items():
-#
-#     func = ':func ' + k
-#
-#     if len(v) == 0:
-#         clj += '{' + func + '}\n' 
-#
-#     for u in v:
-#         uses = ':uses ' + u
-#         clj += '{' + func + ' ' + uses + '}\n'
-# clj += "])"
-#
-# print(clj)
-
 index = {}
 
 i = 1
 for k, v in deps.items():
     if k not in index:
-        index[k] = i
+        index[k] = str(i)
         i += 1 + len(v)
+
+mod_index = {}
+for v in modules:
+    if v not in mod_index:
+        mod_index[v] = str(i)
+        i += 1
 
 # print(index)
 
@@ -94,16 +98,28 @@ for k, v in deps.items():
     #     ':func/def ' + k + ' '\
     #     ':func/dep [' + (" ".join([str(index[u]) for u in v])) + ']'
 
-    func = ':db/id ' + str(index[k]) + ' '\
+    func = ':db/id ' + index[k] + ' '\
         ':func/def ' + k
 
     clj += '{' + func + '}\n' 
 
+    func_mod = ':db/id ' + index[k] + ' '\
+        ':func/mod ' + mod_index[entries_to_module[k]]
+
+    clj += '{' + func_mod + '}\n' 
+
     for u in v:
         # uses = ':db/add ' + str(index[k]) + ' :func/dep ' + str(index[u])
-        uses = ':db/id ' + str(index[k]) + ' :func/dep ' + str(index[u])
+        uses = ':db/id ' + index[k] + ' :func/dep ' + index[u]
         # uses = ':func/ref ' + str(index[k]) + ' :func/dep ' + str(index[u])
         clj += '{' + uses + '}\n'
+
+for module, i in mod_index.items():
+    mod = ':db/id ' + i + ' '\
+        ':mod/def ' + module
+
+    clj += '{' + mod + '}\n'
+
 clj += "])"
 
 print(clj)

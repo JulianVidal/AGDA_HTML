@@ -19,13 +19,27 @@
 (d/transact conn [{:db/ident :func/def
                    :db/valueType :db.type/string
                    :db/cardinality :db.cardinality/one}
+                  {:db/ident :func/mod
+                   :db/valueType :db.type/ref
+                   :db/cardinality :db.cardinality/one}
                   {:db/ident :func/dep
                    :db/valueType :db.type/ref
-                   :db/cardinality :db.cardinality/many}])
+                   :db/cardinality :db.cardinality/many}
+                  
+                  {:db/ident :mod/def
+                   :db/valueType :db.type/string
+                   :db/cardinality :db.cardinality/one}])
 
 ; data/d
 ;; lets add some data and wait for the transaction
 (d/transact conn data/d)
+
+; Get all modules
+(d/q '[:find ?m
+       :where
+       [_ :func/mod ?mi]
+       [?mi :mod/def ?m]]
+     @conn)
 
 ; Get dependencies from function 15
 ; (d/q '[:find ?u 
@@ -34,7 +48,14 @@
 ;        [?ui :func/def ?u]]
 ;    @conn)
 
-; Get dependents from function 15
+; Get dependencies from function 15
+; (d/q '[:find ?u 
+;        :where
+;        [24 :func/dep ?ui]
+;        [?ui :func/def ?u]]
+;    @conb)
+
+; Get dependents of function 15
 ; (d/q '[:find ?u 
 ;        :where
 ;        [?ui :func/dep 15]
@@ -42,7 +63,8 @@
 ;    @conn)
 
 ; Get dependency tree from function 15
-;(def t (d/pull @conn '[:func/def {:func/dep ...}] 15))
+; (def t (d/pull @conn '[:func/def {:func/dep ...}] 15))
+; (d/pull @conn '[:func/def {:func/dep ...}] 24)
 
 ; Get leafs from tree
 ; (defn leafs [m]

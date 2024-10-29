@@ -37,6 +37,11 @@
 - [X] Implement one basic query (does an specific function exist and where is
 it defined)
 
+# Week 4 - TODO
+ - [ ] Implement more queries and read more files
+
+# Week 5 - TODO
+
 # Context
 
 Top html file: [HTML](https://www.cs.bham.ac.uk/~mhe/TypeTopology/AllModulesIndex.html)
@@ -362,6 +367,33 @@ now I need to find if I should use datalog or my own graph.
 Researching datalog, many implentations are in Clojure using the JVM so I will
 see how to get that working.
 
+Using Job's tree, I stored all the information I need on a dictionary. With
+that dictionary I created a clojure file that stores adds all the data to the
+datahike db. Now I can query this db using datalog syntax, I have implemented
+some queries already.
+
+Currently using DataHiker for the Clojure database.
+
 Question:
  - How do I credit the code I didn't write?
  - Use datalog or my own graphs?
+
+# 5 - Pre-Meeting Report
+
+Compiled the Agda S-Expression extractor and ran it with a couple of files.
+Used Job's S-Expressions parser which turns the S-Expressions into a tree in Python, to
+create a Datalog database using Datahiker.
+
+With the database, I am able to make complex queries about the relationship
+between the functions. So far I am able to get all the function definitions,
+what dependencies those functions have and the "dependency tree" of a function
+(with this tree the leafs represents the basic definitions).
+
+Questions:
+ - How do I credit the code I didn't write?
+ - How should sub functions be represented?
+   - As their own function that get called
+   - Or should they be ignored and merged into the outer function
+# 5 - Post-Meeting Report
+
+# 5 - Notes

@@ -420,3 +420,25 @@ FInd files that are most connece=ted but not connected to each other.
 Biggest subgraphs that aren't connceted
 Search cmake.
 graphviz - creates graph from agda
+
+Contact Job about how he parsed the s expressions.
+
+What if, you find the all the children of a module and put them into a set.
+Check all pairs of modules for children intersection, if two modules don't
+intersect those are the two best modules to pick for compilation. If all
+modules intersect, remove one of the base depedencies. Keep going until you
+find a pair. This could be extended to more cores but this might become
+computationally infeasible.
+
+Running the S-expression extractor takes as long as compiling the whole
+codebase, but we can use the dependency trees to get some of the information.
+
+Martin asked similar question
+[here](https://lists.chalmers.se/pipermail/agda/2019/010747.html), is there a
+dependency graph equivalent but for defined names. S-expression goes too far so
+it has to compile everything.
+
+```!/bin/bash
+# To create the dependency graph
+sexp --dependency-graph=graph.dot AllModulesIndex.lagda
+```

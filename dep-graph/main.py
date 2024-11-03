@@ -58,15 +58,18 @@ def solve():
     solution = (None, None, [])
     max_dep = 0
     while len(topo) > 2:
-        for k_a, v_a in dependencies.items():
-            for k_b, v_b in dependencies.items():
+        l = list(dependencies.items())
+        for i, (k_a, v_a) in enumerate(dependencies.items()):
+            for k_b, v_b in l[i + 1:]:
                 if k_a == k_b:
                     continue
 
-                if len(v_a) + len(v_b) > max_dep:
+                if len(v_a) > 50 and len(v_b) > 50 and\
+                    len(v_a) + len(v_b) > max_dep:
                     if v_a.isdisjoint(v_b) and k_a not in v_b and k_b not in v_a:
                         solution = (k_a, k_b, list(popped))
                         max_dep = len(v_a) + len(v_b)
+                        print(len(v_a), len(v_b), max_dep)
                     # print("solution", k_a, k_b)
                     # print(popped)
                     # return
@@ -76,6 +79,7 @@ def solve():
         del dependencies[m]
         for k, v in dependencies.items():
             dependencies[k].discard(m)
+    print(max_dep)
     return solution
 
 print(solve())

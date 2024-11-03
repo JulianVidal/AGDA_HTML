@@ -438,7 +438,26 @@ Martin asked similar question
 dependency graph equivalent but for defined names. S-expression goes too far so
 it has to compile everything.
 
+Normal compilation took 8:03 
+Plan A compilation took 8:13 
 ```!/bin/bash
 # To create the dependency graph
 sexp --dependency-graph=graph.dot AllModulesIndex.lagda
+```
+
+# Plan
+```!/bin/bash
+# Compile all mutual dependencies
+# '"Agda.Primitive"', '"MLTT.Universes"', '"MLTT.Empty-Type"', '"MLTT.Sigma-Type"', '"MLTT.Natural-Numbers-Type"'
+sexp ./source/MLTT/Universes.lagda
+sexp ./source/MLTT/Empty-Type.lagda
+sexp ./source/MLTT/Sigma-type.lagda
+sexp ./source/MLTT/Natural-Numbers-Type.lagda
+
+# Compile the two mutually exclusive files concurrently
+#'"index"', '"InfinitePigeon.index"'
+sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
+
+# Compile the rest
+sexp ./source/AllModulesIndex.lagda
 ```

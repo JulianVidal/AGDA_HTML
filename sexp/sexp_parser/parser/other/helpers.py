@@ -324,6 +324,7 @@ class NodeType(Enum):
     DEF = ":def"
     DOT = ":dot"
     GENERALIZABLE_VAR = ":generalizable-var"
+    GENERALIZATION = ":generalization"
     HIDDEN = ":hidden"
     INSERTED = ":inserted"
     INSTANCE = ":instance"

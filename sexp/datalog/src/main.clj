@@ -41,19 +41,49 @@
 ;        [?mi :mod/def ?m]]
 ;      @conn)
 
-; Get dependencies from function 15
-; (d/q '[:find ?u 
+
+; Get function 24
+; (d/q '[:find ?f
 ;        :where
-;        [15 :func/dep ?ui]
-;        [?ui :func/def ?u]]
+;        [24 :func/def ?f] ]
 ;    @conn)
 
+; Get module dependencies from function 24
+; (d/q '[:find ?m
+;        :where
+;        [24 :func/dep ?di]
+;        [?di :func/mod ?mi]
+;        [?mi :mod/def ?m]]
+;    @conn)
+
+
+; Get modules from tree
+; (defn mods [m]
+;   (set/union 
+;     (r/fold set/union (for [d (m :func/dep)] (mods d)))
+;     (d/q '[:find ?m
+;            :in $ ?mi
+;            :where
+;            [?mi :mod/def ?m]]
+;          @conn (get-in m [:func/mod :db/id]))))
+; (mods (d/pull @conn '[:func/def  :func/mod {:func/dep ...}] 24))
+
+; (d/q '[:find ?m
+;        :in $ ?mi
+;        :where
+;        [?mi :mod/def ?m]]
+;      @conn (get-in s [:func/mod :db/id]))
+
+; (d/q '[:find (pull ?e [:artist/startYear :artist/endYear])
+;        :where [?e :artist/name "The Beatles"]]
+;      db)
+
 ; Get dependencies from function 24
-(d/q '[:find ?u ?ui
-       :where
-       [24 :func/dep ?ui]
-       [?ui :func/def ?u]]
-   @conn)
+; (d/q '[:find ?u ?ui
+;        :where
+;        [24 :func/dep ?ui]
+;        [?ui :func/def ?u]]
+;    @conn)
 
 ; Get dependents of function 15
 ; (d/q '[:find ?u 
@@ -61,6 +91,15 @@
 ;        [?ui :func/dep 15]
 ;        [?ui :func/def ?u]]
 ;    @conn)
+
+; Get depedencies from module 376
+; (d/q '[:find ?d
+;        :where
+;        [?fi :func/mod 376]
+;        [?fi :func/dep ?di]
+;        [?di :func/def ?d]
+;        (not [?di :func/mod 376])]
+;      @conn)
 
 ; Get dependency tree from function 15
 ; (def t (d/pull @conn '[:func/def {:func/dep ...}] 15))

@@ -28,7 +28,7 @@ for t in forest.trees:
             if c.node_type == NodeType.NAME:
                 entries[c.node_description] = n
                 entries_to_module[c.node_description] = module_name
-
+print(forest.trees[1])
 
 # for k, v in modules.items():
 #     print()
@@ -122,7 +122,7 @@ for module, i in mod_index.items():
 
 clj += "])"
 
-print(clj)
+# print(clj)
 
 clj_file = open("data.clj", "w")
 clj_file.write(clj)

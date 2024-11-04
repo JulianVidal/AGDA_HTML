@@ -82,10 +82,73 @@ def solve():
     print(max_dep)
     return solution
 
-print(solve())
+s = solve()
+print(s)
 # print(g['"index"'])
 
 
+"""
+!/bin/zsh
 
+# Compile all mutual dependencies
+# '"Agda.Primitive"', '"MLTT.Universes"', '"MLTT.Empty-Type"', '"MLTT.Sigma-Type"', '"MLTT.Natural-Numbers-Type"'
+sexp ./source/MLTT/Universes.lagda
+sexp ./source/MLTT/Empty-Type.lagda
+sexp ./source/MLTT/Sigma-type.lagda
+sexp ./source/MLTT/Natural-Numbers-Type.lagda
+
+# Compile the two mutually exclusive files concurrently
+#'"index"', '"InfinitePigeon.index"'
+sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
+
+# Compile the rest
+sexp ./source/AllModulesIndex.lagda
+"""
+
+sh = "#!/bin/zsh\n"
+
+for f in s[2][1:]:
+    f = f.replace(".", "/")
+    sh += f"""
+if [ -f ./source/{f}.lagda ]; then
+    sexp ./source/{f}.lagda
+elif [ -f ./source/{f}.agda ]; then
+    sexp ./source/{f}.agda
+else
+  printf 'File {f} not found' >&2  # write error message to stderr
+  exit 1
+fi
+    """
+s_0 = s[0].replace(".", "/")
+s_1 = s[1].replace(".", "/")
+sh += f"""
+if [ -f ./source/{s_0}.lagda ]; then
+    sexp ./source/{s_0}.lagda &
+elif [ -f ./source/{s_0}.agda ]; then
+    sexp ./source/{s_0}.agda &
+else
+  printf 'File {s_0} not found' >&2  # write error message to stderr
+  exit 1
+fi
+
+if [ -f ./source/{s_1}.lagda ]; then
+    sexp ./source/{s_1}.lagda &
+elif [ -f ./source/{s_1}.agda ]; then
+    sexp ./source/{s_1}.agda &
+else
+  printf 'File {s_1} not found' >&2  # write error message to stderr
+  exit 1
+fi
+
+wait
+
+sexp ./source/AllModulesIndex.lagda
+"""
+
+# print(sh)
+
+sh_file = open("test.sh", "w")
+sh_file.write(sh)
+sh_file.close()
 
 

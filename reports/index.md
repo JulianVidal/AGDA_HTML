@@ -440,12 +440,13 @@ it has to compile everything.
 
 Normal compilation took 8:03 
 Plan A compilation took 8:13 
+Plan B compilation took 9:26
 ```!/bin/bash
 # To create the dependency graph
 sexp --dependency-graph=graph.dot AllModulesIndex.lagda
 ```
 
-# Plan
+# Plan_A
 ```!/bin/bash
 # Compile all mutual dependencies
 # '"Agda.Primitive"', '"MLTT.Universes"', '"MLTT.Empty-Type"', '"MLTT.Sigma-Type"', '"MLTT.Natural-Numbers-Type"'
@@ -461,3 +462,7 @@ sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
 # Compile the rest
 sexp ./source/AllModulesIndex.lagda
 ```
+
+Plan A is very imbalanced between the files, one of the has 30 dependencies
+while the other over 700. For Plan B, I have forced the two files to have more
+than 50 dependencies which has made it slower.

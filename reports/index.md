@@ -481,3 +481,8 @@ datalog database.
 
 The dependency tree is generated quickly, but it only gets the modules not the
 definitions.  
+
+Find which indexes are indepented from each other. Find the bigger modules in
+al modules index and see whic ones can compile together.
+
+Artificial index files that compile modules in sequence faster.

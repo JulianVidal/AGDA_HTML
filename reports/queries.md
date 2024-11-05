@@ -2,7 +2,7 @@
 
 Check list of every query I need to implement:
 
-- [ ] Are there imports that are not needed?
+- [-] Are there imports that are not needed?
   - S-Expressions extractor doesn't keep imports
   - InfinitePiegeon addition, doesn't seem to use Logic and Logical facts?
 
@@ -24,7 +24,7 @@ Check list of every query I need to implement:
       the mathematics is from the foundations up to the definition.)
   - A recursive function that gets the maximum length to any leaf
 
-- [ ] Given a definition d, what's the longest path, in terms of importing
+- [-] Given a definition d, what's the longest path, in terms of importing
       modules, until we reach the leaves? (I am interested in this for engineering
       purposes.)
   - This might be difficult as the s-expressions don't keep track of imports
@@ -37,7 +37,7 @@ Check list of every query I need to implement:
       the definition is.)
   - A definition keeps track of what it uses, so this can be queried
 
-- [ ] Find all definitions d whose types use definition e. (This may be useful
+- [-] Find all definitions d whose types use definition e. (This may be useful
       when we want to prove something about e, or when we want to know how crucial e
       is.)
   - I don't know how to check what is a type with the s-expression files

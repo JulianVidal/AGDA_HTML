@@ -466,3 +466,5 @@ sexp ./source/AllModulesIndex.lagda
 Plan A is very imbalanced between the files, one of the has 30 dependencies
 while the other over 700. For Plan B, I have forced the two files to have more
 than 50 dependencies which has made it slower.
+
+Contact Job about getting imports from an s-expression and a parser for it.

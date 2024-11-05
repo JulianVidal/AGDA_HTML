@@ -52,9 +52,25 @@ Check list of every query I need to implement:
   - All definitions keep track of its dependencies, so we can query definitions
     without dependencies
 
-- [ ] What are the roots of the graph? (The definitions that are not used by any other definition. These may (or may not) be the main theorems.)
+- [X] What are the roots of the graph? (The definitions that are not used by any other definition. These may (or may not) be the main theorems.)
   - Find all the definitions that don't appear in the other definitions dependencies list
+  - Since I am testing in a small number of files, there are basic definitions
+    that are not being used yet which wouldn't be considered main theorems.
 
 - [ ] list *all* definitions by the number of times they are used (in increasing or descreasing order). We can consider this directly or indirectly.
-  - From the dependency tree, we can count how many times a definition appears
-  - Although we would have to run this check for every definition which might be costly
+  - Directly is quite simple as each definition keeps track of its depedencies,
+    so count how many times a definition appears as a depedency.
+  - Indirectly would be more complex, assuming that "times they are used" means
+    how many times it is a dependency to another definition. If definition A uses
+    definition B and definition B uses definition C then definition A is used 0
+    time, definition B used 1 times and definition C used 1 times all  directly.
+
+    But indirectly definition A is used 0 times, definition B is used 1 times
+    and definition C is used 2 times. C is used in B directly and A indirectly.
+
+    Therefore, to calculate the indirect add the direct uses plus the direct
+    uses of its depedents plus the direct uses of the dependent's depedents,
+    etc.
+
+    A recursive function count that adds the count of each of its depedents,
+    until it reaches a file with no dependents

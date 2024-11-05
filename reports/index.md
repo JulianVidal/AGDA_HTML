@@ -468,3 +468,16 @@ while the other over 700. For Plan B, I have forced the two files to have more
 than 50 dependencies which has made it slower.
 
 Contact Job about getting imports from an s-expression and a parser for it.
+
+# 6 - Pre-Meeting Report
+I was able to find two independent sub graphs, but the compilation took 10
+minutes, my guess is that the sub graphs aren't independent enough and compiling
+everything at once leads to better caching.
+
+Implemented some queries. I tried to import the whole project into datalog but
+the s-expression extractor takes 7 minutes, compiling all the files into trees
+took 10 minutes and I stopped the program before it finished creating the
+datalog database.
+
+The dependency tree is generated quickly, but it only gets the modules not the
+definitions.  

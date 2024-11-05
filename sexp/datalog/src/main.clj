@@ -68,12 +68,6 @@
 ;          @conn (get-in m [:func/mod :db/id]))))
 ; (mods (d/pull @conn '[:func/def  :func/mod {:func/dep ...}] 24))
 
-; (d/q '[:find ?m
-;        :in $ ?mi
-;        :where
-;        [?mi :mod/def ?m]]
-;      @conn (get-in s [:func/mod :db/id]))
-
 ; (d/q '[:find (pull ?e [:artist/startYear :artist/endYear])
 ;        :where [?e :artist/name "The Beatles"]]
 ;      db)
@@ -91,6 +85,27 @@
 ;        [?ui :func/dep 15]
 ;        [?ui :func/def ?u]]
 ;    @conn)
+
+; Get definitions without dependents
+; (d/q '[:find ?f
+;        :where
+;        [?fi :func/def ?f]
+;        (not [_ :func/dep ?fi])]
+;    @conn)
+
+; Count how many times a definition is a direct depedency
+(d/q '[:find ?f (count ?di)
+       :where
+       [?fi :func/def ?f]
+       [?di :func/dep ?fi] ]
+   @conn)
+
+(def dir (d/q '[:find ?f (count ?di)
+       :where
+       [?fi :func/def ?f]
+       [?di :func/dep ?fi]
+       [?di :func/def ?d]]
+   @conn))
 
 ; Get depedencies from module 376
 ; (d/q '[:find ?d

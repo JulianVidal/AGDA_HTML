@@ -482,7 +482,49 @@ datalog database.
 The dependency tree is generated quickly, but it only gets the modules not the
 definitions.  
 
-Find which indexes are indepented from each other. Find the bigger modules in
-al modules index and see whic ones can compile together.
+
+# 6 - Post-Meeting Report
+For next week:
+ - Test compiling strategy with index files instead of individual modules
+
+The current compilation strategy takes longer than normal compilation, this is
+because it compiles small modules sequentially so interface files have to
+constantly be reloaded. Switch to compiling the bigger index files and find
+which index files can be compiled together in parallel as this should lead to a
+speed up.
+
+Another strategy would be to create my own index files that will compile
+certain modules in a given order.
+
+# 6 - Notes
+Find which indexes are independent from each other. Find the bigger modules in
+al modules index and see which ones can compile together.
 
 Artificial index files that compile modules in sequence faster.
+
+The indices are more difficult to work with as the modules in index A can
+depend on modules in index B, modules in index B can depend on modules in index
+A. Creating a cycle. 
+
+I resolved these cycles by merging the index files together into one node,
+however, this caused one massive node containing most files.
+
+I compiled all the 
+
+```
+# This compiled in 6:48 
+sexp ./source/AllModulesIndex.lagda & sexp ./source/InfinitePigeon/index.agda & sexp ./source/Various/index.lagda & wait
+
+# Compiling all indexes took 7:38
+
+# Compiling a random half indexes took 6:38
+
+# This compiled in 4:45
+sexp ./source/AllModulesIndex.lagda & sexp ./source/Locales/index.lagda & sexp ./source/Various/index.lagda & wait
+
+# Compiling all modules index and index took 6:39
+
+# Compiling the top 5 modules with most descendants took 4:33
+
+# Compiling the top 10 modules with most descendants took 4:32
+```

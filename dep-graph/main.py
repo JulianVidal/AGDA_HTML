@@ -25,12 +25,89 @@ print(g)
 
 mapping = {}
 for n in g.nodes(data=True):
-    mapping[n[0]] = n[1]['label']
+    mapping[n[0]] = n[1]['label'].strip('\"')
 
 g = nx.relabel_nodes(g, mapping)
 
-print(g['"InfinitePigeon.Addition"'])
-print(nx.descendants(g, '"InfinitePigeon.Addition"'))
+# for n in list(g.nodes()):
+#     if "index" not in n:
+#             g.remove_node(n)
+
+# print(g['"InfinitePigeon.Addition"'])
+# print(nx.descendants(g, '"InfinitePigeon.Addition"'))
+indices = set()
+for n in g.nodes():
+    if "index" in n:
+        indices.add('.'.join(n.split('.')[:-1]))
+print(indices)
+
+mapping = {}
+for n in g.nodes():
+    name = n.split('.')
+    i = 1
+    while i < len(name):
+        mod = '.'.join(name[:i])
+        if mod in indices:
+            mapping[n] = mod + '.index'
+        i += 1
+# for e in g.edges():
+#     print(e, e[0], e[1], e[0] == e[1])
+#     if e[0] == e[1]:
+#         print(e)
+
+# print(mapping)
+g = nx.relabel_nodes(g, mapping)
+g.remove_edges_from(list(nx.selfloop_edges(g))) 
+
+
+# print("-", g['"UF.index"'])
+# print(nx.descendants(g, '"UF.index"'))
+# print(g.edges())
+# print(nx.find_cycle(g))
+
+# print("-", g['"InfinitePigeon.index"'])
+# print(nx.descendants(g, '"InfinitePigeon.index"'))
+
+for n in g.nodes(data=True):
+    n[1]['label'] = '"' + n[0] + '"'
+
+edges = list(set([(e[0], e[1]) for e in g.edges]))
+g.remove_edges_from(list(g.edges))
+g.add_edges_from(edges)
+for e in g.edges():
+    print(e)
+
+nx.nx_pydot.write_dot(g, "index_cycle.dot")
+try:
+    c = nx.find_cycle(g)
+    while c is not None:
+        nodes = set()
+        for e in c:
+            nodes.add(e[0])
+            nodes.add(e[1])
+        new_node = ",".join(list(nodes))
+        mapping = {}
+        for n in nodes:
+            mapping[n] = new_node
+        print(new_node)
+        g = nx.relabel_nodes(g, mapping)
+        g.remove_edges_from(list(nx.selfloop_edges(g))) 
+        c = nx.find_cycle(g)
+except:
+    pass
+
+for n in g.nodes(data=True):
+    n[1]['label'] = '"' + n[0] + '"'
+
+edges = list(set([(e[0], e[1]) for e in g.edges]))
+g.remove_edges_from(list(g.edges))
+g.add_edges_from(edges)
+for e in g.edges():
+    print(e)
+
+nx.nx_pydot.write_dot(g, "index.dot")
+
+# print(nx.predecessor(g, '"InfinitePigeon.index"'))
 
 # for n in reversed(list(nx.topological_sort(g))):
 #     print(n)
@@ -52,6 +129,7 @@ def solve():
 
     for n in g.nodes():
         dependencies[n] = nx.descendants(g, n)
+    # print(dependencies)
 
     topo = list(nx.topological_sort(g))
     popped = []
@@ -64,7 +142,7 @@ def solve():
                 if k_a == k_b:
                     continue
 
-                if len(v_a) > 50 and len(v_b) > 50 and\
+                if len(v_a) > 0 and len(v_b) > 0 and\
                     len(v_a) + len(v_b) > max_dep:
                     if v_a.isdisjoint(v_b) and k_a not in v_b and k_b not in v_a:
                         solution = (k_a, k_b, list(popped))

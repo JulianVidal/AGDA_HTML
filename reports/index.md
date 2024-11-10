@@ -527,4 +527,8 @@ sexp ./source/AllModulesIndex.lagda & sexp ./source/Locales/index.lagda & sexp .
 # Compiling the top 5 modules with most descendants took 4:33
 
 # Compiling the top 10 modules with most descendants took 4:32
+
+# Compiling test 3 using the merge cyclic graph and choosing two indeces took 9:52
+
+# Compiling test 4 using cyclic graph sorting with length of descendant instead of topo took 9:35
 ```

@@ -77,35 +77,35 @@ g.add_edges_from(edges)
 for e in g.edges():
     print(e)
 
-nx.nx_pydot.write_dot(g, "index_cycle.dot")
-try:
-    c = nx.find_cycle(g)
-    while c is not None:
-        nodes = set()
-        for e in c:
-            nodes.add(e[0])
-            nodes.add(e[1])
-        new_node = ",".join(list(nodes))
-        mapping = {}
-        for n in nodes:
-            mapping[n] = new_node
-        print(new_node)
-        g = nx.relabel_nodes(g, mapping)
-        g.remove_edges_from(list(nx.selfloop_edges(g))) 
-        c = nx.find_cycle(g)
-except:
-    pass
-
-for n in g.nodes(data=True):
-    n[1]['label'] = '"' + n[0] + '"'
-
-edges = list(set([(e[0], e[1]) for e in g.edges]))
-g.remove_edges_from(list(g.edges))
-g.add_edges_from(edges)
-for e in g.edges():
-    print(e)
-
-nx.nx_pydot.write_dot(g, "index.dot")
+# nx.nx_pydot.write_dot(g, "index_cycle.dot")
+# try:
+#     c = nx.find_cycle(g)
+#     while c is not None:
+#         nodes = set()
+#         for e in c:
+#             nodes.add(e[0])
+#             nodes.add(e[1])
+#         new_node = ",".join(list(nodes))
+#         mapping = {}
+#         for n in nodes:
+#             mapping[n] = new_node
+#         print(new_node)
+#         g = nx.relabel_nodes(g, mapping)
+#         g.remove_edges_from(list(nx.selfloop_edges(g))) 
+#         c = nx.find_cycle(g)
+# except:
+#     pass
+#
+# for n in g.nodes(data=True):
+#     n[1]['label'] = '"' + n[0] + '"'
+#
+# edges = list(set([(e[0], e[1]) for e in g.edges]))
+# g.remove_edges_from(list(g.edges))
+# g.add_edges_from(edges)
+# for e in g.edges():
+#     print(e)
+#
+# nx.nx_pydot.write_dot(g, "index.dot")
 
 # print(nx.predecessor(g, '"InfinitePigeon.index"'))
 
@@ -131,7 +131,8 @@ def solve():
         dependencies[n] = nx.descendants(g, n)
     # print(dependencies)
 
-    topo = list(nx.topological_sort(g))
+    topo = sorted(g.nodes, key=lambda i: len(nx.descendants(g, i)), reverse=True)
+    # topo = list(nx.topological_sort(g))
     popped = []
     solution = (None, None, [])
     max_dep = 0
@@ -153,6 +154,7 @@ def solve():
                     # return
 
         m = topo.pop()
+
         popped.append(m)
         del dependencies[m]
         for k, v in dependencies.items():
@@ -187,16 +189,17 @@ sh = "#!/bin/zsh\n"
 
 for f in s[2][1:]:
     f = f.replace(".", "/")
-    sh += f"""
-if [ -f ./source/{f}.lagda ]; then
-    sexp ./source/{f}.lagda
-elif [ -f ./source/{f}.agda ]; then
-    sexp ./source/{f}.agda
-else
-  printf 'File {f} not found' >&2  # write error message to stderr
-  exit 1
-fi
-    """
+    for g in f.split(","): 
+        sh += f"""
+    if [ -f ./source/{g}.lagda ]; then
+        sexp ./source/{g}.lagda
+    elif [ -f ./source/{g}.agda ]; then
+        sexp ./source/{g}.agda
+    else
+      printf 'File {g} not found' >&2  # write error message to stderr
+      exit 1
+    fi
+        """
 s_0 = s[0].replace(".", "/")
 s_1 = s[1].replace(".", "/")
 sh += f"""

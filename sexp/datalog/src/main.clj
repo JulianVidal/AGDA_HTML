@@ -68,10 +68,6 @@
 ;          @conn (get-in m [:func/mod :db/id]))))
 ; (mods (d/pull @conn '[:func/def  :func/mod {:func/dep ...}] 24))
 
-; (d/q '[:find (pull ?e [:artist/startYear :artist/endYear])
-;        :where [?e :artist/name "The Beatles"]]
-;      db)
-
 ; Get dependencies from function 24
 ; (d/q '[:find ?u ?ui
 ;        :where
@@ -94,18 +90,92 @@
 ;    @conn)
 
 ; Count how many times a definition is a direct depedency
-(d/q '[:find ?f (count ?di)
-       :where
-       [?fi :func/def ?f]
-       [?di :func/dep ?fi] ]
-   @conn)
+; (d/q '[:find ?f (count ?di)
+;        :where
+;        [?fi :func/def ?f]
+;        [?di :func/dep ?fi] ]
+;    @conn)
 
-(def dir (d/q '[:find ?f (count ?di)
-       :where
-       [?fi :func/def ?f]
-       [?di :func/dep ?fi]
-       [?di :func/def ?d]]
-   @conn))
+; Get all the references to each definition
+(defn defs_refs []
+  (d/q '[:find [?fi ...]
+         :where
+         [?fi :func/def _]]
+       @conn))
+
+; Get all the references to each dependants
+(defn def_deps_refs [fi]
+  (d/q '[:find [?di ...]
+         :in $ ?fi
+         :where
+         [?di :func/dep ?fi]]
+       @conn fi)
+)
+
+; Get the count of each dependant recursively
+(defn indr_r [fi]
+  (let [deps (def_deps_refs fi)]
+    (+ (count deps) (r/fold + (map indr_r deps))) 
+ ))
+
+; Loop through each definition and gets its depedent count
+(defn indr []
+  (for [fi (defs_refs)] [fi (indr_r fi)])
+)
+
+; From a reference get the function name
+(defn get_def [fi]
+  (d/q '[:find ?f .
+         :in $ ?fi
+         :where
+         [?fi :func/def ?f]]
+       @conn fi))
+
+(def t (d/pull @conn '[:db/id :func/def {:func/dep ...}] 15))
+; t
+; (t :func/dep)
+; (for [f (t :func/dep)] f)
+; (count t)
+; (count (t :func/dep))
+
+; Get maximum length from definition to any leaf
+(defn max_leaf [t]
+  (if (nil? (t :func/dep))
+  0
+  (+ 1 (apply max (map max_leaf (t :func/dep)))))
+  ; 1)
+)
+(max_leaf t)
+
+(def ta (d/pull @conn '[:db/id :func/def {:func/dep ...}] 15))
+(def tb (d/pull @conn '[:db/id :func/def {:func/dep ...}] 365))
+
+(defn len_to_def [fa t]
+  (if (== (t :db/id) fa)
+    0
+    (if (nil? (t :func/dep)) 
+      nil
+      ; 1
+      (let [l (filter #(not= % nil) (map (partial len_to_def fa) (t :func/dep)))]
+        (+ 1 (apply max l)))
+      )
+    ; (+ 1 () (len_to_def fa (t :func/dep)))
+  ))
+
+(len_to_def 15 tb)
+(len_to_def 365 ta)
+
+; ((partial len_to_def 365) ta)
+; (map (len_to_def 365 partial) (ta :func/dep) )
+
+; (filter #(not= % nil) [1 2 3 nil])
+; (map max_leaf (t :func/dep))
+; (apply max (map max_leaf (t :func/dep)))
+; (for [l (t :func/dep)] (println l))
+; Gets the count of all indirect depedants
+; (for [[fi c] (indr)] [(get_def fi) c])
+
+; (map get_def (indr))
 
 ; Get depedencies from module 376
 ; (d/q '[:find ?d

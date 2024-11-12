@@ -509,8 +509,9 @@ A. Creating a cycle.
 I resolved these cycles by merging the index files together into one node,
 however, this caused one massive node containing most files.
 
-I compiled all the 
+Need to ask Job about getting imports and types of a function
 
+There is a :type note but cant find imports
 ```
 # This compiled in 6:48 
 sexp ./source/AllModulesIndex.lagda & sexp ./source/InfinitePigeon/index.agda & sexp ./source/Various/index.lagda & wait
@@ -531,4 +532,33 @@ sexp ./source/AllModulesIndex.lagda & sexp ./source/Locales/index.lagda & sexp .
 # Compiling test 3 using the merge cyclic graph and choosing two indeces took 9:52
 
 # Compiling test 4 using cyclic graph sorting with length of descendant instead of topo took 9:35
+
+# Compiling vip in mac 18:50
+# Compiling normal in mac 24:24
 ```
+
+# 7 - Pre-Meeting Report
+To find the dependencies between index files, I merged definition nodes into
+the index nodes. However, this caused many cycles as two index files would
+depend on each other. I tried removing these cycles by merging the nodes that
+created the cycle but this created one massive node with most of the modules.
+By applying the same strategy as before, finding two index files that have
+distinct dependencies it lead to the same issue taking longer than normal
+compilation.
+
+Tested compiling index files concurrently regardless if they had the same
+dependencies to check what would happen, it didn't through any errors and
+compiled in half the time. How can the integrity of the compiled files be
+checked?
+
+![Index]("./img/index.jpeg") 
+![Index Cycle]("./img/index_cycle.jpeg") 
+
+```
+# This compiled quickly and didn't throw errors
+agda ./source/index.lagda & agda ./source/InjectiveTypes/index.lagda & agda ./source/Locales/index.lagda & agda ./source/Various/index.lagda & agda ./source/DomainTheory/index.lagda & agda ./source/AllModulesIndex.lagda & wait
+```
+
+# 7 - Post-Meeting Report
+
+# 7 - Notes

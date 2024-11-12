@@ -57,7 +57,7 @@ for n in g.nodes():
 
 # print(mapping)
 g = nx.relabel_nodes(g, mapping)
-g.remove_edges_from(list(nx.selfloop_edges(g))) 
+g.remove_edges_from(list(nx.selfloop_edges(g)))
 
 
 # print("-", g['"UF.index"'])
@@ -74,9 +74,12 @@ for n in g.nodes(data=True):
 edges = list(set([(e[0], e[1]) for e in g.edges]))
 g.remove_edges_from(list(g.edges))
 g.add_edges_from(edges)
-for e in g.edges():
-    print(e)
+# for e in g.edges():
+#     print(e)
 
+c = nx.recursive_simple_cycles(g)
+for e in c:
+    print(e)
 # nx.nx_pydot.write_dot(g, "index_cycle.dot")
 # try:
 #     c = nx.find_cycle(g)
@@ -91,7 +94,7 @@ for e in g.edges():
 #             mapping[n] = new_node
 #         print(new_node)
 #         g = nx.relabel_nodes(g, mapping)
-#         g.remove_edges_from(list(nx.selfloop_edges(g))) 
+#         g.remove_edges_from(list(nx.selfloop_edges(g)))
 #         c = nx.find_cycle(g)
 # except:
 #     pass
@@ -131,7 +134,8 @@ def solve():
         dependencies[n] = nx.descendants(g, n)
     # print(dependencies)
 
-    topo = sorted(g.nodes, key=lambda i: len(nx.descendants(g, i)), reverse=True)
+    topo = sorted(g.nodes, key=lambda i: len(
+        nx.descendants(g, i)), reverse=True)
     # topo = list(nx.topological_sort(g))
     popped = []
     solution = (None, None, [])
@@ -144,7 +148,7 @@ def solve():
                     continue
 
                 if len(v_a) > 0 and len(v_b) > 0 and\
-                    len(v_a) + len(v_b) > max_dep:
+                        len(v_a) + len(v_b) > max_dep:
                     if v_a.isdisjoint(v_b) and k_a not in v_b and k_b not in v_a:
                         solution = (k_a, k_b, list(popped))
                         max_dep = len(v_a) + len(v_b)
@@ -162,7 +166,8 @@ def solve():
     print(max_dep)
     return solution
 
-s = solve()
+
+# s = solve()
 print(s)
 # print(g['"index"'])
 
@@ -189,7 +194,7 @@ sh = "#!/bin/zsh\n"
 
 for f in s[2][1:]:
     f = f.replace(".", "/")
-    for g in f.split(","): 
+    for g in f.split(","):
         sh += f"""
     if [ -f ./source/{g}.lagda ]; then
         sexp ./source/{g}.lagda
@@ -231,5 +236,3 @@ sexp ./source/AllModulesIndex.lagda
 sh_file = open("test.sh", "w")
 sh_file.write(sh)
 sh_file.close()
-
-

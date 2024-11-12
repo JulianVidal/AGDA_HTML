@@ -562,3 +562,4 @@ agda ./source/index.lagda & agda ./source/InjectiveTypes/index.lagda & agda ./so
 # 7 - Post-Meeting Report
 
 # 7 - Notes
+Find way to get cycles

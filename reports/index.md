@@ -563,3 +563,7 @@ agda ./source/index.lagda & agda ./source/InjectiveTypes/index.lagda & agda ./so
 
 # 7 - Notes
 Find way to get cycles
+quotient graph
+List of queries
+Send cycle file
+

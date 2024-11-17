@@ -560,10 +560,76 @@ agda ./source/index.lagda & agda ./source/InjectiveTypes/index.lagda & agda ./so
 ```
 
 # 7 - Post-Meeting Report
+To do next week:
+ * Read about Johnson's algorithm
+ * Create Datalog queries to find simple cycles
+
+Discussed how merging individual modules into their index files would lead to
+cycles in the resulting quotient graph. Removing those cycles by merging the
+cycles into one node would lead to one massive node which doesn't improve
+compilation time. These cycles could be removed manually so it is important to
+implement a query to find these simple cycles.
+
+Also, talked about compiling the Agda index files concurrently regardless of
+dependency conflicts. While there seems to be no error, it could lead to
+unexpected behaviour.
+
+Attached output.txt which has a list of all the simple cycles as describe in the
+networkx [documentation](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.cycles.recursive_simple_cycles.html). Each line has a list of index files representing the cycles.
+Most of the cycles found start and end on the same two index files, but there are many
+possible paths between the two.
+
+List of implemented queries:
+- [X] Given a definition d in a module, which modules *this* definition d
+      really depends on? Directly or indirectly.
+
+- [X] Given a definition d, which definitions does it use directly or
+      indirectly?
+
+- [X] Given a definition d, what's the longest path, in terms of calling other
+      definitions, until we reach the leaves? (This somehow indicates how complicated
+      the mathematics is from the foundations up to the definition.)
+
+- [X] Given a definition d, which modules actually use it? (This is useful for
+      refactoring code and splitting large modules into smaller modules.)
+
+- [X] Given a definition d, which definitions use it? (That is, how important
+      the definition is.)
+
+- [x] What is the longest chain from a definition to another definition? (This
+      again somehow indicates how complicated the mathematics is from the foundations
+      up to the intended theorems, but globally.) 
+
+- [X] What are the leaves of the graph? (The definitions that don't use any
+      other definition.)
+
+- [X] What are the roots of the graph? (The definitions that are not used by
+      any other definition. These may (or may not) be the main theorems.)
+
+- [x] list *all* definitions by the number of times they are used (in
+      increasing or descreasing order). We can consider this directly or indirectly.
 
 # 7 - Notes
 Find way to get cycles
 quotient graph
 List of queries
 Send cycle file
+
+Sorting alg:
+
+Loop through each node:
+  If node has zero children then n = 0,
+  Else n = max(the n for each children)
+
+For some reason, having all the indeces in a folder causes an import error. If
+they are next to the master file there is no error. So I put them all on the
+source file directory.
+
+Getting the dependency graph takes as long as compiling.
+
+Compiling indexes based on sort gives the same compilation time.
+Splitting levels with more than 20 modules gave 7:09
+Splitting levels with more than 10 modules gave 6:12
+Splitting levels with more than 5 modules gave 5:23
+Splitting levels with more than 2 modules gave 5:09
 

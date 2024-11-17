@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Quotient.Large-Variation
-import OrderedTypes.FreeSupLattice
+import MLTT.List
 
 
 \end{code}

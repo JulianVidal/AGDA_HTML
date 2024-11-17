@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.Equivalence
-import CoNaturals.GenericConvergentSequence2
+import DomainTheory.Basics.Pointed
 
 
 \end{code}

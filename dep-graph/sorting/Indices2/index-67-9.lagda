@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.DirectedFamily-Poset
-import Integers.Parity
+import CoNaturals.GenericConvergentSequence2
 
 
 \end{code}

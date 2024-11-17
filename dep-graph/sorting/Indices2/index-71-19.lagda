@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Games.Examples
-import ContinuityAxiom.index
+import Locales.Complements
 
 
 \end{code}

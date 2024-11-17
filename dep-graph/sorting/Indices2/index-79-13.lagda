@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Examples.LiftingLargeProposition
-import DomainTheory.Examples.IdlDyadics
+import Locales.DistributiveLattice.Isomorphism-Properties
 
 
 \end{code}

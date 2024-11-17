@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Iterative.Ordinals
-import MLTT.index
+import Unsafe.Haskell
 
 
 \end{code}

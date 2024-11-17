@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.MFPSAndVariations.ContinuityProperties
-import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import DomainTheory.BasesAndContinuity.Continuity
 
 
 \end{code}

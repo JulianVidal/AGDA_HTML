@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Basics.Miscelanea
-import Lifting.Miscelanea-PropExt-FunExt
+import Integers.Division
 
 
 \end{code}

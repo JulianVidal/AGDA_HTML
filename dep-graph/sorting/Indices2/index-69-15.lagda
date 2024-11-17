@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.Thesis.Chapter5.IntervalObjectApproximation
-import ContinuityAxiom.False
+import Locales.DistributiveLattice.Properties
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MGS.Solved-Exercises
-import Naturals.Addition
+import MGS.Univalence
 
 
 \end{code}

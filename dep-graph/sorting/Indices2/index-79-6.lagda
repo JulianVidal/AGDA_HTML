@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.DistributiveLattice.Resizing
-import Locales.DistributiveLattice.Isomorphism-Properties
+import Locales.Spectrality.SpectralLocale
 
 
 \end{code}

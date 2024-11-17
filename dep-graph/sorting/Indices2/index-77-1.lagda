@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.ThesisIndex
-import Locales.Compactness.Definition
+import PCF.Combinatory.ScottModelOfPCF
 
 
 \end{code}

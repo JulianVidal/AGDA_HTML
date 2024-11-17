@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import gist.index
-import PCF.Lambda.ScottModelOfTerms
+import Locales.HeytingComplementation
 
 
 \end{code}

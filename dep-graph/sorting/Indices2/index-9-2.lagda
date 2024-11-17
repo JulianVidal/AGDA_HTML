@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.K-Shift-BBC
-import InfinitePigeon.J-Shift-Selection
+import MGS.hlevels
 
 
 \end{code}

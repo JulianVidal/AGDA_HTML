@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import GamesExperimental.Constructor
-import GamesExperimental.Transformer
+import Categories.Category
 
 
 \end{code}

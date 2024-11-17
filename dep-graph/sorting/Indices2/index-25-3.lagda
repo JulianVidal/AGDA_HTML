@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.Retracts-FunExt
-import GamesExperimental.Monad
+import UF.PropIndexedPiSigma
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import CantorSchroederBernstein.CSB-TheoryLabLunch
-import DomainTheory.Bilimits.Dinfinity
+import Iterative.index
 
 
 \end{code}

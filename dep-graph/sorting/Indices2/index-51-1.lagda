@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Integers.Type
-import Factorial.Swap
+import Various.LawvereFPT
 
 
 \end{code}

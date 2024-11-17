@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Fin.index
-import Ordinals.ToppedArithmetic
+import Locales.Sierpinski.Properties
 
 
 \end{code}

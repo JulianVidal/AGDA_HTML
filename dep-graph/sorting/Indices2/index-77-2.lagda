@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
-import DomainTheory.Lifting.LiftingSetAlgebraic
+import Locales.ThesisIndex
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Fin.Embeddings
-import OrderedTypes.PosetReflection
+import Ordinals.WellOrderArithmetic
 
 
 \end{code}

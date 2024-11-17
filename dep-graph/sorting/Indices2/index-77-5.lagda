@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Iterative.Multisets-Addendum
-import PCF.Lambda.ScottModelOfContexts
+import DomainTheory.Lifting.LiftingSetAlgebraic
 
 
 \end{code}

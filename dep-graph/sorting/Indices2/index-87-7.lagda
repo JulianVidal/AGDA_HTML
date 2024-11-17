@@ -5,7 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.Internal.index
+import Locales.Spectrality.LatticeOfCompactOpens-Duality
 
 
 \end{code}

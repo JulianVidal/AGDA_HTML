@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TypeTopology.ConvergentSequenceHasInf
-import TypeTopology.AbsolutenessOfCompactness
+import Unsafe.CantorCompact
 
 
 \end{code}

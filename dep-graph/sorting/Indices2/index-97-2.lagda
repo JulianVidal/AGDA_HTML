@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.index
-import DedekindReals.Type
+import Locales.LawsonLocale.PointsOfPatch
 
 
 \end{code}

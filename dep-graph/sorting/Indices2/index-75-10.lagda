@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DiscreteGraphicMonoids.index
-import EffectfulForcing.MFPSAndVariations.Church
+import Locales.ClassificationOfScottOpens
 
 
 \end{code}

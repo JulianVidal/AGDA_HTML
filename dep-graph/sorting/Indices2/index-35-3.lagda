@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Games.Transformer
-import UF.Singleton-Properties
+import GamesExperimental.Transformer
 
 
 \end{code}

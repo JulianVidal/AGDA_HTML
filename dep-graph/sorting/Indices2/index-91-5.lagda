@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.NotationInterpretation2
-import Ordinals.SupSum
+import Dyadics.Order
 
 
 \end{code}

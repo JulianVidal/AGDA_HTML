@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.WayBelowRelation.Definition
-import Locales.WellInside
+import Locales.GaloisConnection
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import OrderedTypes.Frame
-import Groups.Free
+import OrderedTypes.SupLattice
 
 
 \end{code}

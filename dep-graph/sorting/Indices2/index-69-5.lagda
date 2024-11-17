@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Unsafe.CountableTychonoff
-import Locales.ContinuousMap.Definition
+import Ordinals.InfProperty
 
 
 \end{code}

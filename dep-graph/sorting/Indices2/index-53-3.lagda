@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Circle.Integers-SymmetricInduction
-import BinarySystems.index
+import Factorial.Law
 
 
 \end{code}

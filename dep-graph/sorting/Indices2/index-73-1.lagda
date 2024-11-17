@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Lifting.LiftingSet
-import Locales.ContinuousMap.Homeomorphism-Definition
+import DomainTheory.Basics.Exponential
 
 
 \end{code}

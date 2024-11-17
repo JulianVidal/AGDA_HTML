@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import NotionsOfDecidability.QuasiDecidable
-import NotionsOfDecidability.SemiDecidable
+import OrderedTypes.PredicativeLFP
 
 
 \end{code}

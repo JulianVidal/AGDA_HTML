@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InjectiveTypes.PointedDcpos
-import TWA.Thesis.AndrewSneap.DyadicReals
+import Locales.DistributiveLattice.Homomorphism
 
 
 \end{code}

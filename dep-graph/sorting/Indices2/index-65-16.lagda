@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Apartness.NegationOfApartness
-import Groups.Subgroups
+import DomainTheory.Topology.ScottTopology
 
 
 \end{code}

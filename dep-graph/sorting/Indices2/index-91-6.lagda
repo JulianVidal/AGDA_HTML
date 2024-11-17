@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.NotationInterpretation1
-import TWA.Thesis.index
+import Ordinals.BuraliForti
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Two
-import MLTT.NaturalNumbers
+import MLTT.Sigma-Type
 
 
 \end{code}

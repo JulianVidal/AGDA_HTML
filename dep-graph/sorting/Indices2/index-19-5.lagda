@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.FinitePigeon
-import InfinitePigeon.J-PigeonProgram
+import Naturals.Exponentiation
 
 
 \end{code}

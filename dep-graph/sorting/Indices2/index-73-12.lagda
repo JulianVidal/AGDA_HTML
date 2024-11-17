@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.MFPSAndVariations.SystemT
-import EffectfulForcing.MFPSAndVariations.Dialogue
+import Locales.HeytingImplication
 
 
 \end{code}

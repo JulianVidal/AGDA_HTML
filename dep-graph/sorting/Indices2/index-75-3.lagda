@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Nucleus
-import Locales.CompactRegular
+import Locales.ContinuousMap.Homeomorphism-Properties
 
 
 \end{code}

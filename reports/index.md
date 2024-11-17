@@ -619,7 +619,7 @@ Sorting alg:
 
 Loop through each node:
   If node has zero children then n = 0,
-  Else n = max(the n for each children)
+  Else n = max(the n for each children) + 1
 
 For some reason, having all the indeces in a folder causes an import error. If
 they are next to the master file there is no error. So I put them all on the
@@ -627,9 +627,10 @@ source file directory.
 
 Getting the dependency graph takes as long as compiling.
 
-Compiling indexes based on sort gives the same compilation time.
+No splitting gave 8:06
 Splitting levels with more than 20 modules gave 7:09
 Splitting levels with more than 10 modules gave 6:12
 Splitting levels with more than 5 modules gave 5:23
 Splitting levels with more than 2 modules gave 5:09
+Splitting levels with more than 1 modules gave 6:28
 

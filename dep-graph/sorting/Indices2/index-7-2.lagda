@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.Addition
-import InfinitePigeon.Cantor
+import MGS.Basic-UF
 
 
 \end{code}

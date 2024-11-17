@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.Thesis.Chapter2.Finite
-import DiscreteGraphicMonoids.AffineMonad
+import Unsafe.index
 
 
 \end{code}

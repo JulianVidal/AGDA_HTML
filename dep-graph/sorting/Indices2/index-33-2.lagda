@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import PCF.Lambda.ApplicativeApproximation
-import Relations.index
+import Lifting.Miscelanea
 
 
 \end{code}

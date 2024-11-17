@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Iterative.Multisets-HFLO
-import InjectiveTypes.InhabitedTypesTaboo
+import Locales.ScottLocale.Properties
 
 
 \end{code}

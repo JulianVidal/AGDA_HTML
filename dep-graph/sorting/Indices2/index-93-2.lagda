@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import OrderedTypes.ZornsLemma
-import Ordinals.WellOrderingPrinciple
+import Locales.LawsonLocale.CompactElementsOfPoint
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Sigma
-import MLTT.Plus
+import MLTT.Id
 
 
 \end{code}

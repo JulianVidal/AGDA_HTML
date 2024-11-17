@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.LawsonLocale.PointsOfPatch
-import Field.Rationals
+import Rationals.Positive
 
 
 \end{code}

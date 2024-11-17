@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import MetricSpaces.Rationals
-import InjectiveTypes.CounterExamples
 
 
 \end{code}

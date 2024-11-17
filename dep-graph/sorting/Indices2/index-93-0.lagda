@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import Rationals.Negation
-import Locales.UniversalPropertyOfPatch
 
 
 \end{code}

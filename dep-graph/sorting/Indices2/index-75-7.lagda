@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import OrderedTypes.FreeJoinSemiLattice
-import PCF.Lambda.ScottModelOfTypes
+import Locales.CompactRegular
 
 
 \end{code}

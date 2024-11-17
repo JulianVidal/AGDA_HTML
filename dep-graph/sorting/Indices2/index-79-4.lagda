@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Sierpinski.Definition
-import Locales.ScottLocale.Properties
+import Taboos.LPO
 
 
 \end{code}

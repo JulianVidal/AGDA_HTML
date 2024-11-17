@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.Internal.ExtensionalEquality
-import CoNaturals.Sharp
+import Fin.Pigeonhole
 
 
 \end{code}

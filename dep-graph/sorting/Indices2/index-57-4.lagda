@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.SemistrictIdentity
-import DyadicsInductive.index
+import Groups.Type
 
 
 \end{code}

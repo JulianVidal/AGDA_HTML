@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.BanachFixedPointTheorem
-import TWA.Thesis.Chapter3.ClosenessSpaces
+import DomainTheory.BasesAndContinuity.CompactBasis
 
 
 \end{code}

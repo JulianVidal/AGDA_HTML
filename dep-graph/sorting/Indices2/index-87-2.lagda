@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Sierpinski.Properties
-import Locales.Spectrality.SpectralityOfOmega
+import GamesExperimental.index
 
 
 \end{code}

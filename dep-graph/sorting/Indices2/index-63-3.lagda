@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Basics.Dcpo
-import MLTT.List
+import Naturals.ExitTruncation
 
 
 \end{code}

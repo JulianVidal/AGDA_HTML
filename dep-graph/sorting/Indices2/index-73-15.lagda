@@ -5,7 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import NotionsOfDecidability.index
+import Locales.DistributiveLattice.Spectrum
 
 
 \end{code}

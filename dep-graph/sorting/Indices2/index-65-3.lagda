@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Frame
-import Ordinals.WellOrderArithmetic
+import Naturals.HCF
 
 
 \end{code}

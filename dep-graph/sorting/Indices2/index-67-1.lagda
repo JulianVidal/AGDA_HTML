@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TypeTopology.DisconnectedTypes
-import Integers.HCF
+import CoNaturals.GenericConvergentSequence
 
 
 \end{code}

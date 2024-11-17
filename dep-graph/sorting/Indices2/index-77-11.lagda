@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Bilimits.Directed
-import DomainTheory.IdealCompletion.Properties
+import PCF.Lambda.ScottModelOfContexts
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Basics.Products
-import DomainTheory.Basics.FunctionComposition
+import Locales.WayBelowRelation.Properties
 
 
 \end{code}

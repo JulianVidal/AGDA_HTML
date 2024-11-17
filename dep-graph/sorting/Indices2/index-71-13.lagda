@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Slice.Algebras
-import DomainTheory.Basics.ProductsContinuity
+import GamesExperimental.alpha-beta
 
 
 \end{code}

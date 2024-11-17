@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.ContinuousMap.Properties
-import Locales.Complements
+import GamesExperimental.TicTacToe2
 
 
 \end{code}

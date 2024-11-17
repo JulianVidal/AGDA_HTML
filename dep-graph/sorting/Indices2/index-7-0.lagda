@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import MLTT.Negation
-import MLTT.AlternativePlus
 
 
 \end{code}

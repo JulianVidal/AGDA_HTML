@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Integers.Division
-import Naturals.HCF
+import TypeTopology.Cantor
 
 
 \end{code}

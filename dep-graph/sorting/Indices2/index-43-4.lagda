@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.ImageAndSurjection-Variation
-import Duploids.index
+import Lifting.EmbeddingDirectly
 
 
 \end{code}

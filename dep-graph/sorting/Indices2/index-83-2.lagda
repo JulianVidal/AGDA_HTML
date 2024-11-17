@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.PerfectMaps
-import CantorSchroederBernstein.CSB
+import Locales.SmallBasis
 
 
 \end{code}

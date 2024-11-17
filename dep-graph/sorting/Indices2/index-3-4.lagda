@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Unit-Type
-import Various.Lumsdaine
+import MLTT.Plus-Type
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.Subsingletons-Properties
-import MGS.TypeTopology-Interface
+import UF.LeftCancellable
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Modal.Homotopy
-import UF.SigmaIdentity
+import UF.SIP
 
 
 \end{code}

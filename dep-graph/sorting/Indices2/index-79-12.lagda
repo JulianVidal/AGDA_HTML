@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Bilimits.Sequential
-import DomainTheory.IdealCompletion.Retracts
+import Locales.DistributiveLattice.Resizing
 
 
 \end{code}

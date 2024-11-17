@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.Choice
-import TWA.Thesis.Chapter2.Sequences
+import NotionsOfDecidability.DecidableClassifier
 
 
 \end{code}

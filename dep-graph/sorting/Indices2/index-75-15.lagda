@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.BasesAndContinuity.ContinuityImpredicative
-import UF.index
+import PCF.Lambda.ScottModelOfTypes
 
 
 \end{code}

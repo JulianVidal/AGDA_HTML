@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
-import EffectfulForcing.Internal.SystemT
+import Locales.DistributiveLattice.Ideal-Properties
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.StoneImpliesSpectral
-import Locales.DiscreteLocale.Two-Properties
+import Rationals.FractionsOrder
 
 
 \end{code}

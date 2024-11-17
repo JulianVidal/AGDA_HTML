@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Circle.index
-import Dominance.index
+import UF.PreSIP-Examples
 
 
 \end{code}

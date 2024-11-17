@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.PropTrunc
-import UF.SubtypeClassifier
+import MGS.Universe-Lifting
 
 
 \end{code}

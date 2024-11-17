@@ -5,7 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Part-I
+import Locales.DistributiveLattice.Spectrum-Properties
 
 
 \end{code}

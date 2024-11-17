@@ -5,7 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.ProgramsWithoutSpecification
+import PathSequences.Reasoning
 
 
 \end{code}

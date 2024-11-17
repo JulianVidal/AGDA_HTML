@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Slice.IdentityViaSIP
-import TypeTopology.CantorSearch
+import Locales.WayBelowRelation.Definition
 
 
 \end{code}

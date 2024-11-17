@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.index
-import DomainTheory.Part-II
+import OrderedTypes.ZornsLemma
 
 
 \end{code}

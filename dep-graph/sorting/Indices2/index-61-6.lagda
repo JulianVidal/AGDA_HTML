@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Groups.GroupActions
-import Various.CantorTheoremForEmbeddings
+import Slice.Family
 
 
 \end{code}

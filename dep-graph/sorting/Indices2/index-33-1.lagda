@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Lifting.Miscelanea
-import GamesExperimental.FiniteHistoryDependent
+import W.Properties
 
 
 \end{code}

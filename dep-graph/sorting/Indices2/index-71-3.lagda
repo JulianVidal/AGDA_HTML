@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import CoNaturals.Type2Properties
-import Fin.ArithmeticViaEquivalence
+import Locales.Adjunctions.Properties
 
 
 \end{code}

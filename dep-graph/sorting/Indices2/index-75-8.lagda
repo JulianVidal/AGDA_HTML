@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Basics.Curry
-import Iterative.Ordinals-Addendum
+import DomainTheory.BasesAndContinuity.Bases
 
 
 \end{code}

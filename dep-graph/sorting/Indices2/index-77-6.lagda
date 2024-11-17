@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InjectiveTypes.MathematicalStructuresMoreGeneral
-import InjectiveTypes.MathematicalStructures
+import DomainTheory.BasesAndContinuity.ScottDomain
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import PCF.Lambda.index
-import TypeTopology.SquashedCantor
+import Locales.Spectrality.SpectralityOfOmega
 
 
 \end{code}

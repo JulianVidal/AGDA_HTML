@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import PCF.Combinatory.index
-import Iterative.Sets-Addendum
+import Locales.Sierpinski.Definition
 
 
 \end{code}

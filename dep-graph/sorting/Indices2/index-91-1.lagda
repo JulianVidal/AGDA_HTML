@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.TerminalLocale.Properties
-import Dyadics.Negation
+import Locales.PatchProperties
 
 
 \end{code}

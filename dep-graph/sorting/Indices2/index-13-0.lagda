@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import UF.Base
-import W.Type
 
 
 \end{code}

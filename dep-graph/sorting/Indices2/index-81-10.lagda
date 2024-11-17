@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.Thesis.Chapter4.ApproxOrder-Examples
-import EffectfulForcing.Internal.Correctness
+import Iterative.Finite
 
 
 \end{code}

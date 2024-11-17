@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Games.alpha-beta
-import Games.Discussion
+import Locales.ContinuousMap.Properties
 
 
 \end{code}

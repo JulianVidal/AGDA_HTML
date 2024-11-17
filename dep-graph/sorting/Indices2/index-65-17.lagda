@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Various.Hydra
-import DomainTheory.IdealCompletion.IdealCompletion
+import MLTT.List-Properties
 
 
 \end{code}

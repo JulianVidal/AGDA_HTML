@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TypeTopology.ExtendedSumCompact
-import Ordinals.OrdinalOfOrdinalsSuprema
+import GamesExperimental.Discussion
 
 
 \end{code}

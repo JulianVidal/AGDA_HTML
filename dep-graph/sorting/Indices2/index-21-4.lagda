@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MGS.Map-Classifiers
-import InfinitePigeon.PigeonProgram
+import MGS.Subsingleton-Theorems
 
 
 \end{code}

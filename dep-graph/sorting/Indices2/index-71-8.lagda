@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.AdjointFunctorTheoremForFrames
-import Locales.InitialFrame
+import Fin.Kuratowski
 
 
 \end{code}

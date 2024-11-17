@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Quotient.index
-import OrderedTypes.TwoElementPoset
+import MLTT.Vector
 
 
 \end{code}

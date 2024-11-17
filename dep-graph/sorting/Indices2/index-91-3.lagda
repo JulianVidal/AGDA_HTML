@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.BuraliForti
-import Ordinals.Limit
+import Dyadics.Negation
 
 
 \end{code}

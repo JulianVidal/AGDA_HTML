@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import GamesExperimental.TicTacToe0
-import Locales.PatchLocale
+import GamesExperimental.TicTacToe1
 
 
 \end{code}

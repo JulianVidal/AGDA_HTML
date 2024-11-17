@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Cardinals.Successor
-import UF.TruncationLevels
+import Fin.Variation
 
 
 \end{code}

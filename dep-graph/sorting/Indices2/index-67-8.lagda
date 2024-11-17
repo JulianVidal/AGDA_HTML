@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Point.Definition
-import Locales.DiscreteLocale.Definition
+import Ordinals.Equivalence
 
 
 \end{code}

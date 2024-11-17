@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Naturals.Multiplication
-import PathSequences.Split
+import MGS.Equivalence-Induction
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.K-AC-N
-import InfinitePigeon.J-InfinitePigeon
+import Naturals.Addition
 
 
 \end{code}

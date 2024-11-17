@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Two-Properties
-import Naturals.Sequence
+import MGS.Equivalence-Constructions
 
 
 \end{code}

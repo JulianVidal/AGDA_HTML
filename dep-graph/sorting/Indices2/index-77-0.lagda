@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import Taboos.WLPO
-import PCF.Combinatory.ScottModelOfPCF
 
 
 \end{code}

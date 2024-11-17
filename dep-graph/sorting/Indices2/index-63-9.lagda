@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Naturals.RootsTruncation
-import W.index
+import Iterative.Sets
 
 
 \end{code}

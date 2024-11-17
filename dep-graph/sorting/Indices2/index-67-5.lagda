@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Vector
-import OrderedTypes.SupLattice
+import Locales.ContinuousMap.FrameHomomorphism-Definition
 
 
 \end{code}

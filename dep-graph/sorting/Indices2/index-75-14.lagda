@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Lifting.LiftingDcpo
-import DomainTheory.BasesAndContinuity.ContinuityDiscussion
+import OrderedTypes.FreeJoinSemiLattice
 
 
 \end{code}

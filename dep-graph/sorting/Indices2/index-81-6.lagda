@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TypeTopology.SimpleTypes
-import Ordinals.ConvergentSequence
+import Locales.Regular
 
 
 \end{code}

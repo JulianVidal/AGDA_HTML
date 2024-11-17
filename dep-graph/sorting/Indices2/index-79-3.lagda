@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.Spectrality.SpectralLocale
-import Locales.Spectrality.SpectralMap
+import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
 
 
 \end{code}

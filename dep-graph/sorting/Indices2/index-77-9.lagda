@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import EffectfulForcing.MFPSAndVariations.WithoutOracle
-import EffectfulForcing.Internal.External
+import Locales.SIP.DistributiveLatticeSIP
 
 
 \end{code}

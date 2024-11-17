@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import PathSequences.Inversion
-import WildCategories.index
+import MGS.More-FunExt-Consequences
 
 
 \end{code}

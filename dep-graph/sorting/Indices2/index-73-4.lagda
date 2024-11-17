@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.Powerset-Fin
-import Fin.ArgMinMax
+import Locales.SIP.FrameSIP
 
 
 \end{code}

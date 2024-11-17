@@ -5,7 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.InfinitePigeon2011-05-12
+import WildCategories.Base
 
 
 \end{code}

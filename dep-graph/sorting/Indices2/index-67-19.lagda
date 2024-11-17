@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Various.Pataraia
-import UF.Truncations
+import Integers.Parity
 
 
 \end{code}

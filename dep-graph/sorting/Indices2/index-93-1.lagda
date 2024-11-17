@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.LawsonLocale.CompactElementsOfPoint
-import Dyadics.Addition
+import Locales.UniversalPropertyOfPatch
 
 
 \end{code}

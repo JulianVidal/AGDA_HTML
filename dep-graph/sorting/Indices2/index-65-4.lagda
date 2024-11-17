@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InjectiveTypes.OverSmallMaps
-import UF.SIP-Examples
+import DomainTheory.Basics.Miscelanea
 
 
 \end{code}

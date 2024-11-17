@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MGS.Equivalence-Induction
-import Lifting.Construction
+import UF.Retracts
 
 
 \end{code}

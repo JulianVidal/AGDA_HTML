@@ -6,7 +6,6 @@
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import MLTT.Empty
-import MLTT.Id
 
 
 \end{code}

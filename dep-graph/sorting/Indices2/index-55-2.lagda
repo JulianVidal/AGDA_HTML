@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.IdentitySystems
-import Factorial.index
+import Fin.Properties
 
 
 \end{code}

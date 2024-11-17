@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TypeTopology.index
-import Ordinals.Closure
+import Locales.Sierpinski.UniversalProperty
 
 
 \end{code}

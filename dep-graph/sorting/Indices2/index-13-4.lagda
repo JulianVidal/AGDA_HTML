@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.LexicographicOrder
-import Notation.UnderlyingType
+import Naturals.Properties
 
 
 \end{code}

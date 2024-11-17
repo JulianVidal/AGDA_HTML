@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Taboos.MarkovsPrinciple
-import Taboos.LLPO
+import TypeTopology.GenericConvergentSequenceCompactness
 
 
 \end{code}

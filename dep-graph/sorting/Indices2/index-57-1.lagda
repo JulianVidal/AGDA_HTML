@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Fin.Bishop
-import UF.PreSIP-Examples
+import Integers.Multiplication
 
 
 \end{code}

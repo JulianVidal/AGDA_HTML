@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DomainTheory.Examples.Omega
-import DomainTheory.Examples.Powerset
+import InjectiveTypes.MathematicalStructuresMoreGeneral
 
 
 \end{code}

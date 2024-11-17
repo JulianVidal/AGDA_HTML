@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.Maps
-import Naturals.Parity
+import Lifting.Miscelanea-PropExt-FunExt
 
 
 \end{code}

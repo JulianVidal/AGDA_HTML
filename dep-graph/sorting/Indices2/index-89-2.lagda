@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Locales.PatchOfOmega
-import Locales.Sierpinski.UniversalProperty
+import Locales.StoneImpliesSpectral
 
 
 \end{code}

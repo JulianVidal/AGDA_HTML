@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Categories.Adjunction
-import Duploids.Duploid
+import UF.StructureIdentityPrinciple
 
 
 \end{code}

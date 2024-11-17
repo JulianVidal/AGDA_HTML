@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Iterative.index
-import TypeTopology.ADecidableQuantificationOverTheNaturals
+import Locales.PerfectMaps
 
 
 \end{code}

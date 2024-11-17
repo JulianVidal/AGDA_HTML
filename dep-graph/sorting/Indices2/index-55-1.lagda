@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Fin.Properties
-import UF.PreSIP
+import Integers.Addition
 
 
 \end{code}

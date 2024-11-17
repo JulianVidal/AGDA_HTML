@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Apartness.Definition
-import Naturals.ExitTruncation
+import InjectiveTypes.Blackboard
 
 
 \end{code}

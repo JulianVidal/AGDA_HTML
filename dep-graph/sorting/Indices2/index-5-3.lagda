@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InfinitePigeon.Choice
-import InfinitePigeon.Two
+import MLTT.Plus
 
 
 \end{code}

@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Circle.Construction
-import Dominance.Lifting
+import UF.PreSIP
 
 
 \end{code}

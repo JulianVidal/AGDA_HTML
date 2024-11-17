@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Dyadics.Multiplication
-import Dyadics.Order
+import Locales.TerminalLocale.Properties
 
 
 \end{code}

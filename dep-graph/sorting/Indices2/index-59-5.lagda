@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Groups.Kernel
-import Groups.Triv
+import Integers.Exponentiation
 
 
 \end{code}

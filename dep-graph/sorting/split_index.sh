@@ -26,6 +26,24 @@
       printf 'File index-1-2 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-1-3.lagda ]; then
+        sexp ./source/index-1-3.lagda &
+    elif [ -f ./source/index-1-3.agda ]; then
+        sexp ./source/index-1-3.agda &
+    else
+      printf 'File index-1-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-1-4.lagda ]; then
+        sexp ./source/index-1-4.lagda &
+    elif [ -f ./source/index-1-4.agda ]; then
+        sexp ./source/index-1-4.agda &
+    else
+      printf 'File index-1-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-3-0.lagda ]; then
@@ -90,6 +108,60 @@
       printf 'File index-3-6 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-3-7.lagda ]; then
+        sexp ./source/index-3-7.lagda &
+    elif [ -f ./source/index-3-7.agda ]; then
+        sexp ./source/index-3-7.agda &
+    else
+      printf 'File index-3-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-3-8.lagda ]; then
+        sexp ./source/index-3-8.lagda &
+    elif [ -f ./source/index-3-8.agda ]; then
+        sexp ./source/index-3-8.agda &
+    else
+      printf 'File index-3-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-3-9.lagda ]; then
+        sexp ./source/index-3-9.lagda &
+    elif [ -f ./source/index-3-9.agda ]; then
+        sexp ./source/index-3-9.agda &
+    else
+      printf 'File index-3-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-3-10.lagda ]; then
+        sexp ./source/index-3-10.lagda &
+    elif [ -f ./source/index-3-10.agda ]; then
+        sexp ./source/index-3-10.agda &
+    else
+      printf 'File index-3-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-3-11.lagda ]; then
+        sexp ./source/index-3-11.lagda &
+    elif [ -f ./source/index-3-11.agda ]; then
+        sexp ./source/index-3-11.agda &
+    else
+      printf 'File index-3-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-3-12.lagda ]; then
+        sexp ./source/index-3-12.lagda &
+    elif [ -f ./source/index-3-12.agda ]; then
+        sexp ./source/index-3-12.agda &
+    else
+      printf 'File index-3-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-5-0.lagda ]; then
@@ -134,6 +206,42 @@
         sexp ./source/index-5-4.agda &
     else
       printf 'File index-5-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-5-5.lagda ]; then
+        sexp ./source/index-5-5.lagda &
+    elif [ -f ./source/index-5-5.agda ]; then
+        sexp ./source/index-5-5.agda &
+    else
+      printf 'File index-5-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-5-6.lagda ]; then
+        sexp ./source/index-5-6.lagda &
+    elif [ -f ./source/index-5-6.agda ]; then
+        sexp ./source/index-5-6.agda &
+    else
+      printf 'File index-5-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-5-7.lagda ]; then
+        sexp ./source/index-5-7.lagda &
+    elif [ -f ./source/index-5-7.agda ]; then
+        sexp ./source/index-5-7.agda &
+    else
+      printf 'File index-5-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-5-8.lagda ]; then
+        sexp ./source/index-5-8.lagda &
+    elif [ -f ./source/index-5-8.agda ]; then
+        sexp ./source/index-5-8.agda &
+    else
+      printf 'File index-5-8 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -182,6 +290,42 @@
       printf 'File index-7-4 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-7-5.lagda ]; then
+        sexp ./source/index-7-5.lagda &
+    elif [ -f ./source/index-7-5.agda ]; then
+        sexp ./source/index-7-5.agda &
+    else
+      printf 'File index-7-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-7-6.lagda ]; then
+        sexp ./source/index-7-6.lagda &
+    elif [ -f ./source/index-7-6.agda ]; then
+        sexp ./source/index-7-6.agda &
+    else
+      printf 'File index-7-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-7-7.lagda ]; then
+        sexp ./source/index-7-7.lagda &
+    elif [ -f ./source/index-7-7.agda ]; then
+        sexp ./source/index-7-7.agda &
+    else
+      printf 'File index-7-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-7-8.lagda ]; then
+        sexp ./source/index-7-8.lagda &
+    elif [ -f ./source/index-7-8.agda ]; then
+        sexp ./source/index-7-8.agda &
+    else
+      printf 'File index-7-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-9-0.lagda ]; then
@@ -219,6 +363,33 @@
       printf 'File index-9-3 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-9-4.lagda ]; then
+        sexp ./source/index-9-4.lagda &
+    elif [ -f ./source/index-9-4.agda ]; then
+        sexp ./source/index-9-4.agda &
+    else
+      printf 'File index-9-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-9-5.lagda ]; then
+        sexp ./source/index-9-5.lagda &
+    elif [ -f ./source/index-9-5.agda ]; then
+        sexp ./source/index-9-5.agda &
+    else
+      printf 'File index-9-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-9-6.lagda ]; then
+        sexp ./source/index-9-6.lagda &
+    elif [ -f ./source/index-9-6.agda ]; then
+        sexp ./source/index-9-6.agda &
+    else
+      printf 'File index-9-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-11-0.lagda ]; then
@@ -254,6 +425,33 @@
         sexp ./source/index-11-3.agda &
     else
       printf 'File index-11-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-11-4.lagda ]; then
+        sexp ./source/index-11-4.lagda &
+    elif [ -f ./source/index-11-4.agda ]; then
+        sexp ./source/index-11-4.agda &
+    else
+      printf 'File index-11-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-11-5.lagda ]; then
+        sexp ./source/index-11-5.lagda &
+    elif [ -f ./source/index-11-5.agda ]; then
+        sexp ./source/index-11-5.agda &
+    else
+      printf 'File index-11-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-11-6.lagda ]; then
+        sexp ./source/index-11-6.lagda &
+    elif [ -f ./source/index-11-6.agda ]; then
+        sexp ./source/index-11-6.agda &
+    else
+      printf 'File index-11-6 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -356,6 +554,96 @@
       printf 'File index-13-10 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-13-11.lagda ]; then
+        sexp ./source/index-13-11.lagda &
+    elif [ -f ./source/index-13-11.agda ]; then
+        sexp ./source/index-13-11.agda &
+    else
+      printf 'File index-13-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-12.lagda ]; then
+        sexp ./source/index-13-12.lagda &
+    elif [ -f ./source/index-13-12.agda ]; then
+        sexp ./source/index-13-12.agda &
+    else
+      printf 'File index-13-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-13.lagda ]; then
+        sexp ./source/index-13-13.lagda &
+    elif [ -f ./source/index-13-13.agda ]; then
+        sexp ./source/index-13-13.agda &
+    else
+      printf 'File index-13-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-14.lagda ]; then
+        sexp ./source/index-13-14.lagda &
+    elif [ -f ./source/index-13-14.agda ]; then
+        sexp ./source/index-13-14.agda &
+    else
+      printf 'File index-13-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-15.lagda ]; then
+        sexp ./source/index-13-15.lagda &
+    elif [ -f ./source/index-13-15.agda ]; then
+        sexp ./source/index-13-15.agda &
+    else
+      printf 'File index-13-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-16.lagda ]; then
+        sexp ./source/index-13-16.lagda &
+    elif [ -f ./source/index-13-16.agda ]; then
+        sexp ./source/index-13-16.agda &
+    else
+      printf 'File index-13-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-17.lagda ]; then
+        sexp ./source/index-13-17.lagda &
+    elif [ -f ./source/index-13-17.agda ]; then
+        sexp ./source/index-13-17.agda &
+    else
+      printf 'File index-13-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-18.lagda ]; then
+        sexp ./source/index-13-18.lagda &
+    elif [ -f ./source/index-13-18.agda ]; then
+        sexp ./source/index-13-18.agda &
+    else
+      printf 'File index-13-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-19.lagda ]; then
+        sexp ./source/index-13-19.lagda &
+    elif [ -f ./source/index-13-19.agda ]; then
+        sexp ./source/index-13-19.agda &
+    else
+      printf 'File index-13-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-13-20.lagda ]; then
+        sexp ./source/index-13-20.lagda &
+    elif [ -f ./source/index-13-20.agda ]; then
+        sexp ./source/index-13-20.agda &
+    else
+      printf 'File index-13-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-15-0.lagda ]; then
@@ -400,6 +688,42 @@
         sexp ./source/index-15-4.agda &
     else
       printf 'File index-15-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-15-5.lagda ]; then
+        sexp ./source/index-15-5.lagda &
+    elif [ -f ./source/index-15-5.agda ]; then
+        sexp ./source/index-15-5.agda &
+    else
+      printf 'File index-15-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-15-6.lagda ]; then
+        sexp ./source/index-15-6.lagda &
+    elif [ -f ./source/index-15-6.agda ]; then
+        sexp ./source/index-15-6.agda &
+    else
+      printf 'File index-15-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-15-7.lagda ]; then
+        sexp ./source/index-15-7.lagda &
+    elif [ -f ./source/index-15-7.agda ]; then
+        sexp ./source/index-15-7.agda &
+    else
+      printf 'File index-15-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-15-8.lagda ]; then
+        sexp ./source/index-15-8.lagda &
+    elif [ -f ./source/index-15-8.agda ]; then
+        sexp ./source/index-15-8.agda &
+    else
+      printf 'File index-15-8 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -466,6 +790,60 @@
       printf 'File index-17-6 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-17-7.lagda ]; then
+        sexp ./source/index-17-7.lagda &
+    elif [ -f ./source/index-17-7.agda ]; then
+        sexp ./source/index-17-7.agda &
+    else
+      printf 'File index-17-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-17-8.lagda ]; then
+        sexp ./source/index-17-8.lagda &
+    elif [ -f ./source/index-17-8.agda ]; then
+        sexp ./source/index-17-8.agda &
+    else
+      printf 'File index-17-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-17-9.lagda ]; then
+        sexp ./source/index-17-9.lagda &
+    elif [ -f ./source/index-17-9.agda ]; then
+        sexp ./source/index-17-9.agda &
+    else
+      printf 'File index-17-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-17-10.lagda ]; then
+        sexp ./source/index-17-10.lagda &
+    elif [ -f ./source/index-17-10.agda ]; then
+        sexp ./source/index-17-10.agda &
+    else
+      printf 'File index-17-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-17-11.lagda ]; then
+        sexp ./source/index-17-11.lagda &
+    elif [ -f ./source/index-17-11.agda ]; then
+        sexp ./source/index-17-11.agda &
+    else
+      printf 'File index-17-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-17-12.lagda ]; then
+        sexp ./source/index-17-12.lagda &
+    elif [ -f ./source/index-17-12.agda ]; then
+        sexp ./source/index-17-12.agda &
+    else
+      printf 'File index-17-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-19-0.lagda ]; then
@@ -519,6 +897,60 @@
         sexp ./source/index-19-5.agda &
     else
       printf 'File index-19-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-6.lagda ]; then
+        sexp ./source/index-19-6.lagda &
+    elif [ -f ./source/index-19-6.agda ]; then
+        sexp ./source/index-19-6.agda &
+    else
+      printf 'File index-19-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-7.lagda ]; then
+        sexp ./source/index-19-7.lagda &
+    elif [ -f ./source/index-19-7.agda ]; then
+        sexp ./source/index-19-7.agda &
+    else
+      printf 'File index-19-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-8.lagda ]; then
+        sexp ./source/index-19-8.lagda &
+    elif [ -f ./source/index-19-8.agda ]; then
+        sexp ./source/index-19-8.agda &
+    else
+      printf 'File index-19-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-9.lagda ]; then
+        sexp ./source/index-19-9.lagda &
+    elif [ -f ./source/index-19-9.agda ]; then
+        sexp ./source/index-19-9.agda &
+    else
+      printf 'File index-19-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-10.lagda ]; then
+        sexp ./source/index-19-10.lagda &
+    elif [ -f ./source/index-19-10.agda ]; then
+        sexp ./source/index-19-10.agda &
+    else
+      printf 'File index-19-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-19-11.lagda ]; then
+        sexp ./source/index-19-11.lagda &
+    elif [ -f ./source/index-19-11.agda ]; then
+        sexp ./source/index-19-11.agda &
+    else
+      printf 'File index-19-11 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -585,6 +1017,60 @@
       printf 'File index-21-6 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-21-7.lagda ]; then
+        sexp ./source/index-21-7.lagda &
+    elif [ -f ./source/index-21-7.agda ]; then
+        sexp ./source/index-21-7.agda &
+    else
+      printf 'File index-21-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-21-8.lagda ]; then
+        sexp ./source/index-21-8.lagda &
+    elif [ -f ./source/index-21-8.agda ]; then
+        sexp ./source/index-21-8.agda &
+    else
+      printf 'File index-21-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-21-9.lagda ]; then
+        sexp ./source/index-21-9.lagda &
+    elif [ -f ./source/index-21-9.agda ]; then
+        sexp ./source/index-21-9.agda &
+    else
+      printf 'File index-21-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-21-10.lagda ]; then
+        sexp ./source/index-21-10.lagda &
+    elif [ -f ./source/index-21-10.agda ]; then
+        sexp ./source/index-21-10.agda &
+    else
+      printf 'File index-21-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-21-11.lagda ]; then
+        sexp ./source/index-21-11.lagda &
+    elif [ -f ./source/index-21-11.agda ]; then
+        sexp ./source/index-21-11.agda &
+    else
+      printf 'File index-21-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-21-12.lagda ]; then
+        sexp ./source/index-21-12.lagda &
+    elif [ -f ./source/index-21-12.agda ]; then
+        sexp ./source/index-21-12.agda &
+    else
+      printf 'File index-21-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-23-0.lagda ]; then
@@ -620,6 +1106,42 @@
         sexp ./source/index-23-3.agda &
     else
       printf 'File index-23-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-23-4.lagda ]; then
+        sexp ./source/index-23-4.lagda &
+    elif [ -f ./source/index-23-4.agda ]; then
+        sexp ./source/index-23-4.agda &
+    else
+      printf 'File index-23-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-23-5.lagda ]; then
+        sexp ./source/index-23-5.lagda &
+    elif [ -f ./source/index-23-5.agda ]; then
+        sexp ./source/index-23-5.agda &
+    else
+      printf 'File index-23-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-23-6.lagda ]; then
+        sexp ./source/index-23-6.lagda &
+    elif [ -f ./source/index-23-6.agda ]; then
+        sexp ./source/index-23-6.agda &
+    else
+      printf 'File index-23-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-23-7.lagda ]; then
+        sexp ./source/index-23-7.lagda &
+    elif [ -f ./source/index-23-7.agda ]; then
+        sexp ./source/index-23-7.agda &
+    else
+      printf 'File index-23-7 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -702,6 +1224,87 @@
         sexp ./source/index-25-8.agda &
     else
       printf 'File index-25-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-9.lagda ]; then
+        sexp ./source/index-25-9.lagda &
+    elif [ -f ./source/index-25-9.agda ]; then
+        sexp ./source/index-25-9.agda &
+    else
+      printf 'File index-25-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-10.lagda ]; then
+        sexp ./source/index-25-10.lagda &
+    elif [ -f ./source/index-25-10.agda ]; then
+        sexp ./source/index-25-10.agda &
+    else
+      printf 'File index-25-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-11.lagda ]; then
+        sexp ./source/index-25-11.lagda &
+    elif [ -f ./source/index-25-11.agda ]; then
+        sexp ./source/index-25-11.agda &
+    else
+      printf 'File index-25-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-12.lagda ]; then
+        sexp ./source/index-25-12.lagda &
+    elif [ -f ./source/index-25-12.agda ]; then
+        sexp ./source/index-25-12.agda &
+    else
+      printf 'File index-25-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-13.lagda ]; then
+        sexp ./source/index-25-13.lagda &
+    elif [ -f ./source/index-25-13.agda ]; then
+        sexp ./source/index-25-13.agda &
+    else
+      printf 'File index-25-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-14.lagda ]; then
+        sexp ./source/index-25-14.lagda &
+    elif [ -f ./source/index-25-14.agda ]; then
+        sexp ./source/index-25-14.agda &
+    else
+      printf 'File index-25-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-15.lagda ]; then
+        sexp ./source/index-25-15.lagda &
+    elif [ -f ./source/index-25-15.agda ]; then
+        sexp ./source/index-25-15.agda &
+    else
+      printf 'File index-25-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-16.lagda ]; then
+        sexp ./source/index-25-16.lagda &
+    elif [ -f ./source/index-25-16.agda ]; then
+        sexp ./source/index-25-16.agda &
+    else
+      printf 'File index-25-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-25-17.lagda ]; then
+        sexp ./source/index-25-17.lagda &
+    elif [ -f ./source/index-25-17.agda ]; then
+        sexp ./source/index-25-17.agda &
+    else
+      printf 'File index-25-17 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -795,6 +1398,87 @@
       printf 'File index-27-9 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-27-10.lagda ]; then
+        sexp ./source/index-27-10.lagda &
+    elif [ -f ./source/index-27-10.agda ]; then
+        sexp ./source/index-27-10.agda &
+    else
+      printf 'File index-27-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-11.lagda ]; then
+        sexp ./source/index-27-11.lagda &
+    elif [ -f ./source/index-27-11.agda ]; then
+        sexp ./source/index-27-11.agda &
+    else
+      printf 'File index-27-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-12.lagda ]; then
+        sexp ./source/index-27-12.lagda &
+    elif [ -f ./source/index-27-12.agda ]; then
+        sexp ./source/index-27-12.agda &
+    else
+      printf 'File index-27-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-13.lagda ]; then
+        sexp ./source/index-27-13.lagda &
+    elif [ -f ./source/index-27-13.agda ]; then
+        sexp ./source/index-27-13.agda &
+    else
+      printf 'File index-27-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-14.lagda ]; then
+        sexp ./source/index-27-14.lagda &
+    elif [ -f ./source/index-27-14.agda ]; then
+        sexp ./source/index-27-14.agda &
+    else
+      printf 'File index-27-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-15.lagda ]; then
+        sexp ./source/index-27-15.lagda &
+    elif [ -f ./source/index-27-15.agda ]; then
+        sexp ./source/index-27-15.agda &
+    else
+      printf 'File index-27-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-16.lagda ]; then
+        sexp ./source/index-27-16.lagda &
+    elif [ -f ./source/index-27-16.agda ]; then
+        sexp ./source/index-27-16.agda &
+    else
+      printf 'File index-27-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-17.lagda ]; then
+        sexp ./source/index-27-17.lagda &
+    elif [ -f ./source/index-27-17.agda ]; then
+        sexp ./source/index-27-17.agda &
+    else
+      printf 'File index-27-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-27-18.lagda ]; then
+        sexp ./source/index-27-18.lagda &
+    elif [ -f ./source/index-27-18.agda ]; then
+        sexp ./source/index-27-18.agda &
+    else
+      printf 'File index-27-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-29-0.lagda ]; then
@@ -877,6 +1561,87 @@
       printf 'File index-29-8 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-29-9.lagda ]; then
+        sexp ./source/index-29-9.lagda &
+    elif [ -f ./source/index-29-9.agda ]; then
+        sexp ./source/index-29-9.agda &
+    else
+      printf 'File index-29-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-10.lagda ]; then
+        sexp ./source/index-29-10.lagda &
+    elif [ -f ./source/index-29-10.agda ]; then
+        sexp ./source/index-29-10.agda &
+    else
+      printf 'File index-29-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-11.lagda ]; then
+        sexp ./source/index-29-11.lagda &
+    elif [ -f ./source/index-29-11.agda ]; then
+        sexp ./source/index-29-11.agda &
+    else
+      printf 'File index-29-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-12.lagda ]; then
+        sexp ./source/index-29-12.lagda &
+    elif [ -f ./source/index-29-12.agda ]; then
+        sexp ./source/index-29-12.agda &
+    else
+      printf 'File index-29-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-13.lagda ]; then
+        sexp ./source/index-29-13.lagda &
+    elif [ -f ./source/index-29-13.agda ]; then
+        sexp ./source/index-29-13.agda &
+    else
+      printf 'File index-29-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-14.lagda ]; then
+        sexp ./source/index-29-14.lagda &
+    elif [ -f ./source/index-29-14.agda ]; then
+        sexp ./source/index-29-14.agda &
+    else
+      printf 'File index-29-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-15.lagda ]; then
+        sexp ./source/index-29-15.lagda &
+    elif [ -f ./source/index-29-15.agda ]; then
+        sexp ./source/index-29-15.agda &
+    else
+      printf 'File index-29-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-16.lagda ]; then
+        sexp ./source/index-29-16.lagda &
+    elif [ -f ./source/index-29-16.agda ]; then
+        sexp ./source/index-29-16.agda &
+    else
+      printf 'File index-29-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-29-17.lagda ]; then
+        sexp ./source/index-29-17.lagda &
+    elif [ -f ./source/index-29-17.agda ]; then
+        sexp ./source/index-29-17.agda &
+    else
+      printf 'File index-29-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-31-0.lagda ]; then
@@ -923,6 +1688,42 @@
       printf 'File index-31-4 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-31-5.lagda ]; then
+        sexp ./source/index-31-5.lagda &
+    elif [ -f ./source/index-31-5.agda ]; then
+        sexp ./source/index-31-5.agda &
+    else
+      printf 'File index-31-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-31-6.lagda ]; then
+        sexp ./source/index-31-6.lagda &
+    elif [ -f ./source/index-31-6.agda ]; then
+        sexp ./source/index-31-6.agda &
+    else
+      printf 'File index-31-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-31-7.lagda ]; then
+        sexp ./source/index-31-7.lagda &
+    elif [ -f ./source/index-31-7.agda ]; then
+        sexp ./source/index-31-7.agda &
+    else
+      printf 'File index-31-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-31-8.lagda ]; then
+        sexp ./source/index-31-8.lagda &
+    elif [ -f ./source/index-31-8.agda ]; then
+        sexp ./source/index-31-8.agda &
+    else
+      printf 'File index-31-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-33-0.lagda ]; then
@@ -958,6 +1759,42 @@
         sexp ./source/index-33-3.agda &
     else
       printf 'File index-33-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-33-4.lagda ]; then
+        sexp ./source/index-33-4.lagda &
+    elif [ -f ./source/index-33-4.agda ]; then
+        sexp ./source/index-33-4.agda &
+    else
+      printf 'File index-33-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-33-5.lagda ]; then
+        sexp ./source/index-33-5.lagda &
+    elif [ -f ./source/index-33-5.agda ]; then
+        sexp ./source/index-33-5.agda &
+    else
+      printf 'File index-33-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-33-6.lagda ]; then
+        sexp ./source/index-33-6.lagda &
+    elif [ -f ./source/index-33-6.agda ]; then
+        sexp ./source/index-33-6.agda &
+    else
+      printf 'File index-33-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-33-7.lagda ]; then
+        sexp ./source/index-33-7.lagda &
+    elif [ -f ./source/index-33-7.agda ]; then
+        sexp ./source/index-33-7.agda &
+    else
+      printf 'File index-33-7 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -997,6 +1834,42 @@
       printf 'File index-35-3 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-35-4.lagda ]; then
+        sexp ./source/index-35-4.lagda &
+    elif [ -f ./source/index-35-4.agda ]; then
+        sexp ./source/index-35-4.agda &
+    else
+      printf 'File index-35-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-35-5.lagda ]; then
+        sexp ./source/index-35-5.lagda &
+    elif [ -f ./source/index-35-5.agda ]; then
+        sexp ./source/index-35-5.agda &
+    else
+      printf 'File index-35-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-35-6.lagda ]; then
+        sexp ./source/index-35-6.lagda &
+    elif [ -f ./source/index-35-6.agda ]; then
+        sexp ./source/index-35-6.agda &
+    else
+      printf 'File index-35-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-35-7.lagda ]; then
+        sexp ./source/index-35-7.lagda &
+    elif [ -f ./source/index-35-7.agda ]; then
+        sexp ./source/index-35-7.agda &
+    else
+      printf 'File index-35-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-37-0.lagda ]; then
@@ -1014,6 +1887,24 @@
         sexp ./source/index-37-1.agda &
     else
       printf 'File index-37-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-37-2.lagda ]; then
+        sexp ./source/index-37-2.lagda &
+    elif [ -f ./source/index-37-2.agda ]; then
+        sexp ./source/index-37-2.agda &
+    else
+      printf 'File index-37-2 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-37-3.lagda ]; then
+        sexp ./source/index-37-3.lagda &
+    elif [ -f ./source/index-37-3.agda ]; then
+        sexp ./source/index-37-3.agda &
+    else
+      printf 'File index-37-3 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1044,6 +1935,24 @@
       printf 'File index-39-2 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-39-3.lagda ]; then
+        sexp ./source/index-39-3.lagda &
+    elif [ -f ./source/index-39-3.agda ]; then
+        sexp ./source/index-39-3.agda &
+    else
+      printf 'File index-39-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-39-4.lagda ]; then
+        sexp ./source/index-39-4.lagda &
+    elif [ -f ./source/index-39-4.agda ]; then
+        sexp ./source/index-39-4.agda &
+    else
+      printf 'File index-39-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-41-0.lagda ]; then
@@ -1070,6 +1979,24 @@
         sexp ./source/index-41-2.agda &
     else
       printf 'File index-41-2 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-41-3.lagda ]; then
+        sexp ./source/index-41-3.lagda &
+    elif [ -f ./source/index-41-3.agda ]; then
+        sexp ./source/index-41-3.agda &
+    else
+      printf 'File index-41-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-41-4.lagda ]; then
+        sexp ./source/index-41-4.lagda &
+    elif [ -f ./source/index-41-4.agda ]; then
+        sexp ./source/index-41-4.agda &
+    else
+      printf 'File index-41-4 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1136,6 +2063,60 @@
       printf 'File index-43-6 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-43-7.lagda ]; then
+        sexp ./source/index-43-7.lagda &
+    elif [ -f ./source/index-43-7.agda ]; then
+        sexp ./source/index-43-7.agda &
+    else
+      printf 'File index-43-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-43-8.lagda ]; then
+        sexp ./source/index-43-8.lagda &
+    elif [ -f ./source/index-43-8.agda ]; then
+        sexp ./source/index-43-8.agda &
+    else
+      printf 'File index-43-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-43-9.lagda ]; then
+        sexp ./source/index-43-9.lagda &
+    elif [ -f ./source/index-43-9.agda ]; then
+        sexp ./source/index-43-9.agda &
+    else
+      printf 'File index-43-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-43-10.lagda ]; then
+        sexp ./source/index-43-10.lagda &
+    elif [ -f ./source/index-43-10.agda ]; then
+        sexp ./source/index-43-10.agda &
+    else
+      printf 'File index-43-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-43-11.lagda ]; then
+        sexp ./source/index-43-11.lagda &
+    elif [ -f ./source/index-43-11.agda ]; then
+        sexp ./source/index-43-11.agda &
+    else
+      printf 'File index-43-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-43-12.lagda ]; then
+        sexp ./source/index-43-12.lagda &
+    elif [ -f ./source/index-43-12.agda ]; then
+        sexp ./source/index-43-12.agda &
+    else
+      printf 'File index-43-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-45-0.lagda ]; then
@@ -1191,6 +2172,51 @@
       printf 'File index-45-5 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-45-6.lagda ]; then
+        sexp ./source/index-45-6.lagda &
+    elif [ -f ./source/index-45-6.agda ]; then
+        sexp ./source/index-45-6.agda &
+    else
+      printf 'File index-45-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-45-7.lagda ]; then
+        sexp ./source/index-45-7.lagda &
+    elif [ -f ./source/index-45-7.agda ]; then
+        sexp ./source/index-45-7.agda &
+    else
+      printf 'File index-45-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-45-8.lagda ]; then
+        sexp ./source/index-45-8.lagda &
+    elif [ -f ./source/index-45-8.agda ]; then
+        sexp ./source/index-45-8.agda &
+    else
+      printf 'File index-45-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-45-9.lagda ]; then
+        sexp ./source/index-45-9.lagda &
+    elif [ -f ./source/index-45-9.agda ]; then
+        sexp ./source/index-45-9.agda &
+    else
+      printf 'File index-45-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-45-10.lagda ]; then
+        sexp ./source/index-45-10.lagda &
+    elif [ -f ./source/index-45-10.agda ]; then
+        sexp ./source/index-45-10.agda &
+    else
+      printf 'File index-45-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-47-0.lagda ]; then
@@ -1219,6 +2245,24 @@
       printf 'File index-47-2 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-47-3.lagda ]; then
+        sexp ./source/index-47-3.lagda &
+    elif [ -f ./source/index-47-3.agda ]; then
+        sexp ./source/index-47-3.agda &
+    else
+      printf 'File index-47-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-47-4.lagda ]; then
+        sexp ./source/index-47-4.lagda &
+    elif [ -f ./source/index-47-4.agda ]; then
+        sexp ./source/index-47-4.agda &
+    else
+      printf 'File index-47-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-49-0.lagda ]; then
@@ -1236,6 +2280,15 @@
         sexp ./source/index-49-1.agda &
     else
       printf 'File index-49-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-49-2.lagda ]; then
+        sexp ./source/index-49-2.lagda &
+    elif [ -f ./source/index-49-2.agda ]; then
+        sexp ./source/index-49-2.agda &
+    else
+      printf 'File index-49-2 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1311,6 +2364,60 @@
       printf 'File index-51-6 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-51-7.lagda ]; then
+        sexp ./source/index-51-7.lagda &
+    elif [ -f ./source/index-51-7.agda ]; then
+        sexp ./source/index-51-7.agda &
+    else
+      printf 'File index-51-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-51-8.lagda ]; then
+        sexp ./source/index-51-8.lagda &
+    elif [ -f ./source/index-51-8.agda ]; then
+        sexp ./source/index-51-8.agda &
+    else
+      printf 'File index-51-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-51-9.lagda ]; then
+        sexp ./source/index-51-9.lagda &
+    elif [ -f ./source/index-51-9.agda ]; then
+        sexp ./source/index-51-9.agda &
+    else
+      printf 'File index-51-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-51-10.lagda ]; then
+        sexp ./source/index-51-10.lagda &
+    elif [ -f ./source/index-51-10.agda ]; then
+        sexp ./source/index-51-10.agda &
+    else
+      printf 'File index-51-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-51-11.lagda ]; then
+        sexp ./source/index-51-11.lagda &
+    elif [ -f ./source/index-51-11.agda ]; then
+        sexp ./source/index-51-11.agda &
+    else
+      printf 'File index-51-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-51-12.lagda ]; then
+        sexp ./source/index-51-12.lagda &
+    elif [ -f ./source/index-51-12.agda ]; then
+        sexp ./source/index-51-12.agda &
+    else
+      printf 'File index-51-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-53-0.lagda ]; then
@@ -1355,6 +2462,42 @@
         sexp ./source/index-53-4.agda &
     else
       printf 'File index-53-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-53-5.lagda ]; then
+        sexp ./source/index-53-5.lagda &
+    elif [ -f ./source/index-53-5.agda ]; then
+        sexp ./source/index-53-5.agda &
+    else
+      printf 'File index-53-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-53-6.lagda ]; then
+        sexp ./source/index-53-6.lagda &
+    elif [ -f ./source/index-53-6.agda ]; then
+        sexp ./source/index-53-6.agda &
+    else
+      printf 'File index-53-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-53-7.lagda ]; then
+        sexp ./source/index-53-7.lagda &
+    elif [ -f ./source/index-53-7.agda ]; then
+        sexp ./source/index-53-7.agda &
+    else
+      printf 'File index-53-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-53-8.lagda ]; then
+        sexp ./source/index-53-8.lagda &
+    elif [ -f ./source/index-53-8.agda ]; then
+        sexp ./source/index-53-8.agda &
+    else
+      printf 'File index-53-8 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1403,6 +2546,42 @@
       printf 'File index-55-4 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-55-5.lagda ]; then
+        sexp ./source/index-55-5.lagda &
+    elif [ -f ./source/index-55-5.agda ]; then
+        sexp ./source/index-55-5.agda &
+    else
+      printf 'File index-55-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-55-6.lagda ]; then
+        sexp ./source/index-55-6.lagda &
+    elif [ -f ./source/index-55-6.agda ]; then
+        sexp ./source/index-55-6.agda &
+    else
+      printf 'File index-55-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-55-7.lagda ]; then
+        sexp ./source/index-55-7.lagda &
+    elif [ -f ./source/index-55-7.agda ]; then
+        sexp ./source/index-55-7.agda &
+    else
+      printf 'File index-55-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-55-8.lagda ]; then
+        sexp ./source/index-55-8.lagda &
+    elif [ -f ./source/index-55-8.agda ]; then
+        sexp ./source/index-55-8.agda &
+    else
+      printf 'File index-55-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-57-0.lagda ]; then
@@ -1447,6 +2626,51 @@
         sexp ./source/index-57-4.agda &
     else
       printf 'File index-57-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-57-5.lagda ]; then
+        sexp ./source/index-57-5.lagda &
+    elif [ -f ./source/index-57-5.agda ]; then
+        sexp ./source/index-57-5.agda &
+    else
+      printf 'File index-57-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-57-6.lagda ]; then
+        sexp ./source/index-57-6.lagda &
+    elif [ -f ./source/index-57-6.agda ]; then
+        sexp ./source/index-57-6.agda &
+    else
+      printf 'File index-57-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-57-7.lagda ]; then
+        sexp ./source/index-57-7.lagda &
+    elif [ -f ./source/index-57-7.agda ]; then
+        sexp ./source/index-57-7.agda &
+    else
+      printf 'File index-57-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-57-8.lagda ]; then
+        sexp ./source/index-57-8.lagda &
+    elif [ -f ./source/index-57-8.agda ]; then
+        sexp ./source/index-57-8.agda &
+    else
+      printf 'File index-57-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-57-9.lagda ]; then
+        sexp ./source/index-57-9.lagda &
+    elif [ -f ./source/index-57-9.agda ]; then
+        sexp ./source/index-57-9.agda &
+    else
+      printf 'File index-57-9 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1531,6 +2755,78 @@
       printf 'File index-59-8 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-59-9.lagda ]; then
+        sexp ./source/index-59-9.lagda &
+    elif [ -f ./source/index-59-9.agda ]; then
+        sexp ./source/index-59-9.agda &
+    else
+      printf 'File index-59-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-10.lagda ]; then
+        sexp ./source/index-59-10.lagda &
+    elif [ -f ./source/index-59-10.agda ]; then
+        sexp ./source/index-59-10.agda &
+    else
+      printf 'File index-59-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-11.lagda ]; then
+        sexp ./source/index-59-11.lagda &
+    elif [ -f ./source/index-59-11.agda ]; then
+        sexp ./source/index-59-11.agda &
+    else
+      printf 'File index-59-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-12.lagda ]; then
+        sexp ./source/index-59-12.lagda &
+    elif [ -f ./source/index-59-12.agda ]; then
+        sexp ./source/index-59-12.agda &
+    else
+      printf 'File index-59-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-13.lagda ]; then
+        sexp ./source/index-59-13.lagda &
+    elif [ -f ./source/index-59-13.agda ]; then
+        sexp ./source/index-59-13.agda &
+    else
+      printf 'File index-59-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-14.lagda ]; then
+        sexp ./source/index-59-14.lagda &
+    elif [ -f ./source/index-59-14.agda ]; then
+        sexp ./source/index-59-14.agda &
+    else
+      printf 'File index-59-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-15.lagda ]; then
+        sexp ./source/index-59-15.lagda &
+    elif [ -f ./source/index-59-15.agda ]; then
+        sexp ./source/index-59-15.agda &
+    else
+      printf 'File index-59-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-59-16.lagda ]; then
+        sexp ./source/index-59-16.lagda &
+    elif [ -f ./source/index-59-16.agda ]; then
+        sexp ./source/index-59-16.agda &
+    else
+      printf 'File index-59-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-61-0.lagda ]; then
@@ -1593,6 +2889,69 @@
         sexp ./source/index-61-6.agda &
     else
       printf 'File index-61-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-7.lagda ]; then
+        sexp ./source/index-61-7.lagda &
+    elif [ -f ./source/index-61-7.agda ]; then
+        sexp ./source/index-61-7.agda &
+    else
+      printf 'File index-61-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-8.lagda ]; then
+        sexp ./source/index-61-8.lagda &
+    elif [ -f ./source/index-61-8.agda ]; then
+        sexp ./source/index-61-8.agda &
+    else
+      printf 'File index-61-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-9.lagda ]; then
+        sexp ./source/index-61-9.lagda &
+    elif [ -f ./source/index-61-9.agda ]; then
+        sexp ./source/index-61-9.agda &
+    else
+      printf 'File index-61-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-10.lagda ]; then
+        sexp ./source/index-61-10.lagda &
+    elif [ -f ./source/index-61-10.agda ]; then
+        sexp ./source/index-61-10.agda &
+    else
+      printf 'File index-61-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-11.lagda ]; then
+        sexp ./source/index-61-11.lagda &
+    elif [ -f ./source/index-61-11.agda ]; then
+        sexp ./source/index-61-11.agda &
+    else
+      printf 'File index-61-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-12.lagda ]; then
+        sexp ./source/index-61-12.lagda &
+    elif [ -f ./source/index-61-12.agda ]; then
+        sexp ./source/index-61-12.agda &
+    else
+      printf 'File index-61-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-61-13.lagda ]; then
+        sexp ./source/index-61-13.lagda &
+    elif [ -f ./source/index-61-13.agda ]; then
+        sexp ./source/index-61-13.agda &
+    else
+      printf 'File index-61-13 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1702,6 +3061,114 @@
         sexp ./source/index-63-11.agda &
     else
       printf 'File index-63-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-12.lagda ]; then
+        sexp ./source/index-63-12.lagda &
+    elif [ -f ./source/index-63-12.agda ]; then
+        sexp ./source/index-63-12.agda &
+    else
+      printf 'File index-63-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-13.lagda ]; then
+        sexp ./source/index-63-13.lagda &
+    elif [ -f ./source/index-63-13.agda ]; then
+        sexp ./source/index-63-13.agda &
+    else
+      printf 'File index-63-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-14.lagda ]; then
+        sexp ./source/index-63-14.lagda &
+    elif [ -f ./source/index-63-14.agda ]; then
+        sexp ./source/index-63-14.agda &
+    else
+      printf 'File index-63-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-15.lagda ]; then
+        sexp ./source/index-63-15.lagda &
+    elif [ -f ./source/index-63-15.agda ]; then
+        sexp ./source/index-63-15.agda &
+    else
+      printf 'File index-63-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-16.lagda ]; then
+        sexp ./source/index-63-16.lagda &
+    elif [ -f ./source/index-63-16.agda ]; then
+        sexp ./source/index-63-16.agda &
+    else
+      printf 'File index-63-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-17.lagda ]; then
+        sexp ./source/index-63-17.lagda &
+    elif [ -f ./source/index-63-17.agda ]; then
+        sexp ./source/index-63-17.agda &
+    else
+      printf 'File index-63-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-18.lagda ]; then
+        sexp ./source/index-63-18.lagda &
+    elif [ -f ./source/index-63-18.agda ]; then
+        sexp ./source/index-63-18.agda &
+    else
+      printf 'File index-63-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-19.lagda ]; then
+        sexp ./source/index-63-19.lagda &
+    elif [ -f ./source/index-63-19.agda ]; then
+        sexp ./source/index-63-19.agda &
+    else
+      printf 'File index-63-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-20.lagda ]; then
+        sexp ./source/index-63-20.lagda &
+    elif [ -f ./source/index-63-20.agda ]; then
+        sexp ./source/index-63-20.agda &
+    else
+      printf 'File index-63-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-21.lagda ]; then
+        sexp ./source/index-63-21.lagda &
+    elif [ -f ./source/index-63-21.agda ]; then
+        sexp ./source/index-63-21.agda &
+    else
+      printf 'File index-63-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-22.lagda ]; then
+        sexp ./source/index-63-22.lagda &
+    elif [ -f ./source/index-63-22.agda ]; then
+        sexp ./source/index-63-22.agda &
+    else
+      printf 'File index-63-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-63-23.lagda ]; then
+        sexp ./source/index-63-23.lagda &
+    elif [ -f ./source/index-63-23.agda ]; then
+        sexp ./source/index-63-23.agda &
+    else
+      printf 'File index-63-23 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -1874,6 +3341,177 @@
         sexp ./source/index-65-18.agda &
     else
       printf 'File index-65-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-19.lagda ]; then
+        sexp ./source/index-65-19.lagda &
+    elif [ -f ./source/index-65-19.agda ]; then
+        sexp ./source/index-65-19.agda &
+    else
+      printf 'File index-65-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-20.lagda ]; then
+        sexp ./source/index-65-20.lagda &
+    elif [ -f ./source/index-65-20.agda ]; then
+        sexp ./source/index-65-20.agda &
+    else
+      printf 'File index-65-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-21.lagda ]; then
+        sexp ./source/index-65-21.lagda &
+    elif [ -f ./source/index-65-21.agda ]; then
+        sexp ./source/index-65-21.agda &
+    else
+      printf 'File index-65-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-22.lagda ]; then
+        sexp ./source/index-65-22.lagda &
+    elif [ -f ./source/index-65-22.agda ]; then
+        sexp ./source/index-65-22.agda &
+    else
+      printf 'File index-65-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-23.lagda ]; then
+        sexp ./source/index-65-23.lagda &
+    elif [ -f ./source/index-65-23.agda ]; then
+        sexp ./source/index-65-23.agda &
+    else
+      printf 'File index-65-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-24.lagda ]; then
+        sexp ./source/index-65-24.lagda &
+    elif [ -f ./source/index-65-24.agda ]; then
+        sexp ./source/index-65-24.agda &
+    else
+      printf 'File index-65-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-25.lagda ]; then
+        sexp ./source/index-65-25.lagda &
+    elif [ -f ./source/index-65-25.agda ]; then
+        sexp ./source/index-65-25.agda &
+    else
+      printf 'File index-65-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-26.lagda ]; then
+        sexp ./source/index-65-26.lagda &
+    elif [ -f ./source/index-65-26.agda ]; then
+        sexp ./source/index-65-26.agda &
+    else
+      printf 'File index-65-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-27.lagda ]; then
+        sexp ./source/index-65-27.lagda &
+    elif [ -f ./source/index-65-27.agda ]; then
+        sexp ./source/index-65-27.agda &
+    else
+      printf 'File index-65-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-28.lagda ]; then
+        sexp ./source/index-65-28.lagda &
+    elif [ -f ./source/index-65-28.agda ]; then
+        sexp ./source/index-65-28.agda &
+    else
+      printf 'File index-65-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-29.lagda ]; then
+        sexp ./source/index-65-29.lagda &
+    elif [ -f ./source/index-65-29.agda ]; then
+        sexp ./source/index-65-29.agda &
+    else
+      printf 'File index-65-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-30.lagda ]; then
+        sexp ./source/index-65-30.lagda &
+    elif [ -f ./source/index-65-30.agda ]; then
+        sexp ./source/index-65-30.agda &
+    else
+      printf 'File index-65-30 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-31.lagda ]; then
+        sexp ./source/index-65-31.lagda &
+    elif [ -f ./source/index-65-31.agda ]; then
+        sexp ./source/index-65-31.agda &
+    else
+      printf 'File index-65-31 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-32.lagda ]; then
+        sexp ./source/index-65-32.lagda &
+    elif [ -f ./source/index-65-32.agda ]; then
+        sexp ./source/index-65-32.agda &
+    else
+      printf 'File index-65-32 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-33.lagda ]; then
+        sexp ./source/index-65-33.lagda &
+    elif [ -f ./source/index-65-33.agda ]; then
+        sexp ./source/index-65-33.agda &
+    else
+      printf 'File index-65-33 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-34.lagda ]; then
+        sexp ./source/index-65-34.lagda &
+    elif [ -f ./source/index-65-34.agda ]; then
+        sexp ./source/index-65-34.agda &
+    else
+      printf 'File index-65-34 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-35.lagda ]; then
+        sexp ./source/index-65-35.lagda &
+    elif [ -f ./source/index-65-35.agda ]; then
+        sexp ./source/index-65-35.agda &
+    else
+      printf 'File index-65-35 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-36.lagda ]; then
+        sexp ./source/index-65-36.lagda &
+    elif [ -f ./source/index-65-36.agda ]; then
+        sexp ./source/index-65-36.agda &
+    else
+      printf 'File index-65-36 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-65-37.lagda ]; then
+        sexp ./source/index-65-37.lagda &
+    elif [ -f ./source/index-65-37.agda ]; then
+        sexp ./source/index-65-37.agda &
+    else
+      printf 'File index-65-37 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -2057,6 +3695,186 @@
       printf 'File index-67-19 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-67-20.lagda ]; then
+        sexp ./source/index-67-20.lagda &
+    elif [ -f ./source/index-67-20.agda ]; then
+        sexp ./source/index-67-20.agda &
+    else
+      printf 'File index-67-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-21.lagda ]; then
+        sexp ./source/index-67-21.lagda &
+    elif [ -f ./source/index-67-21.agda ]; then
+        sexp ./source/index-67-21.agda &
+    else
+      printf 'File index-67-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-22.lagda ]; then
+        sexp ./source/index-67-22.lagda &
+    elif [ -f ./source/index-67-22.agda ]; then
+        sexp ./source/index-67-22.agda &
+    else
+      printf 'File index-67-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-23.lagda ]; then
+        sexp ./source/index-67-23.lagda &
+    elif [ -f ./source/index-67-23.agda ]; then
+        sexp ./source/index-67-23.agda &
+    else
+      printf 'File index-67-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-24.lagda ]; then
+        sexp ./source/index-67-24.lagda &
+    elif [ -f ./source/index-67-24.agda ]; then
+        sexp ./source/index-67-24.agda &
+    else
+      printf 'File index-67-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-25.lagda ]; then
+        sexp ./source/index-67-25.lagda &
+    elif [ -f ./source/index-67-25.agda ]; then
+        sexp ./source/index-67-25.agda &
+    else
+      printf 'File index-67-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-26.lagda ]; then
+        sexp ./source/index-67-26.lagda &
+    elif [ -f ./source/index-67-26.agda ]; then
+        sexp ./source/index-67-26.agda &
+    else
+      printf 'File index-67-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-27.lagda ]; then
+        sexp ./source/index-67-27.lagda &
+    elif [ -f ./source/index-67-27.agda ]; then
+        sexp ./source/index-67-27.agda &
+    else
+      printf 'File index-67-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-28.lagda ]; then
+        sexp ./source/index-67-28.lagda &
+    elif [ -f ./source/index-67-28.agda ]; then
+        sexp ./source/index-67-28.agda &
+    else
+      printf 'File index-67-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-29.lagda ]; then
+        sexp ./source/index-67-29.lagda &
+    elif [ -f ./source/index-67-29.agda ]; then
+        sexp ./source/index-67-29.agda &
+    else
+      printf 'File index-67-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-30.lagda ]; then
+        sexp ./source/index-67-30.lagda &
+    elif [ -f ./source/index-67-30.agda ]; then
+        sexp ./source/index-67-30.agda &
+    else
+      printf 'File index-67-30 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-31.lagda ]; then
+        sexp ./source/index-67-31.lagda &
+    elif [ -f ./source/index-67-31.agda ]; then
+        sexp ./source/index-67-31.agda &
+    else
+      printf 'File index-67-31 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-32.lagda ]; then
+        sexp ./source/index-67-32.lagda &
+    elif [ -f ./source/index-67-32.agda ]; then
+        sexp ./source/index-67-32.agda &
+    else
+      printf 'File index-67-32 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-33.lagda ]; then
+        sexp ./source/index-67-33.lagda &
+    elif [ -f ./source/index-67-33.agda ]; then
+        sexp ./source/index-67-33.agda &
+    else
+      printf 'File index-67-33 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-34.lagda ]; then
+        sexp ./source/index-67-34.lagda &
+    elif [ -f ./source/index-67-34.agda ]; then
+        sexp ./source/index-67-34.agda &
+    else
+      printf 'File index-67-34 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-35.lagda ]; then
+        sexp ./source/index-67-35.lagda &
+    elif [ -f ./source/index-67-35.agda ]; then
+        sexp ./source/index-67-35.agda &
+    else
+      printf 'File index-67-35 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-36.lagda ]; then
+        sexp ./source/index-67-36.lagda &
+    elif [ -f ./source/index-67-36.agda ]; then
+        sexp ./source/index-67-36.agda &
+    else
+      printf 'File index-67-36 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-37.lagda ]; then
+        sexp ./source/index-67-37.lagda &
+    elif [ -f ./source/index-67-37.agda ]; then
+        sexp ./source/index-67-37.agda &
+    else
+      printf 'File index-67-37 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-38.lagda ]; then
+        sexp ./source/index-67-38.lagda &
+    elif [ -f ./source/index-67-38.agda ]; then
+        sexp ./source/index-67-38.agda &
+    else
+      printf 'File index-67-38 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-67-39.lagda ]; then
+        sexp ./source/index-67-39.lagda &
+    elif [ -f ./source/index-67-39.agda ]; then
+        sexp ./source/index-67-39.agda &
+    else
+      printf 'File index-67-39 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-69-0.lagda ]; then
@@ -2227,6 +4045,177 @@
         sexp ./source/index-69-18.agda &
     else
       printf 'File index-69-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-19.lagda ]; then
+        sexp ./source/index-69-19.lagda &
+    elif [ -f ./source/index-69-19.agda ]; then
+        sexp ./source/index-69-19.agda &
+    else
+      printf 'File index-69-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-20.lagda ]; then
+        sexp ./source/index-69-20.lagda &
+    elif [ -f ./source/index-69-20.agda ]; then
+        sexp ./source/index-69-20.agda &
+    else
+      printf 'File index-69-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-21.lagda ]; then
+        sexp ./source/index-69-21.lagda &
+    elif [ -f ./source/index-69-21.agda ]; then
+        sexp ./source/index-69-21.agda &
+    else
+      printf 'File index-69-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-22.lagda ]; then
+        sexp ./source/index-69-22.lagda &
+    elif [ -f ./source/index-69-22.agda ]; then
+        sexp ./source/index-69-22.agda &
+    else
+      printf 'File index-69-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-23.lagda ]; then
+        sexp ./source/index-69-23.lagda &
+    elif [ -f ./source/index-69-23.agda ]; then
+        sexp ./source/index-69-23.agda &
+    else
+      printf 'File index-69-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-24.lagda ]; then
+        sexp ./source/index-69-24.lagda &
+    elif [ -f ./source/index-69-24.agda ]; then
+        sexp ./source/index-69-24.agda &
+    else
+      printf 'File index-69-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-25.lagda ]; then
+        sexp ./source/index-69-25.lagda &
+    elif [ -f ./source/index-69-25.agda ]; then
+        sexp ./source/index-69-25.agda &
+    else
+      printf 'File index-69-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-26.lagda ]; then
+        sexp ./source/index-69-26.lagda &
+    elif [ -f ./source/index-69-26.agda ]; then
+        sexp ./source/index-69-26.agda &
+    else
+      printf 'File index-69-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-27.lagda ]; then
+        sexp ./source/index-69-27.lagda &
+    elif [ -f ./source/index-69-27.agda ]; then
+        sexp ./source/index-69-27.agda &
+    else
+      printf 'File index-69-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-28.lagda ]; then
+        sexp ./source/index-69-28.lagda &
+    elif [ -f ./source/index-69-28.agda ]; then
+        sexp ./source/index-69-28.agda &
+    else
+      printf 'File index-69-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-29.lagda ]; then
+        sexp ./source/index-69-29.lagda &
+    elif [ -f ./source/index-69-29.agda ]; then
+        sexp ./source/index-69-29.agda &
+    else
+      printf 'File index-69-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-30.lagda ]; then
+        sexp ./source/index-69-30.lagda &
+    elif [ -f ./source/index-69-30.agda ]; then
+        sexp ./source/index-69-30.agda &
+    else
+      printf 'File index-69-30 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-31.lagda ]; then
+        sexp ./source/index-69-31.lagda &
+    elif [ -f ./source/index-69-31.agda ]; then
+        sexp ./source/index-69-31.agda &
+    else
+      printf 'File index-69-31 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-32.lagda ]; then
+        sexp ./source/index-69-32.lagda &
+    elif [ -f ./source/index-69-32.agda ]; then
+        sexp ./source/index-69-32.agda &
+    else
+      printf 'File index-69-32 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-33.lagda ]; then
+        sexp ./source/index-69-33.lagda &
+    elif [ -f ./source/index-69-33.agda ]; then
+        sexp ./source/index-69-33.agda &
+    else
+      printf 'File index-69-33 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-34.lagda ]; then
+        sexp ./source/index-69-34.lagda &
+    elif [ -f ./source/index-69-34.agda ]; then
+        sexp ./source/index-69-34.agda &
+    else
+      printf 'File index-69-34 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-35.lagda ]; then
+        sexp ./source/index-69-35.lagda &
+    elif [ -f ./source/index-69-35.agda ]; then
+        sexp ./source/index-69-35.agda &
+    else
+      printf 'File index-69-35 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-36.lagda ]; then
+        sexp ./source/index-69-36.lagda &
+    elif [ -f ./source/index-69-36.agda ]; then
+        sexp ./source/index-69-36.agda &
+    else
+      printf 'File index-69-36 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-69-37.lagda ]; then
+        sexp ./source/index-69-37.lagda &
+    elif [ -f ./source/index-69-37.agda ]; then
+        sexp ./source/index-69-37.agda &
+    else
+      printf 'File index-69-37 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -2455,6 +4444,222 @@
       printf 'File index-71-24 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-71-25.lagda ]; then
+        sexp ./source/index-71-25.lagda &
+    elif [ -f ./source/index-71-25.agda ]; then
+        sexp ./source/index-71-25.agda &
+    else
+      printf 'File index-71-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-26.lagda ]; then
+        sexp ./source/index-71-26.lagda &
+    elif [ -f ./source/index-71-26.agda ]; then
+        sexp ./source/index-71-26.agda &
+    else
+      printf 'File index-71-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-27.lagda ]; then
+        sexp ./source/index-71-27.lagda &
+    elif [ -f ./source/index-71-27.agda ]; then
+        sexp ./source/index-71-27.agda &
+    else
+      printf 'File index-71-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-28.lagda ]; then
+        sexp ./source/index-71-28.lagda &
+    elif [ -f ./source/index-71-28.agda ]; then
+        sexp ./source/index-71-28.agda &
+    else
+      printf 'File index-71-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-29.lagda ]; then
+        sexp ./source/index-71-29.lagda &
+    elif [ -f ./source/index-71-29.agda ]; then
+        sexp ./source/index-71-29.agda &
+    else
+      printf 'File index-71-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-30.lagda ]; then
+        sexp ./source/index-71-30.lagda &
+    elif [ -f ./source/index-71-30.agda ]; then
+        sexp ./source/index-71-30.agda &
+    else
+      printf 'File index-71-30 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-31.lagda ]; then
+        sexp ./source/index-71-31.lagda &
+    elif [ -f ./source/index-71-31.agda ]; then
+        sexp ./source/index-71-31.agda &
+    else
+      printf 'File index-71-31 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-32.lagda ]; then
+        sexp ./source/index-71-32.lagda &
+    elif [ -f ./source/index-71-32.agda ]; then
+        sexp ./source/index-71-32.agda &
+    else
+      printf 'File index-71-32 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-33.lagda ]; then
+        sexp ./source/index-71-33.lagda &
+    elif [ -f ./source/index-71-33.agda ]; then
+        sexp ./source/index-71-33.agda &
+    else
+      printf 'File index-71-33 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-34.lagda ]; then
+        sexp ./source/index-71-34.lagda &
+    elif [ -f ./source/index-71-34.agda ]; then
+        sexp ./source/index-71-34.agda &
+    else
+      printf 'File index-71-34 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-35.lagda ]; then
+        sexp ./source/index-71-35.lagda &
+    elif [ -f ./source/index-71-35.agda ]; then
+        sexp ./source/index-71-35.agda &
+    else
+      printf 'File index-71-35 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-36.lagda ]; then
+        sexp ./source/index-71-36.lagda &
+    elif [ -f ./source/index-71-36.agda ]; then
+        sexp ./source/index-71-36.agda &
+    else
+      printf 'File index-71-36 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-37.lagda ]; then
+        sexp ./source/index-71-37.lagda &
+    elif [ -f ./source/index-71-37.agda ]; then
+        sexp ./source/index-71-37.agda &
+    else
+      printf 'File index-71-37 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-38.lagda ]; then
+        sexp ./source/index-71-38.lagda &
+    elif [ -f ./source/index-71-38.agda ]; then
+        sexp ./source/index-71-38.agda &
+    else
+      printf 'File index-71-38 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-39.lagda ]; then
+        sexp ./source/index-71-39.lagda &
+    elif [ -f ./source/index-71-39.agda ]; then
+        sexp ./source/index-71-39.agda &
+    else
+      printf 'File index-71-39 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-40.lagda ]; then
+        sexp ./source/index-71-40.lagda &
+    elif [ -f ./source/index-71-40.agda ]; then
+        sexp ./source/index-71-40.agda &
+    else
+      printf 'File index-71-40 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-41.lagda ]; then
+        sexp ./source/index-71-41.lagda &
+    elif [ -f ./source/index-71-41.agda ]; then
+        sexp ./source/index-71-41.agda &
+    else
+      printf 'File index-71-41 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-42.lagda ]; then
+        sexp ./source/index-71-42.lagda &
+    elif [ -f ./source/index-71-42.agda ]; then
+        sexp ./source/index-71-42.agda &
+    else
+      printf 'File index-71-42 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-43.lagda ]; then
+        sexp ./source/index-71-43.lagda &
+    elif [ -f ./source/index-71-43.agda ]; then
+        sexp ./source/index-71-43.agda &
+    else
+      printf 'File index-71-43 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-44.lagda ]; then
+        sexp ./source/index-71-44.lagda &
+    elif [ -f ./source/index-71-44.agda ]; then
+        sexp ./source/index-71-44.agda &
+    else
+      printf 'File index-71-44 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-45.lagda ]; then
+        sexp ./source/index-71-45.lagda &
+    elif [ -f ./source/index-71-45.agda ]; then
+        sexp ./source/index-71-45.agda &
+    else
+      printf 'File index-71-45 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-46.lagda ]; then
+        sexp ./source/index-71-46.lagda &
+    elif [ -f ./source/index-71-46.agda ]; then
+        sexp ./source/index-71-46.agda &
+    else
+      printf 'File index-71-46 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-47.lagda ]; then
+        sexp ./source/index-71-47.lagda &
+    elif [ -f ./source/index-71-47.agda ]; then
+        sexp ./source/index-71-47.agda &
+    else
+      printf 'File index-71-47 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-71-48.lagda ]; then
+        sexp ./source/index-71-48.lagda &
+    elif [ -f ./source/index-71-48.agda ]; then
+        sexp ./source/index-71-48.agda &
+    else
+      printf 'File index-71-48 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-73-0.lagda ]; then
@@ -2598,6 +4803,141 @@
         sexp ./source/index-73-15.agda &
     else
       printf 'File index-73-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-16.lagda ]; then
+        sexp ./source/index-73-16.lagda &
+    elif [ -f ./source/index-73-16.agda ]; then
+        sexp ./source/index-73-16.agda &
+    else
+      printf 'File index-73-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-17.lagda ]; then
+        sexp ./source/index-73-17.lagda &
+    elif [ -f ./source/index-73-17.agda ]; then
+        sexp ./source/index-73-17.agda &
+    else
+      printf 'File index-73-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-18.lagda ]; then
+        sexp ./source/index-73-18.lagda &
+    elif [ -f ./source/index-73-18.agda ]; then
+        sexp ./source/index-73-18.agda &
+    else
+      printf 'File index-73-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-19.lagda ]; then
+        sexp ./source/index-73-19.lagda &
+    elif [ -f ./source/index-73-19.agda ]; then
+        sexp ./source/index-73-19.agda &
+    else
+      printf 'File index-73-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-20.lagda ]; then
+        sexp ./source/index-73-20.lagda &
+    elif [ -f ./source/index-73-20.agda ]; then
+        sexp ./source/index-73-20.agda &
+    else
+      printf 'File index-73-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-21.lagda ]; then
+        sexp ./source/index-73-21.lagda &
+    elif [ -f ./source/index-73-21.agda ]; then
+        sexp ./source/index-73-21.agda &
+    else
+      printf 'File index-73-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-22.lagda ]; then
+        sexp ./source/index-73-22.lagda &
+    elif [ -f ./source/index-73-22.agda ]; then
+        sexp ./source/index-73-22.agda &
+    else
+      printf 'File index-73-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-23.lagda ]; then
+        sexp ./source/index-73-23.lagda &
+    elif [ -f ./source/index-73-23.agda ]; then
+        sexp ./source/index-73-23.agda &
+    else
+      printf 'File index-73-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-24.lagda ]; then
+        sexp ./source/index-73-24.lagda &
+    elif [ -f ./source/index-73-24.agda ]; then
+        sexp ./source/index-73-24.agda &
+    else
+      printf 'File index-73-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-25.lagda ]; then
+        sexp ./source/index-73-25.lagda &
+    elif [ -f ./source/index-73-25.agda ]; then
+        sexp ./source/index-73-25.agda &
+    else
+      printf 'File index-73-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-26.lagda ]; then
+        sexp ./source/index-73-26.lagda &
+    elif [ -f ./source/index-73-26.agda ]; then
+        sexp ./source/index-73-26.agda &
+    else
+      printf 'File index-73-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-27.lagda ]; then
+        sexp ./source/index-73-27.lagda &
+    elif [ -f ./source/index-73-27.agda ]; then
+        sexp ./source/index-73-27.agda &
+    else
+      printf 'File index-73-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-28.lagda ]; then
+        sexp ./source/index-73-28.lagda &
+    elif [ -f ./source/index-73-28.agda ]; then
+        sexp ./source/index-73-28.agda &
+    else
+      printf 'File index-73-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-29.lagda ]; then
+        sexp ./source/index-73-29.lagda &
+    elif [ -f ./source/index-73-29.agda ]; then
+        sexp ./source/index-73-29.agda &
+    else
+      printf 'File index-73-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-73-30.lagda ]; then
+        sexp ./source/index-73-30.lagda &
+    elif [ -f ./source/index-73-30.agda ]; then
+        sexp ./source/index-73-30.agda &
+    else
+      printf 'File index-73-30 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -2745,6 +5085,150 @@
       printf 'File index-75-15 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-75-16.lagda ]; then
+        sexp ./source/index-75-16.lagda &
+    elif [ -f ./source/index-75-16.agda ]; then
+        sexp ./source/index-75-16.agda &
+    else
+      printf 'File index-75-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-17.lagda ]; then
+        sexp ./source/index-75-17.lagda &
+    elif [ -f ./source/index-75-17.agda ]; then
+        sexp ./source/index-75-17.agda &
+    else
+      printf 'File index-75-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-18.lagda ]; then
+        sexp ./source/index-75-18.lagda &
+    elif [ -f ./source/index-75-18.agda ]; then
+        sexp ./source/index-75-18.agda &
+    else
+      printf 'File index-75-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-19.lagda ]; then
+        sexp ./source/index-75-19.lagda &
+    elif [ -f ./source/index-75-19.agda ]; then
+        sexp ./source/index-75-19.agda &
+    else
+      printf 'File index-75-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-20.lagda ]; then
+        sexp ./source/index-75-20.lagda &
+    elif [ -f ./source/index-75-20.agda ]; then
+        sexp ./source/index-75-20.agda &
+    else
+      printf 'File index-75-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-21.lagda ]; then
+        sexp ./source/index-75-21.lagda &
+    elif [ -f ./source/index-75-21.agda ]; then
+        sexp ./source/index-75-21.agda &
+    else
+      printf 'File index-75-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-22.lagda ]; then
+        sexp ./source/index-75-22.lagda &
+    elif [ -f ./source/index-75-22.agda ]; then
+        sexp ./source/index-75-22.agda &
+    else
+      printf 'File index-75-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-23.lagda ]; then
+        sexp ./source/index-75-23.lagda &
+    elif [ -f ./source/index-75-23.agda ]; then
+        sexp ./source/index-75-23.agda &
+    else
+      printf 'File index-75-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-24.lagda ]; then
+        sexp ./source/index-75-24.lagda &
+    elif [ -f ./source/index-75-24.agda ]; then
+        sexp ./source/index-75-24.agda &
+    else
+      printf 'File index-75-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-25.lagda ]; then
+        sexp ./source/index-75-25.lagda &
+    elif [ -f ./source/index-75-25.agda ]; then
+        sexp ./source/index-75-25.agda &
+    else
+      printf 'File index-75-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-26.lagda ]; then
+        sexp ./source/index-75-26.lagda &
+    elif [ -f ./source/index-75-26.agda ]; then
+        sexp ./source/index-75-26.agda &
+    else
+      printf 'File index-75-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-27.lagda ]; then
+        sexp ./source/index-75-27.lagda &
+    elif [ -f ./source/index-75-27.agda ]; then
+        sexp ./source/index-75-27.agda &
+    else
+      printf 'File index-75-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-28.lagda ]; then
+        sexp ./source/index-75-28.lagda &
+    elif [ -f ./source/index-75-28.agda ]; then
+        sexp ./source/index-75-28.agda &
+    else
+      printf 'File index-75-28 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-29.lagda ]; then
+        sexp ./source/index-75-29.lagda &
+    elif [ -f ./source/index-75-29.agda ]; then
+        sexp ./source/index-75-29.agda &
+    else
+      printf 'File index-75-29 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-30.lagda ]; then
+        sexp ./source/index-75-30.lagda &
+    elif [ -f ./source/index-75-30.agda ]; then
+        sexp ./source/index-75-30.agda &
+    else
+      printf 'File index-75-30 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-75-31.lagda ]; then
+        sexp ./source/index-75-31.lagda &
+    elif [ -f ./source/index-75-31.agda ]; then
+        sexp ./source/index-75-31.agda &
+    else
+      printf 'File index-75-31 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-77-0.lagda ]; then
@@ -2870,6 +5354,123 @@
         sexp ./source/index-77-13.agda &
     else
       printf 'File index-77-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-14.lagda ]; then
+        sexp ./source/index-77-14.lagda &
+    elif [ -f ./source/index-77-14.agda ]; then
+        sexp ./source/index-77-14.agda &
+    else
+      printf 'File index-77-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-15.lagda ]; then
+        sexp ./source/index-77-15.lagda &
+    elif [ -f ./source/index-77-15.agda ]; then
+        sexp ./source/index-77-15.agda &
+    else
+      printf 'File index-77-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-16.lagda ]; then
+        sexp ./source/index-77-16.lagda &
+    elif [ -f ./source/index-77-16.agda ]; then
+        sexp ./source/index-77-16.agda &
+    else
+      printf 'File index-77-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-17.lagda ]; then
+        sexp ./source/index-77-17.lagda &
+    elif [ -f ./source/index-77-17.agda ]; then
+        sexp ./source/index-77-17.agda &
+    else
+      printf 'File index-77-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-18.lagda ]; then
+        sexp ./source/index-77-18.lagda &
+    elif [ -f ./source/index-77-18.agda ]; then
+        sexp ./source/index-77-18.agda &
+    else
+      printf 'File index-77-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-19.lagda ]; then
+        sexp ./source/index-77-19.lagda &
+    elif [ -f ./source/index-77-19.agda ]; then
+        sexp ./source/index-77-19.agda &
+    else
+      printf 'File index-77-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-20.lagda ]; then
+        sexp ./source/index-77-20.lagda &
+    elif [ -f ./source/index-77-20.agda ]; then
+        sexp ./source/index-77-20.agda &
+    else
+      printf 'File index-77-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-21.lagda ]; then
+        sexp ./source/index-77-21.lagda &
+    elif [ -f ./source/index-77-21.agda ]; then
+        sexp ./source/index-77-21.agda &
+    else
+      printf 'File index-77-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-22.lagda ]; then
+        sexp ./source/index-77-22.lagda &
+    elif [ -f ./source/index-77-22.agda ]; then
+        sexp ./source/index-77-22.agda &
+    else
+      printf 'File index-77-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-23.lagda ]; then
+        sexp ./source/index-77-23.lagda &
+    elif [ -f ./source/index-77-23.agda ]; then
+        sexp ./source/index-77-23.agda &
+    else
+      printf 'File index-77-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-24.lagda ]; then
+        sexp ./source/index-77-24.lagda &
+    elif [ -f ./source/index-77-24.agda ]; then
+        sexp ./source/index-77-24.agda &
+    else
+      printf 'File index-77-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-25.lagda ]; then
+        sexp ./source/index-77-25.lagda &
+    elif [ -f ./source/index-77-25.agda ]; then
+        sexp ./source/index-77-25.agda &
+    else
+      printf 'File index-77-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-77-26.lagda ]; then
+        sexp ./source/index-77-26.lagda &
+    elif [ -f ./source/index-77-26.agda ]; then
+        sexp ./source/index-77-26.agda &
+    else
+      printf 'File index-77-26 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -2999,6 +5600,132 @@
       printf 'File index-79-13 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-79-14.lagda ]; then
+        sexp ./source/index-79-14.lagda &
+    elif [ -f ./source/index-79-14.agda ]; then
+        sexp ./source/index-79-14.agda &
+    else
+      printf 'File index-79-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-15.lagda ]; then
+        sexp ./source/index-79-15.lagda &
+    elif [ -f ./source/index-79-15.agda ]; then
+        sexp ./source/index-79-15.agda &
+    else
+      printf 'File index-79-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-16.lagda ]; then
+        sexp ./source/index-79-16.lagda &
+    elif [ -f ./source/index-79-16.agda ]; then
+        sexp ./source/index-79-16.agda &
+    else
+      printf 'File index-79-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-17.lagda ]; then
+        sexp ./source/index-79-17.lagda &
+    elif [ -f ./source/index-79-17.agda ]; then
+        sexp ./source/index-79-17.agda &
+    else
+      printf 'File index-79-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-18.lagda ]; then
+        sexp ./source/index-79-18.lagda &
+    elif [ -f ./source/index-79-18.agda ]; then
+        sexp ./source/index-79-18.agda &
+    else
+      printf 'File index-79-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-19.lagda ]; then
+        sexp ./source/index-79-19.lagda &
+    elif [ -f ./source/index-79-19.agda ]; then
+        sexp ./source/index-79-19.agda &
+    else
+      printf 'File index-79-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-20.lagda ]; then
+        sexp ./source/index-79-20.lagda &
+    elif [ -f ./source/index-79-20.agda ]; then
+        sexp ./source/index-79-20.agda &
+    else
+      printf 'File index-79-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-21.lagda ]; then
+        sexp ./source/index-79-21.lagda &
+    elif [ -f ./source/index-79-21.agda ]; then
+        sexp ./source/index-79-21.agda &
+    else
+      printf 'File index-79-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-22.lagda ]; then
+        sexp ./source/index-79-22.lagda &
+    elif [ -f ./source/index-79-22.agda ]; then
+        sexp ./source/index-79-22.agda &
+    else
+      printf 'File index-79-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-23.lagda ]; then
+        sexp ./source/index-79-23.lagda &
+    elif [ -f ./source/index-79-23.agda ]; then
+        sexp ./source/index-79-23.agda &
+    else
+      printf 'File index-79-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-24.lagda ]; then
+        sexp ./source/index-79-24.lagda &
+    elif [ -f ./source/index-79-24.agda ]; then
+        sexp ./source/index-79-24.agda &
+    else
+      printf 'File index-79-24 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-25.lagda ]; then
+        sexp ./source/index-79-25.lagda &
+    elif [ -f ./source/index-79-25.agda ]; then
+        sexp ./source/index-79-25.agda &
+    else
+      printf 'File index-79-25 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-26.lagda ]; then
+        sexp ./source/index-79-26.lagda &
+    elif [ -f ./source/index-79-26.agda ]; then
+        sexp ./source/index-79-26.agda &
+    else
+      printf 'File index-79-26 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-79-27.lagda ]; then
+        sexp ./source/index-79-27.lagda &
+    elif [ -f ./source/index-79-27.agda ]; then
+        sexp ./source/index-79-27.agda &
+    else
+      printf 'File index-79-27 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-81-0.lagda ]; then
@@ -3108,6 +5835,114 @@
       printf 'File index-81-11 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-81-12.lagda ]; then
+        sexp ./source/index-81-12.lagda &
+    elif [ -f ./source/index-81-12.agda ]; then
+        sexp ./source/index-81-12.agda &
+    else
+      printf 'File index-81-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-13.lagda ]; then
+        sexp ./source/index-81-13.lagda &
+    elif [ -f ./source/index-81-13.agda ]; then
+        sexp ./source/index-81-13.agda &
+    else
+      printf 'File index-81-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-14.lagda ]; then
+        sexp ./source/index-81-14.lagda &
+    elif [ -f ./source/index-81-14.agda ]; then
+        sexp ./source/index-81-14.agda &
+    else
+      printf 'File index-81-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-15.lagda ]; then
+        sexp ./source/index-81-15.lagda &
+    elif [ -f ./source/index-81-15.agda ]; then
+        sexp ./source/index-81-15.agda &
+    else
+      printf 'File index-81-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-16.lagda ]; then
+        sexp ./source/index-81-16.lagda &
+    elif [ -f ./source/index-81-16.agda ]; then
+        sexp ./source/index-81-16.agda &
+    else
+      printf 'File index-81-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-17.lagda ]; then
+        sexp ./source/index-81-17.lagda &
+    elif [ -f ./source/index-81-17.agda ]; then
+        sexp ./source/index-81-17.agda &
+    else
+      printf 'File index-81-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-18.lagda ]; then
+        sexp ./source/index-81-18.lagda &
+    elif [ -f ./source/index-81-18.agda ]; then
+        sexp ./source/index-81-18.agda &
+    else
+      printf 'File index-81-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-19.lagda ]; then
+        sexp ./source/index-81-19.lagda &
+    elif [ -f ./source/index-81-19.agda ]; then
+        sexp ./source/index-81-19.agda &
+    else
+      printf 'File index-81-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-20.lagda ]; then
+        sexp ./source/index-81-20.lagda &
+    elif [ -f ./source/index-81-20.agda ]; then
+        sexp ./source/index-81-20.agda &
+    else
+      printf 'File index-81-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-21.lagda ]; then
+        sexp ./source/index-81-21.lagda &
+    elif [ -f ./source/index-81-21.agda ]; then
+        sexp ./source/index-81-21.agda &
+    else
+      printf 'File index-81-21 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-22.lagda ]; then
+        sexp ./source/index-81-22.lagda &
+    elif [ -f ./source/index-81-22.agda ]; then
+        sexp ./source/index-81-22.agda &
+    else
+      printf 'File index-81-22 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-81-23.lagda ]; then
+        sexp ./source/index-81-23.lagda &
+    elif [ -f ./source/index-81-23.agda ]; then
+        sexp ./source/index-81-23.agda &
+    else
+      printf 'File index-81-23 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-83-0.lagda ]; then
@@ -3188,6 +6023,87 @@
         sexp ./source/index-83-8.agda &
     else
       printf 'File index-83-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-9.lagda ]; then
+        sexp ./source/index-83-9.lagda &
+    elif [ -f ./source/index-83-9.agda ]; then
+        sexp ./source/index-83-9.agda &
+    else
+      printf 'File index-83-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-10.lagda ]; then
+        sexp ./source/index-83-10.lagda &
+    elif [ -f ./source/index-83-10.agda ]; then
+        sexp ./source/index-83-10.agda &
+    else
+      printf 'File index-83-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-11.lagda ]; then
+        sexp ./source/index-83-11.lagda &
+    elif [ -f ./source/index-83-11.agda ]; then
+        sexp ./source/index-83-11.agda &
+    else
+      printf 'File index-83-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-12.lagda ]; then
+        sexp ./source/index-83-12.lagda &
+    elif [ -f ./source/index-83-12.agda ]; then
+        sexp ./source/index-83-12.agda &
+    else
+      printf 'File index-83-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-13.lagda ]; then
+        sexp ./source/index-83-13.lagda &
+    elif [ -f ./source/index-83-13.agda ]; then
+        sexp ./source/index-83-13.agda &
+    else
+      printf 'File index-83-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-14.lagda ]; then
+        sexp ./source/index-83-14.lagda &
+    elif [ -f ./source/index-83-14.agda ]; then
+        sexp ./source/index-83-14.agda &
+    else
+      printf 'File index-83-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-15.lagda ]; then
+        sexp ./source/index-83-15.lagda &
+    elif [ -f ./source/index-83-15.agda ]; then
+        sexp ./source/index-83-15.agda &
+    else
+      printf 'File index-83-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-16.lagda ]; then
+        sexp ./source/index-83-16.lagda &
+    elif [ -f ./source/index-83-16.agda ]; then
+        sexp ./source/index-83-16.agda &
+    else
+      printf 'File index-83-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-83-17.lagda ]; then
+        sexp ./source/index-83-17.lagda &
+    elif [ -f ./source/index-83-17.agda ]; then
+        sexp ./source/index-83-17.agda &
+    else
+      printf 'File index-83-17 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -3290,6 +6206,96 @@
       printf 'File index-85-10 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-85-11.lagda ]; then
+        sexp ./source/index-85-11.lagda &
+    elif [ -f ./source/index-85-11.agda ]; then
+        sexp ./source/index-85-11.agda &
+    else
+      printf 'File index-85-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-12.lagda ]; then
+        sexp ./source/index-85-12.lagda &
+    elif [ -f ./source/index-85-12.agda ]; then
+        sexp ./source/index-85-12.agda &
+    else
+      printf 'File index-85-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-13.lagda ]; then
+        sexp ./source/index-85-13.lagda &
+    elif [ -f ./source/index-85-13.agda ]; then
+        sexp ./source/index-85-13.agda &
+    else
+      printf 'File index-85-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-14.lagda ]; then
+        sexp ./source/index-85-14.lagda &
+    elif [ -f ./source/index-85-14.agda ]; then
+        sexp ./source/index-85-14.agda &
+    else
+      printf 'File index-85-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-15.lagda ]; then
+        sexp ./source/index-85-15.lagda &
+    elif [ -f ./source/index-85-15.agda ]; then
+        sexp ./source/index-85-15.agda &
+    else
+      printf 'File index-85-15 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-16.lagda ]; then
+        sexp ./source/index-85-16.lagda &
+    elif [ -f ./source/index-85-16.agda ]; then
+        sexp ./source/index-85-16.agda &
+    else
+      printf 'File index-85-16 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-17.lagda ]; then
+        sexp ./source/index-85-17.lagda &
+    elif [ -f ./source/index-85-17.agda ]; then
+        sexp ./source/index-85-17.agda &
+    else
+      printf 'File index-85-17 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-18.lagda ]; then
+        sexp ./source/index-85-18.lagda &
+    elif [ -f ./source/index-85-18.agda ]; then
+        sexp ./source/index-85-18.agda &
+    else
+      printf 'File index-85-18 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-19.lagda ]; then
+        sexp ./source/index-85-19.lagda &
+    elif [ -f ./source/index-85-19.agda ]; then
+        sexp ./source/index-85-19.agda &
+    else
+      printf 'File index-85-19 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-85-20.lagda ]; then
+        sexp ./source/index-85-20.lagda &
+    elif [ -f ./source/index-85-20.agda ]; then
+        sexp ./source/index-85-20.agda &
+    else
+      printf 'File index-85-20 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-87-0.lagda ]; then
@@ -3363,6 +6369,69 @@
       printf 'File index-87-7 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-87-8.lagda ]; then
+        sexp ./source/index-87-8.lagda &
+    elif [ -f ./source/index-87-8.agda ]; then
+        sexp ./source/index-87-8.agda &
+    else
+      printf 'File index-87-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-9.lagda ]; then
+        sexp ./source/index-87-9.lagda &
+    elif [ -f ./source/index-87-9.agda ]; then
+        sexp ./source/index-87-9.agda &
+    else
+      printf 'File index-87-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-10.lagda ]; then
+        sexp ./source/index-87-10.lagda &
+    elif [ -f ./source/index-87-10.agda ]; then
+        sexp ./source/index-87-10.agda &
+    else
+      printf 'File index-87-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-11.lagda ]; then
+        sexp ./source/index-87-11.lagda &
+    elif [ -f ./source/index-87-11.agda ]; then
+        sexp ./source/index-87-11.agda &
+    else
+      printf 'File index-87-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-12.lagda ]; then
+        sexp ./source/index-87-12.lagda &
+    elif [ -f ./source/index-87-12.agda ]; then
+        sexp ./source/index-87-12.agda &
+    else
+      printf 'File index-87-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-13.lagda ]; then
+        sexp ./source/index-87-13.lagda &
+    elif [ -f ./source/index-87-13.agda ]; then
+        sexp ./source/index-87-13.agda &
+    else
+      printf 'File index-87-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-87-14.lagda ]; then
+        sexp ./source/index-87-14.lagda &
+    elif [ -f ./source/index-87-14.agda ]; then
+        sexp ./source/index-87-14.agda &
+    else
+      printf 'File index-87-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-89-0.lagda ]; then
@@ -3425,6 +6494,69 @@
         sexp ./source/index-89-6.agda &
     else
       printf 'File index-89-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-7.lagda ]; then
+        sexp ./source/index-89-7.lagda &
+    elif [ -f ./source/index-89-7.agda ]; then
+        sexp ./source/index-89-7.agda &
+    else
+      printf 'File index-89-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-8.lagda ]; then
+        sexp ./source/index-89-8.lagda &
+    elif [ -f ./source/index-89-8.agda ]; then
+        sexp ./source/index-89-8.agda &
+    else
+      printf 'File index-89-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-9.lagda ]; then
+        sexp ./source/index-89-9.lagda &
+    elif [ -f ./source/index-89-9.agda ]; then
+        sexp ./source/index-89-9.agda &
+    else
+      printf 'File index-89-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-10.lagda ]; then
+        sexp ./source/index-89-10.lagda &
+    elif [ -f ./source/index-89-10.agda ]; then
+        sexp ./source/index-89-10.agda &
+    else
+      printf 'File index-89-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-11.lagda ]; then
+        sexp ./source/index-89-11.lagda &
+    elif [ -f ./source/index-89-11.agda ]; then
+        sexp ./source/index-89-11.agda &
+    else
+      printf 'File index-89-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-12.lagda ]; then
+        sexp ./source/index-89-12.lagda &
+    elif [ -f ./source/index-89-12.agda ]; then
+        sexp ./source/index-89-12.agda &
+    else
+      printf 'File index-89-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-89-13.lagda ]; then
+        sexp ./source/index-89-13.lagda &
+    elif [ -f ./source/index-89-13.agda ]; then
+        sexp ./source/index-89-13.agda &
+    else
+      printf 'File index-89-13 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -3500,6 +6632,69 @@
       printf 'File index-91-7 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-91-8.lagda ]; then
+        sexp ./source/index-91-8.lagda &
+    elif [ -f ./source/index-91-8.agda ]; then
+        sexp ./source/index-91-8.agda &
+    else
+      printf 'File index-91-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-9.lagda ]; then
+        sexp ./source/index-91-9.lagda &
+    elif [ -f ./source/index-91-9.agda ]; then
+        sexp ./source/index-91-9.agda &
+    else
+      printf 'File index-91-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-10.lagda ]; then
+        sexp ./source/index-91-10.lagda &
+    elif [ -f ./source/index-91-10.agda ]; then
+        sexp ./source/index-91-10.agda &
+    else
+      printf 'File index-91-10 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-11.lagda ]; then
+        sexp ./source/index-91-11.lagda &
+    elif [ -f ./source/index-91-11.agda ]; then
+        sexp ./source/index-91-11.agda &
+    else
+      printf 'File index-91-11 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-12.lagda ]; then
+        sexp ./source/index-91-12.lagda &
+    elif [ -f ./source/index-91-12.agda ]; then
+        sexp ./source/index-91-12.agda &
+    else
+      printf 'File index-91-12 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-13.lagda ]; then
+        sexp ./source/index-91-13.lagda &
+    elif [ -f ./source/index-91-13.agda ]; then
+        sexp ./source/index-91-13.agda &
+    else
+      printf 'File index-91-13 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-91-14.lagda ]; then
+        sexp ./source/index-91-14.lagda &
+    elif [ -f ./source/index-91-14.agda ]; then
+        sexp ./source/index-91-14.agda &
+    else
+      printf 'File index-91-14 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-93-0.lagda ]; then
@@ -3546,6 +6741,51 @@
       printf 'File index-93-4 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-93-5.lagda ]; then
+        sexp ./source/index-93-5.lagda &
+    elif [ -f ./source/index-93-5.agda ]; then
+        sexp ./source/index-93-5.agda &
+    else
+      printf 'File index-93-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-93-6.lagda ]; then
+        sexp ./source/index-93-6.lagda &
+    elif [ -f ./source/index-93-6.agda ]; then
+        sexp ./source/index-93-6.agda &
+    else
+      printf 'File index-93-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-93-7.lagda ]; then
+        sexp ./source/index-93-7.lagda &
+    elif [ -f ./source/index-93-7.agda ]; then
+        sexp ./source/index-93-7.agda &
+    else
+      printf 'File index-93-7 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-93-8.lagda ]; then
+        sexp ./source/index-93-8.lagda &
+    elif [ -f ./source/index-93-8.agda ]; then
+        sexp ./source/index-93-8.agda &
+    else
+      printf 'File index-93-8 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-93-9.lagda ]; then
+        sexp ./source/index-93-9.lagda &
+    elif [ -f ./source/index-93-9.agda ]; then
+        sexp ./source/index-93-9.agda &
+    else
+      printf 'File index-93-9 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-95-0.lagda ]; then
@@ -3581,6 +6821,33 @@
         sexp ./source/index-95-3.agda &
     else
       printf 'File index-95-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-95-4.lagda ]; then
+        sexp ./source/index-95-4.lagda &
+    elif [ -f ./source/index-95-4.agda ]; then
+        sexp ./source/index-95-4.agda &
+    else
+      printf 'File index-95-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-95-5.lagda ]; then
+        sexp ./source/index-95-5.lagda &
+    elif [ -f ./source/index-95-5.agda ]; then
+        sexp ./source/index-95-5.agda &
+    else
+      printf 'File index-95-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-95-6.lagda ]; then
+        sexp ./source/index-95-6.lagda &
+    elif [ -f ./source/index-95-6.agda ]; then
+        sexp ./source/index-95-6.agda &
+    else
+      printf 'File index-95-6 not found' >&2  # write error message to stderr
       exit 1
     fi
     wait
@@ -3620,6 +6887,33 @@
       printf 'File index-97-3 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-97-4.lagda ]; then
+        sexp ./source/index-97-4.lagda &
+    elif [ -f ./source/index-97-4.agda ]; then
+        sexp ./source/index-97-4.agda &
+    else
+      printf 'File index-97-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-97-5.lagda ]; then
+        sexp ./source/index-97-5.lagda &
+    elif [ -f ./source/index-97-5.agda ]; then
+        sexp ./source/index-97-5.agda &
+    else
+      printf 'File index-97-5 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-97-6.lagda ]; then
+        sexp ./source/index-97-6.lagda &
+    elif [ -f ./source/index-97-6.agda ]; then
+        sexp ./source/index-97-6.agda &
+    else
+      printf 'File index-97-6 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-99-0.lagda ]; then
@@ -3648,6 +6942,24 @@
       printf 'File index-99-2 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-99-3.lagda ]; then
+        sexp ./source/index-99-3.lagda &
+    elif [ -f ./source/index-99-3.agda ]; then
+        sexp ./source/index-99-3.agda &
+    else
+      printf 'File index-99-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-99-4.lagda ]; then
+        sexp ./source/index-99-4.lagda &
+    elif [ -f ./source/index-99-4.agda ]; then
+        sexp ./source/index-99-4.agda &
+    else
+      printf 'File index-99-4 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
     if [ -f ./source/index-101-0.lagda ]; then
@@ -3667,14 +6979,108 @@
       printf 'File index-101-1 not found' >&2  # write error message to stderr
       exit 1
     fi
+    
+    if [ -f ./source/index-101-2.lagda ]; then
+        sexp ./source/index-101-2.lagda &
+    elif [ -f ./source/index-101-2.agda ]; then
+        sexp ./source/index-101-2.agda &
+    else
+      printf 'File index-101-2 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-101-3.lagda ]; then
+        sexp ./source/index-101-3.lagda &
+    elif [ -f ./source/index-101-3.agda ]; then
+        sexp ./source/index-101-3.agda &
+    else
+      printf 'File index-101-3 not found' >&2  # write error message to stderr
+      exit 1
+    fi
     wait
 
-    if [ -f ./source/index-102.lagda ]; then
-        sexp ./source/index-102.lagda 
-    elif [ -f ./source/index-102.agda ]; then
-        sexp ./source/index-102.agda 
+    if [ -f ./source/index-103-0.lagda ]; then
+        sexp ./source/index-103-0.lagda &
+    elif [ -f ./source/index-103-0.agda ]; then
+        sexp ./source/index-103-0.agda &
     else
-      printf 'File index-102 not found' >&2  # write error message to stderr
+      printf 'File index-103-0 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-103-1.lagda ]; then
+        sexp ./source/index-103-1.lagda &
+    elif [ -f ./source/index-103-1.agda ]; then
+        sexp ./source/index-103-1.agda &
+    else
+      printf 'File index-103-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    wait
+
+    if [ -f ./source/index-105-0.lagda ]; then
+        sexp ./source/index-105-0.lagda &
+    elif [ -f ./source/index-105-0.agda ]; then
+        sexp ./source/index-105-0.agda &
+    else
+      printf 'File index-105-0 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-105-1.lagda ]; then
+        sexp ./source/index-105-1.lagda &
+    elif [ -f ./source/index-105-1.agda ]; then
+        sexp ./source/index-105-1.agda &
+    else
+      printf 'File index-105-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    wait
+
+    if [ -f ./source/index-107-0.lagda ]; then
+        sexp ./source/index-107-0.lagda &
+    elif [ -f ./source/index-107-0.agda ]; then
+        sexp ./source/index-107-0.agda &
+    else
+      printf 'File index-107-0 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-107-1.lagda ]; then
+        sexp ./source/index-107-1.lagda &
+    elif [ -f ./source/index-107-1.agda ]; then
+        sexp ./source/index-107-1.agda &
+    else
+      printf 'File index-107-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    wait
+
+    if [ -f ./source/index-109-0.lagda ]; then
+        sexp ./source/index-109-0.lagda &
+    elif [ -f ./source/index-109-0.agda ]; then
+        sexp ./source/index-109-0.agda &
+    else
+      printf 'File index-109-0 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    
+    if [ -f ./source/index-109-1.lagda ]; then
+        sexp ./source/index-109-1.lagda &
+    elif [ -f ./source/index-109-1.agda ]; then
+        sexp ./source/index-109-1.agda &
+    else
+      printf 'File index-109-1 not found' >&2  # write error message to stderr
+      exit 1
+    fi
+    wait
+
+    if [ -f ./source/index-110.lagda ]; then
+        sexp ./source/index-110.lagda 
+    elif [ -f ./source/index-110.agda ]; then
+        sexp ./source/index-110.agda 
+    else
+      printf 'File index-110 not found' >&2  # write error message to stderr
       exit 1
     fi
     

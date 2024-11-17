@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Slice.Monad
-import Slice.Embedding
+import Locales.ContinuousMap.Definition
 
 
 \end{code}

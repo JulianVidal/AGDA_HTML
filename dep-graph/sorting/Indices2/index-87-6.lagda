@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.Thesis.Chapter6.SignedDigitSearch
-import Games.index
+import Locales.Spectrality.SpectralMapToLatticeHomomorphism
 
 
 \end{code}

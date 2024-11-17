@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.SpartanList
-import PathSequences.Rotations
+import MLTT.Two-Properties
 
 
 \end{code}

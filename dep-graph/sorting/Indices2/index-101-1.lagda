@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Rationals.Extension
-import Various.index
+import InjectiveTypes.CounterExamples
 
 
 \end{code}

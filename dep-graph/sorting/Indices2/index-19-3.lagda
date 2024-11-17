@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import OrderedTypes.JoinSemiLattices
-import Field.Axioms
+import MGS.HAE
 
 
 \end{code}

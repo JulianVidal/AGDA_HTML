@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Unsafe.Type-in-Type-False
-import Circle.Induction
+import Factorial.PlusOneLC
 
 
 \end{code}

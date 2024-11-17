@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.ShulmanTaboo
-import TWA.Thesis.Chapter5.SignedDigit
+import DomainTheory.Topology.ScottTopologyProperties
 
 
 \end{code}

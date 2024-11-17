@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.SmallnessProperties
-import Ordinals.WellOrderingTaboo
+import Ordinals.Maps
 
 
 \end{code}

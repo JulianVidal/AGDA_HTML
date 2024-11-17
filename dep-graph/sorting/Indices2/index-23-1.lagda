@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MGS.More-FunExt-Consequences
-import PathSequences.Ap
+import UF.FunExt
 
 
 \end{code}

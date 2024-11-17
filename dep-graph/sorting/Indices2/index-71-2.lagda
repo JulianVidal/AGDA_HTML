@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.Arithmetic
-import Ordinals.ToppedType
+import Locales.ContinuousMap.FrameIsomorphism-Definition
 
 
 \end{code}

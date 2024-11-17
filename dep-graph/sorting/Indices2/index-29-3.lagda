@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Field.DedekindReals
-import Relations.SRTclosure
+import OrderedTypes.Poset
 
 
 \end{code}

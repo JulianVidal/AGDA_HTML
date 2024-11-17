@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import WildCategories.Idempotents
-import UF.SetTrunc
+import Naturals.AbsoluteDifference
 
 
 \end{code}

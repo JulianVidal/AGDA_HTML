@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import WildCategories.Base
-import ContinuityAxiom.Preliminaries
+import Lifting.Construction
 
 
 \end{code}

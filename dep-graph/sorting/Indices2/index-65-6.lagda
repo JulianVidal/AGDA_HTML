@@ -5,8 +5,7 @@
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Slice.Construction
-import MLTT.Fin
+import Locales.Frame
 
 
 \end{code}

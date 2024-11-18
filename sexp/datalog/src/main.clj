@@ -138,6 +138,7 @@
 ; (count t)
 ; (count (t :func/dep))
 
+; (def t (d/pull @conn '[:db/id :func/def {:func/dep ...}] 56))
 ; Get maximum length from definition to any leaf
 (defn max_leaf [t]
   (if (nil? (t :func/dep))

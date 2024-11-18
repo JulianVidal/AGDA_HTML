@@ -32,7 +32,7 @@ while not end:
 
 print(levels)
 
-max_size = 1
+max_size = 1000
 index_dir = "./Indices2"
 shutil.rmtree(index_dir, ignore_errors=True)
 os.makedirs(index_dir)

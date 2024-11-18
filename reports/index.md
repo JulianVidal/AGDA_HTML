@@ -634,3 +634,5 @@ Splitting levels with more than 5 modules gave 5:23
 Splitting levels with more than 2 modules gave 5:09
 Splitting levels with more than 1 modules gave 6:28
 
+I will change everything to use only python, instead of clojure and datalog. It
+will simplify everything and make it more portable.

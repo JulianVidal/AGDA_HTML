@@ -1,12 +1,10 @@
 level 0
-Agda.Primitive
-level 1
 MLTT.Universes
 MLTT.Natural-Numbers-Type
 Ordinals.Indecomposable
 Various.UnivalenceFromScratch
 InfinitePigeon.Logic
-level 2
+level 1
 MLTT.Empty-Type
 MLTT.Pi
 MLTT.Identity-Type
@@ -20,35 +18,35 @@ Various.Lumsdaine
 InfinitePigeon.Equality
 InfinitePigeon.Naturals
 InfinitePigeon.LogicalFacts
-level 3
+level 2
 MLTT.Empty
 MLTT.Id
 MLTT.Sigma
 MLTT.Plus
 MGS.MLTT
 Notation.Decimal
-InfinitePigeon.Addition
+InfinitePigeon.Choice
 InfinitePigeon.Two
 InfinitePigeon.JK-Monads
-InfinitePigeon.Choice
-level 4
+level 3
 MLTT.Negation
 MLTT.AlternativePlus
 MGS.Basic-UF
 ContinuityAxiom.FalseWithoutIdentityTypes
+InfinitePigeon.Addition
 InfinitePigeon.Cantor
 InfinitePigeon.Finite-JK-Shifts
 InfinitePigeon.JK-LogicalFacts
 InfinitePigeon.J-Shift-BBC
-InfinitePigeon.Order
-level 5
+level 4
 MLTT.Unit-Properties
 Notation.General
 MGS.hlevels
 InfinitePigeon.Finite
 InfinitePigeon.K-Shift-BBC
 InfinitePigeon.J-Shift-Selection
-level 6
+InfinitePigeon.Order
+level 5
 MLTT.Plus-Properties
 MLTT.Spartan
 MGS.Retracts
@@ -56,7 +54,7 @@ InfinitePigeon.DataStructures
 InfinitePigeon.K-Shift-Selection
 InfinitePigeon.K-Shift-MBR
 InfinitePigeon.J-Shift
-level 7
+level 6
 UF.Base
 W.Type
 MGS.Equivalences
@@ -78,7 +76,7 @@ InfinitePigeon.K-Shift
 InfinitePigeon.K-Shift-from-J-Shift
 InfinitePigeon.J-AC-N
 InfinitePigeon.J-DC
-level 8
+level 7
 UF.Subsingletons
 MGS.Univalence
 MGS.Solved-Exercises
@@ -88,7 +86,7 @@ Notation.index
 InfinitePigeon.K-AC-N
 InfinitePigeon.J-InfinitePigeon
 InfinitePigeon.K-DC
-level 9
+level 8
 UF.Sets
 UF.Retracts
 MGS.Equivalence-Induction
@@ -102,7 +100,7 @@ InfinitePigeon.InfinitePigeonLessEfficient
 InfinitePigeon.InfinitePigeonOriginal
 InfinitePigeon.J-FinitePigeon
 InfinitePigeon.InfinitePigeon2011-05-12
-level 10
+level 9
 UF.Equiv
 UF.Hedberg
 MGS.FunExt-from-Univalence
@@ -115,7 +113,7 @@ WildCategories.Idempotents
 UF.SetTrunc
 InfinitePigeon.FinitePigeon
 InfinitePigeon.J-PigeonProgram
-level 11
+level 10
 NotionsOfDecidability.Digression
 UF.LeftCancellable
 UF.Subsingletons-Properties
@@ -129,7 +127,7 @@ InfinitePigeon.PigeonProgram
 InfinitePigeon.ProgramsWithoutSpecificationBis
 InfinitePigeon.J-Examples
 InfinitePigeon.ProgramsWithoutSpecification
-level 12
+level 11
 UF.Univalence
 UF.FunExt
 MGS.More-FunExt-Consequences
@@ -138,7 +136,7 @@ PathSequences.Inversion
 WildCategories.index
 MGS.Unique-Existence
 InfinitePigeon.Examples
-level 13
+level 12
 UF.Subsingletons-FunExt
 MGS.Embeddings
 MGS.Equivalence-Constructions
@@ -157,7 +155,7 @@ Naturals.UniversalProperty
 MGS.Powerset
 MGS.Partial-Functions
 InfinitePigeon.index
-level 14
+level 13
 UF.Sets-Properties
 MGS.Universe-Lifting
 UF.PropTrunc
@@ -177,7 +175,7 @@ Games.Reader
 Games.NonEmptyList
 MGS.Subsingleton-Truncation
 MGS.Yoneda
-level 15
+level 14
 UF.Lower-FunExt
 UF.ExitPropTrunc
 PCF.Combinatory.PCF
@@ -196,7 +194,7 @@ MGS.Choice
 MGS.Function-Graphs
 MGS.Quotient
 DedekindReals.Multiplication
-level 16
+level 15
 UF.EquivalenceExamples
 GamesExperimental.JK
 Relations.ChurchRosser
@@ -206,7 +204,7 @@ Games.JK
 MGS.More-Exercise-Solutions
 MGS.SIP
 DomainTheory.ScottModelOfPCF.PCF
-level 17
+level 16
 UF.Equiv-FunExt
 W.Properties
 Lifting.Miscelanea
@@ -215,7 +213,7 @@ PCF.Lambda.ApplicativeApproximation
 Relations.index
 Games.FiniteHistoryDependent
 MGS.index
-level 18
+level 17
 UF.Yoneda
 Categories.Category
 GamesExperimental.Constructor
@@ -224,24 +222,24 @@ Modal.Open
 Games.Constructor
 Games.Transformer
 UF.Singleton-Properties
-level 19
+level 18
 UF.FunExt-Properties
 Categories.Functor
 Duploids.DeductiveSystem
 UF.FunExt-from-Naive-FunExt
-level 20
+level 19
 UF.UA-FunExt
 Categories.NaturalTransformation
 Duploids.Depolarization
 Duploids.Preduploid
 UF.Knapp-UA
-level 21
+level 20
 UF.Embeddings
 UF.StructureIdentityPrinciple
 Categories.Adjunction
 Duploids.Duploid
 UF.HLevels
-level 22
+level 21
 UF.ImageAndSurjection
 UF.SubtypeClassifier-Properties
 Lifting.IdentityViaSIP
@@ -255,7 +253,7 @@ Duploids.index
 Modal.Homotopy
 UF.SigmaIdentity
 UF.Groupoids
-level 23
+level 22
 UF.Logic
 UF.IdEmbedding
 Lifting.Monad
@@ -267,19 +265,19 @@ UF.CumulativeHierarchy
 Lifting.MonadVariation
 BinarySystems.InitialBinarySystem
 UF.Classifiers-Old
-level 24
+level 23
 NotionsOfDecidability.Decidable
 Lifting.Algebras
 Quotient.GivesPropTrunc
 Dominance.Definition
 Cardinals.Type
-level 25
+level 24
 NotionsOfDecidability.Complemented
 Dominance.Decidable
 Cardinals.Preorder
-level 26
+level 25
 UF.DiscreteAndSeparated
-level 27
+level 26
 TypeTopology.Density
 Various.LawvereFPT
 Integers.Type
@@ -293,7 +291,7 @@ BinarySystems.InitialBinarySystem2
 Various.NonCollapsibleFamily
 DyadicsInductive.Dyadics
 UF.HiddenSwap
-level 28
+level 27
 UF.PairFun
 Integers.Negation
 Factorial.PlusOneLC
@@ -303,7 +301,7 @@ Circle.Induction
 Circle.Integers-SymmetricInduction
 BinarySystems.index
 DyadicsInductive.DyadicOrder
-level 29
+level 28
 UF.UniverseEmbedding
 Integers.Addition
 Fin.Properties
@@ -313,7 +311,7 @@ Factorial.index
 Circle.Construction
 Dominance.Lifting
 DyadicsInductive.DyadicOrder-PropTrunc
-level 30
+level 29
 UF.ClassicalLogic
 Integers.Multiplication
 Fin.Bishop
@@ -324,7 +322,7 @@ Circle.index
 Dominance.index
 UF.SemistrictIdentity
 DyadicsInductive.index
-level 31
+level 30
 Ordinals.Notions
 UF.Size
 Integers.Abs
@@ -342,7 +340,7 @@ Groups.Quotient
 Groups.Opposite
 Groups.Aut
 Groups.Type-Supplement
-level 32
+level 31
 Ordinals.Underlying
 Lifting.Size
 UF.NotNotStablePropositions
@@ -357,7 +355,7 @@ W.Paths
 Groups.Homomorphisms
 Groups.GroupActions
 Various.CantorTheoremForEmbeddings
-level 33
+level 32
 Ordinals.Type
 InjectiveTypes.Blackboard
 Apartness.Definition
@@ -382,7 +380,7 @@ Groups.Torsors
 UF.Powerset-Resizing
 Cardinals.Successor
 UF.TruncationLevels
-level 34
+level 33
 TypeTopology.TotallySeparated
 TypeTopology.Cantor
 Integers.Division
@@ -421,7 +419,7 @@ Various.Hydra
 DomainTheory.IdealCompletion.IdealCompletion
 Cardinals.index
 UF.TruncatedTypes
-level 35
+level 34
 TypeTopology.CompactTypes
 CoNaturals.GenericConvergentSequence
 TypeTopology.DisconnectedTypes
@@ -462,7 +460,7 @@ Naturals.index
 Groups.Cokernel
 Various.Pataraia
 UF.Truncations
-level 36
+level 35
 TypeTopology.PropTychonoff
 CoNaturals.Type
 DomainTheory.Basics.WayBelow
@@ -501,7 +499,7 @@ Integers.index
 Various.Pataraia-Taylor
 UF.ConnectedTypes
 CrossedModules.CrossedModules
-level 37
+level 36
 CoNaturals.UniversalProperty
 DomainTheory.Basics.SupComplete
 Locales.ContinuousMap.FrameIsomorphism-Definition
@@ -551,7 +549,7 @@ Various.RootsOfBooleanFunctions
 NotionsOfDecidability.QuasiDecidable
 NotionsOfDecidability.SemiDecidable
 CrossedModules.index
-level 38
+level 37
 CoNaturals.Arithmetic
 DomainTheory.Basics.Exponential
 DomainTheory.Lifting.LiftingSet
@@ -583,7 +581,7 @@ EffectfulForcing.MFPSAndVariations.CombinatoryT
 CoNaturals.Exercise
 CoNaturals.Type2
 NotionsOfDecidability.index
-level 39
+level 38
 TWA.Closeness
 PCF.Combinatory.PCFCombinators
 DomainTheory.Basics.LeastFixedPoint
@@ -616,7 +614,7 @@ DomainTheory.Lifting.LiftingDcpo
 DomainTheory.BasesAndContinuity.ContinuityDiscussion
 DomainTheory.BasesAndContinuity.ContinuityImpredicative
 UF.index
-level 40
+level 39
 Taboos.WLPO
 PCF.Combinatory.ScottModelOfPCF
 Locales.ThesisIndex
@@ -644,7 +642,7 @@ DomainTheory.IdealCompletion.Properties
 DomainTheory.Examples.Omega
 DomainTheory.Examples.Powerset
 DomainTheory.ScottModelOfPCF.PCFCombinators
-level 41
+level 40
 Taboos.BasicDiscontinuity
 TypeTopology.LimitPoints
 TypeTopology.WeaklyCompactTypes
@@ -673,7 +671,7 @@ DomainTheory.Bilimits.Sequential
 DomainTheory.IdealCompletion.Retracts
 DomainTheory.Examples.LiftingLargeProposition
 DomainTheory.Examples.IdlDyadics
-level 42
+level 41
 TypeTopology.FailureOfTotalSeparatedness
 TypeTopology.GenericConvergentSequenceCompactness
 Taboos.MarkovsPrinciple
@@ -698,7 +696,7 @@ TWA.Thesis.Chapter4.ApproxOrder-Examples
 EffectfulForcing.Internal.Correctness
 DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
 DomainTheory.BasesAndContinuity.StepFunctions
-level 43
+level 42
 TypeTopology.SigmaDiscreteAndTotallySeparated
 Taboos.index
 Locales.SmallBasis
@@ -717,7 +715,7 @@ EffectfulForcing.Internal.FurtherThoughts
 EffectfulForcing.Internal.InternalModCont
 CantorSchroederBernstein.CSB-TheoryLabLunch
 DomainTheory.Bilimits.Dinfinity
-level 44
+level 43
 Rationals.Fractions
 GamesExperimental.TicTacToe1
 GamesExperimental.TicTacToe0
@@ -739,7 +737,7 @@ Games.TicTacToe0
 EffectfulForcing.Internal.InternalModUniCont
 CantorSchroederBernstein.index
 DomainTheory.Part-I
-level 45
+level 44
 Rationals.Type
 Rationals.FractionsOperations
 GamesExperimental.index
@@ -755,7 +753,7 @@ TypeTopology.SquashedCantor
 TWA.Thesis.Chapter6.SignedDigitSearch
 Games.index
 EffectfulForcing.Internal.index
-level 46
+level 45
 Rationals.Addition
 Rationals.FractionsOrder
 Locales.StoneImpliesSpectral
@@ -770,7 +768,7 @@ TypeTopology.index
 Ordinals.Closure
 TWA.Thesis.Chapter6.SignedDigitExamples
 EffectfulForcing.index
-level 47
+level 46
 Rationals.Multiplication
 Locales.PatchProperties
 Locales.TerminalLocale.Properties
@@ -786,7 +784,7 @@ Ordinals.SupSum
 Ordinals.NotationInterpretation1
 TWA.Thesis.index
 DomainTheory.Examples.Ordinals
-level 48
+level 47
 Rationals.Negation
 Locales.UniversalPropertyOfPatch
 Locales.LawsonLocale.CompactElementsOfPoint
@@ -797,7 +795,7 @@ Ordinals.CumulativeHierarchy-Addendum
 Ordinals.NotationInterpretation0
 TWA.index
 DomainTheory.Part-II
-level 49
+level 48
 Rationals.Order
 Locales.Sierpinski.Patch
 Locales.LawsonLocale.SharpElementsCoincideWithSpectralPoints
@@ -805,7 +803,7 @@ Dyadics.index
 OrderedTypes.index
 Ordinals.NotationInterpretation
 DomainTheory.index
-level 50
+level 49
 Rationals.Abs
 Rationals.Positive
 Locales.LawsonLocale.PointsOfPatch
@@ -813,35 +811,34 @@ Field.Rationals
 Ordinals.index
 DedekindReals.Type
 Rationals.MinMax
-level 51
+level 50
 MetricSpaces.Type
 Locales.index
 Field.index
 DedekindReals.Order
 Various.Types2019
-level 52
+level 51
 MetricSpaces.Rationals
 InjectiveTypes.CounterExamples
 Rationals.Extension
 Various.index
-level 53
+level 52
 Rationals.Limits
 InjectiveTypes.index
-level 54
+level 53
 Rationals.index
 DedekindReals.Properties
-level 55
+level 54
 DedekindReals.Addition
 MetricSpaces.DedekindReals
-level 56
+level 55
 DedekindReals.Extension
 MetricSpaces.index
-level 57
+level 56
 DedekindReals.Functions
-level 58
+level 57
 DedekindReals.index
-level 59
+level 58
 index
-level 60
+level 59
 AllModulesIndex
-level 61

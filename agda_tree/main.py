@@ -41,6 +41,8 @@ print(forest.trees[1])
 # for k, v in entries.items():
 #     print(k)
 
+# FIXME: defs_types only gets types that are grand children to type parent, but
+# they could be gran-grand-children
 definitions = {}
 defs_types = {}
 for desc, n in entries.items():
@@ -54,6 +56,7 @@ for desc, n in entries.items():
                 if c.parent.parent.node_type == NodeType.TYPE:
                     defs_types[desc].add(c.node_description)
 
+print(defs_types['"InfinitePigeon.Addition.addition-associativity 52"'])
 # print(definitions)
 # print(modules)
 # print(defs_types)

@@ -42,16 +42,21 @@ print(forest.trees[1])
 #     print(k)
 
 definitions = {}
+defs_types = {}
 for desc, n in entries.items():
     definitions[desc] = set()
+    defs_types[desc] = set()
     for c in n.nodes:
         if c.node_description != desc and\
             c.node_type == NodeType.NAME and\
             desc.split(" ")[0] not in c.node_description:
                 definitions[desc].add(c.node_description)
+                if c.parent.parent.node_type == NodeType.TYPE:
+                    defs_types[desc].add(c.node_description)
 
 # print(definitions)
 # print(modules)
+# print(defs_types)
 
 # Create a networkx graph connecting all the definitions together
 defs = nx.DiGraph()
@@ -105,8 +110,24 @@ def longest_path_to_leaf(g, d):
     leafs = [n for n in g.nodes() if g.out_degree(n)==0]
     paths = nx.all_simple_paths(g, d, leafs)
     return max([len(p) for p in paths]) - 1
+print(longest_path_to_leaf(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
-# print(longest_path_to_leaf(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
+# Given a definition d, what's the longest path, in terms of importing modules,
+# until we reach the leaves? (I am interested in this for engineering
+# purposes.)
+def longest_module_path_to_leaf(g, d):
+    leafs = [n for n in g.nodes() if g.out_degree(n)==0]
+    paths = nx.all_simple_paths(g, d, leafs)
+
+    return max([
+        len({
+            entries_to_module[n] 
+            for n in p
+        }) 
+        for p in paths
+    ]) - 1
+print(longest_module_path_to_leaf(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
+
 
 # Given a definition d, which modules actually use it? (This is useful for
 # refactoring code and splitting large modules into smaller modules.)
@@ -144,7 +165,6 @@ def leafs(g):
     return [n for n in g.nodes() if g.out_degree(n) == 0]
 # print(leafs(defs))
 
-
 # What are the roots of the graph? (The definitions that are not used by any
 # other definition. These may (or may not) be the main theorems.)
 def roots(g):
@@ -164,3 +184,17 @@ def indirect_def_uses(g):
     return {n: len(nx.ancestors(g, n)) for n in g.nodes()}
 # print(sorted(indirect_def_uses(defs).items(), key=lambda item: item[1]))
 # print(indirect_def_uses(defs)['"InfinitePigeon.Equality.symmetry 40"'])
+
+
+
+# Find all definitions e whose types use definition d. (This may be useful
+# when we want to prove something about d, or when we want to know how crucial
+# e is.)
+def type_used_by(g, d):
+    return {
+        e 
+        for e, types in defs_types.items()
+        if d in types
+    }
+print(type_used_by(defs, '"MLTT.Natural-Numbers-Type.ℕ 4"'))
+

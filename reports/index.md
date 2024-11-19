@@ -639,3 +639,31 @@ will simplify everything and make it more portable.
 
 There is a bug, the type of a definition also includes the types of the "where"
 clauses.
+
+Created some cli tooling to access the queries, it takes about three minutes to
+parse all the files in type topology.
+
+Changed from mlfmf-data parser to sexpdata, this went from taking 7 minutes to
+parse to 3 minutes to parse.
+
+# 8 - Pre-Meeting Report
+Ran the level-topological sort and created index files for each level.
+Compiling all the level index files with a master index file lead to the same
+compilation time as expected. Experimented with splittig index level files into
+fixed-sized groups. This lead to a significant improvement in compilation time
+while mantaining safety.
+
+Also I was using Datahike, which is written in Clojure (uses Java), to
+write the Datalog queries. While other parts of the project were written in
+python, to simplify the whole project I have written all the queries in python
+using the networkx library. The only query I wasn't able to implement was
+finding unused imports as the s-expression extractor doesn't keep track of what
+was imported but not used.
+
+Parsing entire Typetopology s-expressions files using the parser in mlfmf-data
+was taking a long time, so I switched to using the sexpdata library which takes
+half the time. 
+
+# 8 - Post-Meeting Report
+
+# 8 - Notes

@@ -1,48 +1,4 @@
 import networkx as nx
-from pathlib import Path
-import json 
-from parser import parse_files
-
-DIR = "../sexp/TypeTopology/source/sexp"
-paths = Path(DIR).rglob('*sexp')
-
-try:
-    with open("data.txt") as f:
-        obj = json.loads(f.read())
-        definitions = obj["definitions"]
-        defs_types = obj["defs_types"]
-        entries_to_module = obj["entries_to_module"]
-    print("Loaded data.txt")
-except:
-    definitions, defs_types, entries_to_module = parse_files(paths)
-    with open("data.txt", "w") as f:
-        f.write(json.dumps({
-            "definitions": definitions, 
-            "defs_types": defs_types,
-            "entries_to_module": entries_to_module
-        }))
-    print("Created data.txt")
-    
-
-# print(defs_types)
-print(defs_types['InfinitePigeon.Addition.addition-associativity 52'])
-# print(definitions)
-# print(modules)
-# print(defs_types)
-
-# Create a networkx graph connecting all the definitions together
-defs = nx.DiGraph()
-defs.add_nodes_from(definitions.keys())
-defs.add_edges_from([
-    (func, dep)
-    for func, deps in definitions.items()
-    for dep in deps
-])
-
-# print()
-# print(nx.descendants(defs, 'InfinitePigeon.Naturals.cons 48'))
-# print(definitions['InfinitePigeon.Naturals.cons 48'])
-
 
 # Given a definition d, which definitions does it use directly or
 # indirectly?
@@ -63,13 +19,13 @@ def indirect_dependents(g, d):
 
 # Given a definition d in a module, which modules *this* definition d
 # really depends on? Directly or indirectly.
-def direct_module_dependents(g, d):
-    return {entries_to_module[dep] for dep in g.successors(d)}
+def direct_module_dependents(g, dtm, d):
+    return {dtm[dep] for dep in g.successors(d)}
 # print()
 # print(direct_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
 
-def indirect_module_dependents(g, d):
-    return {entries_to_module[dep] for dep in nx.descendants(g, d)}
+def indirect_module_dependents(g, dtm, d):
+    return {dtm[dep] for dep in nx.descendants(g, d)}
 # print()
 # print(indirect_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
 
@@ -87,13 +43,13 @@ def longest_path_to_leaf(g, d):
 # Given a definition d, what's the longest path, in terms of importing modules,
 # until we reach the leaves? (I am interested in this for engineering
 # purposes.)
-def longest_module_path_to_leaf(g, d):
+def longest_module_path_to_leaf(g, dtm, d):
     leafs = [n for n in g.nodes() if g.out_degree(n)==0]
     paths = nx.all_simple_paths(g, d, leafs)
 
     return max([
         len({
-            entries_to_module[n] 
+            dtm[n] 
             for n in p
         }) 
         for p in paths
@@ -103,11 +59,11 @@ def longest_module_path_to_leaf(g, d):
 
 # Given a definition d, which modules actually use it? (This is useful for
 # refactoring code and splitting large modules into smaller modules.)
-def module_dependents(g, d):
+def module_dependents(g, dtm, d):
     return {
-        entries_to_module[pred] 
+        dtm[pred] 
         for pred in g.predecessors(d) 
-        if entries_to_module[pred] != entries_to_module[d]
+        if dtm[pred] != dtm[d]
     }
 # print(module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
 

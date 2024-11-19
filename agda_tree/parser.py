@@ -1,4 +1,5 @@
 from sexpdata import loads, dumps, Symbol
+import json 
 from pathlib import Path
     
 def find_exp(exp, target):
@@ -37,12 +38,12 @@ def parse_files(paths):
             
 
             def_name = entry[1][1]
-            defs[def_name] = {
+            defs[def_name] = list({
                 e[1] 
                 for e in find_exp(entry, ":name") 
                 if e[1] != def_name
-            }
-            def_types[def_name] = {e[1] for e in types}
+            })
+            def_types[def_name] = list({e[1] for e in types})
             def_to_mod[def_name] = mod_name
 
     return defs, def_types, def_to_mod

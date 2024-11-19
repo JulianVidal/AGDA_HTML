@@ -1,14 +1,62 @@
+import parser.other
+from parser.other.helpers import NodeType
+import parser.data.structures
+import prettyprint
+
 import networkx as nx
-from pathlib import Path
-from parser import parse_files
 
 DIR = "../sexp/TypeTopology/source/sexp"
-paths = Path(DIR).rglob('*sexp')
+forest = parser.data.structures.AgdaForest.create_from_files(DIR)
 
-definitions, defs_types, entries_to_module = parse_files(paths)
+# t = forest.trees[1]
 
-# print(defs_types)
-print(defs_types['InfinitePigeon.Addition.addition-associativity 52'])
+# print(t)
+# print(dir(t))
+# print(t.info)
+# print(dir(t.root))
+# print()
+
+entries_to_module = {}
+modules = set()
+entries = {}
+for t in forest.trees:
+    module_name = None
+    for n in t.root.children:
+        if n.node_type == NodeType.MODULE_NAME:
+            module_name = n.node_description
+            modules.add(module_name)
+        if n.node_type == NodeType.ENTRY:
+            c = n.children[0]
+            if c.node_type == NodeType.NAME:
+                entries[c.node_description] = n
+                entries_to_module[c.node_description] = module_name
+print(forest.trees[1])
+
+# for k, v in modules.items():
+#     print()
+#     print(k)
+#     print(v)
+#     print()
+
+# for k, v in entries.items():
+#     print(k)
+
+# FIXME: defs_types only gets types that are grand children to type parent, but
+# they could be gran-grand-children
+definitions = {}
+defs_types = {}
+for desc, n in entries.items():
+    definitions[desc] = set()
+    defs_types[desc] = set()
+    for c in n.nodes:
+        if c.node_description != desc and\
+            c.node_type == NodeType.NAME and\
+            desc.split(" ")[0] not in c.node_description:
+                definitions[desc].add(c.node_description)
+                if c.parent.parent.node_type == NodeType.TYPE:
+                    defs_types[desc].add(c.node_description)
+
+print(defs_types['"InfinitePigeon.Addition.addition-associativity 52"'])
 # print(definitions)
 # print(modules)
 # print(defs_types)
@@ -23,8 +71,8 @@ defs.add_edges_from([
 ])
 
 # print()
-# print(nx.descendants(defs, 'InfinitePigeon.Naturals.cons 48'))
-# print(definitions['InfinitePigeon.Naturals.cons 48'])
+# print(nx.descendants(defs, '"InfinitePigeon.Naturals.cons 48"'))
+# print(definitions['"InfinitePigeon.Naturals.cons 48"'])
 
 
 # Given a definition d, which definitions does it use directly or
@@ -32,15 +80,15 @@ defs.add_edges_from([
 def direct_dependents(g, d):
     return g.successors(d)
 # print()
-# print(list(direct_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
-# print(len(list(direct_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))))
+# print(list(direct_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"')))
+# print(len(list(direct_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))))
 
 
 def indirect_dependents(g, d):
     return nx.descendants(g, d)
 # print()
-# print(indirect_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
-# print(len(indirect_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
+# print(indirect_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
+# print(len(indirect_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"')))
 
 
 
@@ -49,12 +97,12 @@ def indirect_dependents(g, d):
 def direct_module_dependents(g, d):
     return {entries_to_module[dep] for dep in g.successors(d)}
 # print()
-# print(direct_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(direct_module_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
 def indirect_module_dependents(g, d):
     return {entries_to_module[dep] for dep in nx.descendants(g, d)}
 # print()
-# print(indirect_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(indirect_module_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
 
 # Given a definition d, what's the longest path, in terms of calling other
@@ -65,7 +113,7 @@ def longest_path_to_leaf(g, d):
     leafs = [n for n in g.nodes() if g.out_degree(n)==0]
     paths = nx.all_simple_paths(g, d, leafs)
     return max([len(p) for p in paths]) - 1
-# print(longest_path_to_leaf(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+print(longest_path_to_leaf(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
 # Given a definition d, what's the longest path, in terms of importing modules,
 # until we reach the leaves? (I am interested in this for engineering
@@ -81,7 +129,7 @@ def longest_module_path_to_leaf(g, d):
         }) 
         for p in paths
     ]) - 1
-# print(longest_module_path_to_leaf(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+print(longest_module_path_to_leaf(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
 
 # Given a definition d, which modules actually use it? (This is useful for
@@ -92,13 +140,13 @@ def module_dependents(g, d):
         for pred in g.predecessors(d) 
         if entries_to_module[pred] != entries_to_module[d]
     }
-# print(module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(module_dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"'))
 
 # Given a definition d, which definitions use it? (That is, how important the
 # definition is.)
 def dependents(g, d):
     return g.predecessors(d)
-# print(list(dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
+# print(list(dependents(defs, '"InfinitePigeon.Addition.addition-associativity 52"')))
 
 
 # What is the longest chain from a definition to another definition? (This
@@ -110,8 +158,8 @@ def longest_path_between_def(g, src, trgt):
 # print(
 #     longest_path_between_def(
 #         defs,
-#         'InfinitePigeon.Addition._+_ 4',
-#         'MLTT.Natural-Numbers-Type.ℕ.zero 6'
+#         '"InfinitePigeon.Addition._+_ 4"',
+#         '"MLTT.Natural-Numbers-Type.ℕ.zero 6"'
 #     ))
 
 # What are the leaves of the graph? (The definitions that don't use any other
@@ -124,7 +172,7 @@ def leafs(g):
 # other definition. These may (or may not) be the main theorems.)
 def roots(g):
     return [n for n in g.nodes() if g.in_degree(n) == 0]
-# print()
+print()
 # print(roots(defs))
 
 
@@ -133,12 +181,12 @@ def roots(g):
 def direct_def_uses(g):
     return {n: g.in_degree(n) for n in g.nodes()}
 # print(sorted(direct_def_uses(defs).items(), key=lambda item: item[1]))
-# print(direct_def_uses(defs)['InfinitePigeon.Equality.symmetry 40'])
+# print(direct_def_uses(defs)['"InfinitePigeon.Equality.symmetry 40"'])
 
 def indirect_def_uses(g):
     return {n: len(nx.ancestors(g, n)) for n in g.nodes()}
 # print(sorted(indirect_def_uses(defs).items(), key=lambda item: item[1]))
-# print(indirect_def_uses(defs)['InfinitePigeon.Equality.symmetry 40'])
+# print(indirect_def_uses(defs)['"InfinitePigeon.Equality.symmetry 40"'])
 
 
 
@@ -151,5 +199,5 @@ def type_used_by(g, d):
         for e, types in defs_types.items()
         if d in types
     }
-# print(type_used_by(defs, 'MLTT.Natural-Numbers-Type.ℕ 4'))
+print(type_used_by(defs, '"MLTT.Natural-Numbers-Type.ℕ 4"'))
 

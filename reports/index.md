@@ -667,3 +667,7 @@ half the time.
 # 8 - Post-Meeting Report
 
 # 8 - Notes
+Split each idnex by m times.
+Find a way to test m more easily
+Find how long sexp compile
+Work on command line

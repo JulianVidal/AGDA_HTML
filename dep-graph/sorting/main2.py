@@ -33,7 +33,7 @@ while not end:
 print(levels)
 
 max_size = 2
-index_dir = "./Indices4"
+index_dir = "./Indices5"
 shutil.rmtree(index_dir, ignore_errors=True)
 os.makedirs(index_dir)
 
@@ -144,6 +144,6 @@ for lvl, mods in sorted(merged.items()):
 
 print(sh)
 
-sh_file = open("split_index4.sh", "w")
+sh_file = open("split_index5.sh", "w")
 sh_file.write(sh)
 sh_file.close()

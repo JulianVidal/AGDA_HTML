@@ -32,7 +32,7 @@ while not end:
 
 print(levels)
 
-max_size = 1000
+max_size = 2
 index_dir = "./Indices2"
 shutil.rmtree(index_dir, ignore_errors=True)
 os.makedirs(index_dir)
@@ -48,7 +48,7 @@ for l, mods in sorted(levels.items()):
         merged[lvl].extend(mods)
         continue
     lvl += 1
-    
+
     rem_mods = len(mods)
     for sub in range(ceil(len(mods) / max_size)):
         merged[lvl] = merged.get(lvl, [])
@@ -59,6 +59,7 @@ for l, mods in sorted(levels.items()):
         merged[lvl].append(mods[start:end])
 
     lvl += 1
+
 
 def write_index(file_name, mods):
     start = f"""
@@ -81,6 +82,7 @@ def write_index(file_name, mods):
     file = open(file_name, "w")
     file.write(start + body + end)
     file.close()
+
 
 for lvl, mods in merged.items():
     if isinstance(mods[0], list):
@@ -111,6 +113,7 @@ sexp ./source/AllModulesIndex.lagda
 
 sh = "#!/bin/zsh\n"
 
+
 def compile_mod(mod, paralle=False):
     f = mod.replace(".", "/")
     p = ""
@@ -127,6 +130,7 @@ def compile_mod(mod, paralle=False):
       exit 1
     fi
     """
+
 
 for lvl, mods in sorted(merged.items()):
     if isinstance(mods[0], list):

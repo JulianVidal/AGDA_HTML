@@ -665,6 +665,21 @@ was taking a long time, so I switched to using the sexpdata library which takes
 half the time. 
 
 # 8 - Post-Meeting Report
+For this week:
+- Implement different strategy to split index files
+- send instructions to test for different values of m
+
+For next week:
+- Create a CLI to run the queries
+  - It is expected that the initial compilation will take some time, but the
+    results should be stored so future queries are fast
+
+Discussed different strategy to split level-index files, split each index into
+m files instead of splitting each index into groups of m. Find a way to
+streamline testing different values of m and document the instructions.
+Different computers will have different optimal values of m.
+
+Also, the s-expression extractor does run faster the second time.
 
 # 8 - Notes
 Split each idnex by m times.

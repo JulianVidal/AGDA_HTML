@@ -41,109 +41,122 @@ os.makedirs(index_dir)
 merged = {}
 
 lvl = 0
+m = 4
 for l, mods in sorted(levels.items()):
-    print(l, len(mods))
-    if len(mods) <= max_size:
-        merged[lvl] = merged.get(lvl, [])
-        merged[lvl].extend(mods)
-        continue
-    lvl += 1
-
     rem_mods = len(mods)
-    for sub in range(ceil(len(mods) / max_size)):
+    for sub in range(ceil(len(mods) / m)):
         merged[lvl] = merged.get(lvl, [])
         start = len(mods) - rem_mods
         end = start + ceil(rem_mods / ceil(rem_mods / max_size))
         rem_mods -= (end - start)
         # print(start, end, rem_mods, len(mods), max_size)
         merged[lvl].append(mods[start:end])
-
-    lvl += 1
-
-
-def write_index(file_name, mods):
-    start = f"""
-   Master index file
-
-\\begin{{code}}
-
-{{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}}
-
-"""
-    body = ""
-    for mod in mods:
-        body += f"import {mod}\n"
-
-    end = f"""
-
-\\end{{code}}
-"""
-
-    file = open(file_name, "w")
-    file.write(start + body + end)
-    file.close()
+        
 
 
-for lvl, mods in merged.items():
-    if isinstance(mods[0], list):
-        for i, m in enumerate(mods):
-            file_name = os.path.join(index_dir, f"index-{lvl}-{i}.lagda")
-            write_index(file_name, m)
-    else:
-        file_name = os.path.join(index_dir, f"index-{lvl}.lagda")
-        write_index(file_name, mods)
-
-"""
-!/bin/zsh
-
-# Compile all mutual dependencies
-# '"Agda.Primitive"', '"MLTT.Universes"', '"MLTT.Empty-Type"', '"MLTT.Sigma-Type"', '"MLTT.Natural-Numbers-Type"'
-sexp ./source/MLTT/Universes.lagda
-sexp ./source/MLTT/Empty-Type.lagda
-sexp ./source/MLTT/Sigma-type.lagda
-sexp ./source/MLTT/Natural-Numbers-Type.lagda
-
-# Compile the two mutually exclusive files concurrently
-#'"index"', '"InfinitePigeon.index"'
-sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
-
-# Compile the rest
-sexp ./source/AllModulesIndex.lagda
-"""
-
-sh = "#!/bin/zsh\n"
-
-
-def compile_mod(mod, paralle=False):
-    f = mod.replace(".", "/")
-    p = ""
-    if paralle:
-        p = "&"
-
-    return f"""
-    if [ -f ./source/{f}.lagda ]; then
-        sexp ./source/{f}.lagda {p}
-    elif [ -f ./source/{f}.agda ]; then
-        sexp ./source/{f}.agda {p}
-    else
-      printf 'File {f} not found' >&2  # write error message to stderr
-      exit 1
-    fi
-    """
-
-
-for lvl, mods in sorted(merged.items()):
-    if isinstance(mods[0], list):
-        for i, ms in enumerate(mods):
-            mod_name = f"index-{lvl}-{i}"
-            sh += compile_mod(mod_name, True)
-        sh += "wait\n"
-    else:
-        mod_name = f"index-{lvl}"
-        sh += compile_mod(mod_name, False)
-
-print(sh)
-
-sh_file = open("split_index5.sh", "w")
-sh_file.write(sh)
-sh_file.close()
+# for l, mods in sorted(levels.items()):
+#     print(l, len(mods))
+#     if len(mods) <= max_size:
+#         merged[lvl] = merged.get(lvl, [])
+#         merged[lvl].extend(mods)
+#         continue
+#     lvl += 1
+#
+#     rem_mods = len(mods)
+#     for sub in range(ceil(len(mods) / max_size)):
+#         merged[lvl] = merged.get(lvl, [])
+#         start = len(mods) - rem_mods
+#         end = start + ceil(rem_mods / ceil(rem_mods / max_size))
+#         rem_mods -= (end - start)
+#         # print(start, end, rem_mods, len(mods), max_size)
+#         merged[lvl].append(mods[start:end])
+#
+#     lvl += 1
+#
+#
+# def write_index(file_name, mods):
+#     start = f"""
+#    Master index file
+#
+# \\begin{{code}}
+#
+# {{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}}
+#
+# """
+#     body = ""
+#     for mod in mods:
+#         body += f"import {mod}\n"
+#
+#     end = f"""
+#
+# \\end{{code}}
+# """
+#
+#     file = open(file_name, "w")
+#     file.write(start + body + end)
+#     file.close()
+#
+#
+# for lvl, mods in merged.items():
+#     if isinstance(mods[0], list):
+#         for i, m in enumerate(mods):
+#             file_name = os.path.join(index_dir, f"index-{lvl}-{i}.lagda")
+#             write_index(file_name, m)
+#     else:
+#         file_name = os.path.join(index_dir, f"index-{lvl}.lagda")
+#         write_index(file_name, mods)
+#
+# """
+# !/bin/zsh
+#
+# # Compile all mutual dependencies
+# # '"Agda.Primitive"', '"MLTT.Universes"', '"MLTT.Empty-Type"', '"MLTT.Sigma-Type"', '"MLTT.Natural-Numbers-Type"'
+# sexp ./source/MLTT/Universes.lagda
+# sexp ./source/MLTT/Empty-Type.lagda
+# sexp ./source/MLTT/Sigma-type.lagda
+# sexp ./source/MLTT/Natural-Numbers-Type.lagda
+#
+# # Compile the two mutually exclusive files concurrently
+# #'"index"', '"InfinitePigeon.index"'
+# sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
+#
+# # Compile the rest
+# sexp ./source/AllModulesIndex.lagda
+# """
+#
+# sh = "#!/bin/zsh\n"
+#
+#
+# def compile_mod(mod, paralle=False):
+#     f = mod.replace(".", "/")
+#     p = ""
+#     if paralle:
+#         p = "&"
+#
+#     return f"""
+#     if [ -f ./source/{f}.lagda ]; then
+#         sexp ./source/{f}.lagda {p}
+#     elif [ -f ./source/{f}.agda ]; then
+#         sexp ./source/{f}.agda {p}
+#     else
+#       printf 'File {f} not found' >&2  # write error message to stderr
+#       exit 1
+#     fi
+#     """
+#
+#
+# for lvl, mods in sorted(merged.items()):
+#     if isinstance(mods[0], list):
+#         for i, ms in enumerate(mods):
+#             mod_name = f"index-{lvl}-{i}"
+#             sh += compile_mod(mod_name, True)
+#         sh += "wait\n"
+#     else:
+#         mod_name = f"index-{lvl}"
+#         sh += compile_mod(mod_name, False)
+#
+# print(sh)
+#
+# sh_file = open("split_index5.sh", "w")
+# sh_file.write(sh)
+# sh_file.close()

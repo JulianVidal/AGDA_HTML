@@ -1,0 +1,18 @@
+
+   Master index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import InjectiveTypes.OverSmallMaps
+import UF.SIP-Examples
+import Ordinals.Maps
+import Naturals.Parity
+import Slice.Construction
+import MLTT.Fin
+import Fin.Embeddings
+import OrderedTypes.PosetReflection
+
+
+\end{code}

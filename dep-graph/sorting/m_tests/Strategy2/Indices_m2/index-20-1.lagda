@@ -1,0 +1,12 @@
+
+   Master index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import Duploids.Duploid
+import UF.HLevels
+
+
+\end{code}

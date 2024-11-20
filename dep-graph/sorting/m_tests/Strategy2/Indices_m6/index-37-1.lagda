@@ -1,0 +1,15 @@
+
+   Master index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import Ordinals.Injectivity
+import CoNaturals.BothTypes
+import UF.Powerset-Fin
+import Fin.ArgMinMax
+import GamesExperimental.alpha-beta-examples
+
+
+\end{code}

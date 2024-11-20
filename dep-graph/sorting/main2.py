@@ -1,6 +1,7 @@
 import networkx as nx
 from sorting import depths
 import os
+import stat
 import shutil
 from math import ceil
 
@@ -32,28 +33,41 @@ while not end:
 
 print(levels)
 
-max_size = 2
-index_dir = "./Indices5"
+m = 20
+sh_name = f"share/Strategy1/Indices_m{m}/split_index.sh"
+index_dir = f"./share/Strategy1/Indices_m{m}"
 shutil.rmtree(index_dir, ignore_errors=True)
 os.makedirs(index_dir)
 
 # Merge levels that are under 20 items, split indices with more than 20 items
+# Or split index files into m, regarldess of amount of items
 merged = {}
+
+# for l, mods in sorted(levels.items()):
+#     d = len(mods) // m
+#     r =  len(mods) % m
+#     start = 0
+#     for sub in range(m):
+#         end = start + (d + (1 if sub < r else 0))
+#         if end != start:
+#             merged[l] =merged.get(l, [])
+#             merged[l].append(mods[start:end])
+#         start = end
 
 lvl = 0
 for l, mods in sorted(levels.items()):
     print(l, len(mods))
-    if len(mods) <= max_size:
+    if len(mods) <= m:
         merged[lvl] = merged.get(lvl, [])
         merged[lvl].extend(mods)
         continue
     lvl += 1
 
     rem_mods = len(mods)
-    for sub in range(ceil(len(mods) / max_size)):
+    for sub in range(ceil(len(mods) / m)):
         merged[lvl] = merged.get(lvl, [])
         start = len(mods) - rem_mods
-        end = start + ceil(rem_mods / ceil(rem_mods / max_size))
+        end = start + ceil(rem_mods / ceil(rem_mods / m))
         rem_mods -= (end - start)
         # print(start, end, rem_mods, len(mods), max_size)
         merged[lvl].append(mods[start:end])
@@ -111,8 +125,8 @@ sexp ./source/index.lagda & sexp ./source/InfinitePigeon/index.agda & wait
 sexp ./source/AllModulesIndex.lagda
 """
 
-sh = "#!/bin/zsh\n"
-
+sh = """#!/bin/zsh
+"""
 
 def compile_mod(mod, paralle=False):
     f = mod.replace(".", "/")
@@ -121,10 +135,10 @@ def compile_mod(mod, paralle=False):
         p = "&"
 
     return f"""
-    if [ -f ./source/{f}.lagda ]; then
-        sexp ./source/{f}.lagda {p}
-    elif [ -f ./source/{f}.agda ]; then
-        sexp ./source/{f}.agda {p}
+    if [ -f ./{f}.lagda ]; then
+        agda ./{f}.lagda {p}
+    elif [ -f ./{f}.agda ]; then
+        agda ./{f}.agda {p}
     else
       printf 'File {f} not found' >&2  # write error message to stderr
       exit 1
@@ -142,8 +156,11 @@ for lvl, mods in sorted(merged.items()):
         mod_name = f"index-{lvl}"
         sh += compile_mod(mod_name, False)
 
-print(sh)
+# print(sh)
 
-sh_file = open("split_index5.sh", "w")
+sh_file = open(sh_name, "w")
 sh_file.write(sh)
+st = os.stat(sh_name)
+os.chmod(sh_name, st.st_mode | stat.S_IEXEC)
 sh_file.close()
+

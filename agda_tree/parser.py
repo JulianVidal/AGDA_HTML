@@ -33,17 +33,15 @@ def parse_files(paths):
                 entries.append(sexp)
 
         for entry in entries:
-            types = find_exp(entry, ":type")
-            types = find_exp(types, ":name")
+            types = find_exp(find_exp(entry, ":type"), ":name")
             
-
-            def_name = entry[1][1]
+            def_name = entry[1][1].split(' ')[0]
             defs[def_name] = list({
-                e[1] 
+                e[1].split(' ')[0]
                 for e in find_exp(entry, ":name") 
-                if e[1] != def_name
+                if e[1].split(' ')[0] != def_name
             })
-            def_types[def_name] = list({e[1] for e in types})
+            def_types[def_name] = list({e[1].split(' ')[0] for e in types})
             def_to_mod[def_name] = mod_name
 
     return defs, def_types, def_to_mod

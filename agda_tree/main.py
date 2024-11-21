@@ -1,5 +1,6 @@
 import networkx as nx
 from pathlib import Path
+import pickle
 import json 
 from parser import parse_files
 
@@ -7,37 +8,44 @@ DIR = "../sexp/TypeTopology/source/sexp"
 paths = Path(DIR).rglob('*sexp')
 
 try:
-    with open("data.txt") as f:
-        obj = json.loads(f.read())
-        definitions = obj["definitions"]
-        defs_types = obj["defs_types"]
-        entries_to_module = obj["entries_to_module"]
-    print("Loaded data.txt")
+    G = pickle.load(open('tree.pickle', 'rb'))
+    print("Loaded tree.pickle")
 except:
-    definitions, defs_types, entries_to_module = parse_files(paths)
-    with open("data.txt", "w") as f:
-        f.write(json.dumps({
-            "definitions": definitions, 
-            "defs_types": defs_types,
-            "entries_to_module": entries_to_module
-        }))
-    print("Created data.txt")
+    definitions, def_types, def_to_mod = parse_files(paths)
+
+    # Turns definitiosn into networkx graph
+    G = nx.DiGraph()
+    G.add_nodes_from([
+        (n, {"module": def_to_mod[n], "types": def_types[n]})
+        for n in definitions.keys()
+    ])
+    G.add_edges_from([
+        (func, dep)
+        for func, deps in definitions.items()
+        for dep in deps
+    ])
+
+    # Pickles the results for future use
+    pickle.dump(G, open('tree.pickle', 'wb'))
+    print("Created tree.pickle")
     
+# print(list(G.nodes(data=True)))
+# print(G.nodes["InfinitePigeon.Examples.example2 26"])
 
 # print(defs_types)
-print(defs_types['InfinitePigeon.Addition.addition-associativity 52'])
+# print(def_types['InfinitePigeon.Addition.addition-associativity 52'])
 # print(definitions)
 # print(modules)
 # print(defs_types)
 
 # Create a networkx graph connecting all the definitions together
-defs = nx.DiGraph()
-defs.add_nodes_from(definitions.keys())
-defs.add_edges_from([
-    (func, dep)
-    for func, deps in definitions.items()
-    for dep in deps
-])
+# defs = nx.DiGraph()
+# defs.add_nodes_from(definitions.keys())
+# defs.add_edges_from([
+#     (func, dep)
+#     for func, deps in definitions.items()
+#     for dep in deps
+# ])
 
 # print()
 # print(nx.descendants(defs, 'InfinitePigeon.Naturals.cons 48'))
@@ -49,29 +57,29 @@ defs.add_edges_from([
 def direct_dependents(g, d):
     return g.successors(d)
 # print()
-# print(list(direct_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
-# print(len(list(direct_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))))
+# print(list(direct_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52')))
+# print(len(list(direct_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52'))))
 
 
 def indirect_dependents(g, d):
     return nx.descendants(g, d)
 # print()
-# print(indirect_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
-# print(len(indirect_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
+# print(indirect_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(len(indirect_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52')))
 
 
 
 # Given a definition d in a module, which modules *this* definition d
 # really depends on? Directly or indirectly.
 def direct_module_dependents(g, d):
-    return {entries_to_module[dep] for dep in g.successors(d)}
+    return {g.nodes[dep]["module"] for dep in g.successors(d)}
 # print()
-# print(direct_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(direct_module_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52'))
 
 def indirect_module_dependents(g, d):
-    return {entries_to_module[dep] for dep in nx.descendants(g, d)}
+    return {g.nodes[dep]["module"] for dep in nx.descendants(g, d)}
 # print()
-# print(indirect_module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(indirect_module_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52'))
 
 
 # Given a definition d, what's the longest path, in terms of calling other
@@ -82,7 +90,7 @@ def longest_path_to_leaf(g, d):
     leafs = [n for n in g.nodes() if g.out_degree(n)==0]
     paths = nx.all_simple_paths(g, d, leafs)
     return max([len(p) for p in paths]) - 1
-# print(longest_path_to_leaf(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(longest_path_to_leaf(G, 'InfinitePigeon.Addition.addition-associativity 52'))
 
 # Given a definition d, what's the longest path, in terms of importing modules,
 # until we reach the leaves? (I am interested in this for engineering
@@ -93,29 +101,29 @@ def longest_module_path_to_leaf(g, d):
 
     return max([
         len({
-            entries_to_module[n] 
+            g.nodes[n]["module"]
             for n in p
         }) 
         for p in paths
     ]) - 1
-# print(longest_module_path_to_leaf(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(longest_module_path_to_leaf(G, 'InfinitePigeon.Addition.addition-associativity 52'))
 
 
 # Given a definition d, which modules actually use it? (This is useful for
 # refactoring code and splitting large modules into smaller modules.)
 def module_dependents(g, d):
     return {
-        entries_to_module[pred] 
+        g.nodes[pred]["module"]
         for pred in g.predecessors(d) 
-        if entries_to_module[pred] != entries_to_module[d]
+        if g.nodes[pred]["module"] != g.nodes[d]["module"]
     }
-# print(module_dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52'))
+# print(module_dependents(G, 'InfinitePigeon.Addition.addition-associativity 52'))
 
 # Given a definition d, which definitions use it? (That is, how important the
 # definition is.)
 def dependents(g, d):
     return g.predecessors(d)
-# print(list(dependents(defs, 'InfinitePigeon.Addition.addition-associativity 52')))
+# print(list(dependents(G, 'InfinitePigeon.Addition.addition-associativity 52')))
 
 
 # What is the longest chain from a definition to another definition? (This
@@ -135,27 +143,27 @@ def longest_path_between_def(g, src, trgt):
 # definition.)
 def leafs(g):
     return [n for n in g.nodes() if g.out_degree(n) == 0]
-# print(leafs(defs))
+# print(leafs(G))
 
 # What are the roots of the graph? (The definitions that are not used by any
 # other definition. These may (or may not) be the main theorems.)
 def roots(g):
     return [n for n in g.nodes() if g.in_degree(n) == 0]
 # print()
-# print(roots(defs))
+# print(roots(G))
 
 
 # list *all* definitions by the number of times they are used (in increasing or
 # descreasing order). We can consider this directly or indirectly.
 def direct_def_uses(g):
     return {n: g.in_degree(n) for n in g.nodes()}
-# print(sorted(direct_def_uses(defs).items(), key=lambda item: item[1]))
-# print(direct_def_uses(defs)['InfinitePigeon.Equality.symmetry 40'])
+# print(sorted(direct_def_uses(G).items(), key=lambda item: item[1]))
+# print(direct_def_uses(G)['InfinitePigeon.Equality.symmetry 40'])
 
 def indirect_def_uses(g):
     return {n: len(nx.ancestors(g, n)) for n in g.nodes()}
-# print(sorted(indirect_def_uses(defs).items(), key=lambda item: item[1]))
-# print(indirect_def_uses(defs)['InfinitePigeon.Equality.symmetry 40'])
+# print(sorted(indirect_def_uses(G).items(), key=lambda item: item[1]))
+# print(indirect_def_uses(G)['InfinitePigeon.Equality.symmetry 40'])
 
 
 
@@ -163,10 +171,6 @@ def indirect_def_uses(g):
 # when we want to prove something about d, or when we want to know how crucial
 # e is.)
 def type_used_by(g, d):
-    return {
-        e 
-        for e, types in defs_types.items()
-        if d in types
-    }
-# print(type_used_by(defs, 'MLTT.Natural-Numbers-Type.ℕ 4'))
+    return g.nodes[d]["types"]
+# print(type_used_by(G, 'MLTT.Natural-Numbers-Type.ℕ 4'))
 

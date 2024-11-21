@@ -29,13 +29,12 @@ def main():
     create_tree_parser.add_argument("--dir", help="Directory with s-expressions files")
     create_tree_parser.add_argument("--output", "-o", default="tree.pickle", help="Path to store tree file")
     
-    print(getmembers(commands, isfunction))
     for cmd, func in getmembers(commands, isfunction):
         sub = subparsers.add_parser(cmd, help=getdoc(func))
         for arg in signature(func).parameters:
             if arg == "g":
                 continue
-            sub.add_argument(f"{arg}", help=arg_help.get(arg, ""))
+            sub.add_argument(f"{arg}", help=arg_help.get(arg, ""), nargs="?")
 
     args = parser.parse_args()
     match args.cmd:
@@ -60,26 +59,20 @@ def main():
             # Pickles the results for future use
             pickle.dump(G, open('tree.pickle', 'wb'))
             sys.exit(0)
-        # case 'get_leafs':
-        #     # Loads tree
-        #     try:
-        #         G = pickle.load(open('tree.pickle', 'rb'))
-        #     except Exception:
-        #         print("Couldn't load tree, please use sub-command create_tree first")
-        #         sys.exit(1)
-        #
-        #     print(queries.leafs(G))
 
-    try:
-        G = pickle.load(open('tree.pickle', 'rb'))
-    except Exception:
-        print("Couldn't load tree, please use sub-command create_tree first")
-        sys.exit(1)
+    if hasattr(commands, args.cmd):
+        try:
+            G = pickle.load(open('tree.pickle', 'rb'))
+        except Exception:
+            print("Couldn't load tree, please use sub-command create_tree first")
+            sys.exit(1)
 
-    params = dict(vars(args))
-    del params["cmd"]
-    print(params)
-    print(list(queries[args.cmd]["query"](G, **params)))
+        params = dict(vars(args))
+        del params["cmd"]
+        result = getattr(commands, args.cmd)(G, **params)
+        print("\n".join(list(result)))
+    else:
+        print("Couldn't find command")
 
 if __name__ == "__main__":
     main()

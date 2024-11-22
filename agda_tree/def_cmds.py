@@ -5,6 +5,9 @@ import pickle
 import parser
 from tqdm import tqdm
 
+# TODO: Add query to get what definitions are used in module m
+# TODO: Related, query to get what types are used in module m
+
 def create_tree(sexp_dir, m=False, output=None):
     """Creates definition dependency tree"""
     #TODO: Add a way to see progress on the creation of the tree
@@ -141,3 +144,12 @@ def uses(g, indirect=False):
 def type(g, d):
     """Types of definition d"""
     return g.nodes[d]["types"]
+
+# FIXME: There is an issue with my definition graph, there shouldn't be any cycles
+
+# def topo_sort(g):
+#     """Topological sort"""
+#     return nx.topological_sort(g)
+# def lvl_sort(g):
+#     """Level sort"""
+#     return level_sort.levels(g)

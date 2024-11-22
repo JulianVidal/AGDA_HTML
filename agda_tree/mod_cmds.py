@@ -2,6 +2,7 @@ import networkx as nx
 import os
 from pathlib import Path
 import pickle
+import level_sort
 
 def create_tree(dot_file, output=None):
     """Creates modules dependency tree"""
@@ -34,17 +35,6 @@ def dependencies(g, m, indirect=False):
         return g.successors(m)
     else:
         return nx.descendants(g, m)
-
-# Given a module m, which definitions does it define
-# TODO: Find a way to store what definitions are in a module
-# def direct_module_dependencies(g, d):
-#     """Gets direct module dependencies of definition d"""
-#     return {g.nodes[dep]["module"] for dep in g.successors(d)}
-#
-# def indirect_module_dependencies(g, d):
-#     """Gets indirect module dependencies of definition d"""
-#     return {g.nodes[dep]["module"] for dep in nx.descendants(g, d)}
-
 
 # Given a module m, what's the longest path, in terms of importing other
 # modules, until we reach the leaves?
@@ -101,3 +91,11 @@ def uses(g, indirect=False):
 # def types_used(g, d):
 #     """Gets the types of definition d"""
 #     return g.nodes[d]["types"]
+
+def topo_sort(g):
+    """Topological sort"""
+    return nx.topological_sort(g)
+
+def lvl_sort(g):
+    """Level sort"""
+    return [",".join(ms) for ms in level_sort.levels(g)]

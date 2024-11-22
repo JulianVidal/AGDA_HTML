@@ -23,12 +23,6 @@ arg_help = {
 
 # TODO: Add topological sort as a query
 # TODO: Add level sort as a query
-# TODO: Add these queries but for modules
-"""
-agda_tree create_tree --dir=source/sexp --output=./data.txt
-agda_tree get_leafs
-agda_tree get_depedencies "InfinitePigeon.Addition._+_"
-"""
 def main():
     parser = argparse.ArgumentParser(description="Agda dependencies tree")
     tree_parser = parser.add_subparsers(dest='tree')

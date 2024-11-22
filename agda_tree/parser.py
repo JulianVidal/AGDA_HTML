@@ -45,5 +45,3 @@ def parse_files(paths):
             def_to_mod[def_name] = mod_name
 
     return defs, def_types, def_to_mod
-        
-DIR = "../sexp/TypeTopology/source/sexp"

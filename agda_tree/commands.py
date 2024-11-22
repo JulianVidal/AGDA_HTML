@@ -1,4 +1,47 @@
 import networkx as nx
+import os
+from pathlib import Path
+import pickle
+from parser import parse_files
+
+def create_tree(path, m=False, output=None):
+    """Creates tree to query"""
+    if not m:
+        """Creates definition dependency tree"""
+        #TODO: Add a way to see progress on the creation of thre tree
+        path = Path(path)
+        if not path.is_dir():
+            raise Exception("path isn't a directory")
+        paths = Path(path).rglob('*sexp')
+        definitions, def_types, def_to_mod = parse_files(paths)
+
+        # Turns data into networkx graph
+        g = nx.DiGraph()
+        g.add_nodes_from([
+            (n, {"module": def_to_mod[n], "types": def_types[n]})
+            for n in definitions.keys()
+        ])
+        g.add_edges_from([
+            (func, dep)
+            for func, deps in definitions.items()
+            for dep in deps
+        ])
+
+        pickle.dump(g, open(output or 'tree.pickle', 'wb'))
+    else:
+        """Creates modules dependency tree"""
+        if not path.endswith(".dot"):
+            raise Exception("path isn't a .dot file")
+        g = nx.nx_pydot.read_dot(path)
+
+        # Renames nodes to the module name
+        mapping = {}
+        for n in g.nodes(data=True):
+            mapping[n[0]] = n[1]['label'].strip('\"')
+
+        g = nx.relabel_nodes(g, mapping)
+
+        pickle.dump(g, open(output or 'mod_tree.pickle', 'wb'))
 
 # Get all definitions
 def definitions(g):
@@ -115,6 +158,6 @@ def indirect_def_uses(g):
 # Find all definitions e whose types use definition d. (This may be useful
 # when we want to prove something about d, or when we want to know how crucial
 # e is.)
-def type_used_by(g, d):
+def types_used(g, d):
     """Gets the types of definition d"""
     return g.nodes[d]["types"]

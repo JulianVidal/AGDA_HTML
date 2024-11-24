@@ -1,5 +1,4 @@
 from sexpdata import loads, dumps, Symbol
-import json 
 from pathlib import Path
 from tqdm import tqdm
     

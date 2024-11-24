@@ -1,16 +1,14 @@
 import networkx as nx
-import os
 from pathlib import Path
 import pickle
 import parser
 from tqdm import tqdm
 
-# TODO: Add query to get what definitions are used in module m
-# TODO: Related, query to get what types are used in module m
+# TODO: Query to get what definitions are used in module m
+# TODO: Query to get what types are used in module m
 
 def create_tree(sexp_dir, m=False, output=None):
     """Creates definition dependency tree"""
-    #TODO: Add a way to see progress on the creation of the tree
     path = Path(sexp_dir)
     if not path.is_dir():
         raise Exception("path isn't a directory")
@@ -40,7 +38,7 @@ def create_tree(sexp_dir, m=False, output=None):
     pickle.dump(g, open(output, 'wb'))
 
 # Get all definitions
-def nodes(g):
+def nodes(g)
     """List of definitions"""
     return g.nodes()
 

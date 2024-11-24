@@ -1,5 +1,4 @@
 import networkx as nx
-import os
 from pathlib import Path
 import pickle
 import level_sort
@@ -83,14 +82,6 @@ def uses(g, indirect=False):
 
     # Sorts in ascending order, lowest to highest
     return sorted(count, key=lambda k: count[k])
-
-# TODO: Maybe find what types are used within a module?
-# Find all definitions e whose types use definition d. (This may be useful
-# when we want to prove something about d, or when we want to know how crucial
-# e is.)
-# def types_used(g, d):
-#     """Gets the types of definition d"""
-#     return g.nodes[d]["types"]
 
 def topo_sort(g):
     """Topological sort"""

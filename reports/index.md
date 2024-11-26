@@ -671,3 +671,10 @@ Split each idnex by m times.
 Find a way to test m more easily
 Find how long sexp compile
 Work on command line
+
+Possible idea to find what modules can be compiled together, if you were to
+find what level 0 module each modules depends one, then compile concurrently
+modules that don't share level 0 modules.
+
+This could by done by running a shortest_path, to find all paths between all
+nodes and all leafs.

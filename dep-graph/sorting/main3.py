@@ -136,4 +136,4 @@ while g.number_of_nodes() > 0:
     print()
     print()
 
-print(compile_order)
+# print(compile_order)

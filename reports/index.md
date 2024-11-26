@@ -693,3 +693,106 @@ modules that don't share level 0 modules.
 
 This could by done by running a shortest_path, to find all paths between all
 nodes and all leafs.
+
+Compilation strategy:
+Find all the leafs, find what leafs does it node depend on
+Two nodes with different leafs can be compiled in parallel
+Remove leafs and compiled nodes 
+Repeat
+
+This strategy somewhat works, but looking how many modules need a given set of
+leafs. Most of the time 1-5 modules needs a leaf while 200+ all need the same
+leafs. Worst of all most of the time modules need the same few leafs, I don't
+think TypeTopology has enough independent branches.
+
+# 9 - Pre-Meeting Report
+I have created the CLI for the queries, I have split the modules graph and the
+definitions graphs into two subcommands.
+
+```
+usage: cli.py [-h] {definition,module} ...
+
+Agda dependencies tree
+
+positional arguments:
+  {definition,module}
+
+options:
+  -h, --help           show this help message and exit
+```
+
+Under these two sub commands I have the queries.
+
+```
+usage: cli.py module [-h]
+                     {create_tree,dependencies,dependents,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
+                     ...
+
+positional arguments:
+  {create_tree,dependencies,dependents,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
+    create_tree         Creates modules dependency tree
+    dependencies        Modules that module m imports
+    dependents          Modules that import module m
+    leafs               Modules with no imports
+    lvl_sort            Level sort
+    nodes               List of modules
+    path_between        Longest path between two modules src and dst
+    path_to_leaf        Longest path from module m to any leaf
+    roots               Modules that aren't imported
+    topo_sort           Topological sort
+    uses                Counts how many times a module is imported, sorted in descending order
+
+options:
+  -h, --help            show this help message and exit
+```
+
+```
+usage: cli.py definition [-h]
+                         {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
+                         ...
+
+positional arguments:
+  {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
+    create_tree         Creates definition dependency tree
+    dependencies        Definitions that definition d depends on
+    dependents          Definitions that depend on definition d
+    leafs               Definitions with no dependencies
+    module_dependencies
+                        Module dependencies of definition d
+    module_dependents   Modules that depend on definition d
+    module_path_to_leaf
+                        Longest path from definition d to any leaf only counting modules
+    nodes               List of definitions
+    path_between        Longest path between two definitions src and dst
+    path_to_leaf        Longest path from defintion d to any leaf
+    roots               Definitions that aren't used
+    type                Types of definition d
+    uses                Counts amount of uses per definition, sorted in descending order
+
+options:
+  -h, --help            show this help message and exit
+```
+
+To create the definition dependency tree, a path to the s-expressions directory
+is needed. For the module tree a path to the dependency tree dot file is
+needed.
+
+There are some performance concerns as it takes 8 minutes to get the
+s-expressions and 5 minutes to parse them into python but once it is done the
+graph is saved for future queries.
+
+I have done some tests with your proposed compilation strategy and it seems
+that most modules have similar dependencies so it is difficult to find two
+modules that have many dependencies that aren't shared.
+
+What I have done to find modules that can be compiled together is by finding
+what leafs does each module depend on, two modules that depend on different
+leafs can be compiled together.
+
+I have attached leaf_test_per_lvl.txt, which shows what modules can be compiled
+together after removing previous levels. The text file shows that most of the
+time a majority of modules use the same few leafs.
+
+# 9 - Post-Meeting Report
+# 9 - Notes
+

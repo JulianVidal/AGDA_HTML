@@ -2,7 +2,6 @@ import networkx as nx
 from pathlib import Path
 import pickle
 import parser
-from tqdm import tqdm
 
 # TODO: Query to get what definitions are used in module m
 # TODO: Query to get what types are used in module m
@@ -21,14 +20,14 @@ def create_tree(sexp_dir, m=False, output=None):
     print("Adding nodes to graph")
     g.add_nodes_from([
         (n, {"module": def_to_mod[n], "types": def_types[n]})
-        for n in tqdm(definitions.keys())
+        for n in definitions.keys()
     ])
 
     print()
     print("Adding edges to graph")
     g.add_edges_from([
         (func, dep)
-        for func, deps in tqdm(definitions.items())
+        for func, deps in definitions.items()
         for dep in deps
     ])
 
@@ -38,7 +37,7 @@ def create_tree(sexp_dir, m=False, output=None):
     pickle.dump(g, open(output, 'wb'))
 
 # Get all definitions
-def nodes(g)
+def nodes(g):
     """List of definitions"""
     return g.nodes()
 

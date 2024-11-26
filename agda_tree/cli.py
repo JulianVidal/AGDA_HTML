@@ -1,56 +1,85 @@
 import argparse
 import json
-from pathlib import Path
-from parser import parse_files
+import pickle
+import os
+from inspect import signature, getdoc, getmembers, isfunction
+import sys
 import networkx as nx
-import queries
+import def_cmds
+import mod_cmds
 
-"""
-agda_tree create_tree --dir=source/sexp --output=./data.txt
-agda_tree get_leafs
-agda_tree get_depedencies "InfinitePigeon.Addition._+_"
-"""
+arg_help = {
+    "g": "Path to tree (Default: ",
+    "-output": "Ouput file name",
+    "m": "Module name",
+    "d": "Definition name",
+    "path": "Path to directory or file",
+    "src": "Source definition",
+    "dst": "Destination definition",
+    "dot_file": "Path to dependency tree dot file",
+    "sexp_dir": "Directory of s-expressions",
+    "-indirect": "Get indirectly connected nodes"
+}
+
+# TODO: Add topological sort as a query
+# TODO: Add level sort as a query
 def main():
     parser = argparse.ArgumentParser(description="Agda dependencies tree")
-    # parser.add_argument("pattern", type=str, help="the pattern to search for")
-    subparsers = parser.add_subparsers(dest='cmd')
+    tree_parser = parser.add_subparsers(dest='tree')
 
-    create_tree_parser = subparsers.add_parser('create_tree', help="Creates tree from S-Expressions")
-    create_tree_parser.add_argument("--dir", help="Directory with s-expressions files")
-    create_tree_parser.add_argument("--output", "-o", default="data.txt", help="Path to store tree file")
+    commands = {
+        "definition": def_cmds,
+        "module": mod_cmds
+    }
 
-    get_leafs_parser = subparsers.add_parser('get_leafs', help="Get leafs of tree")
+    subparsers = {}
+    
+    def_parser = tree_parser.add_parser("definition")
+    subparsers["definition"] = def_parser.add_subparsers(dest='cmd')
+
+    mod_parser = tree_parser.add_parser("module")
+    subparsers["module"] = mod_parser.add_subparsers(dest='cmd')
+
+    for tree in ["definition", "module"]:
+        for cmd, func in getmembers(commands[tree], isfunction):
+            sub = subparsers[tree].add_parser(cmd, help=getdoc(func))
+            # print(cmd, signature(func))
+            # print(cmd, list(signature(func).parameters))
+            for arg, param in signature(func).parameters.items():
+                if arg == "g":
+                    default = "def_tree.pickle"
+                    if tree == "module":
+                        default = "mod_tree.pickle"
+                    sub.add_argument("-g", help=arg_help.get(arg, "") + default + ")", default=default)
+                    continue
+                if param.default is not param.empty:
+                    action = "store_true" if param.default == False else None
+                    arg = "-" + arg
+                    sub.add_argument(arg, help=arg_help.get(arg, ""), default=param.default, action=action)
+                else:
+                    sub.add_argument(f"{arg}", help=arg_help.get(arg, ""))
 
     args = parser.parse_args()
-    match args.cmd:
-        case 'create_tree':
-            paths = Path(args.dir).rglob('*sexp')
-            definitions, defs_types, entries_to_module = parse_files(paths)
 
-            with open(args.output, "w") as f:
-                f.write(json.dumps({
-                    "definitions": definitions, 
-                    "defs_types": defs_types,
-                    "entries_to_module": entries_to_module
-                }))
+    # print(args)
+    if hasattr(commands[args.tree], args.cmd):
+        params = dict(vars(args))
+        del params["cmd"]
+        del params["tree"]
+        # print(params)
+        if "g" in params:
+            try:
+                params["g"] = pickle.load(open(params["g"], 'rb'))
+            except Exception:
+                print("Couldn't load tree, please use sub-command create_tree first")
+                sys.exit(1)
 
-        case 'get_leafs':
-
-            with open("data.txt") as f:
-                obj = json.loads(f.read())
-                definitions = obj["definitions"]
-                defs_types = obj["defs_types"]
-                entries_to_module = obj["entries_to_module"]
-
-            # Create a networkx graph connecting all the definitions together
-            defs = nx.DiGraph()
-            defs.add_nodes_from(definitions.keys())
-            defs.add_edges_from([
-                (func, dep)
-                for func, deps in definitions.items()
-                for dep in deps
-            ])
-            print(queries.leafs(defs))
+        # print(params)
+        result = getattr(commands[args.tree], args.cmd)(**params)
+        if result is not None:
+            print("\n".join(list(result)))
+    else:
+        print("Couldn't find command")
 
 if __name__ == "__main__":
     main()

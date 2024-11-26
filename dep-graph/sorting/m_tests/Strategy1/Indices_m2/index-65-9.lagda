@@ -1,0 +1,12 @@
+
+   Master index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import Quotient.FromSetReplacement
+import Quotient.Effectivity
+
+
+\end{code}

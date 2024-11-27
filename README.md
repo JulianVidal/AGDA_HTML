@@ -1,3 +1,7 @@
+# AGDA_HTML
+My undergraduate thesis. Parses the s-expressions from an AGDA project and
+builds a graph from it that can be queried.
+
 # Installation
 
 Requirements:

@@ -6,7 +6,7 @@ import parser
 # TODO: Query to get what definitions are used in module m
 # TODO: Query to get what types are used in module m
 
-def create_tree(sexp_dir, m=False, output=None):
+def create_tree(sexp_dir, output=None):
     """Creates definition dependency tree"""
     path = Path(sexp_dir)
     if not path.is_dir():

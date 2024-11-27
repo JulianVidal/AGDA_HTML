@@ -6,6 +6,7 @@ builds a graph from it that can be queried.
 
 Requirements:
  - python3 (currently using version 3.12.4)
+ - [Agda S-expression extractor](https://github.com/andrejbauer/agda/tree/master-sexp?tab=readme-ov-file) For definition tree
 
 ```bash
 # Clone repo

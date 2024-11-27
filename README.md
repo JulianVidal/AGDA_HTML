@@ -40,7 +40,8 @@ python cli.py -h
 
 # Usage
 
-To query definitions, first create the definition tree:
+To query definitions, first create the definition tree by using the create_tree
+sub command and passing the directory containing the s-expression files:
 ```bash
 python cli.py definition create_tree [path to directory with sexp files]
 
@@ -94,7 +95,8 @@ python cli.py definition -h
 #   -h, --help            show this help message and exit
 ```
 
-To query modules, first create the module tree:
+To query modules, first create the module tree by passing the DOT file from the
+--dependency-tree agda sub-command to the create_tree sub-command:
 ```bash
 python cli.py module create_tree [path to dot file]
 

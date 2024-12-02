@@ -794,5 +794,29 @@ together after removing previous levels. The text file shows that most of the
 time a majority of modules use the same few leafs.
 
 # 9 - Post-Meeting Report
-# 9 - Notes
+For this week:
+ - Write instructions to install and use the cli
 
+For next week:
+ - Create index files to compile discussed strategy.
+ - Profile agda modules and check what modules could be compiled at the same
+ time
+
+Discussed compilation strategy: Compile leafs, then find what modules depend on
+distinct leafs and compile them together with new index files, if none are
+found then add them to a previous index file and remove compiled modules from
+graph. Repeat.
+
+While most cycles don't find modules that can be compiled in parallel, some do
+so this needs to be tested in practice.
+
+Profling TypeTopology shows that there are modules that take a significant
+amount of time longer than others, find what modules could be compiled safely
+during that time could lead to a major time save.
+
+# 9 - Notes
+Keep track of attempts made and how well they imrpvoed.
+Find what modules take the longest time and figure out how to leverage that information.
+Create a compilation strategy using last stragteyg.
+What is needed for the s-expressions.
+Compile the modules that take the longest in paraelle, don't care about safety.

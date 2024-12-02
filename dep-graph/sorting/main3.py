@@ -4,6 +4,7 @@ import os
 import stat
 import shutil
 from math import ceil
+import index_gen
 
 g = nx.nx_pydot.read_dot("../graph.dot")
 # print(g)
@@ -75,14 +76,14 @@ def find_largest_disjoint(leaf_anc):
     tmp = leaf_anc.copy()
 
     additions = {}
-    for key, mod in leaf_anc.items():
-        for tup in largest_disjoint:
-            if set(key) < set(tup) and len(mod) < 50:
-                if key in tmp:
-                    tmp[tup] = tmp[tup].copy() | mod
-                    additions[tup] = additions.get(tup, set())
-                    additions[tup].union(mod)
-                    del tmp[key]
+    # for key, mod in leaf_anc.items():
+    #     for tup in largest_disjoint:
+    #         if set(key) < set(tup) and len(mod) < 50:
+    #             if key in tmp:
+    #                 tmp[tup] = tmp[tup].copy() | mod
+    #                 additions[tup] = additions.get(tup, set())
+    #                 additions[tup].union(mod)
+    #                 del tmp[key]
 
     return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
     
@@ -126,14 +127,32 @@ while g.number_of_nodes() > 0:
         comp_ord.append(mods)
         g.remove_nodes_from(mods)
     
+    compile_order.append([leafs])
     compile_order.append(comp_ord)
-    compile_order.append(leafs)
     g.remove_nodes_from(leafs)
-
-    # compile_order.append(comp_ord)
 
     cycle += 1
     print()
     print()
 
+# Merge 1 step compilations into 1 bigger step
+comp = [[[]]]
+for step in compile_order:
+    if len(step) == 0:
+        continue
+    if len(step) > 1:
+        comp.append(step)
+    elif len(comp[-1]) > 1:
+        comp.append(step)
+    elif len(comp[-1]) < 2:
+        comp[-1][0].extend(step[0])
+
+
+for step in comp:
+    print(len(step))
+    for ms in step:
+        print(len(ms), ms)
+    print()
 # print(compile_order)
+
+index_gen.generate_test(comp, "./test")

@@ -5,13 +5,13 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Fin.Embeddings
 import NotionsOfDecidability.SemiDecidable
-import Fin.Choice
-import Fin.Variation
-import Fin.Order
 import Fin.ArgMinMax
+import Fin.Order
 import Fin.Pigeonhole
+import Fin.Variation
+import Fin.Embeddings
+import Fin.Choice
 
 
 \end{code}

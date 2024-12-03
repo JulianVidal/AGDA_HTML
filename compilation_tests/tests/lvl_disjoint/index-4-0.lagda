@@ -16,10 +16,10 @@ import Groups.GroupActions
 import Apartness.TightReflection
 import Ordinals.Underlying
 import W.Paths
+import Ordinals.NotationInterpretation
+import Ordinals.SupSum
 import Ordinals.TrichotomousArithmetic
 import Ordinals.Taboos
-import Ordinals.SupSum
-import Ordinals.NotationInterpretation
 import Ordinals.NotationInterpretation0
 import Ordinals.Arithmetic
 import Ordinals.Type

@@ -5,32 +5,32 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
+import Field.index
+import MetricSpaces.Rationals
 import Rationals.Negation
-import DedekindReals.Type
-import DedekindReals.Functions
-import Rationals.Fractions
-import MetricSpaces.Type
-import Rationals.Abs
+import Rationals.Order
 import Integers.HCF
-import Rationals.Limits
+import DedekindReals.Extension
+import Rationals.Fractions
+import Field.Rationals
+import DedekindReals.Type
+import DedekindReals.Properties
+import DedekindReals.Functions
+import Rationals.Addition
+import MetricSpaces.Type
+import Rationals.MinMax
+import Rationals.Extension
 import Rationals.index
-import Rationals.Type
 import DedekindReals.Order
 import MetricSpaces.DedekindReals
-import Field.Rationals
-import Rationals.Addition
-import DedekindReals.Properties
-import MetricSpaces.Rationals
-import Rationals.Multiplication
-import Field.index
-import Rationals.Order
-import MetricSpaces.index
 import Rationals.FractionsOperations
-import DedekindReals.Extension
-import Rationals.Positive
 import Rationals.FractionsOrder
-import Rationals.Extension
-import Rationals.MinMax
+import Rationals.Multiplication
+import Rationals.Abs
+import MetricSpaces.index
+import Rationals.Type
+import Rationals.Limits
+import Rationals.Positive
 
 
 \end{code}

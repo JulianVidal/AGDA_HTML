@@ -828,8 +828,8 @@ Profiling:
 agda --profile=modules ./AllModulesIndex.lagda
 
 # 10 - Pre-Meetin Report
-Ran disscussed strategy, removing level by level and finding the modules that
-have disjoint leafs. There was a negligeble improvement, it didn't speed up
+Ran discussed strategy, removing level by level and finding the modules that
+have disjoint leafs. There was a negligible improvement, it didn't speed up
 compilation. Took 8m 55s instead to normal compilation 8m 58s.
 
 I have created a way to automatically test the compilation strategies and so
@@ -846,5 +846,50 @@ pip install -r requirements.txt
 python main.py # Should run all tests
 ```
 
-# 10 - Post-Meetin Report
+# 10 - Post-Meeting Report
+
+For next week:
+ - Research faster way to find longest path to any leaf
+
+Compilation strategies tested:
+ - Normal: Compiling AllModulesIndex.lagda
+ - Unsafe: Compiling the top 5 modules with the most dependencies concurrently.
+ - lvl_m: Sorting modules by levels, separating each level into groups of m and compiling the groups concurrently.
+ - lvlb_m: Sorting modules by levels, separating each level into m groups and compiling the groups concurrently.
+ - lvl_disjoint: Sorting modules by levels, find the largest amount of disjoint modules to compile, remove level 0, repeat until no more modules are remaining
+
+Queries Implemented:
+ - For definition graph:
+   - leaf: definitions without dependencies
+   - roots: top-level definitions, or unused definitions
+   - dependencies d: definitions that definition d depends on
+   - dependents d: definitions that depend on definition d
+   - nodes: all definitions
+   - path_between a b: the longest path between definitions a and b
+   - path_to_leaf d: the longest path from definition d to any leaf
+   - uses: lists all definitions and how many times they are used
+   - type: returns the type of a definition
+   - module_dependencies d: modules that depend on definition d
+   - module_dependents d: modules that definition d depends on
+   - module_path_to_leaf d: longest path from definition d to any leaf, only keeping track of modules
+
+
+ - For module graph:
+   - leaf: modules without dependencies
+   - roots: top-level modules, or unused modules
+   - dependencies m: modules that module m depends on
+   - dependants m: modules that depend on module m
+   - nodes: all modules
+   - path_between a b: the longest path between modules a and b
+   - path_to_leaf m: the longest path from module m to any leaf
+   - lvl_sort: list of modules sorted by level
+   - topo_sort: list of modules sorted topologically
+
 # 10 - Notes
+--only scope checking
+Slow path to leaf
+add maximum to run in parallel, limit to 4 cores
+Research graph algorithms for finding path to leaf
+create summary report of what queries i have implemented and compilation strategies
+
+Definition graph should be acyclic and longest path should speed up with that guarantee.

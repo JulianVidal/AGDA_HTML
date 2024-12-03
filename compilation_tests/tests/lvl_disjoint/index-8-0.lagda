@@ -13,14 +13,14 @@ import Taboos.LLPO
 import OrderedTypes.PredicativeLFP
 import Integers.Parity
 import Modal.index
-import Integers.index
-import Dyadics.Negation
-import Integers.Parity
-import Dyadics.Type
-import Dyadics.Addition
-import Dyadics.index
 import Dyadics.Multiplication
+import Dyadics.Addition
+import Dyadics.Negation
+import Dyadics.index
 import Dyadics.Order
+import Dyadics.Type
+import Integers.Parity
+import Integers.index
 
 
 \end{code}

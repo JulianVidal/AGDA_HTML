@@ -1,0 +1,12 @@
+
+Generated Index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import Taboos.LPO
+import Locales.Clopen
+
+
+\end{code}

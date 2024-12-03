@@ -820,8 +820,7 @@ Find what modules take the longest time and figure out how to leverage that info
 Create a compilation strategy using last stragteyg.
 What is needed for the s-expressions.
 Compile the modules that take the longest in paraelle, don't care about safety.
-=======
-# 9 - Notes
+
 Testing with the level sort and finding independent modules was 9:35 seconds
 Normal was 9 minutes
 

@@ -1,0 +1,15 @@
+
+Generated Index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+
+import Locales.ScottLocale.Definition
+import Locales.Point.Definition
+import Locales.DiscreteLocale.Definition
+import Locales.DirectedFamily-Poset
+import Integers.Parity
+
+
+\end{code}

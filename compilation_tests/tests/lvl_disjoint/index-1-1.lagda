@@ -5,25 +5,25 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Sigma-Type
-import MLTT.Unit-Type
-import MLTT.Identity-Type
-import MLTT.Sigma
-import MLTT.AlternativePlus
-import MLTT.Negation
-import MLTT.Empty-Type
 import MLTT.Plus-Properties
-import MLTT.Plus
-import MLTT.Id
-import Notation.General
-import MLTT.Unit
-import MLTT.Universes
 import MLTT.Pi
-import MLTT.Unit-Properties
-import Various.Lumsdaine
-import MLTT.Empty
+import MLTT.Negation
+import MLTT.Plus
+import MLTT.Identity-Type
+import MLTT.Unit
+import MLTT.Id
 import MLTT.Two
+import Various.Lumsdaine
+import MLTT.Sigma
+import Notation.General
+import MLTT.Unit-Type
+import MLTT.AlternativePlus
+import MLTT.Unit-Properties
 import MLTT.Plus-Type
+import MLTT.Empty-Type
+import MLTT.Universes
+import MLTT.Empty
+import MLTT.Sigma-Type
 
 
 \end{code}

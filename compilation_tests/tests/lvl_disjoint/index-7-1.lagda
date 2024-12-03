@@ -5,19 +5,19 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Various.Pataraia
+import DomainTheory.Basics.ProductsContinuity
 import DomainTheory.BasesAndContinuity.Continuity
+import InjectiveTypes.PointedDcpos
+import DomainTheory.BasesAndContinuity.ContinuityDiscussion
+import Various.Pataraia
+import DomainTheory.Basics.Pointed
 import DomainTheory.Basics.FunctionComposition
 import DomainTheory.Basics.WayBelow
-import DomainTheory.Basics.Miscelanea
-import DomainTheory.Basics.Pointed
-import DomainTheory.Basics.Products
-import DomainTheory.Basics.ProductsContinuity
 import Various.Pataraia-Taylor
-import DomainTheory.BasesAndContinuity.ContinuityDiscussion
-import DomainTheory.BasesAndContinuity.IndCompletion
+import DomainTheory.Basics.Products
 import DomainTheory.BasesAndContinuity.ContinuityImpredicative
-import InjectiveTypes.PointedDcpos
+import DomainTheory.BasesAndContinuity.IndCompletion
+import DomainTheory.Basics.Miscelanea
 
 
 \end{code}

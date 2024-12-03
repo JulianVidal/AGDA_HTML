@@ -9,6 +9,7 @@ import test_normal
 import test_unsafe
 import test_lvl
 import test_lvlb
+import test_lvl_disjoint
 
 
 repo_url = "https://github.com/martinescardo/TypeTopology.git"
@@ -23,6 +24,7 @@ tests = {
     "lvl_5": (test_lvl, (dot_file, 5)),
     "lvlb_2": (test_lvlb, (dot_file, 2)),
     "lvlb_4": (test_lvlb, (dot_file, 4)),
+    "lvl_disjoint": (test_lvl_disjoint, (dot_file, )),
 }
 
 def main():

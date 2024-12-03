@@ -826,3 +826,25 @@ Normal was 9 minutes
 
 Profiling:
 agda --profile=modules ./AllModulesIndex.lagda
+
+# 10 - Pre-Meetin Report
+Ran disscussed strategy, removing level by level and finding the modules that
+have disjoint leafs. There was a negligeble improvement, it didn't speed up
+compilation. Took 8m 55s instead to normal compilation 8m 58s.
+
+I have created a way to automatically test the compilation strategies and so
+far doing the level sort and splitting each level into groups of 2 that run
+concurrently has the lowest safe compilation time.
+
+To run tests:
+```bash
+git clone https://github.com/JulianVidal/AGDA_HTML/tree/main
+cd AGDA_HTML/compilation_tests
+python -m venv .venv
+source ./.venv/bin/activate
+pip install -r requirements.txt
+python main.py # Should run all tests
+```
+
+# 10 - Post-Meetin Report
+# 10 - Notes

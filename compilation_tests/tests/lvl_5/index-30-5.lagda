@@ -8,8 +8,8 @@ Generated Index file
 import TypeTopology.CantorSearch
 import Modal.ReflectiveSubuniverse
 import TypeTopology.CantorMinusPoint
-import TWA.SIP-IntervalObject
-import TWA.Thesis.Chapter2.Vectors
+import InjectiveTypes.Subtypes
+import InjectiveTypes.CharacterizationViaLifting
 
 
 \end{code}

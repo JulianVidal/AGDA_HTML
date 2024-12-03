@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.Thesis.Chapter5.Integers
+import Games.List
 import DiscreteGraphicMonoids.ListsWithoutRepetitions
 
 

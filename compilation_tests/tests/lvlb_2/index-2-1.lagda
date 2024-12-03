@@ -6,9 +6,10 @@ Generated Index file
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import Notation.Decimal
-import InfinitePigeon.Choice
+import InfinitePigeon.Addition
 import InfinitePigeon.Two
 import InfinitePigeon.JK-Monads
+import InfinitePigeon.Choice
 
 
 \end{code}

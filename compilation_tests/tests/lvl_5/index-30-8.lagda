@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import DedekindReals.Addition
-import MetricSpaces.DedekindReals
-import DedekindReals.Extension
-import MetricSpaces.index
+import Naturals.index
+import Groups.Cokernel
+import Various.Pataraia
+import UF.Truncations
 
 
 \end{code}

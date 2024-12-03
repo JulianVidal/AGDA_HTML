@@ -150,6 +150,7 @@ agda ./index-30-4.lagda &
 agda ./index-30-5.lagda &
 agda ./index-30-6.lagda &
 agda ./index-30-7.lagda &
+agda ./index-30-8.lagda &
 wait
 
 agda ./index-31-0.lagda &
@@ -256,11 +257,4 @@ agda ./index-45-1.lagda &
 wait
 
 agda ./index-46-0.lagda 
-
-agda ./index-47-0.lagda &
-agda ./index-47-1.lagda &
-agda ./index-47-2.lagda &
-wait
-
-agda ./index-48-0.lagda 
 

@@ -17,8 +17,8 @@ import Locales.BooleanAlgebra
 import Locales.SIP.DistributiveLatticeSIP
 import Iterative.Multisets-Addendum
 import PCF.Lambda.ScottModelOfContexts
+import Ordinals.Indecomposable
 import InjectiveTypes.MathematicalStructuresMoreGeneral
-import InjectiveTypes.MathematicalStructures
 
 
 \end{code}

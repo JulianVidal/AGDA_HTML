@@ -15,6 +15,7 @@ import Locales.GaloisConnection
 import Locales.DistributiveLattice.Definition
 import Ordinals.Equivalence
 import CoNaturals.GenericConvergentSequence2
+import MLTT.Vector
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Notation.Decimal
-import InfinitePigeon.Choice
+import InfinitePigeon.Addition
+import InfinitePigeon.Two
 
 
 \end{code}

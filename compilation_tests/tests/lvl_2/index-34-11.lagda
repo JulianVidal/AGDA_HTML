@@ -6,7 +6,7 @@ Generated Index file
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import gist.remove-swap
-import InjectiveTypes.Subtypes
+import Ordinals.TrichotomousType
 
 
 \end{code}

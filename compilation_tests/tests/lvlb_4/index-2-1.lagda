@@ -7,6 +7,7 @@ Generated Index file
 
 import MLTT.Plus
 import MGS.MLTT
+import Notation.Decimal
 
 
 \end{code}

@@ -8,7 +8,6 @@ Generated Index file
 import MLTT.Unit-Properties
 import Notation.General
 import MGS.hlevels
-import InfinitePigeon.Finite
 
 
 \end{code}

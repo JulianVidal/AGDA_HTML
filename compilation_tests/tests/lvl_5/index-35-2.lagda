@@ -7,9 +7,9 @@ Generated Index file
 
 import Iterative.Multisets-Addendum
 import PCF.Lambda.ScottModelOfContexts
+import Ordinals.Indecomposable
 import InjectiveTypes.MathematicalStructuresMoreGeneral
 import InjectiveTypes.MathematicalStructures
-import TWA.BanachFixedPointTheorem
 
 
 \end{code}

@@ -6,7 +6,7 @@ Generated Index file
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
 import ContinuityAxiom.FalseWithoutIdentityTypes
-import InfinitePigeon.Addition
+import InfinitePigeon.Cantor
 
 
 \end{code}

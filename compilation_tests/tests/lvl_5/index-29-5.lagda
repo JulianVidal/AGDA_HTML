@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import InjectiveTypes.Sigma
 import Apartness.Properties
 import InjectiveTypes.Article
 import TWA.Thesis.Chapter5.Integers
+import Games.List
 import DiscreteGraphicMonoids.ListsWithoutRepetitions
 
 

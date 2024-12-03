@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import TWA.SIP-IntervalObject
-import TWA.Thesis.Chapter2.Vectors
+import InjectiveTypes.Subtypes
+import InjectiveTypes.CharacterizationViaLifting
 
 
 \end{code}

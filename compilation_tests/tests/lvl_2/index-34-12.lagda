@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.TrichotomousType
 import InjectiveTypes.Sigma
+import Apartness.Properties
 
 
 \end{code}

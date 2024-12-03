@@ -25,6 +25,7 @@ import Locales.Point.Definition
 import Locales.DiscreteLocale.Definition
 import Locales.DirectedFamily-Poset
 import Integers.Parity
+import Quotient.index
 
 
 \end{code}

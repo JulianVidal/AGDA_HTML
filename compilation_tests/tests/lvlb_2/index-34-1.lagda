@@ -5,7 +5,6 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Quotient.index
 import OrderedTypes.TwoElementPoset
 import OrderedTypes.Frame
 import Groups.Free
@@ -13,6 +12,8 @@ import Slice.IdentityViaSIP
 import TypeTopology.CantorSearch
 import Modal.ReflectiveSubuniverse
 import TypeTopology.CantorMinusPoint
+import InjectiveTypes.Subtypes
+import InjectiveTypes.CharacterizationViaLifting
 import TWA.SIP-IntervalObject
 import TWA.Thesis.Chapter2.Vectors
 import TWA.Thesis.Chapter5.BoehmStructure

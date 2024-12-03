@@ -8,8 +8,8 @@ Generated Index file
 import UF.SmallnessProperties
 import Ordinals.WellOrderingTaboo
 import gist.remove-swap
-import InjectiveTypes.Subtypes
 import Ordinals.TrichotomousType
+import InjectiveTypes.Sigma
 
 
 \end{code}

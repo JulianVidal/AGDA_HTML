@@ -4,7 +4,6 @@ agda ./index-0-0.lagda
 
 agda ./index-1-0.lagda &
 agda ./index-1-1.lagda &
-agda ./index-1-2.lagda &
 wait
 
 agda ./index-2-0.lagda &
@@ -33,7 +32,6 @@ wait
 agda ./index-5-0.lagda &
 agda ./index-5-1.lagda &
 agda ./index-5-2.lagda &
-agda ./index-5-3.lagda &
 wait
 
 agda ./index-6-0.lagda &
@@ -294,6 +292,7 @@ agda ./index-35-16.lagda &
 agda ./index-35-17.lagda &
 agda ./index-35-18.lagda &
 agda ./index-35-19.lagda &
+agda ./index-35-20.lagda &
 wait
 
 agda ./index-36-0.lagda &

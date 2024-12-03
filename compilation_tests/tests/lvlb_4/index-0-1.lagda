@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Ordinals.Indecomposable
+import MLTT.Natural-Numbers-Type
 
 
 \end{code}

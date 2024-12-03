@@ -9,12 +9,12 @@ import Quotient.Effectivity
 import UF.SmallnessProperties
 import Ordinals.WellOrderingTaboo
 import gist.remove-swap
-import InjectiveTypes.Subtypes
 import Ordinals.TrichotomousType
 import InjectiveTypes.Sigma
 import Apartness.Properties
 import InjectiveTypes.Article
 import TWA.Thesis.Chapter5.Integers
+import Games.List
 import DiscreteGraphicMonoids.ListsWithoutRepetitions
 import Apartness.Examples
 import Apartness.Morphisms

@@ -5,9 +5,9 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
+import InfinitePigeon.Finite
 import InfinitePigeon.K-Shift-BBC
 import InfinitePigeon.J-Shift-Selection
-import InfinitePigeon.Order
 
 
 \end{code}

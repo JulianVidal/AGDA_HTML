@@ -7,7 +7,6 @@ Generated Index file
 
 import MLTT.Universes
 import MLTT.Natural-Numbers-Type
-import Ordinals.Indecomposable
 import Various.UnivalenceFromScratch
 import InfinitePigeon.Logic
 

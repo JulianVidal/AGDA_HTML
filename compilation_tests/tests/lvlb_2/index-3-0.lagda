@@ -9,7 +9,7 @@ import MLTT.Negation
 import MLTT.AlternativePlus
 import MGS.Basic-UF
 import ContinuityAxiom.FalseWithoutIdentityTypes
-import InfinitePigeon.Addition
+import InfinitePigeon.Cantor
 
 
 \end{code}

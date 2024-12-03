@@ -8,12 +8,12 @@ Generated Index file
 import UF.SmallnessProperties
 import Ordinals.WellOrderingTaboo
 import gist.remove-swap
-import InjectiveTypes.Subtypes
 import Ordinals.TrichotomousType
 import InjectiveTypes.Sigma
 import Apartness.Properties
 import InjectiveTypes.Article
 import TWA.Thesis.Chapter5.Integers
+import Games.List
 
 
 \end{code}

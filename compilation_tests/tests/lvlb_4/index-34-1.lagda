@@ -5,7 +5,6 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import MLTT.Vector
 import OrderedTypes.SupLattice
 import Locales.WayBelowRelation.Definition
 import Locales.WellInside
@@ -15,6 +14,8 @@ import Locales.Point.Definition
 import Locales.DiscreteLocale.Definition
 import Locales.DirectedFamily-Poset
 import Integers.Parity
+import Quotient.index
+import OrderedTypes.TwoElementPoset
 
 
 \end{code}

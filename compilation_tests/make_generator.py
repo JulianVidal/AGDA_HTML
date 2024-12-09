@@ -1,5 +1,7 @@
 from pathlib import Path
 import shutil
+import subprocess
+import re
 import os
 import stat
 
@@ -17,11 +19,14 @@ index_end = f"""
 \\end{{code}}
 """
 
-build_dir = Path("./_build/2.7.0.1/agda/source")
 
 def generate_test(compile_order, dir):
     shutil.rmtree(dir, ignore_errors=True)
     os.makedirs(dir)
+
+    agda_version = subprocess.run(['agda', '--version'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+    agda_version = re.search(r'(\d+\.)+\d+', agda_version)[0]
+    build_dir = Path(f"./_build/{agda_version}/agda/source")
 
     makefile = "all: "
     for j in range(len(compile_order[-1])):
@@ -113,3 +118,8 @@ def write_index(file_name, mods):
     file.close()
 
 # generate_test([[["a"], ["b"]], [["c", "d"], ["e"]]], "./tests/tmp")
+
+# agda_version = subprocess.run(['agda', '--version'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+# v = re.search(r'(\d+\.)+\d+', agda_version)[0]
+# print(agda_version)
+# print(v)

@@ -25,6 +25,7 @@ import MLTT.List-Properties
 import Naturals.HCF
 import Various.Hydra
 import Locales.Frame
+import Games.NonEmptyList
 import Ordinals.TrichotomousType
 import NotionsOfDecidability.index
 

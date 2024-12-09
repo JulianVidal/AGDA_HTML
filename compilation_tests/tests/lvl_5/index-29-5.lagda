@@ -9,7 +9,7 @@ import Apartness.Properties
 import InjectiveTypes.Article
 import TWA.Thesis.Chapter5.Integers
 import Games.List
-import DiscreteGraphicMonoids.ListsWithoutRepetitions
+import Games.NonEmptyList
 
 
 \end{code}

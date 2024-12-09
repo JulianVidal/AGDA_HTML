@@ -2,6 +2,7 @@ import networkx as nx
 from sort_alg import depths
 from math import ceil
 import test_generator
+import make_generator
 
 def create_test(dot_file, m=2):
     g = nx.nx_pydot.read_dot(dot_file)
@@ -47,5 +48,5 @@ def create_test(dot_file, m=2):
             compile_order[-1].append(mods[start:end])
 
     dir = f"tests/lvl_{m}"
-    test_generator.generate_test(compile_order, dir)
+    make_generator.generate_test(compile_order, dir)
     return dir

@@ -73,14 +73,35 @@ def main():
 
 
 def run_test(test_dir, repo):
+    # commands = "; ".join([
+    #     f"cd {repo}/source",
+    #     f"cp -r {test_dir}/* .",
+    #     "rm -rf ../_build",
+    #     "./compile_index.sh",
+    #     'find . -name "index-*lagda" -delete',
+    #     "rm compile_index.sh",
+    # ])
+
+    # commands = "; ".join([
+    #     f"cd {repo}",
+    #     f"cp -r {test_dir}/Makefile .",
+    #     "rm -rf _build",
+    #     "make -j",
+    #     "rm Makefile",
+    # ])
+
+
     commands = "; ".join([
         f"cd {repo}/source",
-        f"cp -r {test_dir}/* .",
-        "rm -rf ../_build",
-        "./compile_index.sh",
-        'find . -name "index-*lagda" -delete',
-        "rm compile_index.sh",
+        f"cp -r {test_dir}/index-* .",
+        "cd ..",
+        "rm -rf ./_build",
+        f"cp {test_dir}/Makefile .",
+        "make -j",
+        'find ./source -name "index-*lagda" -delete',
+        "rm Makefile",
     ])
+
     start = time.perf_counter()
     # subprocess.run(commands, shell=True, )
     subprocess.run(commands, shell=True, stdout=subprocess.DEVNULL)

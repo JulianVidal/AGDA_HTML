@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
+import Groups.Subgroups
 import Various.Hydra
-import DomainTheory.IdealCompletion.IdealCompletion
 
 
 \end{code}

@@ -7,10 +7,10 @@ Generated Index file
 
 import UF.Powerset-MultiUniverse
 import UF.Classifiers
-import NotionsOfDecidability.DecidableClassifier
 import OrderedTypes.FreeSupLattice
-import UF.Choice
 import UF.Powerset
+import NotionsOfDecidability.DecidableClassifier
+import UF.Choice
 import Quotient.Large-Variation
 
 

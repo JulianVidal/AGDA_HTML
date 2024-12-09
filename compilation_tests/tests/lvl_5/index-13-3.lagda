@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
+import Games.NonEmptyListOriginal
 import Games.Reader
-import Games.NonEmptyList
 import MGS.Subsingleton-Truncation
 import MGS.Yoneda
 

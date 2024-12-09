@@ -893,3 +893,6 @@ Research graph algorithms for finding path to leaf
 create summary report of what queries i have implemented and compilation strategies
 
 Definition graph should be acyclic and longest path should speed up with that guarantee.
+
+Created makefile generation
+

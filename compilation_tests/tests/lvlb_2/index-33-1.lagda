@@ -5,7 +5,6 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Quotient.Effectivity
 import UF.SmallnessProperties
 import Ordinals.WellOrderingTaboo
 import gist.remove-swap
@@ -15,6 +14,7 @@ import Apartness.Properties
 import InjectiveTypes.Article
 import TWA.Thesis.Chapter5.Integers
 import Games.List
+import Games.NonEmptyList
 import DiscreteGraphicMonoids.ListsWithoutRepetitions
 import Apartness.Examples
 import Apartness.Morphisms

@@ -5,8 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Apartness.Morphisms
-import Apartness.NegationOfApartness
+import b
 
 
 \end{code}

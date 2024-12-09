@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
+import DomainTheory.IdealCompletion.IdealCompletion
 import Cardinals.index
-import UF.TruncatedTypes
 
 
 \end{code}

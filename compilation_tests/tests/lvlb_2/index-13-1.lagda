@@ -10,8 +10,8 @@ import TWA.Escardo-Simpson-LICS2001
 import TWA.Thesis.Chapter5.IntervalObject
 import Games.K
 import Games.TypeTrees
+import Games.NonEmptyListOriginal
 import Games.Reader
-import Games.NonEmptyList
 import MGS.Subsingleton-Truncation
 import MGS.Yoneda
 

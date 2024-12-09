@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Games.NonEmptyList
+import Games.Reader
 import MGS.Subsingleton-Truncation
 
 

@@ -2,6 +2,7 @@ import networkx as nx
 from sort_alg import depths
 from math import ceil
 import test_generator
+import make_generator
 
 
 def is_disjoint(*sets):
@@ -127,5 +128,6 @@ def create_test(dot_file):
             comp[-1][0].extend(step[0])
 
     dir = "./tests/lvl_disjoint"
-    test_generator.generate_test(comp, dir)
+    # test_generator.generate_test(comp, dir)
+    make_generator.generate_test(comp, dir)
     return dir

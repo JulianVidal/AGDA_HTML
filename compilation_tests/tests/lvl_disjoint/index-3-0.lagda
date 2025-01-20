@@ -5,27 +5,27 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import Quotient.FromSetReplacement
-import UF.Size
-import Ordinals.Limit
-import Apartness.NegationOfApartness
-import Cardinals.index
-import Ordinals.OrdinalOfOrdinalsSuprema
-import Iterative.Multisets
-import Cardinals.Successor
-import UF.CumulativeHierarchy-LocallySmall
-import Apartness.Definition
-import Various.CantorTheoremForEmbeddings
-import Ordinals.CumulativeHierarchy-Addendum
-import Ordinals.NotationInterpretation1
-import UF.NotNotStablePropositions
-import Ordinals.CumulativeHierarchy
-import Ordinals.MultiplicationProperties
-import Apartness.Properties
-import Apartness.Morphisms
-import Apartness.Examples
 import Ordinals.AdditionProperties
+import Apartness.Morphisms
+import UF.Size
+import UF.NotNotStablePropositions
+import Ordinals.NotationInterpretation1
 import Quotient.GivesSetReplacement
+import Apartness.NegationOfApartness
+import Ordinals.Limit
+import Ordinals.MultiplicationProperties
+import Apartness.Definition
+import Iterative.Multisets
+import Apartness.Examples
+import Cardinals.index
+import Apartness.Properties
+import Ordinals.CumulativeHierarchy
+import Quotient.FromSetReplacement
+import Ordinals.CumulativeHierarchy-Addendum
+import Ordinals.OrdinalOfOrdinalsSuprema
+import Various.CantorTheoremForEmbeddings
+import UF.CumulativeHierarchy-LocallySmall
+import Cardinals.Successor
 
 
 \end{code}

@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
 
-import UF.SIP-Examples
 import OrderedTypes.Frame
-import TWA.SIP-IntervalObject
 import NotionsOfDecidability.QuasiDecidable
+import TWA.SIP-IntervalObject
+import UF.SIP-Examples
 import OrderedTypes.sigma-frame
 
 

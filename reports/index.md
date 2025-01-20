@@ -896,3 +896,18 @@ Definition graph should be acyclic and longest path should speed up with that gu
 
 Created makefile generation
 
+# 11 - Pre-meeting Report
+# 11 - Post-meeting Report
+# 11 - Notes
+
+# 12 - Pre-meeting Report
+Tested using makefiles with different threads, it lead to similar results
+compared to bash files but allows for more flexibility when choosing the
+amount of cores available. Investigated the cycles created to self
+references but I haven't found a reliable way to get rid of these cycles.
+
+Will begin writing the report, as the CLI is in a working state and there are
+some successful compilation strategies.
+
+# 12 - Post-meeting Report
+# 12 - Notes

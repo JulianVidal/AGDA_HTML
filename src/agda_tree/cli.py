@@ -3,12 +3,18 @@ import pickle
 from inspect import signature, getdoc, getmembers, isfunction
 import sys
 import networkx as nx
-import def_cmds
-import mod_cmds
+import os
+import os.path
+
+from agda_tree import def_cmds
+from agda_tree import mod_cmds
+
+from agda_tree.def_cmds import DEF_TREE
+from agda_tree.mod_cmds import MOD_TREE
 
 arg_help = {
     "g": "Path to tree (Default: ",
-    "-output": "Ouput file name",
+    "output": "Output file name (Default: ",
     "m": "Module name",
     "d": "Definition name",
     "path": "Path to directory or file",
@@ -22,6 +28,10 @@ arg_help = {
 # TODO: Add topological sort as a query
 # TODO: Add level sort as a query
 def main():
+    usr_dir = os.path.join(os.getenv("HOME"), ".agda_tree")
+    if not os.path.exists(usr_dir):
+        os.makedirs(usr_dir)
+
     parser = argparse.ArgumentParser(description="Agda dependencies tree")
     tree_parser = parser.add_subparsers(dest='tree')
 
@@ -44,11 +54,11 @@ def main():
             # print(cmd, signature(func))
             # print(cmd, list(signature(func).parameters))
             for arg, param in signature(func).parameters.items():
-                if arg == "g":
-                    default = "def_tree.pickle"
+                if arg == "g" or arg == "output":
+                    default = DEF_TREE
                     if tree == "module":
-                        default = "mod_tree.pickle"
-                    sub.add_argument("-g", help=arg_help.get(arg, "") + default + ")", default=default)
+                        default = MOD_TREE
+                    sub.add_argument("-"+arg, help=arg_help.get(arg, "") + default + ")", default=default)
                     continue
                 if param.default is not param.empty:
                     action = "store_true" if param.default == False else None
@@ -59,7 +69,10 @@ def main():
 
     args = parser.parse_args()
 
-    # print(args)
+    if args.tree is None or args.cmd is None:
+        parser.print_help()
+        sys.exit(1)
+
     if hasattr(commands[args.tree], args.cmd):
         params = dict(vars(args))
         del params["cmd"]

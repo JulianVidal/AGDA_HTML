@@ -934,3 +934,5 @@ top level definition, removed "generilizatel" or "with". This still left some
 cycles as two functions would depend on each other to resolve this I simply
 removed the edge between them. I don't see a way to remove these cycles without
 fundamentally changing the meaning of the graph.
+
+Improved ergonomics of the cli, easier installation.

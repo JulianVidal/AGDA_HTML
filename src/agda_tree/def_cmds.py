@@ -2,12 +2,18 @@ import networkx as nx
 from pathlib import Path
 import re
 import pickle
-import parser
+from agda_tree import parser
+
+
+import os
+import os.path
+
+DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
 
 # TODO: Query to get what definitions are used in module m
 # TODO: Query to get what types are used in module m
 
-def create_tree(sexp_dir, output=None):
+def create_tree(sexp_dir, output):
     """Creates definition dependency tree"""
     path = Path(sexp_dir)
     if not path.is_dir():
@@ -32,13 +38,9 @@ def create_tree(sexp_dir, output=None):
         for dep in deps
     ])
 
-    output = output or 'def_tree.pickle'
+    output = output or DEF_TREE
     print()
     print(f"Saving graph to {output}")
-    # mappings = dict()
-    # for n in list(g.nodes):
-    #     mappings[n] = f'"{n}"'
-    # nx.relabel_nodes(g, mappings, copy=False)
     pickle.dump(g, open(output, 'wb'))
 
 # Find definition from name

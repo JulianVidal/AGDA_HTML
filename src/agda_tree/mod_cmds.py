@@ -2,9 +2,14 @@ import networkx as nx
 from pathlib import Path
 import pickle
 import re
-import level_sort
+from agda_tree import level_sort
 
-def create_tree(dot_file, output=None):
+import os
+import os.path
+
+MOD_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "mod_tree.pickle")
+
+def create_tree(dot_file, output):
     """Creates modules dependency tree"""
     if not dot_file.endswith(".dot"):
         raise Exception("path isn't a .dot file")
@@ -19,7 +24,7 @@ def create_tree(dot_file, output=None):
 
     g = nx.relabel_nodes(g, mapping)
 
-    output = output or 'mod_tree.pickle'
+    output = output or MOD_TREE
     print(f"Saving graph to {output}")
     pickle.dump(g, open(output, 'wb'))
 

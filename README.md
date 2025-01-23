@@ -2,18 +2,29 @@
 My undergraduate thesis. Parses the s-expressions from an AGDA project and
 builds a graph from it that can be queried.
 
-# Installation
-
-Requirements:
+# Dependencies
  - python3 (currently using version 3.12.4)
- - [Agda S-expression extractor](https://github.com/andrejbauer/agda/tree/master-sexp?tab=readme-ov-file) For definition tree
+ - [Agda S-expression extractor](https://github.com/andrejbauer/agda/tree/master-sexp?tab=readme-ov-file) (For definition tree)
+ - [pipx](https://github.com/pypa/pipx) (Recommended to keep cli packages separate from global environment otherwise pip)
 
+# Installation
 ```bash
 # Clone repo
 git clone https://github.com/JulianVidal/AGDA_HTML.git
 
-# Enter the directory with the cli
-cd AGDA_HTML/agda_tree
+# Enter the repo
+cd AGDA_HTML
+
+# Install with pipx
+pipx install .
+```
+# Development
+```bash
+# Clone repo
+git clone https://github.com/JulianVidal/AGDA_HTML.git
+
+# Enter the repo
+cd AGDA_HTML
 
 # Create virtual environment
 python -m venv .venv
@@ -25,7 +36,7 @@ source ./.venv/bin/activate
 pip install -r requirements.txt
 
 # Run cli
-python cli.py -h
+python src/main.py -h
 
 # usage: cli.py [-h] {definition,module} ...
 # 

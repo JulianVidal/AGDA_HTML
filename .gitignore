@@ -4,3 +4,4 @@
 **/.cpcache/*
 **/.lsp/*
 **/.nrepl-port
+dist/

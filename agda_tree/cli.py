@@ -75,7 +75,7 @@ def main():
         # print(params)
         result = getattr(commands[args.tree], args.cmd)(**params)
         if result is not None:
-            print("\n".join(list(result)))
+            print("\n".join(map(lambda n: f'"{n}"', list(result))))
     else:
         print("Couldn't find command")
 

@@ -1,5 +1,6 @@
 import networkx as nx
 from pathlib import Path
+import re
 import pickle
 import parser
 
@@ -34,7 +35,20 @@ def create_tree(sexp_dir, output=None):
     output = output or 'def_tree.pickle'
     print()
     print(f"Saving graph to {output}")
+    # mappings = dict()
+    # for n in list(g.nodes):
+    #     mappings[n] = f'"{n}"'
+    # nx.relabel_nodes(g, mappings, copy=False)
     pickle.dump(g, open(output, 'wb'))
+
+# Find definition from name
+def find(g, pattern):
+    """Find definition through regex"""
+    matches = []
+    for n in list(g.nodes):
+        if re.search(pattern, n) is not None:
+            matches.append(n)
+    return matches
 
 # Get all definitions
 def nodes(g):

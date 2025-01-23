@@ -148,14 +148,39 @@ python cli.py module -h
 
 # Examples
 
-To get the dependencies of InfinitePigeon.Addition.\_+\_
+The s-expressions tag each definition with a number, to get the name of a
+definition use the find command.
+
 ```bash
-python cli.py definition dependencies "InfinitePigeon.Addition._+_"
+python cli.py definition find "\_\+\_"
 
 # Output:
-# MLTT.Natural-Numbers-Type.ℕ
-# MLTT.Natural-Numbers-Type.ℕ.zero
-# MLTT.Natural-Numbers-Type.ℕ.succ
+# "UF.TruncationLevels._+_ 34"
+# "Naturals.Binary._+_ 754"
+# "MGS.MLTT.Arithmetic._+_ 122"
+# "MGS.MLTT.Arithmetic'._+_ 140"
+# "InfinitePigeon.Addition._+_ 4"
+# "Naturals.Addition._+_ 4"
+# "Rationals.FractionsOperations._+_ 28"
+# "Rationals.Positive._+_ 44"
+# "MLTT.Plus-Type._+_ 12"
+# "MLTT.Plus-Type._+_.inl 22"
+# "MLTT.Plus-Type._+_.inr 24"
+# "Rationals.Addition._+_ 4"
+# "Integers.Addition._+_ 20"
+# "Dyadics.Addition._+_ 14"
+# "DedekindReals.Addition._+_ 220"
+
+```
+
+To get the dependencies of InfinitePigeon.Addition.\_+\_
+```bash
+python cli.py definition dependencies "InfinitePigeon.Addition._+_ 4"
+
+# Output:
+# "MLTT.Natural-Numbers-Type.ℕ 4"
+# "MLTT.Natural-Numbers-Type.ℕ.succ 8"
+# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
 ```
 
 To get the longest path to a leaf from module InfinitePigeon.Addition
@@ -163,11 +188,11 @@ To get the longest path to a leaf from module InfinitePigeon.Addition
 python cli.py module path_to_leaf "InfinitePigeon.Addition"
 
 # Output:
-# InfinitePigeon.Addition
-# InfinitePigeon.Choice
-# InfinitePigeon.Equality
-# InfinitePigeon.Logic
-# Agda.Primitive
+# "InfinitePigeon.Addition"
+# "InfinitePigeon.Choice"
+# "InfinitePigeon.Equality"
+# "InfinitePigeon.Logic"
+# "Agda.Primitive"
 ```
 
 By installing the command-line fuzzy finder [fzf](https://github.com/junegunn/fzf),

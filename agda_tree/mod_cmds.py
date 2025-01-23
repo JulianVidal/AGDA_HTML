@@ -1,6 +1,7 @@
 import networkx as nx
 from pathlib import Path
 import pickle
+import re
 import level_sort
 
 def create_tree(dot_file, output=None):
@@ -21,6 +22,15 @@ def create_tree(dot_file, output=None):
     output = output or 'mod_tree.pickle'
     print(f"Saving graph to {output}")
     pickle.dump(g, open(output, 'wb'))
+
+# Find definition from name
+def find(g, pattern):
+    """Find module through regex"""
+    matches = []
+    for n in list(g.nodes):
+        if re.search(pattern, n) is not None:
+            matches.append(n)
+    return matches
 
 # Get all modules
 def nodes(g):

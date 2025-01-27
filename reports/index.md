@@ -936,3 +936,33 @@ removed the edge between them. I don't see a way to remove these cycles without
 fundamentally changing the meaning of the graph.
 
 Improved ergonomics of the cli, easier installation.
+
+# 13 - Pre-meeting Report
+Changed CLI ergonomics to more easily find definitions, also made installation
+and use of the CLI more simple with the use of pipx. Downloaded latex template
+and added headers for each section.
+
+Investigated removing cycles, removed Generilizatel but there were more cycles.
+Maybe removing the edge between a definition and its recursive call but I
+haven't found a reliable way to find the recursive calls. 
+
+# 13 - Post-meeting Report
+Discussed CLI, went through installation and usage. Some changes need to be
+made to the README for clarity. 
+
+By next week:
+  - Write relevant subtitles for the report
+    - Write a couple of sentences describing what each subtitle will contain
+  - Add more usage examples to the README
+  - Fix typos and mistakes in README
+  - Write results of compilations tests to file
+  - Investigate error 42 on makefiles
+
+# 13 - Notes
+Chand dependents to depends in cli documentation.
+CHange "python cli.py" with "agda_tree"
+Change compilation strategy script to store results in a file
+Error 42 on makefiles
+Are these all the queries we can implmenet.
+Add more examples to read me
+Create headlines and write a couple of sentences of what it should include

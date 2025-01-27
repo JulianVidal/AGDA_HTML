@@ -20,6 +20,7 @@ index_end = f"""
 
 sh_start = "#!/bin/zsh\n\n"
 
+
 def generate_test(compile_order, dir):
     shutil.rmtree(dir, ignore_errors=True)
     os.makedirs(dir)
@@ -29,8 +30,8 @@ def generate_test(compile_order, dir):
         for j, mods in enumerate(step):
             index_name = f"index-{i}-{j}.lagda"
             write_index(Path(dir, index_name), mods)
-            script += f"agda ./{index_name} {"&" if len(step) > 1 else ""}\n"
-        if len(step)>1:
+            script += f"agda ./{index_name} {'&' if len(step) > 1 else ''}\n"
+        if len(step) > 1:
             script += "wait\n"
         script += "\n"
 
@@ -41,6 +42,7 @@ def generate_test(compile_order, dir):
 
     st = os.stat(sh_name)
     os.chmod(sh_name, st.st_mode | stat.S_IEXEC)
+
 
 def write_index(file_name, mods):
     body = ""

@@ -1,0 +1,447 @@
+cycle:  0 nodes: 723 leafs: 6
+['InfinitePigeon.Logic', 'Various.Types2019', 'Various.UnivalenceFromScratch', 'MLTT.Natural-Numbers-Type', 'Ordinals.Indecomposable', 'MLTT.Universes']
+6 ('InfinitePigeon.Logic',)
+33 ('InfinitePigeon.Logic', 'MLTT.Natural-Numbers-Type')
+1 ('Various.Types2019',)
+1 ('Various.UnivalenceFromScratch',)
+1 ('MLTT.Natural-Numbers-Type',)
+661 ('MLTT.Natural-Numbers-Type', 'MLTT.Universes')
+1 ('Ordinals.Indecomposable',)
+19 ('MLTT.Universes',)
+
+([('InfinitePigeon.Logic', 'MLTT.Natural-Numbers-Type'), ('MLTT.Universes',)], [40, 19], {('InfinitePigeon.Logic', 'MLTT.Natural-Numbers-Type'): set()})
+
+
+cycle:  1 nodes: 666 leafs: 4
+['InfinitePigeon.Equality', 'MGS.MLTT', 'MLTT.NaturalNumbers', 'InfinitePigeon.LogicalFacts']
+2 ('InfinitePigeon.Equality',)
+2 ('InfinitePigeon.Equality', 'InfinitePigeon.LogicalFacts')
+28 ('MGS.MLTT',)
+532 ('MGS.MLTT', 'MLTT.NaturalNumbers')
+101 ('MLTT.NaturalNumbers',)
+1 ('InfinitePigeon.LogicalFacts',)
+
+([('MGS.MLTT',)], [28], {})
+
+
+cycle:  2 nodes: 635 leafs: 5
+['InfinitePigeon.JK-Monads', 'ContinuityAxiom.FalseWithoutIdentityTypes', 'Notation.Decimal', 'InfinitePigeon.Two', 'MLTT.Spartan']
+1 ('InfinitePigeon.JK-Monads',)
+1 ('InfinitePigeon.JK-Monads', 'InfinitePigeon.Two')
+1 ('ContinuityAxiom.FalseWithoutIdentityTypes',)
+1 ('Notation.Decimal',)
+4 ('Notation.Decimal', 'MLTT.Spartan')
+1 ('InfinitePigeon.Two',)
+626 ('MLTT.Spartan',)
+
+([], [], {})
+
+
+cycle:  3 nodes: 630 leafs: 17
+['W.Type', 'Notation.UnderlyingType', 'Notation.CanonicalMap', 'Fin.Type', 'Various.DummettDisjunction', 'Naturals.Properties', 'Ordinals.Brouwer', 'PathSequences.Type', 'Ordinals.Codes', 'InfinitePigeon.JK-LogicalFacts', 'UF.Base', 'Ordinals.LexicographicOrder', 'EffectfulForcing.MFPSAndVariations.Combinators', 'Coslice.Type', 'MLTT.Bool', 'Circle.Integers', 'Notation.Order']
+1 ('W.Type',)
+137 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Notation.Order')
+29 ('W.Type', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'Notation.Order')
+83 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')
+32 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Ordinals.LexicographicOrder', 'Notation.Order')
+1 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'Ordinals.Codes', 'UF.Base', 'Ordinals.LexicographicOrder', 'Notation.Order')
+44 ('W.Type', 'Notation.UnderlyingType', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')
+4 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Ordinals.LexicographicOrder', 'MLTT.Bool', 'Notation.Order')
+1 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'Ordinals.Brouwer', 'Ordinals.Codes', 'UF.Base', 'Ordinals.LexicographicOrder', 'Notation.Order')
+1 ('W.Type', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'Ordinals.LexicographicOrder', 'Notation.Order')
+1 ('W.Type', 'Notation.UnderlyingType', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'Ordinals.LexicographicOrder', 'MLTT.Bool', 'Notation.Order')
+1 ('W.Type', 'Notation.CanonicalMap', 'Naturals.Properties', 'Ordinals.Brouwer', 'UF.Base', 'Ordinals.LexicographicOrder', 'Notation.Order')
+4 ('W.Type', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')
+1 ('Notation.UnderlyingType',)
+1 ('Notation.CanonicalMap',)
+152 ('Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Notation.Order')
+1 ('Notation.CanonicalMap', 'UF.Base')
+4 ('Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Circle.Integers', 'Notation.Order')
+1 ('Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'Coslice.Type', 'Notation.Order')
+7 ('Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'Notation.Order')
+25 ('Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')
+1 ('Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')
+16 ('Notation.CanonicalMap', 'Naturals.Properties', 'UF.Base', 'EffectfulForcing.MFPSAndVariations.Combinators', 'MLTT.Bool', 'Notation.Order')
+1 ('Fin.Type',)
+2 ('Fin.Type', 'UF.Base')
+1 ('Various.DummettDisjunction',)
+4 ('Naturals.Properties',)
+4 ('Naturals.Properties', 'UF.Base')
+1 ('Ordinals.Brouwer',)
+1 ('PathSequences.Type',)
+7 ('PathSequences.Type', 'UF.Base')
+1 ('Ordinals.Codes',)
+1 ('InfinitePigeon.JK-LogicalFacts',)
+53 ('UF.Base',)
+1 ('Ordinals.LexicographicOrder',)
+1 ('EffectfulForcing.MFPSAndVariations.Combinators',)
+1 ('Coslice.Type',)
+1 ('MLTT.Bool',)
+1 ('Circle.Integers',)
+1 ('Notation.Order',)
+
+([('W.Type', 'Notation.UnderlyingType', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order')], [127], {('W.Type', 'Notation.UnderlyingType', 'Notation.CanonicalMap', 'Fin.Type', 'Naturals.Properties', 'UF.Base', 'MLTT.Bool', 'Notation.Order'): set()})
+
+
+cycle:  4 nodes: 569 leafs: 3
+['UF.Subsingletons', 'Naturals.Addition', 'PathSequences.Concat']
+240 ('UF.Subsingletons',)
+318 ('UF.Subsingletons', 'Naturals.Addition')
+5 ('UF.Subsingletons', 'PathSequences.Concat')
+4 ('Naturals.Addition',)
+2 ('PathSequences.Concat',)
+
+([('UF.Subsingletons', 'PathSequences.Concat')], [7], {('UF.Subsingletons', 'PathSequences.Concat'): set()})
+
+
+cycle:  5 nodes: 561 leafs: 7
+['Lifting.Construction', 'Naturals.Multiplication', 'WildCategories.Base', 'PathSequences.Split', 'UF.Sets', 'ContinuityAxiom.Preliminaries', 'UF.Retracts']
+1 ('Lifting.Construction',)
+37 ('Lifting.Construction', 'UF.Sets', 'UF.Retracts')
+150 ('Lifting.Construction', 'Naturals.Multiplication', 'UF.Sets', 'UF.Retracts')
+3 ('Naturals.Multiplication',)
+160 ('Naturals.Multiplication', 'UF.Sets', 'UF.Retracts')
+3 ('WildCategories.Base',)
+1 ('PathSequences.Split',)
+7 ('UF.Sets',)
+195 ('UF.Sets', 'UF.Retracts')
+2 ('UF.Sets', 'ContinuityAxiom.Preliminaries', 'UF.Retracts')
+1 ('ContinuityAxiom.Preliminaries',)
+1 ('UF.Retracts',)
+
+([('Lifting.Construction', 'UF.Sets', 'UF.Retracts')], [46], {('Lifting.Construction', 'UF.Sets', 'UF.Retracts'): set()})
+
+
+cycle:  6 nodes: 517 leafs: 8
+['UF.Hedberg', 'OrderedTypes.JoinSemiLattices', 'UF.Equiv', 'WildCategories.Idempotents', 'Field.Axioms', 'Naturals.AbsoluteDifference', 'Naturals.Exponentiation', 'UF.SetTrunc']
+3 ('UF.Hedberg',)
+166 ('UF.Hedberg', 'UF.Equiv')
+299 ('UF.Hedberg', 'UF.Equiv', 'Naturals.AbsoluteDifference')
+3 ('UF.Hedberg', 'UF.Equiv', 'UF.SetTrunc')
+8 ('UF.Hedberg', 'UF.Equiv', 'Naturals.AbsoluteDifference', 'Naturals.Exponentiation')
+1 ('UF.Hedberg', 'UF.Equiv', 'Naturals.Exponentiation')
+1 ('UF.Hedberg', 'UF.Equiv', 'Field.Axioms', 'Naturals.AbsoluteDifference')
+1 ('OrderedTypes.JoinSemiLattices',)
+29 ('UF.Equiv',)
+2 ('WildCategories.Idempotents',)
+1 ('Field.Axioms',)
+1 ('Naturals.AbsoluteDifference',)
+1 ('Naturals.Exponentiation',)
+1 ('UF.SetTrunc',)
+
+([('UF.Equiv',)], [29], {})
+
+
+cycle:  7 nodes: 481 leafs: 3
+['UF.KrausLemma', 'UF.Subsingletons-Properties', 'WildCategories.Cones']
+1 ('UF.KrausLemma',)
+258 ('UF.KrausLemma', 'UF.Subsingletons-Properties')
+221 ('UF.Subsingletons-Properties',)
+1 ('WildCategories.Cones',)
+
+([], [], {})
+
+
+cycle:  8 nodes: 478 leafs: 2
+['UF.PropIndexedPiSigma', 'UF.Subsingletons-FunExt']
+1 ('UF.PropIndexedPiSigma',)
+450 ('UF.PropIndexedPiSigma', 'UF.Subsingletons-FunExt')
+27 ('UF.Subsingletons-FunExt',)
+
+([('UF.Subsingletons-FunExt',)], [27], {})
+
+
+cycle:  9 nodes: 450 leafs: 1
+['UF.EquivalenceExamples']
+450 ('UF.EquivalenceExamples',)
+
+([], [], {})
+
+
+cycle:  10 nodes: 449 leafs: 2
+['W.Properties', 'UF.Equiv-FunExt']
+1 ('W.Properties',)
+257 ('W.Properties', 'UF.Equiv-FunExt')
+191 ('UF.Equiv-FunExt',)
+
+([], [], {})
+
+
+cycle:  11 nodes: 447 leafs: 4
+['Modal.Open', 'Categories.Category', 'UF.Singleton-Properties', 'UF.Yoneda']
+1 ('Modal.Open',)
+8 ('Categories.Category',)
+1 ('UF.Singleton-Properties',)
+3 ('UF.Singleton-Properties', 'UF.Yoneda')
+434 ('UF.Yoneda',)
+
+([('Categories.Category',)], [8], {})
+
+
+cycle:  12 nodes: 436 leafs: 2
+['UF.FunExt-from-Naive-FunExt', 'UF.FunExt-Properties']
+1 ('UF.FunExt-from-Naive-FunExt',)
+435 ('UF.FunExt-Properties',)
+
+([], [], {})
+
+
+cycle:  13 nodes: 434 leafs: 2
+['UF.UA-FunExt', 'UF.Knapp-UA']
+433 ('UF.UA-FunExt',)
+1 ('UF.Knapp-UA',)
+
+([], [], {})
+
+
+cycle:  14 nodes: 432 leafs: 3
+['UF.HLevels', 'UF.StructureIdentityPrinciple', 'UF.Embeddings']
+2 ('UF.HLevels',)
+1 ('UF.StructureIdentityPrinciple',)
+4 ('UF.StructureIdentityPrinciple', 'UF.Embeddings')
+425 ('UF.Embeddings',)
+
+([], [], {})
+
+
+cycle:  15 nodes: 429 leafs: 9
+['UF.SubtypeClassifier-Properties', 'UF.PreUnivalence', 'UF.ImageAndSurjection', 'UF.SIP', 'Modal.Homotopy', 'UF.SigmaIdentity', 'UF.Section-Embedding', 'UF.ImageAndSurjection-Variation', 'UF.Groupoids']
+34 ('UF.SubtypeClassifier-Properties',)
+121 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection')
+205 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection', 'UF.Section-Embedding')
+41 ('UF.SubtypeClassifier-Properties', 'UF.PreUnivalence', 'UF.ImageAndSurjection', 'UF.SIP', 'UF.Section-Embedding')
+5 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection', 'UF.SIP')
+5 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection', 'UF.SIP', 'UF.Section-Embedding')
+2 ('UF.SubtypeClassifier-Properties', 'UF.SIP')
+2 ('UF.SubtypeClassifier-Properties', 'UF.PreUnivalence', 'UF.ImageAndSurjection')
+2 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection', 'Modal.Homotopy', 'UF.Section-Embedding')
+1 ('UF.SubtypeClassifier-Properties', 'UF.ImageAndSurjection', 'UF.ImageAndSurjection-Variation')
+1 ('UF.PreUnivalence',)
+2 ('UF.ImageAndSurjection',)
+3 ('UF.SIP',)
+1 ('Modal.Homotopy',)
+1 ('UF.SigmaIdentity',)
+1 ('UF.Section-Embedding',)
+1 ('UF.ImageAndSurjection-Variation',)
+1 ('UF.Groupoids',)
+
+([('UF.SubtypeClassifier-Properties', 'UF.PreUnivalence', 'UF.ImageAndSurjection', 'UF.SIP', 'UF.Section-Embedding')], [96], {('UF.SubtypeClassifier-Properties', 'UF.PreUnivalence', 'UF.ImageAndSurjection', 'UF.SIP', 'UF.Section-Embedding'): set()})
+
+
+cycle:  16 nodes: 379 leafs: 7
+['UF.Classifiers-Old', 'OrderedTypes.sigma-sup-lattice', 'UF.Logic', 'BinarySystems.InitialBinarySystem', 'Quotient.Type', 'UF.IdEmbedding', 'UF.CumulativeHierarchy']
+1 ('UF.Classifiers-Old',)
+1 ('OrderedTypes.sigma-sup-lattice',)
+2 ('OrderedTypes.sigma-sup-lattice', 'UF.Logic')
+322 ('UF.Logic',)
+47 ('UF.Logic', 'Quotient.Type')
+1 ('UF.Logic', 'UF.CumulativeHierarchy')
+1 ('BinarySystems.InitialBinarySystem',)
+2 ('Quotient.Type',)
+1 ('UF.IdEmbedding',)
+1 ('UF.CumulativeHierarchy',)
+
+([('UF.Logic', 'Quotient.Type')], [49], {('UF.Logic', 'Quotient.Type'): set()})
+
+
+cycle:  17 nodes: 325 leafs: 4
+['NotionsOfDecidability.Decidable', 'Quotient.GivesPropTrunc', 'Dominance.Definition', 'Cardinals.Type']
+317 ('NotionsOfDecidability.Decidable',)
+3 ('NotionsOfDecidability.Decidable', 'Dominance.Definition')
+1 ('NotionsOfDecidability.Decidable', 'Cardinals.Type')
+1 ('Quotient.GivesPropTrunc',)
+1 ('Dominance.Definition',)
+2 ('Cardinals.Type',)
+
+([], [], {})
+
+
+cycle:  18 nodes: 321 leafs: 3
+['NotionsOfDecidability.Complemented', 'Cardinals.Preorder', 'Dominance.Decidable']
+318 ('NotionsOfDecidability.Complemented',)
+1 ('NotionsOfDecidability.Complemented', 'Cardinals.Preorder')
+1 ('Cardinals.Preorder',)
+1 ('Dominance.Decidable',)
+
+([], [], {})
+
+
+cycle:  19 nodes: 318 leafs: 1
+['UF.DiscreteAndSeparated']
+318 ('UF.DiscreteAndSeparated',)
+
+([], [], {})
+
+
+cycle:  20 nodes: 317 leafs: 13
+['UF.HiddenSwap', 'Integers.Type', 'TypeTopology.Density', 'Circle.Integers-Properties', 'Various.NonCollapsibleFamily', 'ContinuityAxiom.UniformContinuity', 'Naturals.Binary', 'Various.LawvereFPT', 'DiscreteGraphicMonoids.Type', 'DyadicsInductive.Dyadics', 'MLTT.Maybe', 'BinarySystems.InitialBinarySystem2', 'Factorial.Swap']
+1 ('UF.HiddenSwap',)
+6 ('Integers.Type',)
+1 ('Integers.Type', 'TypeTopology.Density', 'MLTT.Maybe')
+28 ('Integers.Type', 'TypeTopology.Density', 'Various.LawvereFPT')
+8 ('Integers.Type', 'TypeTopology.Density')
+67 ('TypeTopology.Density',)
+10 ('TypeTopology.Density', 'Factorial.Swap')
+139 ('TypeTopology.Density', 'Various.LawvereFPT')
+1 ('TypeTopology.Density', 'Naturals.Binary')
+4 ('TypeTopology.Density', 'DiscreteGraphicMonoids.Type')
+28 ('TypeTopology.Density', 'MLTT.Maybe')
+4 ('TypeTopology.Density', 'Various.LawvereFPT', 'MLTT.Maybe', 'Factorial.Swap')
+1 ('TypeTopology.Density', 'Naturals.Binary', 'Various.LawvereFPT')
+4 ('Circle.Integers-Properties',)
+1 ('Various.NonCollapsibleFamily',)
+1 ('ContinuityAxiom.UniformContinuity',)
+1 ('Naturals.Binary',)
+2 ('Various.LawvereFPT',)
+1 ('DiscreteGraphicMonoids.Type',)
+3 ('DyadicsInductive.Dyadics',)
+1 ('MLTT.Maybe',)
+1 ('BinarySystems.InitialBinarySystem2',)
+4 ('Factorial.Swap',)
+
+([('Integers.Type',), ('TypeTopology.Density', 'MLTT.Maybe')], [6, 29], {('TypeTopology.Density', 'MLTT.Maybe'): set()})
+
+
+cycle:  21 nodes: 271 leafs: 8
+['Unsafe.Type-in-Type-False', 'Factorial.Law', 'Factorial.PlusOneLC', 'Unsafe.Haskell', 'DyadicsInductive.DyadicOrder', 'Circle.Induction', 'UF.PairFun', 'Circle.Integers-SymmetricInduction']
+1 ('Unsafe.Type-in-Type-False',)
+1 ('Factorial.Law',)
+2 ('Factorial.PlusOneLC',)
+14 ('Factorial.PlusOneLC', 'UF.PairFun')
+1 ('Unsafe.Haskell',)
+2 ('DyadicsInductive.DyadicOrder',)
+1 ('Circle.Induction',)
+1 ('Circle.Induction', 'Circle.Integers-SymmetricInduction')
+247 ('UF.PairFun',)
+1 ('Circle.Integers-SymmetricInduction',)
+
+([('Factorial.PlusOneLC', 'UF.PairFun')], [16], {('Factorial.PlusOneLC', 'UF.PairFun'): set()})
+
+
+cycle:  22 nodes: 249 leafs: 7
+['UF.IdentitySystems', 'Dominance.Lifting', 'UF.PreSIP', 'Circle.Construction', 'UF.UniverseEmbedding', 'Fin.Properties', 'DyadicsInductive.DyadicOrder-PropTrunc']
+3 ('UF.IdentitySystems',)
+1 ('Dominance.Lifting',)
+2 ('UF.PreSIP',)
+1 ('Circle.Construction',)
+240 ('UF.UniverseEmbedding',)
+1 ('Fin.Properties',)
+1 ('DyadicsInductive.DyadicOrder-PropTrunc',)
+
+([], [], {})
+
+
+cycle:  23 nodes: 242 leafs: 5
+['UF.ClassicalLogic', 'UF.PreSIP-Examples', 'Groups.Type', 'Coslice.Hom', 'UF.SemistrictIdentity']
+224 ('UF.ClassicalLogic',)
+4 ('UF.ClassicalLogic', 'Groups.Type')
+1 ('UF.PreSIP-Examples',)
+11 ('Groups.Type',)
+1 ('Coslice.Hom',)
+1 ('UF.SemistrictIdentity',)
+
+([('Groups.Type',)], [11], {})
+
+
+cycle:  24 nodes: 227 leafs: 6
+['UF.Size', 'UF.HiggsInvolutionTheorem', 'W.Numbers', 'Taboos.DrinkerParadox', 'UF.Powerset-MultiUniverse', 'Ordinals.Notions']
+11 ('UF.Size',)
+11 ('UF.Size', 'UF.Powerset-MultiUniverse')
+86 ('UF.Size', 'Ordinals.Notions')
+59 ('UF.Size', 'UF.Powerset-MultiUniverse', 'Ordinals.Notions')
+1 ('UF.Size', 'UF.HiggsInvolutionTheorem', 'Ordinals.Notions')
+1 ('UF.HiggsInvolutionTheorem',)
+2 ('W.Numbers',)
+1 ('Taboos.DrinkerParadox',)
+8 ('UF.Powerset-MultiUniverse',)
+7 ('UF.Powerset-MultiUniverse', 'Ordinals.Notions')
+40 ('Ordinals.Notions',)
+
+([('UF.Size',), ('UF.Powerset-MultiUniverse',), ('Ordinals.Notions',)], [11, 8, 40], {})
+
+
+cycle:  25 nodes: 165 leafs: 13
+['Iterative.Sets', 'Slice.Family', 'Slice.Construction', 'UF.SmallnessProperties', 'NotionsOfDecidability.SemiDecidable', 'DomainTheory.Basics.Miscelanea', 'UF.Powerset-Resizing', 'DomainTheory.IdealCompletion.IdealCompletion', 'UF.SIP-Examples', 'TypeTopology.Cantor', 'Apartness.TightReflection', 'TWA.Thesis.AndrewSneap.DyadicReals', 'W.Paths']
+1 ('Iterative.Sets',)
+47 ('Slice.Family',)
+1 ('Slice.Family', 'DomainTheory.Basics.Miscelanea')
+1 ('Slice.Family', 'UF.SmallnessProperties')
+7 ('Slice.Construction',)
+1 ('UF.SmallnessProperties',)
+1 ('NotionsOfDecidability.SemiDecidable',)
+24 ('DomainTheory.Basics.Miscelanea',)
+2 ('DomainTheory.Basics.Miscelanea', 'UF.Powerset-Resizing')
+1 ('UF.Powerset-Resizing',)
+1 ('UF.Powerset-Resizing', 'UF.SIP-Examples')
+1 ('DomainTheory.IdealCompletion.IdealCompletion',)
+4 ('UF.SIP-Examples',)
+70 ('TypeTopology.Cantor',)
+1 ('Apartness.TightReflection',)
+1 ('TWA.Thesis.AndrewSneap.DyadicReals',)
+1 ('W.Paths',)
+
+([('Slice.Family',), ('Slice.Construction',), ('DomainTheory.Basics.Miscelanea',)], [47, 7, 24], {})
+
+
+cycle:  26 nodes: 77 leafs: 9
+['OrderedTypes.Frame', 'Locales.ClassificationOfScottOpens', 'TypeTopology.CantorSearch', 'CoNaturals.GenericConvergentSequence2', 'CoNaturals.GenericConvergentSequence', 'Various.Pataraia', 'OrderedTypes.PredicativeLFP', 'TypeTopology.CantorMinusPoint', 'TWA.SIP-IntervalObject']
+3 ('OrderedTypes.Frame',)
+1 ('Locales.ClassificationOfScottOpens',)
+1 ('TypeTopology.CantorSearch',)
+1 ('CoNaturals.GenericConvergentSequence2',)
+6 ('CoNaturals.GenericConvergentSequence2', 'CoNaturals.GenericConvergentSequence')
+60 ('CoNaturals.GenericConvergentSequence',)
+2 ('Various.Pataraia',)
+1 ('OrderedTypes.PredicativeLFP',)
+1 ('TypeTopology.CantorMinusPoint',)
+1 ('TWA.SIP-IntervalObject',)
+
+([('CoNaturals.GenericConvergentSequence2', 'CoNaturals.GenericConvergentSequence')], [7], {('CoNaturals.GenericConvergentSequence2', 'CoNaturals.GenericConvergentSequence'): set()})
+
+
+cycle:  27 nodes: 62 leafs: 3
+['Various.Pataraia-Taylor', 'CoNaturals.Type', 'OrderedTypes.sigma-frame']
+1 ('Various.Pataraia-Taylor',)
+59 ('CoNaturals.Type',)
+2 ('OrderedTypes.sigma-frame',)
+
+([], [], {})
+
+
+cycle:  28 nodes: 59 leafs: 6
+['Various.Dedekind', 'Ordinals.Arithmetic', 'TypeTopology.ConvergentSequenceHasInf', 'NotionsOfDecidability.QuasiDecidable', 'CoNaturals.UniversalProperty', 'TypeTopology.TheTopologyOfTheUniverse']
+1 ('Various.Dedekind',)
+2 ('Ordinals.Arithmetic',)
+1 ('TypeTopology.ConvergentSequenceHasInf',)
+1 ('NotionsOfDecidability.QuasiDecidable',)
+52 ('CoNaturals.UniversalProperty',)
+1 ('CoNaturals.UniversalProperty', 'TypeTopology.TheTopologyOfTheUniverse')
+1 ('TypeTopology.TheTopologyOfTheUniverse',)
+
+([], [], {})
+
+
+cycle:  29 nodes: 53 leafs: 3
+['CoNaturals.Exercise', 'CoNaturals.Arithmetic', 'Ordinals.TrichotomousArithmetic']
+1 ('CoNaturals.Exercise',)
+51 ('CoNaturals.Arithmetic',)
+1 ('Ordinals.TrichotomousArithmetic',)
+
+([], [], {})
+
+
+cycle:  30 nodes: 50 leafs: 1
+['TWA.Closeness']
+50 ('TWA.Closeness',)
+
+([], [], {})
+
+
+cycle:  31 nodes: 49 leafs: 2
+['Taboos.WLPO', 'TWA.BanachFixedPointTheorem']
+48 ('Taboos.WLPO',)
+1 ('TWA.BanachFixedPointTheorem',)
+
+([('Taboos.WLPO',)], [48], {})
+
+

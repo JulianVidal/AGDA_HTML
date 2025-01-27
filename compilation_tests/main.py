@@ -27,6 +27,7 @@ tests = {
     "lvl_disjoint": (test_lvl_disjoint, (dot_file, )),
 }
 
+
 def main():
 
     if not repo_dir.exists():
@@ -45,7 +46,6 @@ def main():
         ])
         subprocess.run(cmds, shell=True, stdout=subprocess.DEVNULL)
 
-    
     results = []
     for name, (t, args) in tests.items():
         print(f"Generating {name} test")
@@ -57,9 +57,10 @@ def main():
 
             start = time.time()
             while not script.done()\
-                and not script.cancelled():
+                    and not script.cancelled():
                 time.sleep(0.2)
-                print(f'Time elapsed ----------- {time.time() - start:.0f}s\033[K', end="\r")
+                print(
+                    f'Time elapsed ----------- {time.time() - start:.0f}s\033[K', end="\r")
 
             elapsed = script.result()
             results.append((name, elapsed))
@@ -67,9 +68,8 @@ def main():
         print()
 
     print(results)
-
-
-
+    with open("results.txt", "a") as f:
+        f.write(results)
 
 
 def run_test(test_dir, repo):
@@ -90,7 +90,6 @@ def run_test(test_dir, repo):
     #     "rm Makefile",
     # ])
 
-
     commands = "; ".join([
         f"cd {repo}/source",
         f"cp -r {test_dir}/index-* .",
@@ -106,6 +105,7 @@ def run_test(test_dir, repo):
     # subprocess.run(commands, shell=True, )
     subprocess.run(commands, shell=True, stdout=subprocess.DEVNULL)
     return time.perf_counter() - start
+
 
 if __name__ == "__main__":
     main()

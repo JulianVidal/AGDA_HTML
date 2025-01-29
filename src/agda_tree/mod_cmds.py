@@ -9,7 +9,7 @@ import os.path
 
 MOD_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "mod_tree.pickle")
 
-def create_tree(dot_file, output):
+def create_tree(dot_file, output=None):
     """Creates modules dependency tree"""
     if not dot_file.endswith(".dot"):
         raise Exception("path isn't a .dot file")
@@ -60,12 +60,12 @@ def path_to_leaf(g, m):
     return max(paths, key=len)
 
 # Given a module m, which modules use it?
-def dependents(g, d, indirectly=False):
+def dependents(g, d, indirect=False):
     """Modules that import module m"""
-    if not indirectly:
+    if not indirect:
         return g.predecessors(d)
     else:
-        return g.ancestors(d)
+        return nx.ancestors(g, d)
 
 # What is the longest chain from a module to another module? 
 def path_between(g, src, dst):
@@ -105,3 +105,13 @@ def topo_sort(g):
 def lvl_sort(g):
     """Level sort"""
     return [",".join(ms) for ms in level_sort.levels(g)]
+
+def complex_modules(g, top=10):
+    """ Get the top modules that have the most dependents """
+    top = int(top)
+    module_lengths = [
+        (mod, len(list(nx.ancestors(g, mod))))
+        for mod in g.nodes()
+    ]
+    modules = sorted(module_lengths, key=lambda t: t[1], reverse=True)[:top]
+    return [mod[0] for mod in modules]

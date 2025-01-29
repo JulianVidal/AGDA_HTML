@@ -966,3 +966,17 @@ Error 42 on makefiles
 Are these all the queries we can implmenet.
 Add more examples to read me
 Create headlines and write a couple of sentences of what it should include
+
+I will simplify the steps needed to use the compilation speed up and the graph
+searching functions so it is easier to deploy. Also, I can find modules that
+have the most dependents and those would be the critical modules.
+ 
+One more thing. For the purposes of speeding up compilation, it may be
+efficient to disconsider the existing index files, as they are bottlenecks. So
+the idea would be to remove them from the dependency graph, compile everything
+using your techniques, and then, at the end, compile the root module (in our
+case AllModules.lagda, which will force the compilation of the original index
+files. I believe this may significantly improve things.
+
+The error 42 was from agda, my index files didn't have the --guardedness flag
+while the some modules did which is needed when you import them.

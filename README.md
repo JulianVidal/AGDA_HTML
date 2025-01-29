@@ -54,7 +54,7 @@ python src/main.py -h
 To query definitions, first create the definition tree by using the create_tree
 sub command and passing the directory containing the s-expression files:
 ```bash
-python cli.py definition create_tree [path to directory with sexp files]
+agda_tree definition create_tree [path to directory with sexp files]
 
 # usage: cli.py definition create_tree [-h] [-output OUTPUT] sexp_dir
 # 
@@ -69,7 +69,7 @@ python cli.py definition create_tree [path to directory with sexp files]
 # cd ~/TypeTopology
 # agda --sexp=./source/AllModulesIndex.lagda --sexp-dir=./sexp
 # cd ~/AGDA_HTML/agda_tree
-# python cli.py definition create_tree ~/TypeTopology/sexp
+# agda_tree definition create_tree ~/TypeTopology/sexp
 ```
 
 This will take about 6 minutes, once done it will save the tree to the file
@@ -78,7 +78,7 @@ named "def_tree.pickle" by default or the name set by the -output option.
 With the tree created all the queries under sub-command definition can be run.
 
 ```bash
-python cli.py definition -h
+agda_tree definition -h
 
 # usage: cli.py definition [-h]
 #                          {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
@@ -109,7 +109,7 @@ python cli.py definition -h
 To query modules, first create the module tree by passing the DOT file from the
 --dependency-tree agda sub-command to the create_tree sub-command:
 ```bash
-python cli.py module create_tree [path to dot file]
+agda_tree module create_tree [path to dot file]
 
 # usage: cli.py module create_tree [-h] [-output OUTPUT] dot_file
 # 
@@ -124,7 +124,7 @@ python cli.py module create_tree [path to dot file]
 # cd ~/TypeTopology
 # agda --dependency-graph=graph.dot ./source/AllModulesIndex.lagda 
 # cd ~/AGDA_HTML/agda_tree
-# python cli.py module create_tree ~/TypeTopology/graph.dot
+# agda_tree module create_tree ~/TypeTopology/graph.dot
 ```
 
 This will run quickly, once done it will save the tree to the file
@@ -133,7 +133,7 @@ named "mod_tree.pickle" by default or the name set by the -output option.
 With the tree created all the queries under sub-command module can be run.
 
 ```bash
-python cli.py module -h
+agda_tree module -h
 
 # usage: cli.py module [-h]
 #                      {create_tree,dependencies,dependents,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
@@ -163,7 +163,7 @@ The s-expressions tag each definition with a number, to get the name of a
 definition use the find command.
 
 ```bash
-python cli.py definition find "\_\+\_"
+agda_tree definition find "\_\+\_"
 
 # Output:
 # "UF.TruncationLevels._+_ 34"
@@ -186,7 +186,7 @@ python cli.py definition find "\_\+\_"
 
 To get the dependencies of InfinitePigeon.Addition.\_+\_
 ```bash
-python cli.py definition dependencies "InfinitePigeon.Addition._+_ 4"
+agda_tree definition dependencies "InfinitePigeon.Addition._+_ 4"
 
 # Output:
 # "MLTT.Natural-Numbers-Type.ℕ 4"
@@ -196,7 +196,7 @@ python cli.py definition dependencies "InfinitePigeon.Addition._+_ 4"
 
 To get the longest path to a leaf from module InfinitePigeon.Addition
 ```bash
-python cli.py module path_to_leaf "InfinitePigeon.Addition"
+agda_tree module path_to_leaf "InfinitePigeon.Addition"
 
 # Output:
 # "InfinitePigeon.Addition"
@@ -213,5 +213,5 @@ This command will open a TUI where you can search for definitions, once you
 pick one it will be passed as an argument to the dependents sub-command and
 return the dependents of the picked definition.
 ```bash
-python cli.py definitions nodes | fzf | xargs python cli.py definitions dependents
+agda_tree definitions nodes | fzf | xargs agda_tree definitions dependents
 ```

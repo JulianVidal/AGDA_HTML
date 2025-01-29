@@ -6,6 +6,8 @@
 **/.nrepl-port
 dist/
 
+compilation_tests/results.txt
+
 # Latex Ignore
 
 ## Core latex/pdflatex auxiliary files:

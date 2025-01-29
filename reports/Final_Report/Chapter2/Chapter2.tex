@@ -7,3 +7,44 @@ section of the Project Proposal and the Project Report. It is where you demonstr
 understand the state-of-the-art in the field you’re working. Towards the end of this sections it’s
 normally a good idea to explain how your aim / work / idea / contribution differs from the nearest
 work in the field.
+
+Research papers to explore:
+\begin{itemize}
+\item s-expressions 
+\item How graphs can be used to represent the definitions
+\item Most tools focus on data-flow for static analysis, I am looking
+    for a simpler tools that allows the querying of the relationships between
+    definitions.
+\end{itemize}
+
+Tools that do a similar job
+\begin{itemize}
+\item \href{https://github.com/universal-ctags/ctags}{CTags}
+    \begin{itemize}
+    \item CTags indexes all the symbols of a project
+    \item This works only on definitions of functions, not where they are referenced
+    \end{itemize}
+\item \href{https://jedi.readthedocs.io/}{Jedi - an awesome autocompletion, static analysis and refactoring library for Python}
+    \begin{itemize}
+    \item It finds function definitions and references which is what we are looking
+        for
+    \end{itemize}
+\item \href{https://github.com/agda/agda-language-server/tree/master}{Agda-Language-Server}
+    \begin{itemize}
+    \item An LSP for agda, it parses the files and analysis them, similar to what we
+        want but it doesn't seem to index them
+    \end{itemize}
+\item \href{https://cormack.uwaterloo.ca/~olhotak/pubs/ecoop12.pdf}{Application-only Call Graph Construction }
+    \begin{itemize}
+    \item A call graph represents the relationships between functions
+    \end{itemize}
+\item \href{https://dl.acm.org/doi/pdf/10.1145/199448.199462}{Precise Interprocedural Dataflow Analysis via Graph Reachabilit}
+    \begin{itemize}
+    \item Data flow is a way to statically analyse code before running it, this is
+        far more complex than what I want.
+    \end{itemize}
+\item \href{https://dl.acm.org/doi/abs/10.1145/3583660.3583664}{CFL/Dyck Reachability: An Algorithmic Perspective}
+    \begin{itemize}
+    \item Analyses the decidability and complexity of this problem
+    \end{itemize}
+\end{itemize}

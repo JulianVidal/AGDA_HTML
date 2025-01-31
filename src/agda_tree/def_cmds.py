@@ -7,31 +7,60 @@ from agda_tree import parser
 
 import os
 import os.path
+import shutil
+import subprocess
 
 DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
 
 # TODO: Query to get what definitions are used in module m
 # TODO: Query to get what types are used in module m
 
-def create_tree(sexp_dir, output):
-    """Creates definition dependency tree"""
+def create_tree(project_file, output):
+    """Creates definition dependency tree from file"""
+
+    if shutil.which("agdasexp") is None:
+        print("Can't create definition tree without agda s-expression extractor")
+        return
+
+    project_file = Path(project_file)
+    project_dir = None
+    for parent in project_file.parents:
+        if parent.name in ["src", "source"]:
+            project_dir = parent.parent
+            break
+    if project_dir is None:
+        print("Couldn't find project directory from project file")
+
+    sexp_dir = Path(f"/tmp/{project_file.stem}_sexp/")
+
+    if sexp_dir.exists():
+        shutil.rmtree(sexp_dir)
+
+    subprocess.run(
+        f"cd {project_dir}; agdasexp --sexp {project_file} --sexp-dir={sexp_dir}",
+        shell=True,
+        check=True
+    )
+
     path = Path(sexp_dir)
     if not path.is_dir():
         raise Exception("path isn't a directory")
     paths = Path(path).rglob('*sexp')
+
+    print("Parsing files")
+    print()
     definitions, def_types, def_to_mod = parser.parse_files(paths)
+
+    print()
+    print("Building graph")
 
     # Turns data into networkx graph
     g = nx.DiGraph()
-    print()
-    print("Adding nodes to graph")
     g.add_nodes_from([
         (n, {"module": def_to_mod[n], "types": def_types[n]})
         for n in definitions.keys()
     ])
 
-    print()
-    print("Adding edges to graph")
     g.add_edges_from([
         (func, dep)
         for func, deps in definitions.items()

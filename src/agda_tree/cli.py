@@ -5,6 +5,7 @@ import sys
 import networkx as nx
 import os
 import os.path
+from shutil import which
 
 from agda_tree import def_cmds
 from agda_tree import mod_cmds

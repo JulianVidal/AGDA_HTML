@@ -4,15 +4,34 @@ import pickle
 import re
 from agda_tree import level_sort
 
+import subprocess
 import os
 import os.path
 
 MOD_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "mod_tree.pickle")
 
-def create_tree(dot_file, output=None):
-    """Creates modules dependency tree"""
-    if not dot_file.endswith(".dot"):
-        raise Exception("path isn't a .dot file")
+def create_tree(project_file, output=None):
+    """Creates modules dependency tree from file"""
+
+    project_file = Path(project_file)
+    project_dir = None
+    for parent in project_file.parents:
+        if parent.name in ["src", "source"]:
+            project_dir = parent.parent
+            break
+    if project_dir is None:
+        print("Couldn't find project directory from project file")
+
+    dot_file = Path(f"/tmp/{project_file.stem}_graph.dot")
+
+    subprocess.run(
+        f"cd {project_dir}; agda --dependency-graph={dot_file} {project_file}",
+        shell=True,
+        check=True
+    )
+
+    # if not dot_file.endswith(".dot"):
+    #     raise Exception("path isn't a .dot file")
 
     print("Loading dot file into graph")
     g = nx.nx_pydot.read_dot(dot_file)

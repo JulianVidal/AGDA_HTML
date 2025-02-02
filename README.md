@@ -5,6 +5,7 @@ builds a graph from it that can be queried.
 # Dependencies
  - python3 (currently using version 3.12.4)
  - [Agda S-expression extractor](https://github.com/andrejbauer/agda/tree/master-sexp?tab=readme-ov-file) (For definition tree)
+ - [Cabal](https://www.haskell.org/cabal/)
  - [pipx](https://github.com/pypa/pipx) (Recommended to keep cli packages separate from global environment otherwise pip)
 
 # Installation
@@ -18,6 +19,11 @@ cd AGDA_HTML
 # Install with pipx
 pipx install .
 ```
+
+When you run the commandt the cli will look for the agdasexp command, if it
+doesn't find it, it will install the s-expression extractor by pulling the repo
+and doing ```cabal install .```
+
 # Development
 ```bash
 # Clone repo
@@ -52,31 +58,35 @@ python src/main.py -h
 # Usage
 
 To query definitions, first create the definition tree by using the create_tree
-sub command and passing the directory containing the s-expression files:
+sub command and passing the agda file you want to check:
 ```bash
-agda_tree definition create_tree [path to directory with sexp files]
+agda_tree definition create_tree [project_file]
 
-# usage: cli.py definition create_tree [-h] [-output OUTPUT] sexp_dir
-# 
+# usage: agda_tree definition create_tree [-h] [-output OUTPUT] project_file
+#
 # positional arguments:
-#   sexp_dir        Directory of s-expressions
-# 
+#   project_file    File to check
+#
 # options:
 #   -h, --help      show this help message and exit
-#   -output OUTPUT  Ouput file name
-# 
-# Example:
-# cd ~/TypeTopology
-# agda --sexp=./source/AllModulesIndex.lagda --sexp-dir=./sexp
-# cd ~/AGDA_HTML/agda_tree
-# agda_tree definition create_tree ~/TypeTopology/sexp
+#   -output OUTPUT  Output file name (Default:
+#                   /home/julian/.agda_tree/def_tree.pickle)
 ```
 
-This will take about 6 minutes, once done it will save the tree to the file
-named "def_tree.pickle" by default or the name set by the -output option.
+## Example
+
+Example using TypeTopology repo.
+```bash
+agda_tree definition create_tree "/tmp/TypeTopology/source/AllModulesIndex.lagda"
+```
+
+This will take some time, once done it will save the tree to the file
+"/home/[user]/.agda_tree/def_tree.pickle" by default or the name set by the
+-output option.
 
 With the tree created all the queries under sub-command definition can be run.
 
+# Commands
 ```bash
 agda_tree definition -h
 
@@ -106,32 +116,34 @@ agda_tree definition -h
 #   -h, --help            show this help message and exit
 ```
 
-To query modules, first create the module tree by passing the DOT file from the
---dependency-tree agda sub-command to the create_tree sub-command:
+To query modules, first create the module tree by passing the agda file you
+want to check:
 ```bash
-agda_tree module create_tree [path to dot file]
+agda_tree module create_tree [project_file]
 
-# usage: cli.py module create_tree [-h] [-output OUTPUT] dot_file
+# usage: cli.py module create_tree [-h] [-output OUTPUT] project_file
 # 
 # positional arguments:
-#   dot_file        Path to dependency tree dot file
+#   project_file        File to check
 # 
 # options:
 #   -h, --help      show this help message and exit
 #   -output OUTPUT  Ouput file name
-#
-# Example:
-# cd ~/TypeTopology
-# agda --dependency-graph=graph.dot ./source/AllModulesIndex.lagda 
-# cd ~/AGDA_HTML/agda_tree
-# agda_tree module create_tree ~/TypeTopology/graph.dot
 ```
 
-This will run quickly, once done it will save the tree to the file
-named "mod_tree.pickle" by default or the name set by the -output option.
+## Example
+Example using TypeTopology repo
+
+```
+agda_tree module create_tree "/tmp/TypeTopology/source/AllModulesIndex.lagda"
+```
+
+This will take some time, once done it will save the tree to the file
+"/home/[usr]/mod_tree.pickle" by default or the name set by the -output option.
 
 With the tree created all the queries under sub-command module can be run.
 
+## Commands
 ```bash
 agda_tree module -h
 
@@ -159,6 +171,8 @@ agda_tree module -h
 
 # Examples
 
+## Definition find
+
 The s-expressions tag each definition with a number, to get the name of a
 definition use the find command.
 
@@ -181,18 +195,249 @@ agda_tree definition find "\_\+\_"
 # "Integers.Addition._+_ 20"
 # "Dyadics.Addition._+_ 14"
 # "DedekindReals.Addition._+_ 220"
-
 ```
 
-To get the dependencies of InfinitePigeon.Addition.\_+\_
+## Definition dependencies (and indirect)
+
+The dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
 ```bash
-agda_tree definition dependencies "InfinitePigeon.Addition._+_ 4"
+agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
 
 # Output:
+# "InfinitePigeon.Equality._≡_ 6"
 # "MLTT.Natural-Numbers-Type.ℕ 4"
-# "MLTT.Natural-Numbers-Type.ℕ.succ 8"
-# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
+# "InfinitePigeon.Addition._+_ 4"
+# "InfinitePigeon.Equality._≡_.reflexivity 12"
 ```
+
+The indirect dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+```bash
+agda_tree definition dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output:
+# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
+# "MLTT.Natural-Numbers-Type.ℕ.succ 8"
+# "InfinitePigeon.Equality._≡_.reflexivity 12"
+# "InfinitePigeon.Equality._≡_ 6"
+# "MLTT.Natural-Numbers-Type.ℕ 4"
+# "InfinitePigeon.Addition._+_ 4"
+```
+
+## Definition dependents
+
+The definitions that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+```bash
+agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+
+# Output:
+# "InfinitePigeon.Addition._.base 108"
+```
+
+The definitions that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+```bash
+agda_tree definition dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output
+# "InfinitePigeon.Addition.addition-commutativity 100"
+# "InfinitePigeon.Examples.example4 30"
+# "InfinitePigeon.InfinitePigeon.pigeonhole 22"
+# "InfinitePigeon.J-Examples.example2 22"
+# "InfinitePigeon.J-InfinitePigeon.pigeonhole 22"
+# "InfinitePigeon.Examples.example3 28"
+# "InfinitePigeon.Addition.trivial-addition-rearrangement 170"
+# "InfinitePigeon.J-FinitePigeon.Theorem 112"
+# "InfinitePigeon.FinitePigeon.Theorem 108"
+# ...
+```
+
+## Definition leafs
+
+The leafs of the definition tree.
+
+```bash
+agda_tree definition leafs
+
+# Ouptut
+# "Unsafe.Haskell.Char 4"
+# "Unsafe.Haskell.String 6"
+# "InfinitePigeon.J-FinitePigeon.conjecture 38"
+# "Notation.General.Type 4"
+# "EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer.Brouwer 10"
+# "Games.TicTacToe1._.GameJ 82"
+# "Games.TicTacToe1._.Player 116"
+# "Unsafe.Type-in-Type-False.blechschmidt.domain 166"
+# "Unsafe.Type-in-Type-False.blechschmidt.codomain 178"
+# "Games.alpha-beta.tic-tac-toe.Player 1030"
+# "Games.alpha-beta.tic-tac-toe-variation.Player 1422"
+# ....
+```
+
+## Definition module_dependencies (and indirect)
+
+The modules that are used by "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+```bash
+agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+
+# Output:
+# "InfinitePigeon.Equality"
+# "MLTT.Natural-Numbers-Type"
+# "InfinitePigeon.Addition"
+```
+
+The modules that are indirectly used by "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+```bash
+agda_tree definition module_dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output
+# "InfinitePigeon.Equality"
+# "MLTT.Natural-Numbers-Type"
+# "InfinitePigeon.Addition"
+```
+
+## Definition module_dependents
+
+The modules that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+```bash
+agda_tree definition module_dependents "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+
+# Output:
+```
+
+The modules that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+```bash
+agda_tree definition module_dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output
+# "InfinitePigeon.J-Examples"
+# "InfinitePigeon.J-InfinitePigeon"
+# "InfinitePigeon.ProgramsWithoutSpecification"
+# "InfinitePigeon.InfinitePigeonLessEfficient"
+# "InfinitePigeon.ProgramsWithoutSpecificationBis"
+# "InfinitePigeon.J-FinitePigeon"
+# "InfinitePigeon.FinitePigeon"
+# "InfinitePigeon.PigeonProgram"
+# "InfinitePigeon.InfinitePigeon2011-05-12"
+# "InfinitePigeon.Examples"
+# "InfinitePigeon.J-PigeonProgram"
+# "InfinitePigeon.InfinitePigeon"
+```
+
+## Definition nodes
+
+The nodes in the definition tree
+```bash
+agda_tree definition nodes
+
+# Output:
+# "Locales.Compactness.Definition._.join-of 228"
+# "Locales.Compactness.Definition._.poset-of 252"
+# "Locales.Compactness.Definition._.rel-syntax 258"
+# "Locales.Compactness.Definition._.Locale.constructor 485"
+# "Locales.Compactness.Definition._.Exists 616"
+# "Locales.Compactness.Definition.is-compact-open 762"
+# "Locales.Compactness.Definition.is-compact 768"
+# "Ordinals.SupSum._.suprema.sup 256"
+# "Ordinals.SupSum._.suprema.sup-is-lower-bound-of-upper-bounds 264"
+# "Ordinals.SupSum._.suprema.sup-is-upper-bound 266"
+# "Ordinals.SupSum.fe 270"
+# "Ordinals.SupSum.pe 278"
+# ...
+```
+
+## Definition path_between
+
+The maximum path between two definitions
+```bash
+agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n 14" "MLTT.Natural-Numbers-Type.ℕ 4"
+
+# Output:
+# "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+# "InfinitePigeon.Addition._+_ 4"
+# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
+# "MLTT.Natural-Numbers-Type.ℕ 4"
+```
+## Definition path_to_leaf
+
+The maximum path to a leaf, note that for complex definitions this command
+might never finish running
+
+```bash
+agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output:
+# "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+# "InfinitePigeon.Addition._+_ 4"
+# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
+# "MLTT.Natural-Numbers-Type.ℕ 4"
+```
+
+## Definition module_path_to_leaf
+
+The maximum module path to a leaf, note that for complex definitions this
+command might never finish running
+
+```bash
+agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output:
+# "InfinitePigeon.Equality"
+# "InfinitePigeon.Addition"
+```
+
+## Definition roots
+
+The definitions that don't have any dependents, they aren't used.
+```bash
+agda_tree definition roots
+
+# Output:
+# "Various.Dedekind._.being-irrational-is-prop 3506"
+# "Various.Dedekind._.being-strongly-irrational-is-prop 3512"
+# "Various.Dedekind._._.having-a-lub-is-prop 3576"
+# ...
+```
+
+## Definition type
+
+The type of a definition
+
+```bash
+agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+
+# Output:
+# "InfinitePigeon.Equality._≡_ 6"
+# "MLTT.Natural-Numbers-Type.ℕ 4"
+# "InfinitePigeon.Addition._+_ 4"
+```
+
+## Definition uses
+
+Counts how many times a definition is used and gives the top of the list
+
+```bash
+agda_tree definition uses -top=10
+
+# Output:
+# "DomainTheory.Basics.Dcpo._.sup-is-upperbound 162"
+# "DomainTheory.Basics.Dcpo._.sup-is-lowerbound-of-upperbounds 174"
+# "DomainTheory.Basics.Dcpo._.inhabited-if-directed 242"
+# "DomainTheory.Basics.Dcpo._.semidirected-if-directed 256"
+# "DomainTheory.Basics.Dcpo._.being-inhabited-is-prop 262"
+# "DomainTheory.Basics.Dcpo._.dcpo-axioms-is-prop 388"
+# "DomainTheory.Basics.Dcpo._.dcpo-equalityΓéÜ 638"
+# "DomainTheory.Basics.Dcpo._.semidirected-if-Directed 724"
+# "Fin.Omega.Fin-to-╬⌐-embedding-is-equiv-iff-2-and-EM 80"
+# "TWA.Thesis.Chapter4.ParametricRegression.invert-preorder-is-preorder 622"
+```
+
+## Modules path to leaf
 
 To get the longest path to a leaf from module InfinitePigeon.Addition
 ```bash
@@ -205,6 +450,8 @@ agda_tree module path_to_leaf "InfinitePigeon.Addition"
 # "InfinitePigeon.Logic"
 # "Agda.Primitive"
 ```
+
+## Using fzf
 
 By installing the command-line fuzzy finder [fzf](https://github.com/junegunn/fzf),
 you can search definitions and pass them as an argument.

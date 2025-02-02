@@ -123,18 +123,25 @@ def module_path_to_leaf(g, d):
     leafs = [n for n in g.nodes() if g.out_degree(n)==0]
     paths = nx.all_simple_paths(g, d, leafs)
 
-    return max({g.nodes[n]["module"] for n in p}, key=len)
+    return max([{g.nodes[n]["module"] for n in p} for p in paths], key=len)
 
 
 # Given a definition d, which modules actually use it? (This is useful for
 # refactoring code and splitting large modules into smaller modules.)
-def module_dependents(g, d):
+def module_dependents(g, d, indirect=False):
     """Modules that depend on definition d"""
-    return {
-        g.nodes[pred]["module"]
-        for pred in g.predecessors(d) 
-        if g.nodes[pred]["module"] != g.nodes[d]["module"]
-    }
+    if not indirect:
+        return {
+            g.nodes[pred]["module"]
+            for pred in g.predecessors(d) 
+            if g.nodes[pred]["module"] != g.nodes[d]["module"]
+        }
+    else:
+        return {
+            g.nodes[pred]["module"]
+            for pred in nx.ancestors(g, d) 
+            if g.nodes[pred]["module"] != g.nodes[d]["module"]
+        }
 
 # Given a definition d, which definitions use it? (That is, how important the
 # definition is.)
@@ -170,15 +177,16 @@ def roots(g):
 
 # list *all* definitions by the number of times they are used (in increasing or
 # descreasing order). We can consider this directly or indirectly.
-def uses(g, indirect=False):
+def uses(g, indirect=False, top=10):
     """Counts amount of uses per definition, sorted in descending order"""
+    top = int(top)
     if not indirect:
         count = {n: g.in_degree(n) for n in g.nodes()}
     else:
         count = {n: len(nx.ancestors(g, n)) for n in g.nodes()}
 
     # Sorts in ascending order, lowest to highest
-    return sorted(count, key=lambda k: count[k])
+    return list(sorted(count, key=lambda k: count[k]))[:top]
 
 # Find all definitions e whose types use definition d. (This may be useful
 # when we want to prove something about d, or when we want to know how crucial

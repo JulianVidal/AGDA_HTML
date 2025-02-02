@@ -23,6 +23,7 @@ arg_help = {
     "dst": "Destination definition",
     "dot_file": "Path to dependency tree dot file",
     "sexp_dir": "Directory of s-expressions",
+    "project_file": "File to check",
     "-indirect": "Get indirectly connected nodes"
 }
 

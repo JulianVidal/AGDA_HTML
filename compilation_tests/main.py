@@ -19,12 +19,12 @@ main_index = Path("/tmp/TypeTopology/source/AllModulesIndex.lagda")
 main_module = "AllModulesIndex"
 tests = {
     "normal": (test_normal, (main_module, )),
-    # "unsafe": (test_unsafe, (dot_file,)),
-    # "lvl_2": (test_lvl, (dot_file, 2)),
-    # "lvl_5": (test_lvl, (dot_file, 5)),
-    # "lvlb_2": (test_lvlb, (dot_file, 2)),
-    # "lvlb_4": (test_lvlb, (dot_file, 4)),
-    # "lvl_disjoint": (test_lvl_disjoint, (dot_file, )),
+    "unsafe": (test_unsafe, (dot_file,)),
+    "lvl_2": (test_lvl, (dot_file, 2)),
+    "lvl_5": (test_lvl, (dot_file, 5)),
+    "lvlb_2": (test_lvlb, (dot_file, 2)),
+    "lvlb_4": (test_lvlb, (dot_file, 4)),
+    "lvl_disjoint": (test_lvl_disjoint, (dot_file, )),
 }
 
 

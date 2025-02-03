@@ -107,7 +107,7 @@ agda_tree definition -h
 #                         Longest path from definition d to any leaf only counting modules
 #     nodes               List of definitions
 #     path_between        Longest path between two definitions src and dst
-#     path_to_leaf        Longest path from defintion d to any leaf
+#     path_to_leaf        Longest path from definition d to any leaf
 #     roots               Definitions that aren't used
 #     type                Types of definition d
 #     uses                Counts amount of uses per definition, sorted in descending order

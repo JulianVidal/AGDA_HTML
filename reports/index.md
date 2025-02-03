@@ -989,3 +989,17 @@ a file instead of needing it done before.
 
 If the agdai was changed how do I detect that?
 
+# 14 - Pre-meeting Report
+Added an example for each agda_tree definition command, cleaned up README
+overall. The compilation tests now appends results to the "results.txt" file.
+The error 42 came from some modules including the --guardedness flag so I had
+to add that flag to my index files as well. The agda_tree command will now
+install the s-expression extractor with cabal under the agdasexp command.
+
+Since my compilation techniques are based on the dot file which creates all the
+agdai files when generated, removing the agdai files from the graph will lead
+to an empty graph. Perhaps removing modules whose agda file didn't change, but
+I am unsure on how to find that out.
+
+# 14 - Post-meeting Report
+# 14 - Notes

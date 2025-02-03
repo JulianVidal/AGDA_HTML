@@ -1002,4 +1002,18 @@ to an empty graph. Perhaps removing modules whose agda file didn't change, but
 I am unsure on how to find that out.
 
 # 14 - Post-meeting Report
+Discussed usage examples and the error 42 of the makefiles which would cause
+agda to stop type checking making results invalid.
+
+Before or by next week:
+ - Remove index nodes from dependency graph in compilation tests
+ - Add instructions to run the compilation program
+ - Begin writting part of the dissertation
+
+
 # 14 - Notes
+Remove index files
+Make compilation fo reasier installation
+Send pdf of dissertation at current state
+Rough introduction file
+Add section to easily reference yourself

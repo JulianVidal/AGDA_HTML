@@ -48,6 +48,7 @@ def main():
 
     dot = nx.relabel_nodes(dot, mapping)
     dot.remove_node("Agda.Primitive")
+    dot.remove_node("index")
 
     for node in list(dot.nodes):
         if ".index" in node:

@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Factorial.index
-import Circle.Construction
-import Dominance.Lifting
-import DyadicsInductive.DyadicOrder-PropTrunc
+import Unsafe.Type-in-Type-False
+import Circle.Induction
+import Circle.Integers-SymmetricInduction
+import DyadicsInductive.DyadicOrder
 
 
 \end{code}

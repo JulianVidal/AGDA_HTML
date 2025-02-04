@@ -3,10 +3,9 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.index
-import Ordinals.NotationInterpretation
+import Locales.Sierpinski.Patch
 
 
 \end{code}

@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.index
-import EffectfulForcing.MFPSAndVariations.Church
-import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
-import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
+import TypeTopology.AbsolutenessOfCompactnessExample
+import Fin.Choice
+import CoNaturals.BothTypes
+import DiscreteGraphicMonoids.AffineMonad
 
 
 \end{code}

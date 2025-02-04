@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.MarkovsPrinciple
-import Taboos.LLPO
+import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
+import DomainTheory.BasesAndContinuity.StepFunctions
 
 
 \end{code}

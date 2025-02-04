@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Combinatory.index
-import Iterative.Sets-Addendum
+import Locales.DistributiveLattice.Resizing
+import PCF.Lambda.ScottModelOfIfZero
 
 
 \end{code}

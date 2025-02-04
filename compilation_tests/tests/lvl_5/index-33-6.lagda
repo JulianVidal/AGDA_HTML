@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.CombinatoryT
-import CoNaturals.Exercise
-import CoNaturals.Type2
-import NotionsOfDecidability.index
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
+import Unsafe.Haskell
+import TypeTopology.AbsolutenessOfCompactness
 
 
 \end{code}

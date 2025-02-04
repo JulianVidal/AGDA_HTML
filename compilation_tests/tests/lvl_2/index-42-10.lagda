@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter4.ApproxOrder-Examples
-import EffectfulForcing.Internal.Correctness
+import Taboos.LLPO
+import Iterative.Finite
 
 
 \end{code}

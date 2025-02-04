@@ -3,10 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Various.UnivalenceFromScratch
 import InfinitePigeon.Logic
+import Various.Types2019
+import Various.UnivalenceFromScratch
 
 
 \end{code}

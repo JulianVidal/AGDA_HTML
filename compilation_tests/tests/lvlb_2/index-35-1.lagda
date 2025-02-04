@@ -3,27 +3,26 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.SupLattice-SmallBasis
-import Groups.Large
-import Ordinals.WellOrderTransport
-import Slice.Monad
-import Slice.Embedding
-import DomainTheory.Basics.Products
-import DomainTheory.Basics.FunctionComposition
-import Modal.SigmaClosedReflectiveSubuniverse
-import TypeTopology.UniformSearch
 import InjectiveTypes.PointedDcpos
-import TWA.Thesis.AndrewSneap.DyadicReals
-import TWA.Thesis.Chapter5.IntervalObjectApproximation
-import ContinuityAxiom.False
-import DiscreteGraphicMonoids.Free
-import Apartness.index
-import Integers.index
+import DomainTheory.Basics.FunctionComposition
+import Locales.DiscreteLocale.Two
+import Locales.DistributiveLattice.Homomorphism
+import Locales.DistributiveLattice.Properties
+import OrderedTypes.sigma-frame
 import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
+import CoNaturals.Equivalence
+import Locales.DistributiveLattice.Definition-SigmaBased
+import OrderedTypes.SupLattice-SmallBasis
+import Slice.Embedding
+import Modal.SigmaClosedReflectiveSubuniverse
 import UF.ConnectedTypes
+import Unsafe.CountableTychonoff
 import CrossedModules.CrossedModules
+import TypeTopology.UniformSearch
+import ContinuityAxiom.False
 
 
 \end{code}

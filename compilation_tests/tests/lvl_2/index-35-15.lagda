@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.SIP-IntervalObject
-import TWA.Thesis.Chapter2.Vectors
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.CantorSearch
 
 
 \end{code}

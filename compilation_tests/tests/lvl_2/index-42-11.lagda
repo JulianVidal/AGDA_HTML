@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
-import DomainTheory.BasesAndContinuity.StepFunctions
+import TypeTopology.SimpleTypes
+import InjectiveTypes.Resizing
 
 
 \end{code}

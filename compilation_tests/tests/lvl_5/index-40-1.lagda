@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Spectrality.SpectralityOfOmega
-import Locales.Spectrality.SpectralMapToLatticeHomomorphism
-import Locales.Spectrality.LatticeOfCompactOpens-Duality
-import Fin.index
-import Ordinals.ToppedArithmetic
+import Games.TicTacToe1
+import Locales.Spectrality.BasisDirectification
+import Locales.ScottLocale.ScottLocalesOfScottDomains
+import Games.TicTacToe0
+import Locales.Spectrality.LatticeOfCompactOpens
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import PCF.Lambda.SubstitutionDenotational
-import PCF.Lambda.Adequacy
+import TWA.Thesis.Chapter3.PredicateEquality
 
 
 \end{code}

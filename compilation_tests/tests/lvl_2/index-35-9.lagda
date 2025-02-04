@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DirectedFamily-Poset
-import Integers.Parity
+import Locales.WayBelowRelation.Definition
+import Locales.ScottContinuity
 
 
 \end{code}

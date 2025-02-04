@@ -1,4 +1,4 @@
-all: _build/2.7.0.1/agda/source/index-59-0.agdai 
+all: _build/2.7.0.1/agda/source/index-56-0.agdai 
 
 _build/2.7.0.1/agda/source/index-0-0.agdai: 
 	agda ./source/index-0-0.lagda
@@ -312,36 +312,18 @@ _build/2.7.0.1/agda/source/index-51-1.agdai: _build/2.7.0.1/agda/source/index-50
 _build/2.7.0.1/agda/source/index-52-0.agdai: _build/2.7.0.1/agda/source/index-51-0.agdai _build/2.7.0.1/agda/source/index-51-1.agdai 
 	agda ./source/index-52-0.lagda
 
-_build/2.7.0.1/agda/source/index-52-1.agdai: _build/2.7.0.1/agda/source/index-51-0.agdai _build/2.7.0.1/agda/source/index-51-1.agdai 
-	agda ./source/index-52-1.lagda
-
-_build/2.7.0.1/agda/source/index-53-0.agdai: _build/2.7.0.1/agda/source/index-52-0.agdai _build/2.7.0.1/agda/source/index-52-1.agdai 
+_build/2.7.0.1/agda/source/index-53-0.agdai: _build/2.7.0.1/agda/source/index-52-0.agdai 
 	agda ./source/index-53-0.lagda
 
-_build/2.7.0.1/agda/source/index-53-1.agdai: _build/2.7.0.1/agda/source/index-52-0.agdai _build/2.7.0.1/agda/source/index-52-1.agdai 
-	agda ./source/index-53-1.lagda
-
-_build/2.7.0.1/agda/source/index-54-0.agdai: _build/2.7.0.1/agda/source/index-53-0.agdai _build/2.7.0.1/agda/source/index-53-1.agdai 
+_build/2.7.0.1/agda/source/index-54-0.agdai: _build/2.7.0.1/agda/source/index-53-0.agdai 
 	agda ./source/index-54-0.lagda
 
-_build/2.7.0.1/agda/source/index-54-1.agdai: _build/2.7.0.1/agda/source/index-53-0.agdai _build/2.7.0.1/agda/source/index-53-1.agdai 
+_build/2.7.0.1/agda/source/index-54-1.agdai: _build/2.7.0.1/agda/source/index-53-0.agdai 
 	agda ./source/index-54-1.lagda
 
 _build/2.7.0.1/agda/source/index-55-0.agdai: _build/2.7.0.1/agda/source/index-54-0.agdai _build/2.7.0.1/agda/source/index-54-1.agdai 
 	agda ./source/index-55-0.lagda
 
-_build/2.7.0.1/agda/source/index-55-1.agdai: _build/2.7.0.1/agda/source/index-54-0.agdai _build/2.7.0.1/agda/source/index-54-1.agdai 
-	agda ./source/index-55-1.lagda
-
-_build/2.7.0.1/agda/source/index-56-0.agdai: _build/2.7.0.1/agda/source/index-55-0.agdai _build/2.7.0.1/agda/source/index-55-1.agdai 
+_build/2.7.0.1/agda/source/index-56-0.agdai: _build/2.7.0.1/agda/source/index-55-0.agdai 
 	agda ./source/index-56-0.lagda
-
-_build/2.7.0.1/agda/source/index-57-0.agdai: _build/2.7.0.1/agda/source/index-56-0.agdai 
-	agda ./source/index-57-0.lagda
-
-_build/2.7.0.1/agda/source/index-58-0.agdai: _build/2.7.0.1/agda/source/index-57-0.agdai 
-	agda ./source/index-58-0.lagda
-
-_build/2.7.0.1/agda/source/index-59-0.agdai: _build/2.7.0.1/agda/source/index-58-0.agdai 
-	agda ./source/index-59-0.lagda
 

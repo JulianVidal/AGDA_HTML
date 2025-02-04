@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Notation.Decimal
-import InfinitePigeon.Addition
-import InfinitePigeon.Two
-import InfinitePigeon.JK-Monads
-import InfinitePigeon.Choice
+import MLTT.Unit
+import MLTT.Two
+import MLTT.NaturalNumbers
+import MLTT.Unit-Type
+import AllModulesIndex
 
 
 \end{code}

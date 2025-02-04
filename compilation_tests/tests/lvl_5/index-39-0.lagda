@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Fractions
-import GamesExperimental.TicTacToe1
-import GamesExperimental.TicTacToe0
-import Locales.PatchLocale
-import Locales.ZeroDimensionality
+import TypeTopology.SigmaDiscreteAndTotallySeparated
+import DomainTheory.Bilimits.Dinfinity
+import Locales.SmallBasis
+import Locales.CharacterisationOfContinuity
+import Locales.PerfectMaps
 
 
 \end{code}

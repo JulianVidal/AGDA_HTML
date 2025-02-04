@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import WildCategories.Base
-import ContinuityAxiom.Preliminaries
+import InfinitePigeon.J-FinitePigeon
+import PathSequences.Split
 
 
 \end{code}

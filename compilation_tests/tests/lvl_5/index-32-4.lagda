@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.IndCompletion
-import Locales.DistributiveLattice.Ideal
-import Fin.Omega
-import OrderedTypes.PredicativeLFP
-import TypeTopology.ExtendedSumCompact
+import Locales.DiscreteLocale.Two
+import Locales.DistributiveLattice.Homomorphism
+import Locales.DistributiveLattice.Properties
+import OrderedTypes.sigma-frame
 
 
 \end{code}

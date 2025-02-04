@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.SigmaDiscreteAndTotallySeparated
-import Taboos.index
-import Locales.SmallBasis
-import Locales.CharacterisationOfContinuity
-import Locales.PerfectMaps
+import TypeTopology.FailureOfTotalSeparatedness
+import TypeTopology.GenericConvergentSequenceCompactness
+import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
+import DomainTheory.BasesAndContinuity.StepFunctions
+import Locales.HeytingComplementation
 
 
 \end{code}

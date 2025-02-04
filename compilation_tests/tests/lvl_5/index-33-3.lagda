@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Spectrum
-import Fin.Choice
-import Ordinals.OrdinalOfTruthValues
-import Slice.index
+import Ordinals.Arithmetic
+import Ordinals.OrdinalOfOrdinalsSuprema
+import Locales.ContinuousMap.Properties
+import Various.Dedekind
+import Fin.Order
 
 
 \end{code}

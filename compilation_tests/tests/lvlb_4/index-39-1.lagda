@@ -3,15 +3,15 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import Locales.ThesisIndex
+import DomainTheory.BasesAndContinuity.ScottDomain
+import Locales.Compactness.Definition
 import DomainTheory.BasesAndContinuity.CompactBasis
-import Locales.BooleanAlgebra
-import Locales.SIP.DistributiveLatticeSIP
-import Iterative.Multisets-Addendum
-import PCF.Lambda.ScottModelOfContexts
-import Ordinals.Indecomposable
-import InjectiveTypes.MathematicalStructuresMoreGeneral
+import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
+import TWA.Thesis.Chapter3.ClosenessSpaces
+import EffectfulForcing.Internal.Internal
 
 
 \end{code}

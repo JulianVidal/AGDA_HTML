@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Bilimits.Sequential
-import DomainTheory.IdealCompletion.Retracts
+import Locales.Compactness.Properties
+import Locales.DistributiveLattice.Isomorphism-Properties
 
 
 \end{code}

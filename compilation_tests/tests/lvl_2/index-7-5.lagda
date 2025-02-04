@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Type
-import Ordinals.Brouwer
+import InfinitePigeon.K-Shift
+import Ordinals.LexicographicOrder
 
 
 \end{code}

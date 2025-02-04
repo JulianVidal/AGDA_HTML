@@ -3,18 +3,17 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter5.BoehmStructure
-import TWA.Thesis.AndrewSneap.DyadicRationals
-import Lifting.index
-import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
-import DiscreteGraphicMonoids.LWRDGM
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.CantorSearch
+import InjectiveTypes.Subtypes
+import Modal.ReflectiveSubuniverse
 import Apartness.TightReflection
-import Naturals.index
-import Groups.Cokernel
-import Various.Pataraia
 import UF.Truncations
+import InjectiveTypes.CharacterizationViaLifting
+import TypeTopology.CantorMinusPoint
+import TWA.SIP-IntervalObject
 
 
 \end{code}

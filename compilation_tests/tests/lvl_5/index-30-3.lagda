@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ScottLocale.Definition
-import Locales.Point.Definition
-import Locales.DiscreteLocale.Definition
-import Locales.DirectedFamily-Poset
-import Integers.Parity
+import Ordinals.WellOrderArithmetic
+import Naturals.Parity
+import UF.SmallnessProperties
+import Quotient.FromSetReplacement
+import Quotient.Effectivity
 
 
 \end{code}

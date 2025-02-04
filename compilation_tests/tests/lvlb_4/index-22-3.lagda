@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import BinarySystems.InitialBinarySystem
-import UF.Classifiers-Old
+import UF.CumulativeHierarchy
 
 
 \end{code}

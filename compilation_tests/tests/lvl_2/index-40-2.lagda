@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
-import DomainTheory.Lifting.LiftingSetAlgebraic
+import DomainTheory.IdealCompletion.Properties
+import DomainTheory.Examples.Omega
 
 
 \end{code}

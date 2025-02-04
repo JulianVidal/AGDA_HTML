@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import Naturals.AbsoluteDifference
-import Naturals.Exponentiation
+import OrderedTypes.JoinSemiLattices
 
 
 \end{code}

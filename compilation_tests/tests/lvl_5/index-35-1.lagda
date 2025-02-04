@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Lifting.LiftingSetAlgebraic
-import DomainTheory.BasesAndContinuity.ScottDomain
-import DomainTheory.BasesAndContinuity.CompactBasis
-import Locales.BooleanAlgebra
-import Locales.SIP.DistributiveLatticeSIP
+import DomainTheory.Basics.Curry
+import DomainTheory.Lifting.LiftingDcpo
+import Locales.Nucleus
+import Taboos.FiniteSubsetTaboo
+import Locales.CompactRegular
 
 
 \end{code}

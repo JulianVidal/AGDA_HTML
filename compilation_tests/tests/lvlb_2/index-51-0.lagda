@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import MetricSpaces.Rationals
-import InjectiveTypes.CounterExamples
+import Rationals.Extension
 
 
 \end{code}

@@ -3,17 +3,16 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import Ordinals.Notions
 import UF.Size
 import Integers.Abs
 import UF.Powerset-MultiUniverse
-import Taboos.DrinkerParadox
-import Integers.Exponentiation
 import Fin.UniverseInvariance
+import Integers.Exponentiation
 import Groups.Symmetric
-import Coslice.index
+import Groups.Kernel
 
 
 \end{code}

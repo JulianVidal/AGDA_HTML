@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski
-import Locales.Compactness.Properties
-import Locales.DistributiveLattice.Resizing
-import Locales.DistributiveLattice.Isomorphism-Properties
-import gist.multiset-addendum-question
+import DomainTheory.BasesAndContinuity.CompactBasis
+import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
+import TWA.Thesis.Chapter3.ClosenessSpaces
+import EffectfulForcing.Internal.Internal
+import Iterative.Multisets-Addendum
 
 
 \end{code}

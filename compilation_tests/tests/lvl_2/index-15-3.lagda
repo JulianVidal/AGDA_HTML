@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Field.DedekindReals
-import Relations.SRTclosure
+import Games.JK
+import PCF.Lambda.AbstractSyntax
 
 
 \end{code}

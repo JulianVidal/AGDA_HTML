@@ -3,10 +3,9 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Examples.Powerset
-import DomainTheory.ScottModelOfPCF.PCFCombinators
+import EffectfulForcing.MFPSAndVariations.WithoutOracle
 
 
 \end{code}

@@ -3,20 +3,20 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.alpha-beta
-import Unsafe.Haskell
-import Unsafe.CantorCompact
-import Locales.AdjointFunctorTheoremForFrames
-import Locales.InitialFrame
-import Locales.ContinuousMap.Properties
-import Locales.Complements
-import DomainTheory.BasesAndContinuity.IndCompletion
-import Locales.DistributiveLattice.Ideal
-import Fin.Omega
-import OrderedTypes.PredicativeLFP
+import Iterative.Ordinals
 import TypeTopology.ExtendedSumCompact
+import Ordinals.ToppedType
+import Ordinals.Arithmetic
+import Ordinals.OrdinalOfOrdinalsSuprema
+import Locales.ContinuousMap.Properties
+import Various.Dedekind
+import Fin.Order
+import Slice.Algebras
+import TypeTopology.ConvergentSequenceHasInf
+import Ordinals.LexicographicCompactness
+import TypeTopology.PropInfTychonoff
 
 
 \end{code}

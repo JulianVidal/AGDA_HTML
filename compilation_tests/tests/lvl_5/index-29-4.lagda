@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.SmallnessProperties
-import Ordinals.WellOrderingTaboo
-import gist.remove-swap
-import Ordinals.TrichotomousType
-import InjectiveTypes.Sigma
+import UF.TruncationLevels
+import Quotient.Large-Variation
+import OrderedTypes.FreeSupLattice
+import Naturals.RootsTruncation
 
 
 \end{code}

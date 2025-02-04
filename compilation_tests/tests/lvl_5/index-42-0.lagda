@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Multiplication
-import Locales.PatchProperties
-import Locales.TerminalLocale.Properties
-import Dyadics.Negation
-import Dyadics.Multiplication
+import Rationals.Addition
+import Rationals.FractionsOrder
+import Dyadics.Type
+import Ordinals.AdditionProperties
 
 
 \end{code}

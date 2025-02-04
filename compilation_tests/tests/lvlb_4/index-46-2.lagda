@@ -3,12 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.CumulativeHierarchy
-import Ordinals.MultiplicationProperties
-import Ordinals.NotationInterpretation2
 import Ordinals.SupSum
+import Ordinals.NotationInterpretation1
+import Ordinals.CumulativeHierarchy
 
 
 \end{code}

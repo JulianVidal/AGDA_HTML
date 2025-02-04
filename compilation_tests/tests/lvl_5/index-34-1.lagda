@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.FiniteSubsetTaboo
-import Locales.Nucleus
-import Locales.CompactRegular
-import DomainTheory.BasesAndContinuity.Bases
-import DomainTheory.Topology.ScottTopologyProperties
+import Locales.Adjunctions.Properties-DistributiveLattice
+import Locales.Point.Properties
+import DomainTheory.BasesAndContinuity.Continuity
+import UF.Powerset-Fin
+import Locales.HeytingImplication
 
 
 \end{code}

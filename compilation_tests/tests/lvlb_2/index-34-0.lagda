@@ -3,7 +3,7 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import TypeTopology.CompactTypes
 import CoNaturals.GenericConvergentSequence
@@ -13,19 +13,18 @@ import DomainTheory.Basics.Pointed
 import Locales.ContinuousMap.FrameHomomorphism-Definition
 import Locales.GaloisConnection
 import Locales.DistributiveLattice.Definition
-import Ordinals.Equivalence
-import CoNaturals.GenericConvergentSequence2
+import Locales.Point.Definition
+import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
 import MLTT.Vector
 import OrderedTypes.SupLattice
-import Locales.WayBelowRelation.Definition
-import Locales.WellInside
-import Locales.ScottContinuity
-import Locales.ScottLocale.Definition
-import Locales.Point.Definition
-import Locales.DiscreteLocale.Definition
-import Locales.DirectedFamily-Poset
+import TWA.Thesis.Chapter2.Vectors
+import Slice.IdentityViaSIP
+import Ordinals.Equivalence
 import Integers.Parity
-import Quotient.index
+import Groups.Free
+import Locales.WellInside
+import Locales.WayBelowRelation.Definition
+import Locales.ScottContinuity
 
 
 \end{code}

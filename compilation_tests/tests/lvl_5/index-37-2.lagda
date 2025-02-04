@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Iterative.Finite
-import TypeTopology.RicesTheoremForTheUniverse
-import TypeTopology.SimpleTypes
-import Ordinals.ConvergentSequence
-import InjectiveTypes.Resizing
+import Locales.ScottLocale.Properties
+import TWA.Thesis.Chapter3.ClosenessSpaces-Examples
+import Locales.Sierpinski.Definition
+import gist.multiset-addendum-question
 
 
 \end{code}

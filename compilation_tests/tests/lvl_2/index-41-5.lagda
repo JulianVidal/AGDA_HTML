@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski
-import Locales.Compactness.Properties
+import Locales.ScottLocale.Properties
+import TWA.Thesis.Chapter3.ClosenessSpaces-Examples
 
 
 \end{code}

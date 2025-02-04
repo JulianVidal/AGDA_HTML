@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Yoneda
-import Categories.Category
-import GamesExperimental.Constructor
-import GamesExperimental.Transformer
+import UF.Equiv-FunExt
+import W.Properties
+import Lifting.Miscelanea
+import Games.Constructor
 
 
 \end{code}

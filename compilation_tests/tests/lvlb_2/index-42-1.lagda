@@ -3,17 +3,16 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.ADecidableQuantificationOverTheNaturals
-import TypeTopology.SequentiallyHausdorff
-import TWA.Thesis.Chapter3.PredicateEquality
+import CantorSchroederBernstein.CSB
 import TWA.Thesis.Chapter6.SignedDigitContinuity
 import TWA.Thesis.Chapter4.ParametricRegression
-import EffectfulForcing.Internal.FurtherThoughts
+import TypeTopology.ADecidableQuantificationOverTheNaturals
 import EffectfulForcing.Internal.InternalModCont
-import CantorSchroederBernstein.CSB-TheoryLabLunch
-import DomainTheory.Bilimits.Dinfinity
+import gist.not-an-apartness
+import TypeTopology.SequentiallyHausdorff
+import PCF.Lambda.Adequacy
 
 
 \end{code}

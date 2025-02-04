@@ -3,31 +3,23 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
-import Fin.index
-import DomainTheory.Topology.ScottTopology
+import Iterative.Sets
+import Slice.Family
+import Slice.Construction
 import UF.SmallnessProperties
-import TWA.Thesis.Chapter2.Vectors
+import NotionsOfDecidability.SemiDecidable
 import DomainTheory.Basics.Miscelanea
-import DiscreteGraphicMonoids.ListsWithoutRepetitions
+import UF.Powerset-Resizing
 import DomainTheory.IdealCompletion.IdealCompletion
-import Games.List
-import TWA.Thesis.Chapter5.SignedDigit
-import Naturals.Parity
-import MLTT.Fin
-import gist.remove-swap
-import Modal.SigmaClosedReflectiveSubuniverse
-import Ordinals.Maps
-import Integers.Division
-import MLTT.List-Properties
-import Naturals.HCF
-import Various.Hydra
-import Locales.Frame
-import Games.NonEmptyList
-import Ordinals.TrichotomousType
-import NotionsOfDecidability.index
+import UF.SIP-Examples
+import Quotient.FromSetReplacement
+import TypeTopology.Cantor
+import Apartness.TightReflection
+import Ordinals.WellOrderingTaboo
+import TWA.Thesis.AndrewSneap.DyadicReals
+import W.Paths
 
 
 \end{code}

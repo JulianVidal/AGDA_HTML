@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.index
-import DomainTheory.Bilimits.Directed
+import EffectfulForcing.MFPSAndVariations.Internal
+import InjectiveTypes.MathematicalStructures
 
 
 \end{code}

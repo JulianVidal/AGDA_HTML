@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.Correctness
-import TypeTopology.DecidabilityOfNonContinuity
-import TWA.Thesis.Chapter3.SearchableTypes-Examples
-import Games.TicTacToe1
+import EffectfulForcing.Internal.InternalModCont
+import gist.not-an-apartness
+import TypeTopology.SequentiallyHausdorff
+import PCF.Lambda.Adequacy
 
 
 \end{code}

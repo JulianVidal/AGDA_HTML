@@ -3,17 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import NotionsOfDecidability.Decidable
-import Lifting.Algebras
-import Quotient.GivesPropTrunc
-import Dominance.Definition
-import Cardinals.Type
-import NotionsOfDecidability.Complemented
-import Dominance.Decidable
-import Cardinals.Preorder
-import UF.DiscreteAndSeparated
+import UF.Logic
+import UF.IdEmbedding
+import Lifting.Monad
+import Lifting.EmbeddingViaSIP
 
 
 \end{code}

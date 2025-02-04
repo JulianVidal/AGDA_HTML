@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.MonadVariation
-import BinarySystems.InitialBinarySystem
-import UF.Classifiers-Old
+import Modal.Homotopy
+import UF.ImageAndSurjection-Variation
+import UF.Groupoids
 
 
 \end{code}

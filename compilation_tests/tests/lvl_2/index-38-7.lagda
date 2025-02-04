@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Point.Properties
-import Locales.DistributiveLattice.Spectrum
+import EffectfulForcing.MFPSAndVariations.SystemT
+import EffectfulForcing.MFPSAndVariations.Dialogue
 
 
 \end{code}

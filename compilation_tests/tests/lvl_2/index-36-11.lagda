@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Slice.Monad
-import Slice.Embedding
+import Locales.DistributiveLattice.Properties
+import OrderedTypes.sigma-frame
 
 
 \end{code}

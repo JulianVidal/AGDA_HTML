@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import NotionsOfDecidability.Digression
-import UF.LeftCancellable
-import UF.Subsingletons-Properties
-import MGS.TypeTopology-Interface
-import MGS.Subsingleton-Theorems
+import UF.Equiv
+import UF.Hedberg
+import MGS.FunExt-from-Univalence
+import MGS.HAE
 
 
 \end{code}

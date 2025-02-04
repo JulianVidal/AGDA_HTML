@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.J
-import Lifting.Set
-import MGS.Classifiers
-import MGS.Size
+import Games.TypeTrees
+import Games.Reader
+import MGS.Subsingleton-Truncation
+import GamesExperimental.TypeTrees
+import Games.NonEmptyListOriginal
 
 
 \end{code}

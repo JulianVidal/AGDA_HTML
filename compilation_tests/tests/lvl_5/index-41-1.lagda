@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.UniversalProperty
-import Locales.StoneDuality.ForSpectralLocales
-import Dyadics.Type
-import Ordinals.AdditionProperties
-import PCF.index
+import TypeTopology.SquashedCantor
+import Locales.Sierpinski.Properties
+import Locales.Spectrality.LatticeOfCompactOpens-Duality
+import TWA.Thesis.Chapter6.SignedDigitSearch
+import Locales.Spectrality.SpectralMapToLatticeHomomorphism
 
 
 \end{code}

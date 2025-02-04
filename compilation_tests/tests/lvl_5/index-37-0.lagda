@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.FailureOfTotalSeparatedness
-import TypeTopology.GenericConvergentSequenceCompactness
-import Taboos.MarkovsPrinciple
-import Taboos.LLPO
-import Locales.HeytingComplementation
+import Taboos.BasicDiscontinuity
+import TypeTopology.LimitPoints
+import TypeTopology.WeaklyCompactTypes
+import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
+import Taboos.LPO
 
 
 \end{code}

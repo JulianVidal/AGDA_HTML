@@ -3,12 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.index
-import Ordinals.ToppedArithmetic
-import PCF.Lambda.index
-import TypeTopology.SquashedCantor
+import Locales.Sierpinski.Properties
+import Locales.Spectrality.LatticeOfCompactOpens-Duality
 
 
 \end{code}

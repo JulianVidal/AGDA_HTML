@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Equiv
-import UF.Hedberg
-import MGS.FunExt-from-Univalence
-import MGS.HAE
+import UF.Sets
+import UF.Retracts
+import MGS.Equivalence-Induction
+import Lifting.Construction
+import Naturals.Multiplication
 
 
 \end{code}

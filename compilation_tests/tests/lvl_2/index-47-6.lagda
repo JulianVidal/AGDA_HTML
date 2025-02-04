@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.NotationInterpretation1
-import TWA.Thesis.index
+import Ordinals.MultiplicationProperties
+import Dyadics.Order
 
 
 \end{code}

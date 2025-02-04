@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.alpha-beta-examples
-import Unsafe.index
+import Ordinals.Injectivity
+import Ordinals.OrdinalOfTruthValues
 
 
 \end{code}

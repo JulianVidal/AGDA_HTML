@@ -3,9 +3,9 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import WildCategories.Idempotents
+import InfinitePigeon.J-PigeonProgram
 import UF.SetTrunc
 
 

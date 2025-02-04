@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Quotient.index
-import OrderedTypes.TwoElementPoset
+import Locales.ScottLocale.Definition
+import TWA.Thesis.AndrewSneap.DyadicRationals
 
 
 \end{code}

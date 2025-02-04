@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import gist.remove-swap
-import Ordinals.TrichotomousType
+import InjectiveTypes.Sigma
+import InjectiveTypes.OverSmallMaps
 
 
 \end{code}

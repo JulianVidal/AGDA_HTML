@@ -3,14 +3,14 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.JoinSemiLattices
+import InfinitePigeon.FinitePigeon
+import Naturals.Exponentiation
+import InfinitePigeon.J-PigeonProgram
+import UF.SetTrunc
 import Field.Axioms
 import WildCategories.Idempotents
-import UF.SetTrunc
-import InfinitePigeon.FinitePigeon
-import InfinitePigeon.J-PigeonProgram
 
 
 \end{code}

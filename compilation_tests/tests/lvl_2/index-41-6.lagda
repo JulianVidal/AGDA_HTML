@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Resizing
-import Locales.DistributiveLattice.Isomorphism-Properties
+import Locales.Sierpinski.Definition
+import gist.multiset-addendum-question
 
 
 \end{code}

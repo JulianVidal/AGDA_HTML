@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.ScottModelOfTypes
-import DomainTheory.Basics.Curry
-import Iterative.Ordinals-Addendum
-import Ordinals.ShulmanTaboo
-import TWA.Thesis.Chapter5.SignedDigit
+import EffectfulForcing.MFPSAndVariations.Dialogue
+import Ordinals.TrichotomousArithmetic
+import Ordinals.Taboos
+import Locales.DistributiveLattice.Spectrum
+import CoNaturals.Exercise
 
 
 \end{code}

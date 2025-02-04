@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Slice.index
-import TypeTopology.AbsolutenessOfCompactnessExample
+import Locales.DistributiveLattice.Spectrum
+import CoNaturals.Exercise
 
 
 \end{code}

@@ -3,23 +3,22 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Choice
-import Ordinals.OrdinalOfTruthValues
-import Slice.index
-import TypeTopology.AbsolutenessOfCompactnessExample
-import Ordinals.Taboos
-import Ordinals.TrichotomousArithmetic
-import TWA.Thesis.Chapter2.Finite
-import DiscreteGraphicMonoids.AffineMonad
 import EffectfulForcing.MFPSAndVariations.SystemT
 import EffectfulForcing.MFPSAndVariations.Dialogue
-import EffectfulForcing.MFPSAndVariations.ContinuityProperties
-import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import Ordinals.TrichotomousArithmetic
+import Ordinals.Taboos
+import Locales.DistributiveLattice.Spectrum
 import CoNaturals.Exercise
+import TypeTopology.AbsolutenessOfCompactnessExample
+import Fin.Choice
+import CoNaturals.BothTypes
+import DiscreteGraphicMonoids.AffineMonad
+import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import EffectfulForcing.MFPSAndVariations.ContinuityProperties
 import CoNaturals.Type2
-import NotionsOfDecidability.index
+import GamesExperimental.alpha-beta-examples
 
 
 \end{code}

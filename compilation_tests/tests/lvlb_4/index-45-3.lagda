@@ -3,11 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Closure
-import TWA.Thesis.Chapter6.SignedDigitExamples
-import EffectfulForcing.index
+import Locales.Sierpinski.UniversalProperty
+import Locales.StoneDuality.ForSpectralLocales
 
 
 \end{code}

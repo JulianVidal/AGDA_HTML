@@ -3,16 +3,15 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
-import EffectfulForcing.Internal.SystemT
-import EffectfulForcing.Internal.ExtensionalEquality
-import CoNaturals.Sharp
-import DomainTheory.Lifting.LiftingDcpo
+import Ordinals.ShulmanTaboo
 import DomainTheory.BasesAndContinuity.ContinuityDiscussion
+import Iterative.Ordinals-Addendum
+import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
+import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
 import DomainTheory.BasesAndContinuity.ContinuityImpredicative
-import UF.index
+import CoNaturals.Sharp
 
 
 \end{code}

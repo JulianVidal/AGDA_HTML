@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.ConvergentSequenceHasInf
-import TypeTopology.AbsolutenessOfCompactness
-import TypeTopology.TheTopologyOfTheUniverse
-import TypeTopology.PropInfTychonoff
-import Ordinals.LexicographicCompactness
+import OrderedTypes.SupLattice-SmallBasis
+import Slice.Embedding
+import Modal.SigmaClosedReflectiveSubuniverse
+import UF.ConnectedTypes
 
 
 \end{code}

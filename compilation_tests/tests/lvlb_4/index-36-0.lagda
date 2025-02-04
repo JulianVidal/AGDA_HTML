@@ -3,21 +3,20 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import CoNaturals.UniversalProperty
 import DomainTheory.Basics.SupComplete
 import Locales.ContinuousMap.FrameIsomorphism-Definition
 import Locales.Adjunctions.Properties
-import Ordinals.Arithmetic
-import Ordinals.ToppedType
-import CoNaturals.Type2Properties
+import Locales.InitialFrame
+import DomainTheory.BasesAndContinuity.IndCompletion
+import DomainTheory.Basics.ProductsContinuity
 import Fin.ArithmeticViaEquivalence
 import Fin.Kuratowski
-import GamesExperimental.TicTacToe2
-import Fin.Order
-import GamesExperimental.Examples
-import GamesExperimental.Discussion
+import EffectfulForcing.MFPSAndVariations.Continuity
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
 
 
 \end{code}

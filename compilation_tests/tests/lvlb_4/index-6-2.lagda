@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Brouwer
-import Ordinals.Codes
-import Coslice.Type
+import Ordinals.LexicographicOrder
 import EffectfulForcing.MFPSAndVariations.Combinators
-import Circle.Integers
+import Ordinals.Brouwer
+import PathSequences.Type
+import Various.DummettDisjunction
 
 
 \end{code}

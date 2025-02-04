@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.PigeonProgram
-import InfinitePigeon.ProgramsWithoutSpecificationBis
-import InfinitePigeon.J-Examples
-import InfinitePigeon.ProgramsWithoutSpecification
+import InfinitePigeon.J-PigeonProgram
+import UF.SetTrunc
+import Field.Axioms
+import WildCategories.Idempotents
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.index
-import Ordinals.ToppedArithmetic
+import TWA.Thesis.Chapter6.SignedDigitSearch
+import Locales.Spectrality.SpectralMapToLatticeHomomorphism
 
 
 \end{code}

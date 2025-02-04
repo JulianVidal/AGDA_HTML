@@ -3,13 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.NotationInterpretation2
-import Ordinals.SupSum
-import Ordinals.NotationInterpretation1
-import TWA.Thesis.index
-import DomainTheory.Examples.Ordinals
+import Locales.PatchOfOmega
+import Locales.Sierpinski.UniversalProperty
+import Locales.StoneDuality.ForSpectralLocales
 
 
 \end{code}

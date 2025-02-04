@@ -3,12 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Integers.Exponentiation
-import Fin.UniverseInvariance
-import Groups.Symmetric
-import Coslice.index
+import Groups.Type
+import Coslice.Hom
+import UF.SemistrictIdentity
 
 
 \end{code}

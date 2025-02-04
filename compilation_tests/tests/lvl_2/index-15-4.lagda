@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.index
-import PCF.Lambda.AbstractSyntax
+import Games.J-transf-variation
+import Games.J-transf
 
 
 \end{code}

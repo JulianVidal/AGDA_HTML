@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import W.Paths
-import Groups.Homomorphisms
-import Groups.GroupActions
-import Various.CantorTheoremForEmbeddings
+import Groups.Triv
+import Groups.Image
+import Groups.Quotient
+import Groups.Opposite
 
 
 \end{code}

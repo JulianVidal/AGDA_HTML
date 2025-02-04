@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Circle.Induction
-import Circle.Integers-SymmetricInduction
-import BinarySystems.index
-import DyadicsInductive.DyadicOrder
+import UF.HiddenSwap
+import Naturals.Binary
+import DiscreteGraphicMonoids.Type
+import Circle.Integers-Properties
 
 
 \end{code}

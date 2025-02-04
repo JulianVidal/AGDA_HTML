@@ -3,7 +3,7 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import TypeTopology.TotallySeparated
 import TypeTopology.Cantor
@@ -12,9 +12,8 @@ import Naturals.HCF
 import DomainTheory.Basics.Miscelanea
 import Lifting.Miscelanea-PropExt-FunExt
 import Locales.Frame
-import Ordinals.WellOrderArithmetic
-import InjectiveTypes.OverSmallMaps
-import UF.SIP-Examples
+import Slice.Construction
+import OrderedTypes.PosetReflection
 
 
 \end{code}

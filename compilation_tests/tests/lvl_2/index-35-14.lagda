@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.Subtypes
-import InjectiveTypes.CharacterizationViaLifting
+import Various.Pataraia
+import OrderedTypes.TwoElementPoset
 
 
 \end{code}

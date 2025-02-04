@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Inversion
-import WildCategories.index
-import MGS.Unique-Existence
-import InfinitePigeon.Examples
+import UF.KrausLemma
+import InfinitePigeon.PigeonProgram
+import PathSequences.Reasoning
+import InfinitePigeon.ProgramsWithoutSpecificationBis
 
 
 \end{code}

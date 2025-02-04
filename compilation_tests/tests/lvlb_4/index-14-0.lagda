@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import UF.Lower-FunExt
 import UF.ExitPropTrunc
 import PCF.Combinatory.PCF
 import OrderedTypes.Poset
-import GamesExperimental.J
+import Relations.SRTclosure
 
 
 \end{code}

@@ -3,12 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import PathSequences.Inversion
-import WildCategories.index
 import MGS.Unique-Existence
-import InfinitePigeon.Examples
+import PathSequences.Ap
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.StoneDuality.ForSpectralLocales
-import Dyadics.Type
+import TWA.Thesis.Chapter6.SignedDigitExamples
+import Locales.DiscreteLocale.Two-Properties
 
 
 \end{code}

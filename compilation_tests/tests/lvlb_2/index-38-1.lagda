@@ -3,24 +3,23 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Curry
-import Iterative.Ordinals-Addendum
-import Ordinals.ShulmanTaboo
-import TWA.Thesis.Chapter5.SignedDigit
-import DiscreteGraphicMonoids.index
-import EffectfulForcing.MFPSAndVariations.Church
-import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
+import PCF.Lambda.ScottModelOfTypes
+import OrderedTypes.FreeJoinSemiLattice
 import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
-import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
-import EffectfulForcing.Internal.SystemT
 import EffectfulForcing.Internal.ExtensionalEquality
-import CoNaturals.Sharp
-import DomainTheory.Lifting.LiftingDcpo
+import Locales.DistributiveLattice.Isomorphism
+import Locales.DistributiveLattice.Ideal-Properties
+import Locales.ClassificationOfScottOpens
+import Fin.Pigeonhole
+import Ordinals.ShulmanTaboo
 import DomainTheory.BasesAndContinuity.ContinuityDiscussion
+import Iterative.Ordinals-Addendum
+import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
+import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
 import DomainTheory.BasesAndContinuity.ContinuityImpredicative
-import UF.index
+import CoNaturals.Sharp
 
 
 \end{code}

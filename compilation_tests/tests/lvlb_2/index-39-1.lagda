@@ -3,22 +3,21 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.MathematicalStructures
-import TWA.BanachFixedPointTheorem
-import TWA.Thesis.Chapter3.ClosenessSpaces
-import TWA.Thesis.Chapter5.SignedDigitIntervalObject
-import EffectfulForcing.MFPSAndVariations.Internal
-import EffectfulForcing.MFPSAndVariations.WithoutOracle
+import Iterative.Multisets-Addendum
+import PCF.Lambda.ScottModelOfContexts
 import EffectfulForcing.Internal.External
-import EffectfulForcing.Internal.Internal
-import CoNaturals.index
-import DomainTheory.Bilimits.Directed
-import DomainTheory.IdealCompletion.Properties
-import DomainTheory.Examples.Omega
-import DomainTheory.Examples.Powerset
+import TWA.Thesis.Chapter5.SignedDigitIntervalObject
+import Locales.SIP.DistributiveLatticeSIP
+import TWA.BanachFixedPointTheorem
 import DomainTheory.ScottModelOfPCF.PCFCombinators
+import InjectiveTypes.MathematicalStructuresMoreGeneral
+import EffectfulForcing.MFPSAndVariations.Internal
+import InjectiveTypes.MathematicalStructures
+import Locales.BooleanAlgebra
+import Ordinals.Indecomposable
+import EffectfulForcing.MFPSAndVariations.WithoutOracle
 
 
 \end{code}

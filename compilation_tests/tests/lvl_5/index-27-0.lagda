@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Underlying
-import Lifting.Size
-import UF.NotNotStablePropositions
-import Naturals.Order
-import UF.Powerset
+import Ordinals.Notions
+import UF.Size
+import Integers.Abs
+import UF.Powerset-MultiUniverse
 
 
 \end{code}

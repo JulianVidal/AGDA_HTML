@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import UF.EquivalenceExamples
-import GamesExperimental.JK
 import Relations.ChurchRosser
+import GamesExperimental.JK
 
 
 \end{code}

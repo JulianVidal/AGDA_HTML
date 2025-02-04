@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Cancel
-import TWA.Escardo-Simpson-LICS2001
-import TWA.Thesis.Chapter5.IntervalObject
-import Games.K
-import Games.TypeTrees
+import Games.Monad
+import MGS.Powerset
+import UF.Universes
+import ContinuityAxiom.ExitingTruncations
 
 
 \end{code}

@@ -3,12 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Modal.Open
-import Games.Constructor
+import GamesExperimental.FiniteHistoryDependent
 import Games.Transformer
-import UF.Singleton-Properties
+import PCF.Lambda.ApplicativeApproximation
 
 
 \end{code}

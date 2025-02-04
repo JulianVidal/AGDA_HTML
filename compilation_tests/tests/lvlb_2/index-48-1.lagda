@@ -3,11 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.index
+import Locales.Sierpinski.Patch
 import Ordinals.NotationInterpretation
-import DomainTheory.index
 
 
 \end{code}

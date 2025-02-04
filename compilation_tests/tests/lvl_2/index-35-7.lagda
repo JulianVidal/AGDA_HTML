@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ScottContinuity
-import Locales.ScottLocale.Definition
+import Ordinals.Equivalence
+import Integers.Parity
 
 
 \end{code}

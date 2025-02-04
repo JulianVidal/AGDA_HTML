@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.alpha-beta-examples
-import Unsafe.index
-import Locales.HeytingImplication
-import DomainTheory.BasesAndContinuity.Continuity
-import Locales.Point.Properties
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
+import Iterative.Ordinals
+import TypeTopology.ExtendedSumCompact
+import Ordinals.ToppedType
 
 
 \end{code}

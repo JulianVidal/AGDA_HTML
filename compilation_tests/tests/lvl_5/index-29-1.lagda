@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.Miscelanea-PropExt-FunExt
-import Locales.Frame
-import Ordinals.WellOrderArithmetic
-import InjectiveTypes.OverSmallMaps
-import UF.SIP-Examples
+import Naturals.Division
+import DomainTheory.Basics.Dcpo
+import MLTT.List
+import NotionsOfDecidability.DecidableClassifier
+import Iterative.Sets
 
 
 \end{code}

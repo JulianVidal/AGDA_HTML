@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.JoinSemiLattices
-import Field.Axioms
-import WildCategories.Idempotents
+import InfinitePigeon.FinitePigeon
+import Naturals.Exponentiation
+import InfinitePigeon.J-PigeonProgram
 
 
 \end{code}

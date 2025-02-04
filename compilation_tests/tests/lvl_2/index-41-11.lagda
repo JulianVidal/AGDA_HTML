@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.index
-import EffectfulForcing.Internal.Subst
+import InjectiveTypes.InhabitedTypesTaboo
+import Iterative.Multisets-HFLO
 
 
 \end{code}

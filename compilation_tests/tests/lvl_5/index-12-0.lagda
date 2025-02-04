@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Subsingletons-FunExt
-import MGS.Embeddings
-import MGS.Equivalence-Constructions
-import UF.PropIndexedPiSigma
-import MLTT.Two-Properties
+import UF.Univalence
+import UF.FunExt
+import MGS.More-FunExt-Consequences
+import InfinitePigeon.Examples
 
 
 \end{code}

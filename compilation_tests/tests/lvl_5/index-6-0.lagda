@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Base
-import W.Type
-import MGS.Equivalences
-import Notation.CanonicalMap
-import Naturals.Properties
+import MLTT.Plus-Properties
+import MLTT.Spartan
+import MGS.Retracts
+import InfinitePigeon.J-Shift
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.Article
-import TWA.Thesis.Chapter5.Integers
+import Games.List
+import UF.TruncatedTypes
 
 
 \end{code}

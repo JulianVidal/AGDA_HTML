@@ -3,11 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import Locales.LawsonLocale.CompactElementsOfPoint
 import Dyadics.Addition
-import OrderedTypes.ZornsLemma
-import Ordinals.WellOrderingPrinciple
 
 
 \end{code}

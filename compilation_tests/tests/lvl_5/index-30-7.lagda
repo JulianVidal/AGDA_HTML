@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.index
-import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
-import DiscreteGraphicMonoids.LWRDGM
-import Apartness.TightReflection
+import MLTT.List-Properties
+import Various.Hydra
+import Groups.Subgroups
+import Games.NonEmptyList
 
 
 \end{code}

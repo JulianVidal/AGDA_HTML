@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.alpha-beta
-import Games.Discussion
+import TypeTopology.TheTopologyOfTheUniverse
+import CoNaturals.Type2Properties
 
 
 \end{code}

@@ -3,18 +3,17 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Maps
-import Naturals.Parity
-import Slice.Construction
+import DomainTheory.IdealCompletion.IdealCompletion
+import DiscreteGraphicMonoids.ListsWithoutRepetitions
 import MLTT.Fin
 import Fin.Embeddings
-import OrderedTypes.PosetReflection
-import DomainTheory.Topology.ScottTopology
-import MLTT.List-Properties
-import Quotient.FromSetReplacement
-import Quotient.Effectivity
+import UF.SIP-Examples
+import Ordinals.Maps
+import Ordinals.WellOrderArithmetic
+import Naturals.Parity
+import UF.SmallnessProperties
 
 
 \end{code}

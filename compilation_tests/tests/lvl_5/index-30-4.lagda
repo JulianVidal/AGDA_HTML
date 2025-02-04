@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Quotient.index
-import OrderedTypes.TwoElementPoset
-import OrderedTypes.Frame
-import Groups.Free
-import Slice.IdentityViaSIP
+import Ordinals.WellOrderingTaboo
+import DomainTheory.Topology.ScottTopology
+import InjectiveTypes.Sigma
+import InjectiveTypes.OverSmallMaps
 
 
 \end{code}

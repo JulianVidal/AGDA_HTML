@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter4.ApproxOrder-Examples
-import EffectfulForcing.Internal.Correctness
-import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
-import DomainTheory.BasesAndContinuity.StepFunctions
+import Iterative.Sets-Addendum
+import DomainTheory.Examples.LiftingLargeProposition
+import Locales.Sierpinski
+import DomainTheory.Examples.IdlDyadics
 
 
 \end{code}

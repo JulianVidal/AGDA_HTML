@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Various.DummettDisjunction
-import InfinitePigeon.K-Shift
+import Circle.Integers
+import Ordinals.Codes
 
 
 \end{code}

@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Order
-import Locales.Sierpinski.Patch
-import Locales.LawsonLocale.SharpElementsCoincideWithSpectralPoints
-import Dyadics.index
+import Rationals.Negation
+import Ordinals.WellOrderingPrinciple
+import Locales.UniversalPropertyOfPatch
+import Locales.LawsonLocale.CompactElementsOfPoint
+import Dyadics.Addition
 
 
 \end{code}

@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import PathSequences.Split
 import ContinuityAxiom.Preliminaries
-import InfinitePigeon.InfinitePigeon
+import WildCategories.Base
 import InfinitePigeon.InfinitePigeonLessEfficient
 import InfinitePigeon.InfinitePigeonOriginal
-import InfinitePigeon.J-FinitePigeon
 import InfinitePigeon.InfinitePigeon2011-05-12
 
 

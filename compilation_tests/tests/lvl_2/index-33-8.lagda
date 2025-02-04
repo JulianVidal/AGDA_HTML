@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Choice
-import TWA.Thesis.Chapter2.Sequences
+import Locales.DirectedFamily
+import UF.Powerset-Resizing
 
 
 \end{code}

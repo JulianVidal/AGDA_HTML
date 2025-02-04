@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Notation.index
-import InfinitePigeon.K-AC-N
-import InfinitePigeon.J-InfinitePigeon
-import InfinitePigeon.K-DC
+import Notation.Order
+import MLTT.Bool
+import Fin.Type
+import Notation.UnderlyingType
 
 
 \end{code}

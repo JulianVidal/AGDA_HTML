@@ -3,17 +3,17 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Large
-import Ordinals.WellOrderTransport
-import Slice.Monad
-import Slice.Embedding
-import DomainTheory.Basics.Products
-import DomainTheory.Basics.FunctionComposition
-import Modal.SigmaClosedReflectiveSubuniverse
-import TypeTopology.UniformSearch
 import InjectiveTypes.PointedDcpos
+import DomainTheory.Basics.FunctionComposition
+import Locales.DiscreteLocale.Two
+import Locales.DistributiveLattice.Homomorphism
+import Locales.DistributiveLattice.Properties
+import OrderedTypes.sigma-frame
+import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
+import CoNaturals.Equivalence
 
 
 \end{code}

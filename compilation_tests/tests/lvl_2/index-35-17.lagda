@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Apartness.TightReflection
-import UF.Truncations
+import TypeTopology.UniformSearch
+import ContinuityAxiom.False
 
 
 \end{code}

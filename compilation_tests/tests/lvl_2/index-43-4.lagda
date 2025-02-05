@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.FurtherThoughts
-import CantorSchroederBernstein.CSB
+import Games.TicTacToe0
+import Locales.Spectrality.LatticeOfCompactOpens
 
 
 \end{code}

@@ -5,7 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.Adequacy
+import EffectfulForcing.Internal.InternalModUniCont
+import Fin.Dedekind
 
 
 \end{code}

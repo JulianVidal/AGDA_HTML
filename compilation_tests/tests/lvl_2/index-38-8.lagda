@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.TrichotomousArithmetic
-import Ordinals.Taboos
+import OrderedTypes.FreeJoinSemiLattice
+import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
 
 
 \end{code}

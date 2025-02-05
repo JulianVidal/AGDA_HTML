@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Symmetric
-import Groups.Kernel
+import Slice.Family
+import Various.CantorTheoremForEmbeddings
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Various.Dedekind
-import Fin.Order
+import Locales.DistributiveLattice.Spectrum
+import CoNaturals.Exercise
 
 
 \end{code}

@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.GenericConvergentSequence2
-import TypeTopology.CantorSearch
-import InjectiveTypes.Subtypes
-import Modal.ReflectiveSubuniverse
-import Apartness.TightReflection
+import OrderedTypes.SupLattice-SmallBasis
+import Slice.Embedding
+import Modal.SigmaClosedReflectiveSubuniverse
+import UF.ConnectedTypes
 
 
 \end{code}

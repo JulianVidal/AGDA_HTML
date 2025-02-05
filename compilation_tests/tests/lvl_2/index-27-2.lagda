@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Maybe
-import UF.HiddenSwap
+import Unsafe.Type-in-Type-False
+import Circle.Induction
 
 
 \end{code}

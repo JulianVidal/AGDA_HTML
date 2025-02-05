@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.CompactTypes
-import CoNaturals.GenericConvergentSequence
+import TypeTopology.PropTychonoff
+import CoNaturals.Type
 
 
 \end{code}

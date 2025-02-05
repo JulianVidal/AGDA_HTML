@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.Frame
-import Groups.Cokernel
+import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
 
 
 \end{code}

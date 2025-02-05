@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import NotionsOfDecidability.Digression
-import UF.LeftCancellable
+import UF.Univalence
+import UF.FunExt
 
 
 \end{code}

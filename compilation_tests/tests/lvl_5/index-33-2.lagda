@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.AdjointFunctorTheoremForFrames
-import Locales.Complements
-import Iterative.Ordinals
-import TypeTopology.ExtendedSumCompact
-import Ordinals.ToppedType
+import Ordinals.Injectivity
+import Ordinals.OrdinalOfTruthValues
+import Fin.ArgMinMax
+import TWA.Thesis.Chapter2.Finite
+import EffectfulForcing.MFPSAndVariations.SystemT
 
 
 \end{code}

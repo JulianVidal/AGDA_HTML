@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Univalence
-import UF.FunExt
-import MGS.More-FunExt-Consequences
-import InfinitePigeon.Examples
+import UF.Subsingletons-FunExt
+import MGS.Embeddings
+import MGS.Equivalence-Constructions
+import UF.PropIndexedPiSigma
+import MLTT.Two-Properties
 
 
 \end{code}

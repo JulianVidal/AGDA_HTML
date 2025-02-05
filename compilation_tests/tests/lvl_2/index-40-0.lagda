@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.WLPO
-import PCF.Combinatory.ScottModelOfPCF
+import Taboos.BasicDiscontinuity
+import TypeTopology.LimitPoints
 
 
 \end{code}

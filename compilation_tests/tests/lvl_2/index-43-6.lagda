@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.ADecidableQuantificationOverTheNaturals
-import EffectfulForcing.Internal.InternalModCont
+import TWA.Thesis.Chapter3.SearchableTypes-Examples
+import GamesExperimental.TicTacToe1
 
 
 \end{code}

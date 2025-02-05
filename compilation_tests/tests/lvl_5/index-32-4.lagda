@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DiscreteLocale.Two
-import Locales.DistributiveLattice.Homomorphism
-import Locales.DistributiveLattice.Properties
-import OrderedTypes.sigma-frame
+import Slice.Algebras
+import TypeTopology.ConvergentSequenceHasInf
+import Ordinals.LexicographicCompactness
+import TypeTopology.PropInfTychonoff
+import GamesExperimental.TicTacToe2
 
 
 \end{code}

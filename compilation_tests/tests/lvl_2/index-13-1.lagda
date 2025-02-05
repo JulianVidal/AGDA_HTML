@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Equivalence-Constructions
-import UF.PropIndexedPiSigma
+import UF.PropTrunc
+import UF.SubtypeClassifier
 
 
 \end{code}

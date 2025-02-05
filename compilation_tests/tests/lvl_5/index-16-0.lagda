@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.EquivalenceExamples
-import Relations.ChurchRosser
-import GamesExperimental.JK
-import Games.FiniteHistoryDependent
-import PCF.Lambda.Substitution
+import UF.Equiv-FunExt
+import W.Properties
+import Lifting.Miscelanea
+import Games.Constructor
 
 
 \end{code}

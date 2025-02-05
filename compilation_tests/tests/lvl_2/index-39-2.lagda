@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.Bases
-import DomainTheory.Basics.Curry
+import DomainTheory.IdealCompletion.Properties
+import DomainTheory.Examples.Omega
 
 
 \end{code}

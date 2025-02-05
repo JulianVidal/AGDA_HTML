@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Multiplication
-import Ordinals.BuraliForti
-import Locales.PatchProperties
-import Locales.TerminalLocale.Properties
-import DomainTheory.Examples.Ordinals
+import Rationals.Negation
+import Ordinals.WellOrderingPrinciple
+import Locales.UniversalPropertyOfPatch
+import Locales.LawsonLocale.CompactElementsOfPoint
+import Dyadics.Addition
 
 
 \end{code}

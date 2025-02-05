@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter5.Integers
-import Ordinals.TrichotomousType
-import Games.List
-import UF.TruncatedTypes
+import Groups.Cokernel
+import Locales.DiscreteLocale.Definition
+import Locales.DirectedFamily-Poset
+import Various.Pataraia
+import OrderedTypes.TwoElementPoset
 
 
 \end{code}

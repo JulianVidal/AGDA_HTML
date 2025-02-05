@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Subsingletons
-import MGS.Univalence
-import MGS.Solved-Exercises
-import Naturals.Addition
+import UF.Sets
+import UF.Retracts
+import MGS.Equivalence-Induction
+import Lifting.Construction
+import Naturals.Multiplication
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.PointedDcpos
-import DomainTheory.Basics.FunctionComposition
+import Various.Dedekind
+import Fin.Order
 
 
 \end{code}

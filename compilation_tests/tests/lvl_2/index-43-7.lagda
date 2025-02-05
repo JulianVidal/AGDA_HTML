@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import gist.not-an-apartness
-import TypeTopology.SequentiallyHausdorff
+import Locales.DiscreteLocale.Basis
+import TypeTopology.DecidabilityOfNonContinuity
 
 
 \end{code}

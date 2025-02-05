@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Slice.Algebras
-import TypeTopology.ConvergentSequenceHasInf
+import TypeTopology.AbsolutenessOfCompactnessExample
+import Fin.Choice
 
 
 \end{code}

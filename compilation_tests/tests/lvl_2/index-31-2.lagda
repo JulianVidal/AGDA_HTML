@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.UniverseInvariance
-import Integers.Exponentiation
+import UF.Powerset
+import Iterative.Multisets
 
 
 \end{code}

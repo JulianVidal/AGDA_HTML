@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Embeddings
-import UF.SIP-Examples
+import TWA.Thesis.Chapter2.Vectors
+import Slice.IdentityViaSIP
 
 
 \end{code}

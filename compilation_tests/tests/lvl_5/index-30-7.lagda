@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.List-Properties
-import Various.Hydra
-import Groups.Subgroups
-import Games.NonEmptyList
+import UF.Truncations
+import InjectiveTypes.CharacterizationViaLifting
+import TypeTopology.CantorMinusPoint
+import TWA.SIP-IntervalObject
 
 
 \end{code}

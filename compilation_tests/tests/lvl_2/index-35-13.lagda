@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DiscreteLocale.Definition
-import Locales.DirectedFamily-Poset
+import CoNaturals.Equivalence
+import Locales.DistributiveLattice.Definition-SigmaBased
 
 
 \end{code}

@@ -5,15 +5,15 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.CumulativeHierarchy-LocallySmall
-import UF.Size
-import Iterative.Multisets
-import Cardinals.Successor
-import Apartness.Morphisms
 import Apartness.Definition
 import Apartness.Negation
-import UF.NotNotStablePropositions
+import Iterative.Multisets
+import UF.CumulativeHierarchy-LocallySmall
+import Cardinals.Successor
 import Various.CantorTheoremForEmbeddings
+import UF.Size
+import UF.NotNotStablePropositions
+import Apartness.Morphisms
 
 
 \end{code}

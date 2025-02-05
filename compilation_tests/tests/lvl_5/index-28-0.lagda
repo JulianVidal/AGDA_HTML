@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Underlying
-import Lifting.Size
-import UF.NotNotStablePropositions
-import Naturals.Order
-import UF.Powerset
+import Ordinals.Type
+import InjectiveTypes.Blackboard
+import Apartness.Definition
+import Naturals.ExitTruncation
+import Integers.Order
 
 
 \end{code}

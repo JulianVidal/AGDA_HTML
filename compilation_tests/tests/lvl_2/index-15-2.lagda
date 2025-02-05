@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Relations.SRTclosure
-import GamesExperimental.J
+import PCF.Lambda.Substitution
+import PCF.Lambda.BigStep
 
 
 \end{code}

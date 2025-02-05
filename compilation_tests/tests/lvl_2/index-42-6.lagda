@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.Correctness
-import PCF.Lambda.ScottModelOfTerms
+import TypeTopology.ADecidableQuantificationOverTheNaturals
+import EffectfulForcing.Internal.InternalModCont
 
 
 \end{code}

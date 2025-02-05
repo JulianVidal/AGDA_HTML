@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Powerset-Fin
-import Locales.HeytingImplication
+import Taboos.FiniteSubsetTaboo
+import Locales.CompactRegular
 
 
 \end{code}

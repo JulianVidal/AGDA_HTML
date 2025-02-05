@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import index
+import AllModulesIndex
 import InfinitePigeon.Logic
 import Various.Types2019
 import Various.UnivalenceFromScratch

@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.WellOrderArithmetic
-import Naturals.Parity
-import UF.SmallnessProperties
-import Quotient.FromSetReplacement
-import Quotient.Effectivity
+import Integers.Parity
+import Groups.Free
+import Locales.WellInside
+import Locales.WayBelowRelation.Definition
+import Locales.ScottContinuity
 
 
 \end{code}

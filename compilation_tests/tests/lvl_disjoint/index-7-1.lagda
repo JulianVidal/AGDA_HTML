@@ -5,13 +5,13 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Modal.ReflectiveSubuniverse
-import Slice.Algebras
-import Modal.SigmaClosedReflectiveSubuniverse
-import Slice.Monad
-import Slice.IdentityViaSIP
-import Slice.Embedding
 import Slice.Construction
+import Slice.Algebras
+import Slice.IdentityViaSIP
+import Slice.Monad
+import Modal.ReflectiveSubuniverse
+import Modal.SigmaClosedReflectiveSubuniverse
+import Slice.Embedding
 
 
 \end{code}

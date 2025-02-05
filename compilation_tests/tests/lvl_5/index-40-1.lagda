@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.TicTacToe1
-import Locales.Spectrality.BasisDirectification
-import Locales.ScottLocale.ScottLocalesOfScottDomains
-import Games.TicTacToe0
-import Locales.Spectrality.LatticeOfCompactOpens
+import TypeTopology.SquashedCantor
+import Locales.Sierpinski.Properties
+import Locales.Spectrality.LatticeOfCompactOpens-Duality
+import TWA.Thesis.Chapter6.SignedDigitSearch
+import Locales.Spectrality.SpectralMapToLatticeHomomorphism
 
 
 \end{code}

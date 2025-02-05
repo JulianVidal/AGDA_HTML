@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.SquashedSum
-import Locales.PatchLocale
+import Ordinals.ToppedArithmetic
+import Locales.Stone
 
 
 \end{code}

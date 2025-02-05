@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Naturals.UniversalProperty
-import MGS.Partial-Functions
-import Modal.Subuniverse
-import PathSequences.Rotations
+import GamesExperimental.Reader
+import UF.PropTrunc-Variation
+import PathSequences.Cancel
+import MGS.Yoneda
+import TWA.Escardo-Simpson-LICS2001
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Point.Properties
-import DomainTheory.BasesAndContinuity.Continuity
+import DomainTheory.Lifting.LiftingDcpo
+import Locales.Nucleus
 
 
 \end{code}

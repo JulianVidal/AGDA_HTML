@@ -15,11 +15,11 @@ import Various.Pataraia
 import OrderedTypes.PredicativeLFP
 import TWA.SIP-IntervalObject
 import Locales.Sierpinski
-import DomainTheory.Examples.IdlDyadics
 import DomainTheory.IdealCompletion.Retracts
-import DomainTheory.BasesAndContinuity.StepFunctions
 import DomainTheory.Bilimits.Dinfinity
 import DomainTheory.IdealCompletion.Properties
+import DomainTheory.BasesAndContinuity.StepFunctions
+import DomainTheory.Examples.IdlDyadics
 import Various.Pataraia-Taylor
 import Locales.Sierpinski.Definition
 import OrderedTypes.sigma-frame

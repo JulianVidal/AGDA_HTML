@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Truncations
-import InjectiveTypes.CharacterizationViaLifting
-import TypeTopology.CantorMinusPoint
-import TWA.SIP-IntervalObject
+import Unsafe.CountableTychonoff
+import CrossedModules.CrossedModules
+import TypeTopology.UniformSearch
+import ContinuityAxiom.False
 
 
 \end{code}

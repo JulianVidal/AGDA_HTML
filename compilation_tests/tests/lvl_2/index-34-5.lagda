@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.ListsWithoutRepetitions
-import MLTT.Fin
+import MLTT.Vector
+import OrderedTypes.SupLattice
 
 
 \end{code}

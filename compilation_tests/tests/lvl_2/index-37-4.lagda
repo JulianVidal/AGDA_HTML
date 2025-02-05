@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Kuratowski
-import EffectfulForcing.MFPSAndVariations.Continuity
+import UF.Powerset-Fin
+import Locales.HeytingImplication
 
 
 \end{code}

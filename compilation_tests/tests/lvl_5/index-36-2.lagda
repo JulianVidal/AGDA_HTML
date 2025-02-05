@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.CompactBasis
-import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
-import TWA.Thesis.Chapter3.ClosenessSpaces
-import EffectfulForcing.Internal.Internal
-import Iterative.Multisets-Addendum
+import Locales.ScottLocale.Properties
+import TWA.Thesis.Chapter3.ClosenessSpaces-Examples
+import Locales.Sierpinski.Definition
+import gist.multiset-addendum-question
 
 
 \end{code}

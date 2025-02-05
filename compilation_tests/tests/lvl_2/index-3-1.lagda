@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Sigma
-import MLTT.Plus
+import MGS.Basic-UF
+import InfinitePigeon.JK-LogicalFacts
 
 
 \end{code}

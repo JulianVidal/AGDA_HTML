@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.SupLattice-SmallBasis
-import Slice.Embedding
+import NotionsOfDecidability.QuasiDecidable
+import Unsafe.CoNat-Equiv
 
 
 \end{code}

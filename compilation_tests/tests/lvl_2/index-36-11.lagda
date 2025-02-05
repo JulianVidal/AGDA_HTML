@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Properties
-import OrderedTypes.sigma-frame
+import Ordinals.LexicographicCompactness
+import TypeTopology.PropInfTychonoff
 
 
 \end{code}

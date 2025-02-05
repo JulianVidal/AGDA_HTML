@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Apartness.Morphisms
-import Apartness.Negation
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.CantorSearch
 
 
 \end{code}

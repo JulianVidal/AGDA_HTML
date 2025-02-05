@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Arithmetic
-import Ordinals.OrdinalOfOrdinalsSuprema
-import Locales.ContinuousMap.Properties
-import Various.Dedekind
-import Fin.Order
+import EffectfulForcing.MFPSAndVariations.Dialogue
+import Ordinals.TrichotomousArithmetic
+import Ordinals.Taboos
+import Locales.DistributiveLattice.Spectrum
+import CoNaturals.Exercise
 
 
 \end{code}

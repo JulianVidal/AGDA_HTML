@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CantorSchroederBernstein.CSB-TheoryLabLunch
-import PCF.Lambda.SubstitutionDenotational
-import TWA.Thesis.Chapter3.PredicateEquality
-import EffectfulForcing.Internal.FurtherThoughts
+import Games.TicTacToe1
+import Locales.Spectrality.BasisDirectification
+import Locales.ScottLocale.ScottLocalesOfScottDomains
+import Games.TicTacToe0
+import Locales.Spectrality.LatticeOfCompactOpens
 
 
 \end{code}

@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.ListsWithoutRepetitions
-import MLTT.Fin
-import Fin.Embeddings
-import UF.SIP-Examples
-import Ordinals.Maps
+import MLTT.Vector
+import OrderedTypes.SupLattice
+import TWA.Thesis.Chapter2.Vectors
+import Slice.IdentityViaSIP
+import Ordinals.Equivalence
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Retracts-FunExt
-import GamesExperimental.Monad
+import TWA.Thesis.Chapter5.IntervalObject
+import GamesExperimental.K
 
 
 \end{code}

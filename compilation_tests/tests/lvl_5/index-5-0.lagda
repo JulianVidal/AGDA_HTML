@@ -5,9 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Unit-Properties
-import Notation.General
-import MGS.hlevels
+import MLTT.Plus-Properties
+import MLTT.Spartan
+import MGS.Retracts
+import InfinitePigeon.J-Shift
 
 
 \end{code}

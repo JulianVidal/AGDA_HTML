@@ -5,9 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.DataStructures
-import InfinitePigeon.K-Shift-Selection
-import InfinitePigeon.K-Shift-MBR
+import Notation.Order
+import MLTT.Bool
+import Fin.Type
+import Notation.UnderlyingType
 
 
 \end{code}

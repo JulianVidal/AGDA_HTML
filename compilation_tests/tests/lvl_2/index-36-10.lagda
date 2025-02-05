@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DiscreteLocale.Two
-import Locales.DistributiveLattice.Homomorphism
+import Slice.Algebras
+import TypeTopology.ConvergentSequenceHasInf
 
 
 \end{code}

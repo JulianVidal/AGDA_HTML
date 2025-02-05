@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Naturals.Sequence
-import UF.Retracts-FunExt
-import GamesExperimental.Monad
-import MLTT.SpartanList
+import GamesExperimental.NonEmptyList
+import TWA.Thesis.Chapter5.IntervalObject
+import GamesExperimental.K
+import Games.J
+import Games.K
 
 
 \end{code}

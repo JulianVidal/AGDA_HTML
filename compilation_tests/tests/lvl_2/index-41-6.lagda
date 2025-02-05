@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.Definition
-import gist.multiset-addendum-question
+import EffectfulForcing.Internal.Correctness
+import PCF.Lambda.ScottModelOfTerms
 
 
 \end{code}

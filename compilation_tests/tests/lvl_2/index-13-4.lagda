@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.SpartanList
-import Games.Monad
+import Games.J
+import Games.K
 
 
 \end{code}

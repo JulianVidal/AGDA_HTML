@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.SystemT
-import EffectfulForcing.MFPSAndVariations.Dialogue
+import Taboos.Decomposability
+import PCF.Lambda.ScottModelOfTypes
 
 
 \end{code}

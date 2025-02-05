@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.NotNotStablePropositions
-import Naturals.Order
+import Apartness.Definition
+import Naturals.ExitTruncation
 
 
 \end{code}

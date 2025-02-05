@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Various.Pataraia-Taylor
-import OrderedTypes.DeltaCompletePoset
+import GamesExperimental.TicTacToe2
+import DiscreteGraphicMonoids.Monad
 
 
 \end{code}

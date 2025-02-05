@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.J
-import Games.K
+import Games.J-transf-variation
+import Games.J-transf
 
 
 \end{code}

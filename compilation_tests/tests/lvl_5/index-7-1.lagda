@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Notation.Order
-import MLTT.Bool
-import Fin.Type
-import Notation.UnderlyingType
+import InfinitePigeon.K-AC-N
+import InfinitePigeon.J-InfinitePigeon
+import PathSequences.Concat
+import InfinitePigeon.K-DC
 
 
 \end{code}

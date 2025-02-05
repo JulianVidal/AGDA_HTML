@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.TruncationLevels
-import Quotient.Large-Variation
-import OrderedTypes.FreeSupLattice
-import Naturals.RootsTruncation
+import Ordinals.WellOrderingTaboo
+import DomainTheory.Topology.ScottTopology
+import InjectiveTypes.Sigma
+import InjectiveTypes.OverSmallMaps
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Regular
-import Locales.Point.SpectralPoint-Definition
+import PCF.Lambda.SubstitutionDenotational
+import TWA.Thesis.Chapter3.PredicateEquality
 
 
 \end{code}

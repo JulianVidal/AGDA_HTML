@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Integers.Parity
-import Groups.Free
-import Locales.WellInside
-import Locales.WayBelowRelation.Definition
-import Locales.ScottContinuity
+import Taboos.P2
+import DiscreteGraphicMonoids.Free
+import TWA.Thesis.AndrewSneap.DyadicReals
+import InjectiveTypes.PointedDcpos
+import DomainTheory.Basics.FunctionComposition
 
 
 \end{code}

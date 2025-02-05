@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Bishop
-import UF.PreSIP-Examples
+import Integers.Abs
+import UF.Powerset-MultiUniverse
 
 
 \end{code}

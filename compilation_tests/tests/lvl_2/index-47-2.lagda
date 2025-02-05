@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Examples.Ordinals
-import Ordinals.Limit
+import Dyadics.Addition
+import Ordinals.NotationInterpretation0
 
 
 \end{code}

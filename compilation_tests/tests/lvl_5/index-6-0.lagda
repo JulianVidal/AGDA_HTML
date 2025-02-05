@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Plus-Properties
-import MLTT.Spartan
-import MGS.Retracts
-import InfinitePigeon.J-Shift
+import UF.Base
+import W.Type
+import MGS.Equivalences
+import Notation.CanonicalMap
+import Naturals.Properties
 
 
 \end{code}

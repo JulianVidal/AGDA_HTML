@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Factorial.PlusOneLC
-import Factorial.Law
+import Fin.Properties
+import UF.PreSIP
 
 
 \end{code}

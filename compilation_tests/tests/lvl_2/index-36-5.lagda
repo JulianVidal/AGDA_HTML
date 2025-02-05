@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.OrdinalOfOrdinals
-import Ordinals.WellOrderTransport
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
 
 
 \end{code}

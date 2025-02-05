@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.InhabitedTypesTaboo
-import Iterative.Multisets-HFLO
+import TypeTopology.SimpleTypes
+import InjectiveTypes.Resizing
 
 
 \end{code}

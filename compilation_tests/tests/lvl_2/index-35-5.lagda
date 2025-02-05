@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Vector
-import OrderedTypes.SupLattice
+import Ordinals.OrdinalOfOrdinals
+import Ordinals.WellOrderTransport
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Dyadics.Negation
-import Ordinals.NotationInterpretation2
+import Ordinals.CumulativeHierarchy-Addendum
+import DomainTheory.Part-II
 
 
 \end{code}

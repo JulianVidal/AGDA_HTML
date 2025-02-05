@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.BooleanAlgebra
-import Ordinals.Indecomposable
+import Locales.Compactness.Properties
+import Locales.DistributiveLattice.Isomorphism-Properties
 
 
 \end{code}

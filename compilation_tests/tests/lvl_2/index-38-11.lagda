@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.BothTypes
-import DiscreteGraphicMonoids.AffineMonad
+import Fin.Pigeonhole
+import Ordinals.ShulmanTaboo
 
 
 \end{code}

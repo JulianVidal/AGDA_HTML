@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Triv
-import Groups.Image
-import Groups.Quotient
-import Groups.Opposite
+import Groups.Homomorphisms
+import Groups.GroupActions
+import UF.CumulativeHierarchy-LocallySmall
+import W.Paths
 
 
 \end{code}

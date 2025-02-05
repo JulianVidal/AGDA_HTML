@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.Article
-import gist.remove-swap
+import Various.Pataraia
+import OrderedTypes.TwoElementPoset
 
 
 \end{code}

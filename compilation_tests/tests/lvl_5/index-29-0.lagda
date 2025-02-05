@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Type
-import InjectiveTypes.Blackboard
-import Apartness.Definition
-import Naturals.ExitTruncation
-import Integers.Order
+import TypeTopology.TotallySeparated
+import TypeTopology.Cantor
+import Integers.Division
+import Naturals.HCF
+import DomainTheory.Basics.Miscelanea
 
 
 \end{code}

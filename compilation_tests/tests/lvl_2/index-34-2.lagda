@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Miscelanea
-import Lifting.Miscelanea-PropExt-FunExt
+import DomainTheory.Basics.Pointed
+import Locales.ContinuousMap.FrameHomomorphism-Definition
 
 
 \end{code}

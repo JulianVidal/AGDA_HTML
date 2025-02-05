@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.CompactTypes
-import CoNaturals.GenericConvergentSequence
-import TypeTopology.DisconnectedTypes
-import Integers.HCF
-import DomainTheory.Basics.Pointed
+import TypeTopology.PropTychonoff
+import CoNaturals.Type
+import DomainTheory.Basics.WayBelow
+import Locales.ContinuousMap.FrameHomomorphism-Properties
+import Locales.ContinuousMap.Definition
 
 
 \end{code}

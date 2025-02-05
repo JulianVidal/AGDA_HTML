@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import index
-import InfinitePigeon.Logic
+import MLTT.Identity-Type
+import MLTT.Sigma-Type
 
 
 \end{code}

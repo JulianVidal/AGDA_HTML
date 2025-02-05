@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.BasicDiscontinuity
-import TypeTopology.LimitPoints
-import TypeTopology.WeaklyCompactTypes
-import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
-import Taboos.LPO
+import TypeTopology.FailureOfTotalSeparatedness
+import TypeTopology.GenericConvergentSequenceCompactness
+import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
+import DomainTheory.BasesAndContinuity.StepFunctions
+import Locales.HeytingComplementation
 
 
 \end{code}

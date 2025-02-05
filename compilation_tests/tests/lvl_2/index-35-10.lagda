@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ScottLocale.Definition
-import TWA.Thesis.AndrewSneap.DyadicRationals
+import Locales.DiscreteLocale.Two
+import Locales.DistributiveLattice.Homomorphism
 
 
 \end{code}

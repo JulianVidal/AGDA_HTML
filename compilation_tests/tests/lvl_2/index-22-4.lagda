@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Modal.Homotopy
-import UF.ImageAndSurjection-Variation
+import Lifting.MonadVariation
+import BinarySystems.InitialBinarySystem
 
 
 \end{code}

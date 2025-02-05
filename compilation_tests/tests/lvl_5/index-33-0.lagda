@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.UniversalProperty
-import DomainTheory.Basics.SupComplete
-import Locales.ContinuousMap.FrameIsomorphism-Definition
-import Locales.Adjunctions.Properties
-import Locales.InitialFrame
+import CoNaturals.Arithmetic
+import DomainTheory.Basics.Exponential
+import DomainTheory.Lifting.LiftingSet
+import Locales.ContinuousMap.Homeomorphism-Definition
+import Locales.SIP.FrameSIP
 
 
 \end{code}

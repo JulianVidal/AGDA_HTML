@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Logic
-import UF.IdEmbedding
+import NotionsOfDecidability.Decidable
+import Lifting.Algebras
 
 
 \end{code}

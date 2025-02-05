@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Homomorphisms
-import Groups.GroupActions
+import UF.Classifiers
+import Quotient.Large
 
 
 \end{code}

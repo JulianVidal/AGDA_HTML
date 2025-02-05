@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Sets-Properties
-import MGS.Universe-Lifting
-import UF.PropTrunc
-import UF.SubtypeClassifier
-import UF.HedbergApplications
+import UF.Lower-FunExt
+import UF.ExitPropTrunc
+import PCF.Combinatory.PCF
+import OrderedTypes.Poset
+import Relations.SRTclosure
 
 
 \end{code}

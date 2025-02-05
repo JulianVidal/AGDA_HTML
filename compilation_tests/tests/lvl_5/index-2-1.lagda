@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Unit
-import MLTT.Two
-import MLTT.NaturalNumbers
-import MLTT.Unit-Type
-import AllModulesIndex
+import InfinitePigeon.Addition
+import InfinitePigeon.JK-Monads
+import InfinitePigeon.Two
+import InfinitePigeon.Choice
+import Notation.Decimal
 
 
 \end{code}

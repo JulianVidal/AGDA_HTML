@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.OrdinalOfOrdinals
-import Ordinals.WellOrderTransport
-import Groups.Large
-import Ordinals.InfProperty
-import Locales.WayBelowRelation.Properties
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
+import Iterative.Ordinals
+import TypeTopology.ExtendedSumCompact
+import Ordinals.ToppedType
 
 
 \end{code}

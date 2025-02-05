@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Equivalence-Induction
-import Lifting.Construction
+import MGS.FunExt-from-Univalence
+import MGS.HAE
 
 
 \end{code}

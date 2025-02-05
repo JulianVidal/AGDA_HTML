@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.Arithmetic
-import DomainTheory.Basics.Exponential
+import TWA.Closeness
+import PCF.Combinatory.PCFCombinators
 
 
 \end{code}

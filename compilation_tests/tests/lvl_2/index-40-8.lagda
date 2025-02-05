@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.External
-import TWA.Thesis.Chapter5.SignedDigitIntervalObject
+import Locales.DistributiveLattice.Resizing
+import PCF.Lambda.ScottModelOfIfZero
 
 
 \end{code}

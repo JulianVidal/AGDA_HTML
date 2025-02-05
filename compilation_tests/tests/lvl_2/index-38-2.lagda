@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.SIP.FrameSIP
-import Locales.Adjunctions.Properties-DistributiveLattice
+import DomainTheory.BasesAndContinuity.Bases
+import DomainTheory.Basics.Curry
 
 
 \end{code}

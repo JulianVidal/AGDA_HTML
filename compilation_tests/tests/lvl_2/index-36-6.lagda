@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Large
-import Ordinals.InfProperty
+import Iterative.Ordinals
+import TypeTopology.ExtendedSumCompact
 
 
 \end{code}

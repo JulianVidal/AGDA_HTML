@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Equivalence
-import Integers.Parity
+import Locales.WayBelowRelation.Properties
+import Taboos.P2
 
 
 \end{code}

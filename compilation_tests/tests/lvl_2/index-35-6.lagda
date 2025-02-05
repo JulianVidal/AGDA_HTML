@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter2.Vectors
-import Slice.IdentityViaSIP
+import Groups.Large
+import Ordinals.InfProperty
 
 
 \end{code}

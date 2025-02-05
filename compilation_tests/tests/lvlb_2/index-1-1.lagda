@@ -7,7 +7,6 @@ Generated Index file
 
 import MLTT.NaturalNumbers
 import MLTT.Unit-Type
-import AllModulesIndex
 import InfinitePigeon.Equality
 import InfinitePigeon.Naturals
 import InfinitePigeon.LogicalFacts

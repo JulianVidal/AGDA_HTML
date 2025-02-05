@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Concat
-import InfinitePigeon.K-DC
+import InfinitePigeon.J-FinitePigeon
+import PathSequences.Split
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.IdealCompletion.Retracts
-import Locales.Clopen
+import Locales.Regular
+import Locales.Point.SpectralPoint-Definition
 
 
 \end{code}

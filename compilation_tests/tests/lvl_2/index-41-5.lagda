@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ScottLocale.Properties
-import TWA.Thesis.Chapter3.ClosenessSpaces-Examples
+import TWA.Thesis.Chapter4.GlobalOptimisation
+import Apartness.Properties
 
 
 \end{code}

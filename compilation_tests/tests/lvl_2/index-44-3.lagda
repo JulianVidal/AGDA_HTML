@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Spectrality.BasisDirectification
-import Locales.ScottLocale.ScottLocalesOfScottDomains
+import Locales.Sierpinski.Properties
+import Locales.Spectrality.LatticeOfCompactOpens-Duality
 
 
 \end{code}

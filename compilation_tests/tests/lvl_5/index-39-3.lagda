@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.InternalModCont
-import gist.not-an-apartness
-import TypeTopology.SequentiallyHausdorff
-import PCF.Lambda.Adequacy
+import TypeTopology.DecidabilityOfNonContinuity
+import EffectfulForcing.Internal.InternalModUniCont
+import Fin.Dedekind
+import Locales.NotationalConventions
+import GamesExperimental.TicTacToe0
 
 
 \end{code}

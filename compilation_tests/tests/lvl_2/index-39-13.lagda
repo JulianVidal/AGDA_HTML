@@ -5,8 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
-import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
+import EffectfulForcing.MFPSAndVariations.WithoutOracle
 
 
 \end{code}

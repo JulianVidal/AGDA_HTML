@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Properties
-import UF.PreSIP
+import Fin.Bishop
+import UF.PreSIP-Examples
 
 
 \end{code}

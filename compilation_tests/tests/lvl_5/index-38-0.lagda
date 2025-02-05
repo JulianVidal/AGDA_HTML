@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.FailureOfTotalSeparatedness
-import TypeTopology.GenericConvergentSequenceCompactness
-import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
-import DomainTheory.BasesAndContinuity.StepFunctions
-import Locales.HeytingComplementation
+import TypeTopology.SigmaDiscreteAndTotallySeparated
+import DomainTheory.Bilimits.Dinfinity
+import Locales.SmallBasis
+import Locales.CharacterisationOfContinuity
+import Locales.PerfectMaps
 
 
 \end{code}

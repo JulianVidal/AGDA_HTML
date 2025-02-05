@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.PairFun
-import Integers.Negation
-import Factorial.PlusOneLC
-import Factorial.Law
+import UF.UniverseEmbedding
+import Integers.Addition
+import Fin.Properties
+import UF.PreSIP
 
 
 \end{code}

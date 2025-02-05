@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Lower-FunExt
-import UF.ExitPropTrunc
+import UF.EquivalenceExamples
+import Relations.ChurchRosser
 
 
 \end{code}

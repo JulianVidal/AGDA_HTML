@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.ScottModelOfPCF.PCFCombinators
-import InjectiveTypes.MathematicalStructuresMoreGeneral
+import Locales.Sierpinski
+import DomainTheory.Examples.IdlDyadics
 
 
 \end{code}

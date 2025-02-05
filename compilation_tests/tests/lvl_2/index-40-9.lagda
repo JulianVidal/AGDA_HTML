@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.SIP.DistributiveLatticeSIP
-import TWA.BanachFixedPointTheorem
+import Iterative.Sets-Addendum
+import DomainTheory.Examples.LiftingLargeProposition
 
 
 \end{code}

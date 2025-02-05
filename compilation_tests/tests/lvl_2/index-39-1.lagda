@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.LeastFixedPoint
-import Locales.ContinuousMap.Homeomorphism-Properties
+import DomainTheory.Lifting.LiftingSetAlgebraic
+import DomainTheory.Bilimits.Directed
 
 
 \end{code}

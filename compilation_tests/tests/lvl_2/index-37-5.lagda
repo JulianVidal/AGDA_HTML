@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.AdjointFunctorTheoremForFrames
-import Locales.Complements
+import Ordinals.Injectivity
+import Ordinals.OrdinalOfTruthValues
 
 
 \end{code}

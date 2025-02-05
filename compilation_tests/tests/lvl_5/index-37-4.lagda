@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Iterative.Sets-Addendum
-import DomainTheory.Examples.LiftingLargeProposition
-import Locales.Sierpinski
-import DomainTheory.Examples.IdlDyadics
+import Taboos.LLPO
+import Iterative.Finite
+import TypeTopology.SimpleTypes
+import InjectiveTypes.Resizing
 
 
 \end{code}

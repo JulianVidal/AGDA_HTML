@@ -8,7 +8,6 @@ Generated Index file
 import MLTT.Plus-Type
 import MLTT.Unit
 import MLTT.Two
-import MLTT.NaturalNumbers
 
 
 \end{code}

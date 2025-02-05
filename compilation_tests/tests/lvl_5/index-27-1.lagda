@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.UniverseInvariance
-import Integers.Exponentiation
-import Groups.Symmetric
-import Groups.Kernel
+import Iterative.Multisets
+import Slice.Family
+import Various.CantorTheoremForEmbeddings
+import Quotient.GivesSetReplacement
+import UF.HiggsInvolutionTheorem
 
 
 \end{code}

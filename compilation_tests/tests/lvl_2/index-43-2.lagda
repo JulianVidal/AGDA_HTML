@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.PerfectMaps
-import CantorSchroederBernstein.CSB-TheoryLabLunch
+import Locales.ZeroDimensionality
+import Games.TicTacToe1
 
 
 \end{code}

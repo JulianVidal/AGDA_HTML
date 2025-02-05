@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.SigmaDiscreteAndTotallySeparated
-import DomainTheory.Bilimits.Dinfinity
+import Rationals.Fractions
+import DomainTheory.Part-I
 
 
 \end{code}

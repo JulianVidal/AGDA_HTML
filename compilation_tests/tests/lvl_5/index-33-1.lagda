@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.IndCompletion
-import DomainTheory.Basics.ProductsContinuity
-import Fin.ArithmeticViaEquivalence
-import Fin.Kuratowski
-import EffectfulForcing.MFPSAndVariations.Continuity
+import Locales.Adjunctions.Properties-DistributiveLattice
+import Locales.Point.Properties
+import DomainTheory.BasesAndContinuity.Continuity
+import UF.Powerset-Fin
+import Locales.HeytingImplication
 
 
 \end{code}

@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.SigmaDiscreteAndTotallySeparated
-import DomainTheory.Bilimits.Dinfinity
-import Locales.SmallBasis
-import Locales.CharacterisationOfContinuity
-import Locales.PerfectMaps
+import Rationals.Fractions
+import DomainTheory.Part-I
+import TypeTopology.SquashedSum
+import Locales.PatchLocale
+import Locales.ZeroDimensionality
 
 
 \end{code}

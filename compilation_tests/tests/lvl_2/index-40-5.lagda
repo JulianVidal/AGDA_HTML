@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.CompactBasis
-import Locales.ScottLocale.ScottLocalesOfAlgebraicDcpos
+import Locales.ScottLocale.Properties
+import TWA.Thesis.Chapter3.ClosenessSpaces-Examples
 
 
 \end{code}

@@ -46,7 +46,9 @@ def create_test(g, m=2):
             end = start + ceil(rem_mods / ceil(rem_mods / m))
             rem_mods -= (end - start)
             compile_order[-1].append(mods[start:end])
-
+    
+    if compile_order[0] == [[]]:
+        compile_order = compile_order[1:]
     dir = f"tests/lvl_{m}"
     make_generator.generate_test(compile_order, dir)
     return dir

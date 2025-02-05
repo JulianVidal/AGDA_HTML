@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Basic-UF
-import InfinitePigeon.JK-LogicalFacts
+import MGS.hlevels
+import InfinitePigeon.J-Shift-Selection
 
 
 \end{code}

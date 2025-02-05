@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.UniverseEmbedding
-import Integers.Addition
-import Fin.Properties
-import UF.PreSIP
+import UF.ClassicalLogic
+import Integers.Multiplication
+import Fin.Bishop
+import UF.PreSIP-Examples
 
 
 \end{code}

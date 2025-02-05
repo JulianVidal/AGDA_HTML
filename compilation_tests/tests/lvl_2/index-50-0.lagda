@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Abs
-import Rationals.Positive
+import MetricSpaces.Type
+import DedekindReals.Order
 
 
 \end{code}

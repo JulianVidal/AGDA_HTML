@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Modal.SigmaClosedReflectiveSubuniverse
-import UF.ConnectedTypes
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
 
 
 \end{code}

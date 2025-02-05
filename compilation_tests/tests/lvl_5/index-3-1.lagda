@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.Addition
-import InfinitePigeon.JK-Monads
-import InfinitePigeon.Two
-import InfinitePigeon.Choice
-import Notation.Decimal
+import InfinitePigeon.Cantor
+import InfinitePigeon.J-Shift-BBC
+import InfinitePigeon.Order
+import ContinuityAxiom.FalseWithoutIdentityTypes
 
 
 \end{code}

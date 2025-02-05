@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.NonEmptyListOriginal
-import GamesExperimental.Reader
+import DedekindReals.Multiplication
+import MGS.Size
 
 
 \end{code}

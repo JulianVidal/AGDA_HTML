@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Maps
-import Ordinals.WellOrderArithmetic
+import Ordinals.Equivalence
+import Integers.Parity
 
 
 \end{code}

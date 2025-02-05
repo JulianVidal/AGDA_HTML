@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.JK
-import PCF.Lambda.AbstractSyntax
+import MGS.More-Exercise-Solutions
+import DomainTheory.ScottModelOfPCF.PCF
 
 
 \end{code}

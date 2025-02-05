@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Subsingleton-Theorems
-import UF.KrausLemma
+import PathSequences.Inversion
+import MGS.Unique-Existence
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Classifiers
-import Quotient.Large
+import DiscreteGraphicMonoids.ListsWithoutRepetitions
+import MLTT.Fin
 
 
 \end{code}

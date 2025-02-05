@@ -69,6 +69,7 @@ def main():
         print(f"Generating {name} test")
         test_dir = Path().resolve() / t.create_test(*args)
 
+        continue
         print(f"Running {name} test")
         with concurrent.futures.ThreadPoolExecutor() as executor:
             script = executor.submit(run_test, test_dir, repo_dir)

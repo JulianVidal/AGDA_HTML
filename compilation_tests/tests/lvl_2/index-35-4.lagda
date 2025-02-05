@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Point.Definition
-import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
+import TWA.Thesis.Chapter5.IntervalObjectApproximation
+import Slice.Monad
 
 
 \end{code}

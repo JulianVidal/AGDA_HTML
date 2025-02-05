@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Univalence
-import UF.FunExt
+import UF.Subsingletons-FunExt
+import MGS.Embeddings
 
 
 \end{code}

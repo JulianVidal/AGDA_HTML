@@ -5,8 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Quotient.GivesPropTrunc
-import Dominance.Definition
+import Dominance.Decidable
 
 
 \end{code}

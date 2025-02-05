@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import NotionsOfDecidability.DecidableClassifier
-import Iterative.Sets
+import OrderedTypes.PosetReflection
+import DomainTheory.IdealCompletion.IdealCompletion
 
 
 \end{code}

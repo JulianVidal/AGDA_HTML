@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.Finite
-import InfinitePigeon.K-Shift-BBC
+import InfinitePigeon.DataStructures
+import InfinitePigeon.K-Shift-Selection
 
 
 \end{code}

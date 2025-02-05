@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Frame
-import Slice.Construction
+import Locales.GaloisConnection
+import Locales.DistributiveLattice.Definition
 
 
 \end{code}

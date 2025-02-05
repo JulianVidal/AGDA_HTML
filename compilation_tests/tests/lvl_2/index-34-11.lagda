@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.Sigma
-import InjectiveTypes.OverSmallMaps
+import DiscreteGraphicMonoids.LWRDGM
+import TWA.Thesis.Chapter5.BoehmStructure
 
 
 \end{code}

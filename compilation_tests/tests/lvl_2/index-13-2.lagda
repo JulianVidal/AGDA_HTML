@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Two-Properties
-import Naturals.Sequence
+import UF.HedbergApplications
+import GamesExperimental.NonEmptyList
 
 
 \end{code}

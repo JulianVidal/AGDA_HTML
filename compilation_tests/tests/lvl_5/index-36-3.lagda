@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.ScottModelOfContexts
-import EffectfulForcing.Internal.External
-import TWA.Thesis.Chapter5.SignedDigitIntervalObject
-import Locales.SIP.DistributiveLatticeSIP
+import TWA.Thesis.Chapter4.ApproxOrder
+import EffectfulForcing.Internal.Subst
+import Locales.DistributiveLattice.Resizing
+import PCF.Lambda.ScottModelOfIfZero
 
 
 \end{code}

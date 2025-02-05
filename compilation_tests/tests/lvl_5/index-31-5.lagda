@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Cokernel
-import Locales.DiscreteLocale.Definition
-import Locales.DirectedFamily-Poset
-import Various.Pataraia
-import OrderedTypes.TwoElementPoset
+import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
+import CoNaturals.Equivalence
+import Locales.DistributiveLattice.Definition-SigmaBased
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Empty-Type
-import MLTT.Pi
+import MLTT.Empty
+import MLTT.Id
 
 
 \end{code}

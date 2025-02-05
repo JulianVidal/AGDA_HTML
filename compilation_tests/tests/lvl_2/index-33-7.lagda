@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Choice
-import Groups.Torsors
+import Ordinals.Maps
+import Ordinals.WellOrderArithmetic
 
 
 \end{code}

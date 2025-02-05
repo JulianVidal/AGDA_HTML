@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Dyadics.Type
-import Ordinals.AdditionProperties
+import Locales.PatchProperties
+import Locales.TerminalLocale.Properties
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Dcpo
-import MLTT.List
+import Locales.Frame
+import Slice.Construction
 
 
 \end{code}

@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.AbsolutenessOfCompactnessExample
-import Fin.Choice
-import CoNaturals.BothTypes
-import DiscreteGraphicMonoids.AffineMonad
+import Locales.DistributiveLattice.Ideal-Properties
+import Locales.ClassificationOfScottOpens
+import Fin.Pigeonhole
+import Ordinals.ShulmanTaboo
+import DomainTheory.BasesAndContinuity.ContinuityDiscussion
 
 
 \end{code}

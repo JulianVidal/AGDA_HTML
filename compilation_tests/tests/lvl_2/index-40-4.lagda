@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.ScottDomain
-import Locales.Compactness.Definition
+import Locales.Spectrality.SpectralLocale
+import Locales.Spectrality.SpectralMap
 
 
 \end{code}

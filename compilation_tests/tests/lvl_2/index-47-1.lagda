@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.PatchProperties
-import Locales.TerminalLocale.Properties
+import Locales.UniversalPropertyOfPatch
+import Locales.LawsonLocale.CompactElementsOfPoint
 
 
 \end{code}

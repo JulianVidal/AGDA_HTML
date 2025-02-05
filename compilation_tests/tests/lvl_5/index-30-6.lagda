@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.Article
-import gist.remove-swap
-import Apartness.Morphisms
-import Apartness.Negation
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.CantorSearch
+import InjectiveTypes.Subtypes
+import Modal.ReflectiveSubuniverse
+import Apartness.TightReflection
 
 
 \end{code}

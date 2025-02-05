@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter5.Integers
-import Ordinals.TrichotomousType
+import OrderedTypes.Frame
+import Groups.Cokernel
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Subsingleton-Truncation
-import GamesExperimental.TypeTrees
+import Lifting.Set
+import Field.DedekindReals
 
 
 \end{code}

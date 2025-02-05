@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Fractions
-import DomainTheory.Part-I
+import Rationals.Type
+import Rationals.FractionsOperations
 
 
 \end{code}

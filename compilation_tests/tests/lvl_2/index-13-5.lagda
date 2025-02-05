@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Powerset
-import UF.Universes
+import Games.TypeTrees
+import Games.Reader
 
 
 \end{code}

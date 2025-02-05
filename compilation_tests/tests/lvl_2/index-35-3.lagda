@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.GaloisConnection
-import Locales.DistributiveLattice.Definition
+import Fin.Topology
+import MLTT.Athenian
 
 
 \end{code}

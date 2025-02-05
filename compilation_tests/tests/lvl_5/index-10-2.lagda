@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.J-PigeonProgram
-import UF.SetTrunc
-import Field.Axioms
-import WildCategories.Idempotents
+import MGS.Map-Classifiers
+import WildCategories.Cones
+import InfinitePigeon.J-Examples
+import InfinitePigeon.ProgramsWithoutSpecification
 
 
 \end{code}

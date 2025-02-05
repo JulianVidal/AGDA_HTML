@@ -5,7 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Categories.Adjunction
+import UF.SigmaIdentity
+import Lifting.EmbeddingDirectly
 
 
 \end{code}

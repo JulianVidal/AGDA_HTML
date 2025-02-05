@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Cardinals.Successor
-import UF.TruncationLevels
+import Quotient.FromSetReplacement
+import Quotient.Effectivity
 
 
 \end{code}

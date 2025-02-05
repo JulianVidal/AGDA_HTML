@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Equiv
-import UF.Hedberg
-import MGS.FunExt-from-Univalence
-import MGS.HAE
+import NotionsOfDecidability.Digression
+import UF.LeftCancellable
+import UF.Subsingletons-Properties
+import MGS.TypeTopology-Interface
+import MGS.Subsingleton-Theorems
 
 
 \end{code}

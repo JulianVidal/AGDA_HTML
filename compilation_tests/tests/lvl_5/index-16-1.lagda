@@ -5,10 +5,9 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.BigStep
-import MGS.More-Exercise-Solutions
-import DomainTheory.ScottModelOfPCF.PCF
-import MGS.SIP
+import GamesExperimental.FiniteHistoryDependent
+import Games.Transformer
+import PCF.Lambda.ApplicativeApproximation
 
 
 \end{code}

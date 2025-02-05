@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Closeness
-import PCF.Combinatory.PCFCombinators
+import Taboos.WLPO
+import PCF.Combinatory.ScottModelOfPCF
 
 
 \end{code}

@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Curry
-import DomainTheory.Lifting.LiftingDcpo
-import Locales.Nucleus
-import Taboos.FiniteSubsetTaboo
-import Locales.CompactRegular
+import DomainTheory.Examples.Omega
+import DomainTheory.Examples.Powerset
+import Locales.ThesisIndex
+import DomainTheory.BasesAndContinuity.ScottDomain
+import Locales.Compactness.Definition
 
 
 \end{code}

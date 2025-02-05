@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.K-AC-N
-import InfinitePigeon.J-InfinitePigeon
+import Naturals.Multiplication
+import InfinitePigeon.InfinitePigeon
 
 
 \end{code}

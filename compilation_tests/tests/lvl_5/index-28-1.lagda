@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Iterative.Multisets
-import Slice.Family
-import Various.CantorTheoremForEmbeddings
-import Quotient.GivesSetReplacement
-import UF.HiggsInvolutionTheorem
+import Naturals.Division
+import DomainTheory.Basics.Dcpo
+import MLTT.List
+import NotionsOfDecidability.DecidableClassifier
+import Iterative.Sets
 
 
 \end{code}

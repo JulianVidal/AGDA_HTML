@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Subgroups
-import Games.NonEmptyList
+import Apartness.TightReflection
+import UF.Truncations
 
 
 \end{code}

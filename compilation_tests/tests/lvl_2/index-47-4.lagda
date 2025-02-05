@@ -5,8 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.SupSum
-import Ordinals.NotationInterpretation1
+import OrderedTypes.ZornsLemma
 
 
 \end{code}

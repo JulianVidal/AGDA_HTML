@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.BasesAndContinuity.ContinuityDiscussion
-import Iterative.Ordinals-Addendum
+import Locales.BooleanAlgebra
+import Ordinals.Indecomposable
 
 
 \end{code}

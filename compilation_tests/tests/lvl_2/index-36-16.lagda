@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Unsafe.CountableTychonoff
-import CrossedModules.CrossedModules
+import Unsafe.Haskell
+import TypeTopology.AbsolutenessOfCompactness
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Spectrality.SpectralLocale
-import Locales.Spectrality.SpectralMap
+import Ordinals.ConvergentSequence
+import TWA.Thesis.Chapter5.BoehmVerification
 
 
 \end{code}

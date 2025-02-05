@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import MLTT.NaturalNumbers
 import MLTT.Unit-Type
-import AllModulesIndex
 import InfinitePigeon.Equality
 
 

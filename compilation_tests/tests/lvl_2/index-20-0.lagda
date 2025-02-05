@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.UA-FunExt
-import Duploids.Depolarization
+import UF.Embeddings
+import UF.StructureIdentityPrinciple
 
 
 \end{code}

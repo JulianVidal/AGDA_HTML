@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.Dialogue
-import Ordinals.TrichotomousArithmetic
-import Ordinals.Taboos
-import Locales.DistributiveLattice.Spectrum
-import CoNaturals.Exercise
+import PCF.Lambda.ScottModelOfTypes
+import OrderedTypes.FreeJoinSemiLattice
+import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
+import EffectfulForcing.Internal.ExtensionalEquality
+import Locales.DistributiveLattice.Isomorphism
 
 
 \end{code}

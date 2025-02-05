@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Bilimits.Sequential
-import DomainTheory.IdealCompletion.Retracts
-import Locales.Clopen
-import Locales.Spectrality.SpectralLocale
-import Locales.Spectrality.SpectralMap
+import Locales.Spectrality.Properties
+import Locales.Regular
+import Locales.Point.SpectralPoint-Definition
+import Ordinals.ConvergentSequence
+import TWA.Thesis.Chapter5.BoehmVerification
 
 
 \end{code}

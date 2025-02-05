@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.TicTacToe2
-import DiscreteGraphicMonoids.Monad
+import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import EffectfulForcing.MFPSAndVariations.ContinuityProperties
 
 
 \end{code}

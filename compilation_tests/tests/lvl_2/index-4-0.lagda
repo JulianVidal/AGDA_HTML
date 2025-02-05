@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Negation
-import MLTT.AlternativePlus
+import MLTT.Unit-Properties
+import Notation.General
 
 
 \end{code}

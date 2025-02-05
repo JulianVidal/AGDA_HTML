@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Lifting.LiftingDcpo
-import Locales.Nucleus
+import DomainTheory.Examples.Powerset
+import Locales.ThesisIndex
 
 
 \end{code}

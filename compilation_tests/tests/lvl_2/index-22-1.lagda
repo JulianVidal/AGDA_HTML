@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.IdentityViaSIP
-import UF.Section-Embedding
+import Lifting.Monad
+import Lifting.EmbeddingViaSIP
 
 
 \end{code}

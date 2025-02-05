@@ -5,11 +5,9 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Negation
-import MLTT.AlternativePlus
-import MGS.Basic-UF
-import InfinitePigeon.JK-LogicalFacts
-import InfinitePigeon.Finite-JK-Shifts
+import MLTT.Unit-Properties
+import Notation.General
+import MGS.hlevels
 
 
 \end{code}

@@ -5,9 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.Logic
-import Various.Types2019
-import Various.UnivalenceFromScratch
+import MLTT.Unit
+import MLTT.Two
+import MLTT.NaturalNumbers
+import MLTT.Unit-Type
 
 
 \end{code}

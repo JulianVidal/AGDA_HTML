@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter6.SignedDigitSearch
-import Locales.Spectrality.SpectralMapToLatticeHomomorphism
+import Locales.PatchOfOmega
+import Locales.Sierpinski.UniversalProperty
 
 
 \end{code}

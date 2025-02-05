@@ -5,10 +5,15 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Logic
-import UF.IdEmbedding
-import Lifting.Monad
-import Lifting.EmbeddingViaSIP
+import NotionsOfDecidability.Decidable
+import Lifting.Algebras
+import Quotient.GivesPropTrunc
+import Dominance.Definition
+import Cardinals.Type
+import NotionsOfDecidability.Complemented
+import Cardinals.Preorder
+import Dominance.Decidable
+import UF.DiscreteAndSeparated
 
 
 \end{code}

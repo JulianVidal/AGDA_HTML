@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Examples.Omega
-import DomainTheory.Examples.Powerset
-import Locales.ThesisIndex
-import DomainTheory.BasesAndContinuity.ScottDomain
-import Locales.Compactness.Definition
+import DomainTheory.Bilimits.Sequential
+import DomainTheory.IdealCompletion.Retracts
+import Locales.Clopen
+import Locales.Spectrality.SpectralLocale
+import Locales.Spectrality.SpectralMap
 
 
 \end{code}

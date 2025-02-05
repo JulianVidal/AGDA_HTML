@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Empty-Type
-import MLTT.Pi
-import MLTT.Identity-Type
-import MLTT.Sigma-Type
-import MLTT.Plus-Type
+import MLTT.Empty
+import MLTT.Id
+import MLTT.Sigma
+import MLTT.Plus
+import MGS.MLTT
 
 
 \end{code}

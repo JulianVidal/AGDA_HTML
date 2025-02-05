@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.InitialFrame
-import DomainTheory.BasesAndContinuity.IndCompletion
+import Locales.SIP.FrameSIP
+import Locales.Adjunctions.Properties-DistributiveLattice
 
 
 \end{code}

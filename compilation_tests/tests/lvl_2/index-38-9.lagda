@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Spectrum
-import CoNaturals.Exercise
+import EffectfulForcing.Internal.ExtensionalEquality
+import Locales.DistributiveLattice.Isomorphism
 
 
 \end{code}

@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.ScottModelOfTypes
-import OrderedTypes.FreeJoinSemiLattice
-import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
-import EffectfulForcing.Internal.ExtensionalEquality
-import Locales.DistributiveLattice.Isomorphism
+import PCF.Lambda.ScottModelOfContexts
+import EffectfulForcing.Internal.External
+import TWA.Thesis.Chapter5.SignedDigitIntervalObject
+import Locales.SIP.DistributiveLatticeSIP
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Pigeonhole
-import Ordinals.ShulmanTaboo
+import EffectfulForcing.MFPSAndVariations.Internal
+import InjectiveTypes.MathematicalStructures
 
 
 \end{code}

@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Subsingletons-FunExt
-import MGS.Embeddings
-import MGS.Equivalence-Constructions
-import UF.PropIndexedPiSigma
-import MLTT.Two-Properties
+import UF.Sets-Properties
+import MGS.Universe-Lifting
+import UF.PropTrunc
+import UF.SubtypeClassifier
+import UF.HedbergApplications
 
 
 \end{code}

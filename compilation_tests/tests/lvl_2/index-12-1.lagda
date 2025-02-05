@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.More-FunExt-Consequences
-import InfinitePigeon.Examples
+import MGS.Equivalence-Constructions
+import UF.PropIndexedPiSigma
 
 
 \end{code}

@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.ImageAndSurjection
-import UF.SubtypeClassifier-Properties
-import Lifting.IdentityViaSIP
-import UF.Section-Embedding
+import UF.Logic
+import UF.IdEmbedding
+import Lifting.Monad
+import Lifting.EmbeddingViaSIP
 
 
 \end{code}

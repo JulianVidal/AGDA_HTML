@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.FiniteHistoryDependent
-import Games.Transformer
+import UF.Singleton-Properties
+import Modal.Open
 
 
 \end{code}

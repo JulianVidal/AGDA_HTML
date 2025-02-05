@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.AbsolutenessOfCompactnessExample
-import Fin.Choice
+import Locales.DistributiveLattice.Ideal-Properties
+import Locales.ClassificationOfScottOpens
 
 
 \end{code}

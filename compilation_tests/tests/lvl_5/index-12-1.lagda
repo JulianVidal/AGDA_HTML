@@ -5,9 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Inversion
-import MGS.Unique-Existence
-import PathSequences.Ap
+import Naturals.Sequence
+import UF.Retracts-FunExt
+import GamesExperimental.Monad
+import MLTT.SpartanList
 
 
 \end{code}

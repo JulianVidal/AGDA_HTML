@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.Type2
-import GamesExperimental.alpha-beta-examples
+import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
+import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
 
 
 \end{code}

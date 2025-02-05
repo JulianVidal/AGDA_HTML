@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.NonEmptyList
-import TWA.Thesis.Chapter5.IntervalObject
-import GamesExperimental.K
-import Games.J
-import Games.K
+import GamesExperimental.J
+import Games.JK
+import PCF.Lambda.AbstractSyntax
+import Games.J-transf-variation
+import Games.J-transf
 
 
 \end{code}

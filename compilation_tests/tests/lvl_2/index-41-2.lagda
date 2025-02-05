@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.LPO
-import DomainTheory.Bilimits.Sequential
+import Locales.HeytingComplementation
+import Locales.Spectrality.Properties
 
 
 \end{code}

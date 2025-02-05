@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.Patch
-import Ordinals.NotationInterpretation
+import DedekindReals.Type
+import Field.Rationals
 
 
 \end{code}

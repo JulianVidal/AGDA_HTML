@@ -5,8 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter6.SequenceContinuity
-import TWA.Thesis.Chapter6.SignedDigitOrder
+import PCF.Lambda.Adequacy
 
 
 \end{code}

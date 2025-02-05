@@ -5,7 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PathSequences.Rotations
+import UF.PropTrunc-Variation
+import PathSequences.Cancel
 
 
 \end{code}

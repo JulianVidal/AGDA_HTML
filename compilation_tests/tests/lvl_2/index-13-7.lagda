@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.Partial-Functions
-import Modal.Subuniverse
+import Games.NonEmptyListOriginal
+import GamesExperimental.Reader
 
 
 \end{code}

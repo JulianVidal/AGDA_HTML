@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.Monad
-import Games.TicTacToe2
-import Locales.DistributiveLattice.Ideal
-import NotionsOfDecidability.QuasiDecidable
-import Unsafe.CoNat-Equiv
+import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import EffectfulForcing.MFPSAndVariations.ContinuityProperties
+import CoNaturals.Type2
+import GamesExperimental.alpha-beta-examples
 
 
 \end{code}

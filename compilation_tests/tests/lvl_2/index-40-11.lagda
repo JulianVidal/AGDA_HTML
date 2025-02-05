@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.Internal
-import InjectiveTypes.MathematicalStructures
+import InjectiveTypes.InhabitedTypesTaboo
+import Iterative.Multisets-HFLO
 
 
 \end{code}

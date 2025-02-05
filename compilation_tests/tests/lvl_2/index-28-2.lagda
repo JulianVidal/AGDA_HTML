@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Unsafe.Type-in-Type-False
-import Circle.Induction
+import UF.IdentitySystems
+import Dominance.Lifting
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter3.ClosenessSpaces
-import EffectfulForcing.Internal.Internal
+import Locales.Sierpinski.Definition
+import gist.multiset-addendum-question
 
 
 \end{code}

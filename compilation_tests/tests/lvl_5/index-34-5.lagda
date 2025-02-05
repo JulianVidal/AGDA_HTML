@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.CombinatoryT
-import EffectfulForcing.MFPSAndVariations.ContinuityProperties
-import CoNaturals.Type2
-import GamesExperimental.alpha-beta-examples
+import Iterative.Ordinals-Addendum
+import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
+import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
+import DomainTheory.BasesAndContinuity.ContinuityImpredicative
+import CoNaturals.Sharp
 
 
 \end{code}

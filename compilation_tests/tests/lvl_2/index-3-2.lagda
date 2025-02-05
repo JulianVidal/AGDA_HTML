@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.MLTT
-import InfinitePigeon.Addition
+import InfinitePigeon.Finite-JK-Shifts
+import InfinitePigeon.Cantor
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.FreeJoinSemiLattice
-import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
+import EffectfulForcing.Internal.External
+import TWA.Thesis.Chapter5.SignedDigitIntervalObject
 
 
 \end{code}

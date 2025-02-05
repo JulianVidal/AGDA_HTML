@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.Miscelanea
-import Games.Constructor
+import GamesExperimental.Constructor
+import GamesExperimental.Transformer
 
 
 \end{code}

@@ -7,7 +7,7 @@ Generated Index file
 
 import MLTT.Universes
 import MLTT.Natural-Numbers-Type
-import index
+import AllModulesIndex
 
 
 \end{code}

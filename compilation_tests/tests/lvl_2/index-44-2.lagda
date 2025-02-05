@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ZeroDimensionality
-import Games.TicTacToe1
+import Locales.Spectrality.SpectralityOfOmega
+import TypeTopology.SquashedCantor
 
 
 \end{code}

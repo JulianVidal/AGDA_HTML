@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.UniformSearch
-import ContinuityAxiom.False
+import Various.RootsOfBooleanFunctions
+import GamesExperimental.Examples
 
 
 \end{code}

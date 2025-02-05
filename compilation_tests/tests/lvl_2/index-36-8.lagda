@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.Free
-import TWA.Thesis.AndrewSneap.DyadicReals
+import Ordinals.OrdinalOfOrdinalsSuprema
+import Locales.ContinuousMap.Properties
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.ToppedType
-import Ordinals.Arithmetic
+import EffectfulForcing.MFPSAndVariations.SystemT
+import EffectfulForcing.MFPSAndVariations.Dialogue
 
 
 \end{code}

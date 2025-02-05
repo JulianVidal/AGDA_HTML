@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.List
-import UF.TruncatedTypes
+import Locales.DiscreteLocale.Definition
+import Locales.DirectedFamily-Poset
 
 
 \end{code}

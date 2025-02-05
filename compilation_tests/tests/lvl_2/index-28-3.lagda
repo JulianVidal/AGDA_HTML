@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Circle.Integers-SymmetricInduction
-import DyadicsInductive.DyadicOrder
+import Circle.Construction
+import DyadicsInductive.DyadicOrder-PropTrunc
 
 
 \end{code}

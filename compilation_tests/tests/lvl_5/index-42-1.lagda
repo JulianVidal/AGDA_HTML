@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.StoneImpliesSpectral
-import Ordinals.Closure
-import TWA.Thesis.Chapter6.SignedDigitExamples
-import Locales.DiscreteLocale.Two-Properties
+import Ordinals.Limit
+import Dyadics.Negation
+import Ordinals.NotationInterpretation2
+import Ordinals.SupSum
+import Ordinals.NotationInterpretation1
 
 
 \end{code}

@@ -5,11 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Ideal-Properties
-import Locales.ClassificationOfScottOpens
-import Fin.Pigeonhole
-import Ordinals.ShulmanTaboo
-import DomainTheory.BasesAndContinuity.ContinuityDiscussion
+import TWA.BanachFixedPointTheorem
+import DomainTheory.ScottModelOfPCF.PCFCombinators
+import InjectiveTypes.MathematicalStructuresMoreGeneral
+import EffectfulForcing.MFPSAndVariations.Internal
 
 
 \end{code}

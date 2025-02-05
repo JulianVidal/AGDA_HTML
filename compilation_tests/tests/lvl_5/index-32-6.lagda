@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.SupLattice-SmallBasis
-import Slice.Embedding
-import Modal.SigmaClosedReflectiveSubuniverse
-import UF.ConnectedTypes
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
+import Unsafe.Haskell
+import TypeTopology.AbsolutenessOfCompactness
 
 
 \end{code}

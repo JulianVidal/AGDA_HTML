@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.StoneImpliesSpectral
-import Ordinals.Closure
+import DomainTheory.Examples.Ordinals
+import Ordinals.Limit
 
 
 \end{code}

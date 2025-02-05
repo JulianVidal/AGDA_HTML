@@ -5,9 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Groups.Type
-import Coslice.Hom
-import UF.SemistrictIdentity
+import Fin.UniverseInvariance
+import Integers.Exponentiation
+import Groups.Symmetric
+import Groups.Kernel
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Type
-import InjectiveTypes.Blackboard
+import TypeTopology.TotallySeparated
+import TypeTopology.Cantor
 
 
 \end{code}

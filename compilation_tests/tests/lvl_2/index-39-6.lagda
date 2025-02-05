@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.SystemT
-import EffectfulForcing.MFPSAndVariations.Church
+import TWA.Thesis.Chapter3.ClosenessSpaces
+import EffectfulForcing.Internal.Internal
 
 
 \end{code}

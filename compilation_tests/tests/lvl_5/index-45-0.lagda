@@ -5,10 +5,9 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Order
-import Locales.LawsonLocale.SharpElementsCoincideWithSpectralPoints
-import Locales.Sierpinski.Patch
-import Ordinals.NotationInterpretation
+import Rationals.Abs
+import Rationals.Positive
+import DedekindReals.Type
 
 
 \end{code}

@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.PosetReflection
-import DomainTheory.IdealCompletion.IdealCompletion
+import Locales.Point.Definition
+import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
 
 
 \end{code}

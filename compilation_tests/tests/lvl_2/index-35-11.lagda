@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.LWRDGM
-import TWA.Thesis.Chapter5.BoehmStructure
+import Locales.DistributiveLattice.Properties
+import OrderedTypes.sigma-frame
 
 
 \end{code}

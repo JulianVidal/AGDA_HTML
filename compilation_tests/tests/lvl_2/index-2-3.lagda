@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Two
-import MLTT.NaturalNumbers
+import InfinitePigeon.JK-Monads
+import InfinitePigeon.Two
 
 
 \end{code}

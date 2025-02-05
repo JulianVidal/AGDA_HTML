@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Naturals.AbsoluteDifference
-import OrderedTypes.JoinSemiLattices
-import InfinitePigeon.FinitePigeon
-import Naturals.Exponentiation
+import UF.KrausLemma
+import InfinitePigeon.PigeonProgram
+import PathSequences.Reasoning
+import InfinitePigeon.ProgramsWithoutSpecificationBis
 
 
 \end{code}

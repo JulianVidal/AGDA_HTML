@@ -5,10 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.Monad
-import MGS.Powerset
-import UF.Universes
-import ContinuityAxiom.ExitingTruncations
+import Games.TypeTrees
+import Games.Reader
+import MGS.Subsingleton-Truncation
+import GamesExperimental.TypeTrees
+import Games.NonEmptyListOriginal
 
 
 \end{code}

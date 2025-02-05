@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.FunExt-from-Naive-FunExt
-import Categories.Functor
+import Duploids.Preduploid
+import Categories.NaturalTransformation
 
 
 \end{code}

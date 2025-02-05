@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Examples.Powerset
-import Locales.ThesisIndex
+import DomainTheory.IdealCompletion.Retracts
+import Locales.Clopen
 
 
 \end{code}

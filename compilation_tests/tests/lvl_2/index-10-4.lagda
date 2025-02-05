@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.J-PigeonProgram
-import UF.SetTrunc
+import InfinitePigeon.ProgramsWithoutSpecificationBis
+import MGS.Map-Classifiers
 
 
 \end{code}

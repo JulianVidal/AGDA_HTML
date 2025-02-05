@@ -5,11 +5,11 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Naturals.Division
-import DomainTheory.Basics.Dcpo
-import MLTT.List
-import NotionsOfDecidability.DecidableClassifier
-import Iterative.Sets
+import Lifting.Miscelanea-PropExt-FunExt
+import Locales.Frame
+import Slice.Construction
+import OrderedTypes.PosetReflection
+import DomainTheory.IdealCompletion.IdealCompletion
 
 
 \end{code}

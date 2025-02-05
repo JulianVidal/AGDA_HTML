@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Taboos.MarkovsPrinciple
-import TWA.Thesis.Chapter3.SearchableTypes
+import gist.not-an-apartness
+import TypeTopology.SequentiallyHausdorff
 
 
 \end{code}

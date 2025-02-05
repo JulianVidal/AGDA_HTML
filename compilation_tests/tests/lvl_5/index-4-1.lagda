@@ -5,10 +5,9 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InfinitePigeon.Cantor
-import InfinitePigeon.J-Shift-BBC
-import InfinitePigeon.Order
-import ContinuityAxiom.FalseWithoutIdentityTypes
+import InfinitePigeon.J-Shift-Selection
+import InfinitePigeon.Finite
+import InfinitePigeon.K-Shift-BBC
 
 
 \end{code}

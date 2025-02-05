@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Lifting.LiftingSetAlgebraic
-import DomainTheory.Bilimits.Directed
+import TypeTopology.WeaklyCompactTypes
+import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
 
 
 \end{code}

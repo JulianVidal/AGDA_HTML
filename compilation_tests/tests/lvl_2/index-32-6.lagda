@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.CumulativeHierarchy-LocallySmall
-import W.Paths
+import TWA.Thesis.Chapter2.Sequences
+import Fin.Variation
 
 
 \end{code}

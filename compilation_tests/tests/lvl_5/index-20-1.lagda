@@ -5,10 +5,10 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.SigmaIdentity
-import Lifting.EmbeddingDirectly
-import UF.SIP
-import UF.PreUnivalence
+import Lifting.UnivalentPrecategory
+import Quotient.Type
+import UF.Classifiers-Old
+import OrderedTypes.sigma-sup-lattice
 
 
 \end{code}

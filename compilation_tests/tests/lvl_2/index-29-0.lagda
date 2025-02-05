@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.UniverseEmbedding
-import Integers.Addition
+import UF.ClassicalLogic
+import Integers.Multiplication
 
 
 \end{code}

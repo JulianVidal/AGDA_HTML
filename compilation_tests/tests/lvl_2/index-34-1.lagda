@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Integers.Division
-import Naturals.HCF
+import TypeTopology.DisconnectedTypes
+import Integers.HCF
 
 
 \end{code}

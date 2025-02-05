@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.Equivalence
-import Locales.DistributiveLattice.Definition-SigmaBased
+import Games.TicTacToe2
+import Locales.DistributiveLattice.Ideal
 
 
 \end{code}

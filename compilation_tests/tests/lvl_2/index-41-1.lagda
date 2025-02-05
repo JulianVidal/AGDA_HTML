@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.WeaklyCompactTypes
-import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
+import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
+import DomainTheory.BasesAndContinuity.StepFunctions
 
 
 \end{code}

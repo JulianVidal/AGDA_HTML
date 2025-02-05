@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Iterative.Sets-Addendum
-import DomainTheory.Examples.LiftingLargeProposition
+import TWA.Thesis.Chapter4.ApproxOrder-Examples
+import TypeTopology.RicesTheoremForTheUniverse
 
 
 \end{code}

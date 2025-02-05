@@ -5,8 +5,8 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Field.Axioms
-import WildCategories.Idempotents
+import WildCategories.Cones
+import InfinitePigeon.J-Examples
 
 
 \end{code}

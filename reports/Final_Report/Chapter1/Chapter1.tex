@@ -2,28 +2,112 @@
 
 \chapter{Introduction}
 
-The introduction should provide content for the report, discuss relevant background
-material, identify stakeholders, and state the aim(s) of the work. About 10\% of
-the report.
+% The introduction should provide content for the report, discuss relevant background
+% material, identify stakeholders, and state the aim(s) of the work. About 10\% of
+% the report.
 
-\begin{itemize} 
-\item Overview
-    \begin{itemize}
-    \item Overview of Agda and s-expressions 
-    \item Main goal is to represent an agda project as a graph for analysis 
-    \end{itemize} 
-\item Context
-    \begin{itemize}
-    \item Explain how Agda projects can be massive and difficult to explore 
-    \item Explain how slow compilation lead to poor dev experience 
-    \end{itemize} 
-\item Problem Statement
-    \begin{itemize}
-    \item Lack of a tool that allows for querying dependency information in
-        Agda projects 
-    \end{itemize} 
-\item Importants
-    \begin{itemize}
-    \item How the tool can be expanded and used
-    \end{itemize}
-\end{itemize}
+\section{Background}
+
+When you first encounter a massive code base, containing years of development
+from different people all adding their own code with their own style and
+thought process, it can be overwhelming and difficult to parse through. On most
+codebases you can ignore the fundamental functions that underpin a given
+library, but in Agda it is quite useful to have knowledge of the underlying
+definitions of the project. 
+
+Agda is a functional programming language that can be used as a proof
+assistant, following the propositions as types logic system \cite{agda_docs}.
+Since proofs in Agda can be created almost entirely from scratch, defining the
+most basic and fundamental types and operations it means that projects will
+quickly balloon in size. While most of the time it is possible to use higher
+level definitions when developing a proof, knowing the how the used types are
+fundamentally defined can be quite beneficial. 
+
+\section{Motivation}
+
+Due to the size of these projects and how complex type definitions can be it
+becomes difficult to fully grasp what the relationships between all the
+definitions are. This creates the need for a tool that can analyze Agda
+projects and give the user an easy to use interface to query the relationships
+between definitions, in order to better understand the proofs. A tool that
+would allow the user to explore these relationships would be of great benefit.
+
+% This tool would also be allow the owner of the project to refactor their
+% modules and change the structure of the project based on what the relationship
+% between the definition are. For example if a definition isn't used often, it
+% can be remove, if a definition depends on many other definitions it could be
+% split into smaller pieces. This information would give the owner a better idea
+% on where to put their focus.
+
+Also, large Agda projects tend to deal with long compilation times. Agda is a
+proof assistant, during "compilation", it type checks the entire project which
+can take a 5 minutes or more depending on the computer and project. Agda will
+keep track of what modules have already been compiled, so working on high level
+modules isn't an issue as Agda will only type check files that have changed in
+the project and high level modules don't have dependents that would need to be
+re-checked. In contrast, low level files with many dependents, such as a module
+defining the natural numbers, will cause a significant portion of the project
+to re-compile. This effect will be particularly pronounced during refactoring
+where significant changes will be made to the structure of the project, causing
+Agda to re-check the whole project making most of the time spent refactoring,
+spent waiting. 
+
+Agda type checks the project sequentially, going through the dependencies of
+each modules, this is done to mantain safety as a module won't be compiled
+until its dependencies have. A tool that analyzes the relationship between
+modules and finds modules that are safe to compile in parallel could lead to
+significant time savings.
+
+% Another feature for this tool would be decreasing compilation time, Agda type
+% checks the project sequentially, one module at a time following the
+% dependencies until it is done. This is done to avoid conflicts, a module will
+% only be type checked once its dependencies are also type checked. But with this
+% tool, the dependency graph is known so it is possible to parallelize the type
+% checking. By type checking in parallel modules that don't depend on each other,
+% it would more evenly distribute the work between CPU cores reducing overall
+% type checking time.
+
+    % \begin{itemize}
+    % \item Explain how Agda projects can be massive and difficult to explore 
+    % \item Explain how slow compilation lead to poor dev experience 
+    % \end{itemize} 
+
+
+\section{Problem Statement}
+
+This project aims to create a CLI tool that will analyze an Agda project and
+create a dependency graph from its definitions. Agda doesn't provide a built-in
+tool to extract the definitions from a project, but there is an s-expression
+extractor Agda version by Andrej Bauer \cite{andrej} that will allows a better
+view into Agdas internal representation. With this graph the CLI will have
+commands that allow the user to explore and query this graph, in order to gain
+insight into the Agda project. As there aren't currently any tools that allows
+you to query the definitions of an Agda project.
+
+The CLI tool will also get the module dependency graph and generate Makefiles
+and index files that will optimize the order of the modules compiled to
+minimize compilation time.
+
+\section{Overview}
+
+
+
+% Overview
+%     \begin{itemize}
+%     \item Overview of Agda and s-expressions 
+%     \item Main goal is to represent an agda project as a graph for analysis 
+%     \end{itemize} 
+
+
+% Problem Statement
+%     \begin{itemize}
+%     \item Lack of a tool that allows for querying dependency information in
+%         Agda projects 
+%     \end{itemize} 
+
+% \section{Use cases and future}
+%
+% Importants
+%     \begin{itemize}
+%     \item How the tool can be expanded and used
+%     \end{itemize}

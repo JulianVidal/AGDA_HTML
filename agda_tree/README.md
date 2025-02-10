@@ -14,7 +14,7 @@ builds a graph from it that can be queried.
 git clone https://github.com/JulianVidal/AGDA_HTML.git
 
 # Enter the repo
-cd AGDA_HTML
+cd AGDA_HTML/agda_tree
 
 # Install with pipx
 pipx install .
@@ -30,7 +30,7 @@ and doing ```cabal install .```
 git clone https://github.com/JulianVidal/AGDA_HTML.git
 
 # Enter the repo
-cd AGDA_HTML
+cd AGDA_HTML/agda_tree
 
 # Create virtual environment
 python -m venv .venv

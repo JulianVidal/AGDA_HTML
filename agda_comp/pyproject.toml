@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agda_comp"
+version = "0.0.1"
+authors = [
+    { name="Julian Vidal", emails="jcv116@student.bham.ac.uk" },
+]
+description = "A package to optimize compilation of Agda projects"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "networkx",
+    "tqdm",
+    "pydot"
+]
+
+[project.urls]
+Homepage = "https://github.com/JulianVidal/AGDA_HTML"
+
+[project.scripts]
+agda_tree = "agda_comp.cli:main"

@@ -1,0 +1,13 @@
+
+Generated Index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
+
+import Rationals.Abs
+import Rationals.Positive
+import DedekindReals.Type
+
+
+\end{code}

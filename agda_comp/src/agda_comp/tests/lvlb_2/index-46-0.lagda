@@ -1,0 +1,17 @@
+
+Generated Index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
+
+import Rationals.Multiplication
+import Ordinals.BuraliForti
+import Locales.PatchProperties
+import Locales.TerminalLocale.Properties
+import DomainTheory.Examples.Ordinals
+import Ordinals.Limit
+import Dyadics.Negation
+
+
+\end{code}

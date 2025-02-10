@@ -79,7 +79,7 @@ This project aims to create a CLI tool that will analyze an Agda project and
 create a dependency graph from its definitions. Agda doesn't provide a built-in
 tool to extract the definitions from a project, but there is an s-expression
 extractor Agda version by Andrej Bauer \cite{andrej} that will allows a better
-view into Agdas internal representation. With this graph the CLI will have
+view into Agda's internal representation. With this graph the CLI will have
 commands that allow the user to explore and query this graph, in order to gain
 insight into the Agda project. As there aren't currently any tools that allows
 you to query the definitions of an Agda project.
@@ -88,9 +88,25 @@ The CLI tool will also get the module dependency graph and generate Makefiles
 and index files that will optimize the order of the modules compiled to
 minimize compilation time.
 
-\section{Overview}
+\section{Objectives}
 
+\begin{itemize}
+    \item Getting defintions from s-expressions 
+    \item Create dependency graph from definitions 
+    \item Querying graph
+\end{itemize}
 
+\section{Project Structure}
+
+\begin{itemize}
+\item How to get s-expressions from agda 
+\item How to get defintions from s-expressions 
+\item How to get relationships from definitions 
+\item How to create graph 
+\item How to create queries 
+\item Methods to improve compilation times 
+\item Results
+\end{itemize}
 
 % Overview
 %     \begin{itemize}

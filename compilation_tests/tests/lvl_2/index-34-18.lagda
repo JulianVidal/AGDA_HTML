@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.IdealCompletion.IdealCompletion
-import Cardinals.index
+import InjectiveTypes.CharacterizationViaLifting
+import TypeTopology.CantorMinusPoint
 
 
 \end{code}

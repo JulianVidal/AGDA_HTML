@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Modal.SigmaClosedReflectiveSubuniverse
-import TypeTopology.UniformSearch
+import Games.TicTacToe2
+import Locales.DistributiveLattice.Ideal
 
 
 \end{code}

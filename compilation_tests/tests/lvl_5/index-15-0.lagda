@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import UF.EquivalenceExamples
-import GamesExperimental.JK
 import Relations.ChurchRosser
-import PCF.Lambda.BigStep
+import GamesExperimental.JK
+import Games.FiniteHistoryDependent
 import PCF.Lambda.Substitution
 
 

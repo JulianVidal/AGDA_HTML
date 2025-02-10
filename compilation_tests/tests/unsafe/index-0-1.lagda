@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.index
+import Locales.LawsonLocale.SharpElementsCoincideWithSpectralPoints
 
 
 \end{code}

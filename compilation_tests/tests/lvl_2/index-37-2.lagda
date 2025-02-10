@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Arithmetic
-import Ordinals.ToppedType
+import Locales.SIP.FrameSIP
+import Locales.Adjunctions.Properties-DistributiveLattice
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Lifting.IdentityViaSIP
-import UF.Section-Embedding
+import Lifting.Monad
+import Lifting.EmbeddingViaSIP
 
 
 \end{code}

@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Unsafe.CountableTychonoff
-import Locales.ContinuousMap.Definition
+import Ordinals.OrdinalOfOrdinals
+import Ordinals.WellOrderTransport
+import Groups.Large
+import Ordinals.InfProperty
 import Locales.WayBelowRelation.Properties
-import Locales.DiscreteLocale.Two
-import Locales.DistributiveLattice.Homomorphism
 
 
 \end{code}

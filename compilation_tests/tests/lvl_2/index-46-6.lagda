@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter6.SignedDigitExamples
-import EffectfulForcing.index
+import Ordinals.MultiplicationProperties
+import Dyadics.Order
 
 
 \end{code}

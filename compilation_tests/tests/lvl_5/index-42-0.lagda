@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import Rationals.Multiplication
+import Ordinals.BuraliForti
 import Locales.PatchProperties
 import Locales.TerminalLocale.Properties
-import Dyadics.Negation
-import Dyadics.Multiplication
+import DomainTheory.Examples.Ordinals
 
 
 \end{code}

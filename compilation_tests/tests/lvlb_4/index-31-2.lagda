@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import Quotient.GivesSetReplacement
-import UF.CumulativeHierarchy-LocallySmall
-import W.Paths
+import UF.HiggsInvolutionTheorem
+import Groups.Homomorphisms
 
 
 \end{code}

@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.ConvergentSequenceHasInf
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
+import Unsafe.Haskell
 import TypeTopology.AbsolutenessOfCompactness
-import TypeTopology.TheTopologyOfTheUniverse
-import TypeTopology.PropInfTychonoff
-import Ordinals.LexicographicCompactness
 
 
 \end{code}

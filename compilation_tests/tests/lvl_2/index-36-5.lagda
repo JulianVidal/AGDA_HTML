@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Unsafe.CountableTychonoff
-import Locales.ContinuousMap.Definition
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
 
 
 \end{code}

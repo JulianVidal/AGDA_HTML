@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.Type2Properties
-import Fin.ArithmeticViaEquivalence
+import Locales.Point.Properties
+import DomainTheory.BasesAndContinuity.Continuity
 
 
 \end{code}

@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.UniversalProperty
-import Locales.StoneDuality.ForSpectralLocales
-import Dyadics.Type
-import Ordinals.AdditionProperties
-import PCF.index
+import Locales.StoneImpliesSpectral
+import Ordinals.Closure
+import TWA.Thesis.Chapter6.SignedDigitExamples
+import Locales.DiscreteLocale.Two-Properties
 
 
 \end{code}

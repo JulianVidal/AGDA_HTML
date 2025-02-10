@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import MGS.Size
 import MGS.Choice
 import MGS.Function-Graphs
 import MGS.Quotient
-import DedekindReals.Multiplication
 
 
 \end{code}

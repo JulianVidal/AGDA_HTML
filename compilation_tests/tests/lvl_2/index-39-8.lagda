@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Curry
-import Iterative.Ordinals-Addendum
+import EffectfulForcing.Internal.External
+import TWA.Thesis.Chapter5.SignedDigitIntervalObject
 
 
 \end{code}

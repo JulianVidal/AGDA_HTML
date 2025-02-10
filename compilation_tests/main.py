@@ -4,6 +4,7 @@ import time
 import threading
 from pathlib import Path
 import concurrent.futures
+import networkx as nx
 
 import test_normal
 import test_unsafe
@@ -16,17 +17,8 @@ repo_url = "https://github.com/martinescardo/TypeTopology.git"
 repo_dir = Path("/tmp/TypeTopology")
 dot_file = Path("/tmp/TypeTopology/graph.dot")
 main_index = Path("/tmp/TypeTopology/source/AllModulesIndex.lagda")
+# main_index = Path("/tmp/TypeTopology/source/InfinitePigeon/index.agda")
 main_module = "AllModulesIndex"
-tests = {
-    "normal": (test_normal, (main_module, )),
-    "unsafe": (test_unsafe, (dot_file,)),
-    "lvl_2": (test_lvl, (dot_file, 2)),
-    "lvl_5": (test_lvl, (dot_file, 5)),
-    "lvlb_2": (test_lvlb, (dot_file, 2)),
-    "lvlb_4": (test_lvlb, (dot_file, 4)),
-    "lvl_disjoint": (test_lvl_disjoint, (dot_file, )),
-}
-
 
 def main():
 
@@ -46,6 +38,32 @@ def main():
         ])
         subprocess.run(cmds, shell=True, stdout=subprocess.DEVNULL)
 
+    # Remove index files from graph
+    dot = nx.nx_pydot.read_dot(dot_file)
+
+    mapping = {}
+    for n in dot.nodes(data=True):
+        mapping[n[0]] = n[1]['label'].strip('\"')
+
+
+    dot = nx.relabel_nodes(dot, mapping)
+    dot.remove_node("Agda.Primitive")
+    dot.remove_node("index")
+
+    for node in list(dot.nodes):
+        if ".index" in node:
+            dot.remove_node(node)
+
+    tests = {
+        "normal": (test_normal, (main_module, )),
+        "unsafe": (test_unsafe, (dot,)),
+        "lvl_2": (test_lvl, (dot, 2)),
+        "lvl_5": (test_lvl, (dot, 5)),
+        "lvlb_2": (test_lvlb, (dot, 2)),
+        "lvlb_4": (test_lvlb, (dot, 4)),
+        "lvl_disjoint": (test_lvl_disjoint, (dot, )),
+    }
+    
     results = []
     for name, (t, args) in tests.items():
         print(f"Generating {name} test")

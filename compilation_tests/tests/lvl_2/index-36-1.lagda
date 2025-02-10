@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.WayBelow
-import Locales.ContinuousMap.FrameHomomorphism-Properties
+import Locales.ContinuousMap.FrameIsomorphism-Definition
+import Locales.Adjunctions.Properties
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Duploids.Depolarization
-import Duploids.Preduploid
+import Duploids.Duploid
+import UF.HLevels
 
 
 \end{code}

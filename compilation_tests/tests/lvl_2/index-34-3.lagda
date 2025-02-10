@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Frame
-import Ordinals.WellOrderArithmetic
+import Locales.GaloisConnection
+import Locales.DistributiveLattice.Definition
 
 
 \end{code}

@@ -3,20 +3,20 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.SimpleTypes
-import Ordinals.ConvergentSequence
-import InjectiveTypes.Resizing
-import TWA.Thesis.Chapter5.BoehmVerification
-import TWA.Thesis.Chapter4.GlobalOptimisation
+import EffectfulForcing.Internal.Correctness
+import PCF.Lambda.ScottModelOfTerms
+import Taboos.MarkovsPrinciple
 import TWA.Thesis.Chapter3.SearchableTypes
 import TWA.Thesis.Chapter6.SequenceContinuity
 import TWA.Thesis.Chapter6.SignedDigitOrder
 import TWA.Thesis.Chapter4.ApproxOrder-Examples
-import EffectfulForcing.Internal.Correctness
-import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
-import DomainTheory.BasesAndContinuity.StepFunctions
+import TypeTopology.RicesTheoremForTheUniverse
+import Taboos.LLPO
+import Iterative.Finite
+import TypeTopology.SimpleTypes
+import InjectiveTypes.Resizing
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import TypeTopology.SigmaDiscreteAndTotallySeparated
-import Taboos.index
+import DomainTheory.Bilimits.Dinfinity
 import Locales.SmallBasis
 import Locales.CharacterisationOfContinuity
 import Locales.PerfectMaps

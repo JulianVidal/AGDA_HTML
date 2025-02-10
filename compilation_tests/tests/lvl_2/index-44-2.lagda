@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ZeroDimensionality
-import Locales.ScottLocale.ScottLocalesOfScottDomains
+import Locales.Spectrality.SpectralityOfOmega
+import TypeTopology.SquashedCantor
 
 
 \end{code}

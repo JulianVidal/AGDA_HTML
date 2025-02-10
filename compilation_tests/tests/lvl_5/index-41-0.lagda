@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import Rationals.Addition
 import Rationals.FractionsOrder
-import Locales.StoneImpliesSpectral
-import Locales.DiscreteLocale.Two-Properties
-import Locales.PatchOfOmega
+import Dyadics.Type
+import Ordinals.AdditionProperties
 
 
 \end{code}

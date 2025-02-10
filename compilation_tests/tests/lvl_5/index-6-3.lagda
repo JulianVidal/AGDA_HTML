@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Coslice.Type
-import EffectfulForcing.MFPSAndVariations.Combinators
-import Circle.Integers
+import Ordinals.Brouwer
+import PathSequences.Type
 import Various.DummettDisjunction
+import Circle.Integers
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter5.IntervalObjectApproximation
-import ContinuityAxiom.False
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
 
 
 \end{code}

@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import BinarySystems.InitialBinarySystem2
-import Various.NonCollapsibleFamily
 import DyadicsInductive.Dyadics
-import UF.HiddenSwap
+import Various.NonCollapsibleFamily
+import ContinuityAxiom.UniformContinuity
+import BinarySystems.InitialBinarySystem2
 
 
 \end{code}

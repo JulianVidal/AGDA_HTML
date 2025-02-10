@@ -1,0 +1,12 @@
+
+Generated Index file
+
+\begin{code}
+
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
+
+import InfinitePigeon.K-Shift-from-J-Shift
+import InfinitePigeon.J-DC
+
+
+\end{code}

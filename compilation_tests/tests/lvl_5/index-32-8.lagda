@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.Monad
-import EffectfulForcing.MFPSAndVariations.Continuity
-import Groups.index
-import Modal.index
-import Various.Dedekind
+import GamesExperimental.Discussion
+import OrderedTypes.PredicativeLFP
+import Games.alpha-beta
+import Games.Discussion
 
 
 \end{code}

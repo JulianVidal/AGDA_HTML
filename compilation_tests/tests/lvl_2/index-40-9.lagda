@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.Internal
-import EffectfulForcing.MFPSAndVariations.WithoutOracle
+import Iterative.Sets-Addendum
+import DomainTheory.Examples.LiftingLargeProposition
 
 
 \end{code}

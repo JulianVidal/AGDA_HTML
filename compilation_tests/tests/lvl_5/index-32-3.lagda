@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Unsafe.CantorCompact
-import Locales.AdjointFunctorTheoremForFrames
-import Locales.InitialFrame
+import Ordinals.Arithmetic
+import Ordinals.OrdinalOfOrdinalsSuprema
 import Locales.ContinuousMap.Properties
-import Locales.Complements
+import Various.Dedekind
+import Fin.Order
 
 
 \end{code}

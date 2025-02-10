@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Universes
-import Modal.Subuniverse
 import Games.Monad
+import MGS.Powerset
+import UF.Universes
 import ContinuityAxiom.ExitingTruncations
 
 

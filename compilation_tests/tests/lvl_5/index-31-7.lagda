@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Integers.index
-import Various.Pataraia-Taylor
-import UF.ConnectedTypes
+import Unsafe.CountableTychonoff
 import CrossedModules.CrossedModules
+import TypeTopology.UniformSearch
+import ContinuityAxiom.False
 
 
 \end{code}

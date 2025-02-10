@@ -3,18 +3,17 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import TypeTopology.PropTychonoff
 import CoNaturals.Type
 import DomainTheory.Basics.WayBelow
 import Locales.ContinuousMap.FrameHomomorphism-Properties
-import Ordinals.OrdinalOfOrdinals
-import Ordinals.InfProperty
-import Taboos.P2
-import CoNaturals.Equivalence
+import Locales.ContinuousMap.Definition
+import DomainTheory.Basics.Products
 import Fin.Topology
 import MLTT.Athenian
+import TWA.Thesis.Chapter5.IntervalObjectApproximation
 
 
 \end{code}

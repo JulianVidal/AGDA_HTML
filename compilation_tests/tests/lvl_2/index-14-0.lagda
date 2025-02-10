@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.Sets-Properties
-import MGS.Universe-Lifting
+import UF.Lower-FunExt
+import UF.ExitPropTrunc
 
 
 \end{code}

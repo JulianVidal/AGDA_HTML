@@ -3,49 +3,50 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.ExtensionalEquality
-import EffectfulForcing.MFPSAndVariations.ContinuityProperties
-import Games.TicTacToe1
-import MLTT.Fin
-import Games.alpha-beta
-import GamesExperimental.TicTacToe2
-import EffectfulForcing.MFPSAndVariations.MFPS-XXIX
-import EffectfulForcing.Internal.SystemT
-import Games.TicTacToe2
-import GamesExperimental.TicTacToe0
-import Unsafe.index
-import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
-import EffectfulForcing.Internal.Internal
-import EffectfulForcing.MFPSAndVariations.CombinatoryT
-import Games.Examples
-import EffectfulForcing.MFPSAndVariations.SystemT
-import GamesExperimental.alpha-beta-examples
-import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
-import EffectfulForcing.MFPSAndVariations.Internal
-import EffectfulForcing.Internal.InternalModUniCont
-import GamesExperimental.Examples
-import EffectfulForcing.MFPSAndVariations.Dialogue
-import EffectfulForcing.Internal.index
-import EffectfulForcing.index
-import Unsafe.Haskell
-import EffectfulForcing.MFPSAndVariations.index
-import MLTT.Athenian
-import EffectfulForcing.MFPSAndVariations.Continuity
-import GamesExperimental.alpha-beta
-import EffectfulForcing.MFPSAndVariations.Church
-import ContinuityAxiom.index
-import EffectfulForcing.MFPSAndVariations.WithoutOracle
-import EffectfulForcing.Internal.Subst
-import EffectfulForcing.Internal.External
-import Games.TicTacToe0
-import EffectfulForcing.Internal.FurtherThoughts
-import EffectfulForcing.Internal.Correctness
-import MLTT.Vector
-import EffectfulForcing.Internal.InternalModCont
-import ContinuityAxiom.False
-import GamesExperimental.TicTacToe1
+import Ordinals.TrichotomousArithmetic
+import CoNaturals.Type2
+import TypeTopology.CantorSearch
+import TypeTopology.ConvergentSequenceHasInf
+import TWA.Thesis.Chapter4.GlobalOptimisation
+import Taboos.BasicDiscontinuity
+import TypeTopology.DecidabilityOfNonContinuity
+import TypeTopology.TheTopologyOfTheUniverse
+import CoNaturals.UniversalProperty
+import Ordinals.Arithmetic
+import CoNaturals.BothTypes
+import TypeTopology.SimpleTypes
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.GenericConvergentSequenceCompactness
+import Taboos.WLPO
+import Apartness.Properties
+import Various.Dedekind
+import TWA.Thesis.Chapter3.ClosenessSpaces
+import TWA.Closeness
+import CoNaturals.Exercise
+import CoNaturals.GenericConvergentSequence
+import Taboos.MarkovsPrinciple
+import CantorSchroederBernstein.CSB
+import CoNaturals.Sharp
+import TypeTopology.LimitPoints
+import CoNaturals.Type
+import Taboos.LPO
+import TWA.BanachFixedPointTheorem
+import Fin.Dedekind
+import Unsafe.CoNat-Equiv
+import TypeTopology.Cantor
+import CantorSchroederBernstein.CSB-TheoryLabLunch
+import CoNaturals.Arithmetic
+import CoNaturals.Equivalence
+import TypeTopology.WeaklyCompactTypes
+import Taboos.LLPO
+import CoNaturals.Type2Properties
+import DomainTheory.Taboos.ClassicalLiftingOfNaturalNumbers
+import TypeTopology.RicesTheoremForTheUniverse
+import TypeTopology.CantorMinusPoint
+import TypeTopology.ADecidableQuantificationOverTheNaturals
+import TWA.Thesis.Chapter4.ApproxOrder
 
 
 \end{code}

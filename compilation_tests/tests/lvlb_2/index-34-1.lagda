@@ -3,29 +3,27 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.TwoElementPoset
-import OrderedTypes.Frame
-import Groups.Free
-import Slice.IdentityViaSIP
-import TypeTopology.CantorSearch
-import Modal.ReflectiveSubuniverse
-import TypeTopology.CantorMinusPoint
-import InjectiveTypes.Subtypes
-import InjectiveTypes.CharacterizationViaLifting
-import TWA.SIP-IntervalObject
-import TWA.Thesis.Chapter2.Vectors
-import TWA.Thesis.Chapter5.BoehmStructure
+import Locales.ScottLocale.Definition
 import TWA.Thesis.AndrewSneap.DyadicRationals
-import Lifting.index
-import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
 import DiscreteGraphicMonoids.LWRDGM
-import Apartness.TightReflection
-import Naturals.index
+import TWA.Thesis.Chapter5.BoehmStructure
+import OrderedTypes.Frame
 import Groups.Cokernel
+import Locales.DiscreteLocale.Definition
+import Locales.DirectedFamily-Poset
 import Various.Pataraia
+import OrderedTypes.TwoElementPoset
+import CoNaturals.GenericConvergentSequence2
+import TypeTopology.CantorSearch
+import InjectiveTypes.Subtypes
+import Modal.ReflectiveSubuniverse
+import Apartness.TightReflection
 import UF.Truncations
+import InjectiveTypes.CharacterizationViaLifting
+import TypeTopology.CantorMinusPoint
+import TWA.SIP-IntervalObject
 
 
 \end{code}

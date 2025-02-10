@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter2.Finite
-import DiscreteGraphicMonoids.AffineMonad
+import Fin.Pigeonhole
+import Ordinals.ShulmanTaboo
 
 
 \end{code}

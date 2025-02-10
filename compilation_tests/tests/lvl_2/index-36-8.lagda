@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.DistributiveLattice.Definition-SigmaBased
-import OrderedTypes.DeltaCompletePoset
+import Ordinals.OrdinalOfOrdinalsSuprema
+import Locales.ContinuousMap.Properties
 
 
 \end{code}

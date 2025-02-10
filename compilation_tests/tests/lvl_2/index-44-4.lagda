@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Spectrality.LatticeOfCompactOpens
-import Locales.NotationalConventions
+import TWA.Thesis.Chapter6.SignedDigitSearch
+import Locales.Spectrality.SpectralMapToLatticeHomomorphism
 
 
 \end{code}

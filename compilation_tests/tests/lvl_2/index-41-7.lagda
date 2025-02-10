@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import gist.multiset-addendum-question
-import PCF.Lambda.ScottModelOfIfZero
+import Taboos.MarkovsPrinciple
+import TWA.Thesis.Chapter3.SearchableTypes
 
 
 \end{code}

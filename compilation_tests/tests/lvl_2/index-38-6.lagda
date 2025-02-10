@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.HeytingImplication
-import DomainTheory.BasesAndContinuity.Continuity
+import EffectfulForcing.Internal.SystemT
+import EffectfulForcing.MFPSAndVariations.Church
 
 
 \end{code}

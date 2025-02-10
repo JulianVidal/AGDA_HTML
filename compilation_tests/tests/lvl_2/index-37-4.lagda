@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Kuratowski
-import GamesExperimental.TicTacToe2
+import UF.Powerset-Fin
+import Locales.HeytingImplication
 
 
 \end{code}

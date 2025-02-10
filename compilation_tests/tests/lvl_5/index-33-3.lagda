@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import EffectfulForcing.MFPSAndVariations.Dialogue
+import Ordinals.TrichotomousArithmetic
+import Ordinals.Taboos
 import Locales.DistributiveLattice.Spectrum
-import Fin.Choice
-import Ordinals.OrdinalOfTruthValues
-import Slice.index
+import CoNaturals.Exercise
 
 
 \end{code}

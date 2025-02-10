@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.OverSmallMaps
-import UF.SIP-Examples
+import Locales.Point.Definition
+import DiscreteGraphicMonoids.ListsWithoutRepetitionsMore
 
 
 \end{code}

@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import MLTT.List-Properties
 import Various.Hydra
-import DomainTheory.IdealCompletion.IdealCompletion
-import Cardinals.index
-import UF.TruncatedTypes
+import Groups.Subgroups
+import Games.NonEmptyList
 
 
 \end{code}

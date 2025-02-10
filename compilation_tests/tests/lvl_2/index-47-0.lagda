@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Rationals.Multiplication
-import Locales.PatchProperties
+import Rationals.Negation
+import Ordinals.WellOrderingPrinciple
 
 
 \end{code}

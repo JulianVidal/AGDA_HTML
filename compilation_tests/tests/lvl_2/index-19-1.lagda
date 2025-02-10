@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Duploids.DeductiveSystem
-import UF.FunExt-from-Naive-FunExt
+import Duploids.Preduploid
+import Categories.NaturalTransformation
 
 
 \end{code}

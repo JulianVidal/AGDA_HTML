@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.IdealCompletion.Properties
-import DomainTheory.Examples.Omega
-import DomainTheory.Examples.Powerset
-import DomainTheory.ScottModelOfPCF.PCFCombinators
+import InjectiveTypes.MathematicalStructures
+import Locales.BooleanAlgebra
+import Ordinals.Indecomposable
+import EffectfulForcing.MFPSAndVariations.WithoutOracle
 
 
 \end{code}

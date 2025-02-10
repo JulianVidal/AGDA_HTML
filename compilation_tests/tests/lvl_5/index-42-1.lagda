@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Dyadics.Order
-import Ordinals.BuraliForti
 import Ordinals.Limit
-import Ordinals.CumulativeHierarchy
-import Ordinals.MultiplicationProperties
+import Dyadics.Negation
+import Ordinals.NotationInterpretation2
+import Ordinals.SupSum
+import Ordinals.NotationInterpretation1
 
 
 \end{code}

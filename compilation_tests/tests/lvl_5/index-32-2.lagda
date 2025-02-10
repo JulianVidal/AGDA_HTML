@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.Order
-import GamesExperimental.Examples
-import GamesExperimental.Discussion
-import GamesExperimental.alpha-beta
-import Unsafe.Haskell
+import Locales.AdjointFunctorTheoremForFrames
+import Locales.Complements
+import Iterative.Ordinals
+import TypeTopology.ExtendedSumCompact
+import Ordinals.ToppedType
 
 
 \end{code}

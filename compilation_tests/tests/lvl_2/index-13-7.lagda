@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Naturals.UniversalProperty
-import MGS.Powerset
+import Games.NonEmptyListOriginal
+import GamesExperimental.Reader
 
 
 \end{code}

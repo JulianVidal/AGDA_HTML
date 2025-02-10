@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import MGS.Subsingleton-Theorems
 import UF.KrausLemma
-import PathSequences.Reasoning
+import InfinitePigeon.PigeonProgram
 
 
 \end{code}

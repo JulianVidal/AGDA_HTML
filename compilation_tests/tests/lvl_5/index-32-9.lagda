@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Various.RootsOfBooleanFunctions
-import NotionsOfDecidability.QuasiDecidable
-import NotionsOfDecidability.SemiDecidable
-import CrossedModules.index
+import Unsafe.CantorCompact
+import UF.Size-TruncatedConnected
+import Fin.Omega
+import Games.Examples
 
 
 \end{code}

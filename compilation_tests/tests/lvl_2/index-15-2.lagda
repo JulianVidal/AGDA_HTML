@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.J
-import UF.Connected
+import PCF.Lambda.Substitution
+import PCF.Lambda.BigStep
 
 
 \end{code}

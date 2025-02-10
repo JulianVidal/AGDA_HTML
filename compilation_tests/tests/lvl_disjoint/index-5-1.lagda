@@ -3,13 +3,18 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.Frame
-import NotionsOfDecidability.QuasiDecidable
-import TWA.SIP-IntervalObject
-import UF.SIP-Examples
-import OrderedTypes.sigma-frame
+import Quotient.Large
+import Quotient.Large-Variation
+import OrderedTypes.FreeSupLattice
+import Groups.Subgroups
+import OrderedTypes.PosetReflection
+import NotionsOfDecidability.DecidableClassifier
+import UF.Choice
+import UF.Powerset
+import UF.Classifiers
+import UF.Powerset-MultiUniverse
 
 
 \end{code}

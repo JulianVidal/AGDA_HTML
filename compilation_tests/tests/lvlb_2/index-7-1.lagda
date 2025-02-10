@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Notation.index
 import InfinitePigeon.K-AC-N
 import InfinitePigeon.J-InfinitePigeon
+import PathSequences.Concat
 import InfinitePigeon.K-DC
 
 

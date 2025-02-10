@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer
-import EffectfulForcing.MFPSAndVariations.LambdaCalculusVersionOfMFPS
+import EffectfulForcing.MFPSAndVariations.Internal
+import InjectiveTypes.MathematicalStructures
 
 
 \end{code}

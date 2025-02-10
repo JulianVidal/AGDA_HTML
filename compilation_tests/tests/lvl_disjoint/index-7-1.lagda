@@ -3,21 +3,15 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.Products
-import DomainTheory.Basics.Miscelanea
-import DomainTheory.Basics.ProductsContinuity
-import DomainTheory.BasesAndContinuity.IndCompletion
-import DomainTheory.BasesAndContinuity.Continuity
-import DomainTheory.BasesAndContinuity.ContinuityImpredicative
-import DomainTheory.Basics.Pointed
-import DomainTheory.Basics.FunctionComposition
-import InjectiveTypes.PointedDcpos
-import DomainTheory.Basics.WayBelow
-import DomainTheory.BasesAndContinuity.ContinuityDiscussion
-import Various.Pataraia
-import Various.Pataraia-Taylor
+import Slice.Construction
+import Slice.Algebras
+import Slice.IdentityViaSIP
+import Slice.Monad
+import Modal.ReflectiveSubuniverse
+import Modal.SigmaClosedReflectiveSubuniverse
+import Slice.Embedding
 
 
 \end{code}

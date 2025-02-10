@@ -3,27 +3,26 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import TypeTopology.PropTychonoff
 import CoNaturals.Type
 import DomainTheory.Basics.WayBelow
 import Locales.ContinuousMap.FrameHomomorphism-Properties
-import Ordinals.OrdinalOfOrdinals
-import Ordinals.InfProperty
-import Taboos.P2
-import CoNaturals.Equivalence
+import Locales.ContinuousMap.Definition
+import DomainTheory.Basics.Products
 import Fin.Topology
 import MLTT.Athenian
-import Unsafe.CountableTychonoff
-import Locales.ContinuousMap.Definition
+import TWA.Thesis.Chapter5.IntervalObjectApproximation
+import Slice.Monad
+import Ordinals.OrdinalOfOrdinals
+import Ordinals.WellOrderTransport
+import Groups.Large
+import Ordinals.InfProperty
 import Locales.WayBelowRelation.Properties
-import Locales.DiscreteLocale.Two
-import Locales.DistributiveLattice.Homomorphism
-import Locales.DistributiveLattice.Properties
-import Locales.DistributiveLattice.Definition-SigmaBased
-import OrderedTypes.DeltaCompletePoset
-import OrderedTypes.sigma-frame
+import Taboos.P2
+import DiscreteGraphicMonoids.Free
+import TWA.Thesis.AndrewSneap.DyadicReals
 
 
 \end{code}

@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Lifting.LiftingSetAlgebraic
+import DomainTheory.Examples.Omega
+import DomainTheory.Examples.Powerset
+import Locales.ThesisIndex
 import DomainTheory.BasesAndContinuity.ScottDomain
-import DomainTheory.BasesAndContinuity.CompactBasis
-import Locales.BooleanAlgebra
-import Locales.SIP.DistributiveLatticeSIP
+import Locales.Compactness.Definition
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.WayBelowRelation.Definition
-import Locales.WellInside
+import Groups.Large
+import Ordinals.InfProperty
 
 
 \end{code}

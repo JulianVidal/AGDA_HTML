@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import UF.HiddenSwap
 import Naturals.Binary
-import ContinuityAxiom.UniformContinuity
 import DiscreteGraphicMonoids.Type
 import Circle.Integers-Properties
 

@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Games.TicTacToe1
-import Games.TicTacToe0
+import TypeTopology.DecidabilityOfNonContinuity
 import EffectfulForcing.Internal.InternalModUniCont
-import CantorSchroederBernstein.index
-import DomainTheory.Part-I
+import Fin.Dedekind
+import Locales.NotationalConventions
+import GamesExperimental.TicTacToe0
 
 
 \end{code}

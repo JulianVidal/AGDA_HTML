@@ -3,12 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.Properties
+import Locales.Stone
 import Locales.Spectrality.SpectralityOfOmega
-import Locales.Spectrality.SpectralMapToLatticeHomomorphism
-import Locales.Spectrality.LatticeOfCompactOpens-Duality
+import TypeTopology.SquashedCantor
 
 
 \end{code}

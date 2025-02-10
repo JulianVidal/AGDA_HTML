@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.BanachFixedPointTheorem
-import TWA.Thesis.Chapter3.ClosenessSpaces
+import PCF.Lambda.ScottModelOfContexts
+import EffectfulForcing.Internal.External
 import TWA.Thesis.Chapter5.SignedDigitIntervalObject
-import EffectfulForcing.MFPSAndVariations.Internal
-import EffectfulForcing.MFPSAndVariations.WithoutOracle
+import Locales.SIP.DistributiveLatticeSIP
 
 
 \end{code}

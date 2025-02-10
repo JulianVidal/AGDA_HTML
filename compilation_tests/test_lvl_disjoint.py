@@ -57,15 +57,15 @@ def find_largest_disjoint(leaf_anc):
     return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
     
 
-def create_test(dot_file):
-    g = nx.nx_pydot.read_dot(dot_file)
-
-    mapping = {}
-    for n in g.nodes(data=True):
-        mapping[n[0]] = n[1]['label'].strip('\"')
-
-    g = nx.relabel_nodes(g, mapping)
-    g.remove_node("Agda.Primitive")
+def create_test(g):
+    # g = nx.nx_pydot.read_dot(dot_file)
+    #
+    # mapping = {}
+    # for n in g.nodes(data=True):
+    #     mapping[n[0]] = n[1]['label'].strip('\"')
+    #
+    # g = nx.relabel_nodes(g, mapping)
+    # g.remove_node("Agda.Primitive")
 
     level = 0
     topo = depths(g)

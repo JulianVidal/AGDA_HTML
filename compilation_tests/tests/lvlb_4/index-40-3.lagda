@@ -3,15 +3,14 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TWA.Thesis.Chapter4.ApproxOrder
-import EffectfulForcing.MFPSAndVariations.index
-import EffectfulForcing.Internal.Subst
-import DomainTheory.Bilimits.Sequential
-import DomainTheory.IdealCompletion.Retracts
-import DomainTheory.Examples.LiftingLargeProposition
+import Locales.Sierpinski
 import DomainTheory.Examples.IdlDyadics
+import InjectiveTypes.InhabitedTypesTaboo
+import Iterative.Multisets-HFLO
+import Locales.Compactness.Properties
+import Locales.DistributiveLattice.Isomorphism-Properties
 
 
 \end{code}

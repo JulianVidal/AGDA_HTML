@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Fin.index
-import Ordinals.ToppedArithmetic
+import Locales.PatchOfOmega
+import Locales.Sierpinski.UniversalProperty
 
 
 \end{code}

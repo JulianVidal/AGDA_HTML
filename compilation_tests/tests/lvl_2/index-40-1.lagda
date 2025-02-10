@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ThesisIndex
-import Locales.Compactness.Definition
+import TypeTopology.WeaklyCompactTypes
+import DomainTheory.ScottModelOfPCF.ScottModelOfPCF
 
 
 \end{code}

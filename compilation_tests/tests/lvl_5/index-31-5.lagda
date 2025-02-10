@@ -3,13 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DomainTheory.Basics.FunctionComposition
-import Modal.SigmaClosedReflectiveSubuniverse
-import TypeTopology.UniformSearch
-import InjectiveTypes.PointedDcpos
-import TWA.Thesis.AndrewSneap.DyadicReals
+import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
+import CoNaturals.Equivalence
+import Locales.DistributiveLattice.Definition-SigmaBased
 
 
 \end{code}

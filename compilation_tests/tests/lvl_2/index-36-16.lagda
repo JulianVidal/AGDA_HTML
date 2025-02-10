@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.Free
-import Apartness.index
+import Unsafe.Haskell
+import TypeTopology.AbsolutenessOfCompactness
 
 
 \end{code}

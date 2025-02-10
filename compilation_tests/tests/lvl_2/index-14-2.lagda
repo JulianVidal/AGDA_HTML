@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.HedbergApplications
-import GamesExperimental.NonEmptyList
+import Relations.SRTclosure
+import GamesExperimental.J
 
 
 \end{code}

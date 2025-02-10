@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Notation.UnderlyingType
-import PathSequences.Type
-import Ordinals.Brouwer
-import Ordinals.Codes
+import InfinitePigeon.J-AC-N
+import InfinitePigeon.K-Shift
+import Ordinals.LexicographicOrder
+import EffectfulForcing.MFPSAndVariations.Combinators
 
 
 \end{code}

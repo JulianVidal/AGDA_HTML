@@ -3,10 +3,9 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MGS.More-Exercise-Solutions
-import MGS.SIP
+import PCF.Lambda.ApplicativeApproximation
 
 
 \end{code}

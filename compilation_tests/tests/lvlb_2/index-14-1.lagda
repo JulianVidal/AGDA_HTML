@@ -3,17 +3,17 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import PCF.Lambda.AbstractSyntax
-import Games.J
-import Lifting.Set
 import MGS.Classifiers
+import UF.Connected
+import Lifting.Set
+import Field.DedekindReals
+import DedekindReals.Multiplication
 import MGS.Size
 import MGS.Choice
 import MGS.Function-Graphs
 import MGS.Quotient
-import DedekindReals.Multiplication
 
 
 \end{code}

@@ -3,10 +3,14 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MetricSpaces.Rationals
-import InjectiveTypes.CounterExamples
+import Rationals.Limits
+import DedekindReals.Properties
+import DedekindReals.Addition
+import MetricSpaces.DedekindReals
+import DedekindReals.Extension
+import DedekindReals.Functions
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.PropTychonoff
-import CoNaturals.Type
+import CoNaturals.UniversalProperty
+import DomainTheory.Basics.SupComplete
 
 
 \end{code}

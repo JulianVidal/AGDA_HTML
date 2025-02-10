@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.MathematicalStructures
-import TWA.BanachFixedPointTheorem
+import TWA.Thesis.Chapter4.ApproxOrder
+import EffectfulForcing.Internal.Subst
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import InjectiveTypes.PointedDcpos
-import TWA.Thesis.AndrewSneap.DyadicReals
+import NotionsOfDecidability.QuasiDecidable
+import Unsafe.CoNat-Equiv
 
 
 \end{code}

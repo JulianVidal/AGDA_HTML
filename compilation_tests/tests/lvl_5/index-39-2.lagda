@@ -3,12 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.NotationalConventions
 import Locales.DistributiveLattice.Spectrum-Properties
-import Fin.Dedekind
-import TypeTopology.SquashedSum
+import PCF.Lambda.Correctness
+import TWA.Thesis.Chapter3.SearchableTypes-Examples
+import GamesExperimental.TicTacToe1
+import Locales.DiscreteLocale.Basis
 
 
 \end{code}

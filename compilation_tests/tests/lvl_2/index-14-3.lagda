@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.K
-import GamesExperimental.TypeTrees
+import Games.JK
+import PCF.Lambda.AbstractSyntax
 
 
 \end{code}

@@ -4,15 +4,15 @@ from math import ceil
 import test_generator
 import make_generator
 
-def create_test(dot_file, m=2):
-    g = nx.nx_pydot.read_dot(dot_file)
-
-    mapping = {}
-    for n in g.nodes(data=True):
-        mapping[n[0]] = n[1]['label'].strip('\"')
-
-    g = nx.relabel_nodes(g, mapping)
-    g.remove_node("Agda.Primitive")
+def create_test(g, m=2):
+    # g = nx.nx_pydot.read_dot(dot_file)
+    #
+    # mapping = {}
+    # for n in g.nodes(data=True):
+    #     mapping[n[0]] = n[1]['label'].strip('\"')
+    #
+    # g = nx.relabel_nodes(g, mapping)
+    # g.remove_node("Agda.Primitive")
 
     level = 0
     topo = depths(g)
@@ -46,7 +46,9 @@ def create_test(dot_file, m=2):
             end = start + ceil(rem_mods / ceil(rem_mods / m))
             rem_mods -= (end - start)
             compile_order[-1].append(mods[start:end])
-
+    
+    if compile_order[0] == [[]]:
+        compile_order = compile_order[1:]
     dir = f"tests/lvl_{m}"
     make_generator.generate_test(compile_order, dir)
     return dir

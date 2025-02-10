@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import PathSequences.Split
 import ContinuityAxiom.Preliminaries
-import InfinitePigeon.InfinitePigeon
-import InfinitePigeon.InfinitePigeonLessEfficient
+import WildCategories.Base
 
 
 \end{code}

@@ -3,18 +3,18 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.Brouwer
-import Ordinals.Codes
-import Coslice.Type
+import Ordinals.LexicographicOrder
 import EffectfulForcing.MFPSAndVariations.Combinators
-import Circle.Integers
+import Ordinals.Brouwer
+import PathSequences.Type
 import Various.DummettDisjunction
-import InfinitePigeon.K-Shift
+import Circle.Integers
+import Ordinals.Codes
 import InfinitePigeon.K-Shift-from-J-Shift
-import InfinitePigeon.J-AC-N
 import InfinitePigeon.J-DC
+import Coslice.Type
 
 
 \end{code}

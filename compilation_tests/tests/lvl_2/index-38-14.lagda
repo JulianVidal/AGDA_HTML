@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import CoNaturals.Exercise
-import CoNaturals.Type2
+import DomainTheory.BasesAndContinuity.ContinuityImpredicative
+import CoNaturals.Sharp
 
 
 \end{code}

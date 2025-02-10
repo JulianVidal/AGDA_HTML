@@ -3,12 +3,12 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import EffectfulForcing.Internal.FurtherThoughts
 import EffectfulForcing.Internal.InternalModCont
-import CantorSchroederBernstein.CSB-TheoryLabLunch
-import DomainTheory.Bilimits.Dinfinity
+import gist.not-an-apartness
+import TypeTopology.SequentiallyHausdorff
+import PCF.Lambda.Adequacy
 
 
 \end{code}

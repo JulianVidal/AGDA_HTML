@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import OrderedTypes.PosetReflection
-import DomainTheory.Topology.ScottTopology
-import MLTT.List-Properties
+import Ordinals.WellOrderArithmetic
+import Naturals.Parity
+import UF.SmallnessProperties
 import Quotient.FromSetReplacement
 import Quotient.Effectivity
 

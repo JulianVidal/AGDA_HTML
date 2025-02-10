@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Slice.Algebras
-import DomainTheory.Basics.ProductsContinuity
+import CoNaturals.Type2
+import GamesExperimental.alpha-beta-examples
 
 
 \end{code}

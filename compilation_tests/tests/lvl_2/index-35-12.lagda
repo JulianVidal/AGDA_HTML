@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Slice.IdentityViaSIP
-import TypeTopology.CantorSearch
+import Various.Pataraia-Taylor
+import OrderedTypes.DeltaCompletePoset
 
 
 \end{code}

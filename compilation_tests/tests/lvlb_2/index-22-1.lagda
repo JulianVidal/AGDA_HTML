@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
+import UF.Classifiers-Old
 import OrderedTypes.sigma-sup-lattice
-import UF.CumulativeHierarchy
 import Lifting.MonadVariation
 import BinarySystems.InitialBinarySystem
-import UF.Classifiers-Old
+import UF.CumulativeHierarchy
 
 
 \end{code}

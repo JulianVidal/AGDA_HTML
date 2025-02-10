@@ -3,9 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import UF.DiscreteAndSeparated
+import TypeTopology.Density
+import Various.LawvereFPT
 
 
 \end{code}

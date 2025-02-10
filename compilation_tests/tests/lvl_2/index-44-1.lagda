@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import GamesExperimental.TicTacToe0
-import Locales.PatchLocale
+import Ordinals.ToppedArithmetic
+import Locales.Stone
 
 
 \end{code}

@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.ClassificationOfScottOpens
-import Locales.DistributiveLattice.Isomorphism
-import Locales.DistributiveLattice.Ideal-Properties
-import Fin.Pigeonhole
-import OrderedTypes.FreeJoinSemiLattice
+import DomainTheory.Topology.ScottTopologyProperties
+import TWA.Thesis.Chapter5.SignedDigit
+import EffectfulForcing.Internal.SystemT
+import EffectfulForcing.MFPSAndVariations.Church
+import Taboos.Decomposability
 
 
 \end{code}

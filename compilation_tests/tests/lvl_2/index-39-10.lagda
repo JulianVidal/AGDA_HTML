@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import DiscreteGraphicMonoids.index
-import EffectfulForcing.MFPSAndVariations.Church
+import DomainTheory.ScottModelOfPCF.PCFCombinators
+import InjectiveTypes.MathematicalStructuresMoreGeneral
 
 
 \end{code}

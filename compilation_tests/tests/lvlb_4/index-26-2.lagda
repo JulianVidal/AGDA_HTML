@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import DiscreteGraphicMonoids.Type
 import Circle.Integers-Properties
-import BinarySystems.InitialBinarySystem2
+import DyadicsInductive.Dyadics
 
 
 \end{code}

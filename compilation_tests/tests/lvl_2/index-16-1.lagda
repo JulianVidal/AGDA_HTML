@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Relations.ChurchRosser
-import PCF.Lambda.BigStep
+import Lifting.Miscelanea
+import Games.Constructor
 
 
 \end{code}

@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Locales.Sierpinski.Definition
-import Locales.ScottLocale.Properties
+import Ordinals.ConvergentSequence
+import TWA.Thesis.Chapter5.BoehmVerification
 
 
 \end{code}

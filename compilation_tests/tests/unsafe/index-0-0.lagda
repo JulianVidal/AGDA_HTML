@@ -5,7 +5,7 @@ Generated Index file
 
 {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import AllModulesIndex
+import Locales.LawsonLocale.CompactElementsOfPoint
 
 
 \end{code}

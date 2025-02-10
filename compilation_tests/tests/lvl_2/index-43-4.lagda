@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Iterative.index
-import TypeTopology.ADecidableQuantificationOverTheNaturals
+import Games.TicTacToe0
+import Locales.Spectrality.LatticeOfCompactOpens
 
 
 \end{code}

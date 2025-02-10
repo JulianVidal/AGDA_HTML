@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import TypeTopology.ExtendedSumCompact
-import Ordinals.OrdinalOfOrdinalsSuprema
+import EffectfulForcing.MFPSAndVariations.CombinatoryT
+import EffectfulForcing.MFPSAndVariations.ContinuityProperties
 
 
 \end{code}

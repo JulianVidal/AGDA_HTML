@@ -3,20 +3,19 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.OrdinalOfOrdinalsSuprema
-import Slice.Algebras
-import DomainTheory.Basics.ProductsContinuity
-import Iterative.Ordinals
-import MLTT.index
-import TypeTopology.ConvergentSequenceHasInf
-import TypeTopology.AbsolutenessOfCompactness
-import TypeTopology.TheTopologyOfTheUniverse
-import TypeTopology.PropInfTychonoff
-import Ordinals.LexicographicCompactness
+import GamesExperimental.TicTacToe2
+import DiscreteGraphicMonoids.Monad
 import Games.TicTacToe2
-import Games.alpha-beta
+import Locales.DistributiveLattice.Ideal
+import NotionsOfDecidability.QuasiDecidable
+import Unsafe.CoNat-Equiv
+import NotionsOfDecidability.SemiDecidable
+import GamesExperimental.alpha-beta
+import Unsafe.Haskell
+import TypeTopology.AbsolutenessOfCompactness
+import Various.RootsOfBooleanFunctions
 
 
 \end{code}

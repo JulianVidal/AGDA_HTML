@@ -3,13 +3,13 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import Ordinals.InfProperty
-import Taboos.P2
-import CoNaturals.Equivalence
+import DomainTheory.Basics.Products
 import Fin.Topology
 import MLTT.Athenian
+import TWA.Thesis.Chapter5.IntervalObjectApproximation
+import Slice.Monad
 
 
 \end{code}

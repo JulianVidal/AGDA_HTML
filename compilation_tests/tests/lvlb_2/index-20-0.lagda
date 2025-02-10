@@ -3,11 +3,11 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
 import UF.Embeddings
 import UF.StructureIdentityPrinciple
-import Categories.Adjunction
+import Duploids.Duploid
 
 
 \end{code}

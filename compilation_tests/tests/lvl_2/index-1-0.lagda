@@ -3,10 +3,10 @@ Generated Index file
 
 \begin{code}
 
-{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check #-}
+{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
 
-import MLTT.Universes
-import MLTT.Natural-Numbers-Type
+import MLTT.Empty-Type
+import MLTT.Pi
 
 
 \end{code}

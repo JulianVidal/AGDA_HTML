@@ -1019,7 +1019,11 @@ Rough introduction file
 Add section to easily reference yourself
 
 # 15 - Pre-meeting Report
-Started writting part of the introduction, setup the motivaiton and problem
+Started writing part of the introduction, setup the motivation and problem
 statement to give some structure of what I need to discuss in the report.
-Created CLI for compilation, the user can chose how many cores to use. Aslo
+Created CLI for compilation, the user can chose how many cores to use. Also
 created the README with installation and usage examples.
+
+# 15 - Post-meeting Report
+
+# 15 - Notes

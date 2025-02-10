@@ -1,6 +1,6 @@
-# AGDA_HTML
-My undergraduate thesis. Parses the s-expressions from an AGDA project and
-builds a graph from it that can be queried.
+# Agda Tree
+
+CLI tool to extract definitions from Agda projects and create a dependency graph that can be queried.
 
 # Dependencies
  - python3 (currently using version 3.12.4)

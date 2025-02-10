@@ -27,4 +27,4 @@ dependencies = [
 Homepage = "https://github.com/JulianVidal/AGDA_HTML"
 
 [project.scripts]
-agda_tree = "agda_comp.cli:main"
+agda_comp = "agda_comp.cli:main"

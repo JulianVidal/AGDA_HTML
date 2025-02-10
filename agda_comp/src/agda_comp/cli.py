@@ -5,6 +5,8 @@ import networkx as nx
 
 from agda_comp import test_lvl
 
+import atexit
+
 def main():
     parser = argparse.ArgumentParser(description="Fast Agda type checker")
     parser.add_argument("module", help="Path to module to compile")
@@ -68,12 +70,25 @@ def agda_compile(module, clean, jobs):
 
     test_lvl.create_test(dot, dir=source_dir, m=jobs)
 
+
+
     commands = "; ".join([
         f"cd {project_dir}/source",
         "cd ..",
         "rm -rf ./_build",
         f"mv {source_dir}/Makefile .",
         "make -j",
+        'find ./source -name "index-*lagda" -delete',
+        "rm Makefile",
+    ])
+
+    atexit.register(on_exit, project_dir)
+    subprocess.run(commands, shell=True)
+
+# Clean up index files when program exists due to any reason
+def on_exit(project_dir):
+    commands = "; ".join([
+        f"cd {project_dir}",
         'find ./source -name "index-*lagda" -delete',
         "rm Makefile",
     ])

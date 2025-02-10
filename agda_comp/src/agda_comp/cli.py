@@ -3,19 +3,27 @@ from pathlib import Path
 import subprocess
 import networkx as nx
 
-from agda_comp import test_lvlb
+from agda_comp import test_lvl
 
 def main():
     parser = argparse.ArgumentParser(description="Fast Agda type checker")
     parser.add_argument("module", help="Path to module to compile")
     parser.add_argument("-c", "--clean",  action='store_true', help="Create dot file even if it already exists")
+    parser.add_argument("-j", "--jobs", default="4", help="Cores that can be used")
 
-    args = parser.parse_args()
+    args = dict(vars(parser.parse_args()))
 
-    agda_compile(args.module, args.clean)
+    try:
+        args["jobs"] = int(args["jobs"])
+        if args["jobs"] < 1:
+            raise ValueError()
+    except ValueError as e:
+        raise Exception("Argument to jobs needs to be a non-zero positive integer")
+
+    agda_compile(**args)
 
 
-def agda_compile(module, clean):
+def agda_compile(module, clean, jobs):
     module = Path(module)
 
     # Get project directory
@@ -58,7 +66,7 @@ def agda_compile(module, clean):
         if ".index" in node:
             dot.remove_node(node)
 
-    test_lvlb.create_test(dot, dir=source_dir, m=4)
+    test_lvl.create_test(dot, dir=source_dir, m=jobs)
 
     commands = "; ".join([
         f"cd {project_dir}/source",
@@ -66,8 +74,8 @@ def agda_compile(module, clean):
         "rm -rf ./_build",
         f"mv {source_dir}/Makefile .",
         "make -j",
-        # 'find ./source -name "index-*lagda" -delete',
-        # "rm Makefile",
+        'find ./source -name "index-*lagda" -delete',
+        "rm Makefile",
     ])
 
     subprocess.run(commands, shell=True)

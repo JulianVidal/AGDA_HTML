@@ -1017,3 +1017,9 @@ Make compilation fo reasier installation
 Send pdf of dissertation at current state
 Rough introduction file
 Add section to easily reference yourself
+
+# 15 - Pre-meeting Report
+Started writting part of the introduction, setup the motivaiton and problem
+statement to give some structure of what I need to discuss in the report.
+Created CLI for compilation, it supports multiple tests. Still need to write
+its respective README, as it will be a separate cli from agda_tree.

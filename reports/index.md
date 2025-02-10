@@ -1027,3 +1027,10 @@ created the README with installation and usage examples.
 # 15 - Post-meeting Report
 
 # 15 - Notes
+Test compiling the agda standard library
+Create table of results for compilation strategies, different projects and cores.
+
+Ask about getting rid of underscores.
+Do new modules in the same file create undercsores in the s-expressions. More user friendly.
+
+

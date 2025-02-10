@@ -1025,6 +1025,13 @@ Created CLI for compilation, the user can chose how many cores to use. Also
 created the README with installation and usage examples.
 
 # 15 - Post-meeting Report
+For the evaluation section of the report create a table with compilation time
+results, using different strategies and Agda projects in order to demonstrate
+how effective the tool is.
+
+The definition names in the s-expressions aren't user friendly, mainly due
+to the numbers and underscores, find a way to remove them, ask Job for clarity on
+how the s-expression definitions get their name.
 
 # 15 - Notes
 Test compiling the agda standard library
@@ -1032,5 +1039,3 @@ Create table of results for compilation strategies, different projects and cores
 
 Ask about getting rid of underscores.
 Do new modules in the same file create undercsores in the s-expressions. More user friendly.
-
-

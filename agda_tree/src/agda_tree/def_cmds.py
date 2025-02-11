@@ -67,6 +67,10 @@ def create_tree(project_file, output):
         for dep in deps
     ])
 
+    print()
+    print(f"Definitions given: {len(definitions.keys())}")
+    print(f"Nodes: {g}")
+
     output = output or DEF_TREE
     print()
     print(f"Saving graph to {output}")
@@ -82,8 +86,12 @@ def find(g, pattern):
     return matches
 
 # Get all definitions
-def nodes(g):
+def nodes(g, count=False):
     """List of definitions"""
+    ns = g.nodes()
+    if count:
+        print(f"Node count: {len(list(ns))}")
+        return None
     return g.nodes()
 
 # Given a definition d, which definitions does it use directly or

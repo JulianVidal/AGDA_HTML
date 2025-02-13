@@ -57,7 +57,7 @@ def find_largest_disjoint(leaf_anc):
     return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
     
 
-def create_test(g):
+def create_test(g, index_flags, dir="tests/lvl_disjoint"):
     # g = nx.nx_pydot.read_dot(dot_file)
     #
     # mapping = {}
@@ -127,7 +127,6 @@ def create_test(g):
         elif len(comp[-1]) < 2:
             comp[-1][0].extend(step[0])
 
-    dir = "./tests/lvl_disjoint"
     # test_generator.generate_test(comp, dir)
-    make_generator.generate_test(comp, dir)
+    make_generator.generate_test(comp, index_flags, dir)
     return dir

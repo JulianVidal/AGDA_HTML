@@ -1039,3 +1039,13 @@ Create table of results for compilation strategies, different projects and cores
 
 Ask about getting rid of underscores.
 Do new modules in the same file create undercsores in the s-expressions. More user friendly.
+
+In Agda standard library there is an GenerateEverything.hs that generates a
+files with all the modules. [More info](https://agda.github.io/agda-stdlib/master/README.html).
+```bash
+"cabal install && GenerateEverything"
+```
+In agda unimath there is a make file that generates an everything.lagda.md
+which has all the modules [Makefile](https://github.com/UniMath/agda-unimath/blob/master/Makefile).
+
+Issue with flags, this will be an issue with the cli

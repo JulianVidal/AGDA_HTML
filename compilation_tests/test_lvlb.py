@@ -4,7 +4,7 @@ from math import ceil
 import test_generator
 import make_generator
 
-def create_test(g, m=4):
+def create_test(g, index_flags, m=4, dir="tests/lvlb_4"):
     # g = nx.nx_pydot.read_dot(dot_file)
     #
     # mapping = {}
@@ -41,7 +41,6 @@ def create_test(g, m=4):
                 compile_order[-1].append(mods[start:end])
             start = end
 
-    dir = f"tests/lvlb_{m}"
     # test_generator.generate_test(compile_order, dir)
-    make_generator.generate_test(compile_order, dir)
+    make_generator.generate_test(compile_order, index_flags, dir)
     return dir

@@ -14,17 +14,17 @@ import test_lvlb
 import test_lvl_disjoint
 
 test_repos = {
-    "TypeTopology": {
-        "url": "https://github.com/martinescardo/TypeTopology.git",
-        "dir": Path("/tmp/TypeTopology"),
-        "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
-        "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
-    },
+    # "TypeTopology": {
+    #     "url": "https://github.com/martinescardo/TypeTopology.git",
+    #     "dir": Path("/tmp/TypeTopology"),
+    #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
+    #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
+    # },
     "stdlib": {
         "url": "https://github.com/agda/agda-stdlib.git",
         "dir": Path("/tmp/agda-stdlib"),
         "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-        "create_index": "cd /tmp/agda-stdlib/; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
         "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
     },
     "unimath": {

@@ -1069,10 +1069,19 @@ other people about and will get back to me.
 Began literature review, found different ways that code can be represent as
 graphs. Found Graph buddy a tool that visualize Java projects, although not
 query them. Couldn't find any similar work that compiles agda in parallel, did
-find a paper that does something similar but not for Agda.
-
-What should the literature review include?
+find a paper that does something similar but for FPGA.
 
 # 16 - Post-meeting Report
 
 # 16 - Notes
+Why does the last test not finish.
+
+On table, add brackets, show percentage relative to normal.
+
+Query the dependnecy graph of the modules to understnad why unimath doesn't improve with our strategies. 
+
+Write specs of the computers.
+
+Edit pre meeting report
+
+Write instructions on how to use agda_tree in differen agda projecst.

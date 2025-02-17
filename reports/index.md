@@ -1048,4 +1048,4 @@ files with all the modules. [More info](https://agda.github.io/agda-stdlib/maste
 In agda unimath there is a make file that generates an everything.lagda.md
 which has all the modules [Makefile](https://github.com/UniMath/agda-unimath/blob/master/Makefile).
 
-Issue with flags, this will be an issue with the cli
+Issue with flags, this will be an issue with the cli, different index files different flags

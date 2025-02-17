@@ -5,6 +5,7 @@
 % The introduction should provide content for the report, discuss relevant background
 % material, identify stakeholders, and state the aim(s) of the work. About 10\% of
 % the report.
+\marginpar{Add more citations to articles and different sources}
 
 \section{Background}
 
@@ -75,55 +76,53 @@ significant time savings.
 
 \section{Problem Statement}
 
-This project aims to create a CLI tool that will analyze an Agda project and
-create a dependency graph from its definitions. Agda doesn't provide a built-in
-tool to extract the definitions from a project, but there is an s-expression
-extractor Agda version by Andrej Bauer \cite{andrej} that will allows a better
-view into Agda's internal representation. With this graph the CLI will have
-commands that allow the user to explore and query this graph, in order to gain
-insight into the Agda project. As there aren't currently any tools that allows
-you to query the definitions of an Agda project.
+Agda doesn't provide a built-in tool to extract the definitions from a project,
+but there is an s-expression extractor Agda version by Andrej Bauer
+\cite{andrej} that will allows a better view into Agda's internal
+representation. S-expressions aren't well suited data structure for the queries
+on definition relationships, mostly contain syntax information that can be
+discarded and each module has an s-expressions file. A data structure that
+lends itself well towards queries of relationship between definitions, that
+only contains information about the definitions and stores all the definitions
+from a project, such as a graph. A tool that could explore the dependency graph
+of the definitions, would allow for a faster understanding of a large code
+base.
 
-The CLI tool will also get the module dependency graph and generate Makefiles
-and index files that will optimize the order of the modules compiled to
-minimize compilation time.
+While Agda doesn't have a tool to extract definitions from projects, it does
+have a tool to create a dependency graph from the modules. For compilation time
+improvement, only the modules are of interest as such an effective
+representation is already available. The challenge is what is the most
+effective way to traverse a dependency graph, concurrently, while mantaining
+safety (i.e. don't compile modules and its dependencies at the same time). 
+
 
 \section{Objectives}
 
-\begin{itemize}
-    \item Getting defintions from s-expressions 
-    \item Create dependency graph from definitions 
-    \item Querying graph
-\end{itemize}
+This objective of this project is to create a dependency graph of defintions
+from an Agda project by using the s-expression representation of modules using
+the s-expression extractor \cite{andrej}. Then create build a CLI that will
+create the dependency graph from any Agda project and give the user access to
+commands that query the dependency graph. These queries will let the user
+explore the graph, in order to gain insight into the Agda project. As there
+aren't currently any tools that allows you to query the definitions of an Agda
+project. 
+
+The objective is also to build another CLI tool that will create the module
+dependency graph from an Agda project and generate the makefile with the
+optimal order that modules should be compiled to reduce compile time.
 
 \section{Project Structure}
 
-\begin{itemize}
-\item How to get s-expressions from agda 
-\item How to get defintions from s-expressions 
-\item How to get relationships from definitions 
-\item How to create graph 
-\item How to create queries 
-\item Methods to improve compilation times 
-\item Results
-\end{itemize}
+First, there will be an explanation of what s-expressions are and how they are
+being read. These s-expressions use tags to name different symbols in a module,
+only the tags that contain definitions are important. Then, show how the
+s-expressions are structured, the way that defintions can be found and getting
+their dependencies. Using the information gained for the s-expressions, they
+will be turned into a graph that can be easily queried for relationships. Some
+example queries will be demonstrated, to underline their utility and
+implementation.
 
-% Overview
-%     \begin{itemize}
-%     \item Overview of Agda and s-expressions 
-%     \item Main goal is to represent an agda project as a graph for analysis 
-%     \end{itemize} 
-
-
-% Problem Statement
-%     \begin{itemize}
-%     \item Lack of a tool that allows for querying dependency information in
-%         Agda projects 
-%     \end{itemize} 
-
-% \section{Use cases and future}
-%
-% Importants
-%     \begin{itemize}
-%     \item How the tool can be expanded and used
-%     \end{itemize}
+Secondly, by analyzing different algorithms for traversing a module dependency
+graph there will be an exploration on how parallelism can improve compile time
+of an Agda project. Results from different algorithms and projects will be
+shown.

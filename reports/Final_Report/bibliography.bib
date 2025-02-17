@@ -8,6 +8,447 @@
 @misc{andrej,
     author = {{Andrej Bauer}},
     title = {{Agda S-expression Extractor}},
-    howpublished = {\url{https://github.com/andrejbauer/agda/tree/release-2.7.0.1-sexp?tab=readme-ov-file},}
+    howpublished = {\url{
+                    https://github.com/andrejbauer/agda/tree/release-2.7.0.1-sexp?tab=readme-ov-file
+                    },},
+}
+
+% graph buddy, visualize the graph of classes, objects and definitions for Java
+@inproceedings{graph_buddy,
+    author = {Borowski, Krzysztof and Balis, Bartosz and Orzechowski, Tomasz},
+    booktitle = {2022 Working Conference on Software Visualization (VISSOFT)},
+    title = {Graph Buddy — an interactive code dependency browsing and
+             visualization tool},
+    year = {2022},
+    volume = {},
+    number = {},
+    pages = {152-156},
+    keywords = {Visualization;Java;Codes;Source coding;Semantics;Software;Task
+                analysis;software visualization;semantic code graph;static
+                analysis;scala;java},
+    doi = {10.1109/VISSOFT55257.2022.00023},
+}
+
+% Developers benefit from a tool that answers the reachability question
+@inproceedings{6062086,
+    author = {LaToza, Thomas D. and Myers, Brad A.},
+    booktitle = {2010 ACM/IEEE 32nd International Conference on Software
+                 Engineering},
+    title = {Developers ask reachability questions},
+    year = {2010},
+    volume = {1},
+    number = {},
+    pages = {185-194},
+    keywords = {Navigation;Cognition;Software;Encoding;Concrete;Educational
+                institutions;Libraries;code navigation;developer
+                questions;empirical study;program comprehension;software
+                maintenance},
+    doi = {10.1145/1806799.1806829},
+}
+
+% JavaPDG turns java programs into graph representation for analysis
+@inproceedings{6569754,
+    author = {Shu, Gang and Sun, Boya and Henderson, Tim A.D. and Podgurski,
+              Andy},
+    booktitle = {2013 IEEE Sixth International Conference on Software Testing,
+                 Verification and Validation},
+    title = {JavaPDG: A New Platform for Program Dependence Analysis},
+    year = {2013},
+    volume = {},
+    number = {},
+    pages = {408-415},
+    abstract = {Dependence analysis is a fundamental technique for program
+                understanding and is widely used in software testing and
+                debugging. However, there are a limited number of analysis tools
+                available despite a wide range of research work in this field. In
+                this paper, we present JavaPDG1, a static analyzer for Java
+                bytecode, which is capable of producing various graphical
+                representations such as the system dependence graph, procedure
+                dependence graph, control flow graph and call graph. As a
+                program-dependence-graph based analyzer, JavaPDG performs both
+                intra- and inter-procedural dependence analysis, and enables
+                researchers to apply a wide range of program analysis techniques
+                that rely on dependence analysis. JavaPDG provides a graphical
+                viewer to browse and analyze the various graphs and a convenient
+                JSON based serialization format.},
+    keywords = {Java;Software testing;Abstracts;Debugging;Flow graphs;Virtual
+                machining;Data mining;program dependence graph; system dependence
+                graph; procedure dependence graph; call graph; Java Virtual
+                Machine; Java bytecode},
+    doi = {10.1109/ICST.2013.57},
+    ISSN = {2159-4848},
+    month = {March},
+}
+
+% Semantic Definition Graphs are a similar way we want to represent our graphs
+% for defintions
+@article{10385091,
+    author = {Borowski, Krzysztof and Balis, Bartosz and Orzechowski, Tomasz},
+    journal = {IEEE Access},
+    title = {Semantic Code Graph—An Information Model to Facilitate Software
+             Comprehension},
+    year = {2024},
+    volume = {12},
+    number = {},
+    pages = {27279-27310},
+    abstract = {Software comprehension is becoming increasingly time-consuming
+                due to the continual growth in the size of codebases.
+                Consequently, it is becoming more critical to speed up the code
+                comprehension process to aid in software maintenance and lower
+                the associated costs. A crucial aspect of this process is
+                understanding and preserving the high quality of the code
+                dependency structure. While a variety of code structure models
+                already exist, there is a surprising scarcity of models that
+                closely represent the source code and focus on software
+                comprehension. As a result, there are no readily available and
+                easy-to-use tools to assist with dependency comprehension,
+                refactoring, and quality monitoring of code. To address this gap,
+                we introduce the Semantic Code Graph (SCG), an information model
+                that offers a detailed abstract representation of code
+                dependencies with a close link to the source code. We establish
+                the critical properties of the SCG model and demonstrate its
+                implementation for Java and Scala languages. To validate the SCG
+                model's usefulness in software comprehension, we compare it to
+                nine other source code representation models. Additionally, we
+                select 11 well-known and widely-used open-source projects
+                developed in Java and Scala and perform a range of software
+                comprehension activities on them using three different code
+                representation models: the proposed SCG, the Call Graph, and the
+                Class Collaboration Network. We then qualitatively analyze the
+                results to compare the performance of these models in terms of
+                software comprehension capabilities. These activities encompass
+                project structure comprehension, identifying critical project
+                entities, interactive visualization of code dependencies, and
+                uncovering code similarities through software mining. Our
+                findings demonstrate that the SCG enhances software comprehension
+                capabilities compared to the prevailing Class Collaboration
+                Network and Call Graph models. Moreover, the SCG-based data
+                analysis yields actionable software comprehension insights. We
+                also release an open-source tool, scg-cli, to assist with result
+                reproduction and further research. We believe that the work
+                described is a step towards the next generation of tools that
+                streamline code dependency comprehension and management.},
+    keywords = {Codes;Software maintenance;Java;Source coding;Semantics;Object
+                oriented modeling;Flow graphs;Federated learning;Software
+                comprehension;software maintenance;Semantic Code Graph;Call
+                Graph;class collaboration network;software network;Java},
+    doi = {10.1109/ACCESS.2024.3351845},
+    ISSN = {2169-3536},
+    month = {},
+}
+
+
+% Different representations of a program as a graph, quite in depth not needed
+% for my project
+@article{arora2012evaluation,
+    title = {Evaluation of flow graph and dependence graphs for program
+             representation},
+    author = {Arora, Vinay and Bhatia, Rajesh Kumar and Singh, Maninder},
+    journal = {International Journal of Computer Applications},
+    volume = {56},
+    number = {14},
+    pages = {18--23},
+    year = {2012},
+    publisher = {Foundation of Computer Science},
+}
+
+% How different graphs can be used to analyze code
+@inproceedings{10660979,
+    author = {Gia Lac, Le Tran and Cao Cuong, Nguyen and Hoang Son, Ngo Duc and
+              Pham, Van-Hau and Duy, Phan The},
+    booktitle = {2024 International Conference on Multimedia Analysis and
+                 Pattern Recognition (MAPR)},
+    title = {An empirical study on the impact of graph representations for code
+             vulnerability detection using graph learning},
+    year = {2024},
+    volume = {},
+    number = {},
+    pages = {1-6},
+    abstract = {The increasing complexity of software systems has necessitated
+                more sophisticated security measures, particularly in the domain
+                of vulnerability detection. Traditional machine learning (ML) and
+                deep learning (DL) techniques often fall short when source code
+                is treated merely as text, prompting a shift toward graph
+                learning methods that leverage specific graph representations of
+                code to enhance detection capabilities. These representations,
+                including Abstract Syntax Tree (AST), Control Flow Graph (CFG),
+                Data Flow Graph (DFG), Program Dependence Graph (PDG), and Code
+                Property Graph (CPG), encapsulate the structural and semantic
+                intricacies of programming code, offering a robust framework for
+                identifying vulnerabilities. Despite advances in this field, a
+                comprehensive understanding of the impact that each graph
+                representation has on the effectiveness of vulnerability
+                detection is still lacking. Our paper introduces a general
+                architecture for a graph-based vulnerability detection system and
+                conducts empirical studies on two real-world datasets, BigVul and
+                FUNDED. This research systematically assesses how variations in
+                graph representations—AST, CFG, DFG, PDG, and CPG—affect the
+                efficacy of software vulnerability detection, providing pivotal
+                insights that could guide future research and enhance practical
+                applications in cybersecurity.},
+    keywords = {Learning systems;Codes;Source coding;Software
+                algorithms;Computer architecture;Syntactics;Software
+                systems;Vulnerability detection;Code representation;Graph neural
+                network;Deep learning;Graph Learning},
+    doi = {10.1109/MAPR63514.2024.10660979},
+    ISSN = {2770-6850},
+    month = {Aug},
+}
+
+
+% Creating a graph that can be queried for java
+@inproceedings{10.1145/3305160.3305173,
+    author = {Arora, Ritu and Goel, Sanjay},
+    title = {JavaRelationshipGraphs (JRG): Transforming Java Projects into
+             Graphs using Neo4j Graph Databases},
+    year = {2019},
+    isbn = {9781450366427},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3305160.3305173},
+    doi = {10.1145/3305160.3305173},
+    abstract = {Understanding dependency relationship between various program
+                elements in an object-oriented system is essential for many
+                software engineering applications. In this paper, we propose a
+                novel approach of transforming a Java project into a connected
+                graph comprising of program elements (represented as graph nodes)
+                connected to each other using ownership and dependency
+                relationships (represented as edges). These graphs, named as
+                JavaRelationshipGraphs (JRG) are created and stored using Neo4j
+                Graph Database. Additionally, the proposed JavaRelationshipGraphs
+                framework provides details about the two-staged conversion
+                process along with the algorithms involved. The JRG framework
+                uses compiled Java project to obtain the corresponding graph,
+                which can be effectively visualized and queried using the Neo4j
+                browser. JRG is capable of representing most of the important
+                object-oriented features like inheritance, encapsulation, method
+                overloading and overriding. Hence, they are suitable for use in
+                software engineering applications like program dependence
+                analysis, code mining, etc.},
+    booktitle = {Proceedings of the 2nd International Conference on Software
+                 Engineering and Information Management},
+    pages = {80–84},
+    numpages = {5},
+    keywords = {Dependency Analysis in Java Programs, Dependency graphs, Neo4j
+                Graph Databases, Object-oriented languages},
+    location = {Bali, Indonesia},
+    series = {ICSIM '19},
+}
+
+% Shows what static analysis is, but this is not what we want to do
+@article{1646907,
+    author = {Fairley, R.E.},
+    journal = {Computer},
+    title = {Tutorial: Static Analysis and Dynamic Testing of Computer Software},
+    year = {1978},
+    volume = {11},
+    number = {4},
+    pages = {14-23},
+    keywords = {Tutorials;Software testing;Software maintenance;Software
+                systems;Computer errors;Performance evaluation;Performance
+                analysis;Code standards;System testing;Quality control},
+    doi = {10.1109/C-M.1978.218132},
+}
+
+
+% Pyanalyzer creates a dependency graph from python
+@inproceedings{10.1145/3597503.3640325,
+    author = {Jin, Wuxia and Xu, Shuo and Chen, Dawei and He, Jiajun and Zhong,
+              Dinghong and Fan, Ming and Chen, Hongxu and Zhang, Huijia and Liu,
+              Ting},
+    title = {PyAnalyzer: An Effective and Practical Approach for Dependency
+             Extraction from Python Code},
+    year = {2024},
+    isbn = {9798400702174},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/3597503.3640325},
+    doi = {10.1145/3597503.3640325},
+    abstract = {Dependency extraction based on static analysis lays the
+                groundwork for a wide range of applications. However, dynamic
+                language features in Python make code behaviors obscure and
+                nondeterministic; consequently, it poses huge challenges for
+                static analyses to resolve symbol-level dependencies. Although
+                prosperous techniques and tools are adequately available, they
+                still lack sufficient capabilities to handle object changes,
+                first-class citizens, varying call sites, and library
+                dependencies. To address the fundamental difficulty for dynamic
+                languages, this work proposes an effective and practical method
+                namely PyAnalyzer for dependency extraction. PyAnalyzer uniformly
+                models functions, classes, and modules into first-class heap
+                objects, propagating the dynamic changes of these objects and
+                class inheritance. This manner better simulates dynamic features
+                like duck typing, object changes, and first-class citizens,
+                resulting in high recall results without compromising precision.
+                Moreover, PyAnalyzer leverages optional type annotations as a
+                shortcut to express varying call sites and resolve library
+                dependencies on demand. We collected two micro-benchmarks (278
+                small programs), two macro-benchmarks (59 real-world
+                applications), and 191 real-world projects (10MSLOC) for
+                comprehensive comparisons with 7 advanced techniques (i.e.,
+                Understand, Sourcetrail, Depends, ENRE19, PySonar2, PyCG, and
+                Type4Py). The results demonstrated that PyAnalyzer achieves a
+                high recall and hence improves the F1 by 24.7\% on average, at
+                least 1.4x faster without an obvious compromise of memory
+                efficiency. Our work will benefit diverse client applications.},
+    booktitle = {Proceedings of the IEEE/ACM 46th International Conference on
+                 Software Engineering},
+    articleno = {112},
+    numpages = {12},
+    keywords = {dependency extraction, Python, dynamic features},
+    location = {Lisbon, Portugal},
+    series = {ICSE '24},
+}
+
+% Code keeps increasing in size and complexity, more difficult to understand and use must do some refactoring.
+@article{5388088,
+    author = {Belady, L. A. and Lehman, M. M.},
+    journal = {IBM Systems Journal},
+    title = {A model of large program development},
+    year = {1976},
+    volume = {15},
+    number = {3},
+    pages = {225-252},
+    keywords = {},
+    doi = {10.1147/sj.153.0225},
+}
+
+% Refactoring reduces code decay, how to refactor
+@book{fowler2018refactoring,
+    title = {Refactoring: improving the design of existing code},
+    author = {Fowler, Martin},
+    year = {2018},
+    publisher = {Addison-Wesley Professional},
+}
+
+
+% A dependency graph being used for refactoring
+@inproceedings{10.1145/1159733.1159777,
+    author = {Counsell, S. and Hassoun, Y. and Loizou, G. and Najjar, R.},
+    title = {Common refactorings, a dependency graph and some code smells: an
+             empirical study of Java OSS},
+    year = {2006},
+    isbn = {1595932186},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    url = {https://doi.org/10.1145/1159733.1159777},
+    doi = {10.1145/1159733.1159777},
+    abstract = {Refactoring, as a software engineering discipline has emerged
+                over recent years to become an important aspect of maintaining
+                software. Refactoring refers to the restructuring of software
+                according to specific mechanics and principles. In this paper, we
+                describe an analysis of the results from a tool whose purpose was
+                to identify and extract refactorings from seven open-source Java
+                systems. In particular, we analyzed the mechanics of the most
+                commonly and least commonly applied refactorings to try and
+                account for their frequency. Results showed the most common
+                refactorings of the fifteen coined a 'Gang of Six', to be
+                generally those with a high in-degree and low out-degree when
+                mapped on a dependency graph; the same refactorings also featured
+                strongly in the remedying of bad code smells. Remarkably and
+                surprisingly, inheritance and encapsulationbased refactorings
+                were found to have been applied relatively infrequently - we
+                offer explanations for why this may be the case. The paper thus
+                identifies 'core' refactorings central to many of the changes
+                made by developers on open-source systems. While we can not
+                guarantee that developers consciously undertake refactoring in
+                any sense, the empirical results demonstrate that simple renaming
+                and moving fields/methods between classes are common components
+                of open-source system re-engineering. From a wider software
+                engineering perspective, knowledge of what a modification will
+                incur in likely sub-tasks is of value to developers whether
+                working on open-source or other forms of software.},
+    booktitle = {Proceedings of the 2006 ACM/IEEE International Symposium on
+                 Empirical Software Engineering},
+    pages = {288–296},
+    numpages = {9},
+    keywords = {code smells, refactoring, taxonomy, testing},
+    location = {Rio de Janeiro, Brazil},
+    series = {ISESE '06},
+}
+
+%DFS algorithm
+@inproceedings{9915181,
+    author = {Richard, Jeconiah and Faadhilah, Rowin and Qomariyah, Nunung Nurul
+              },
+    booktitle = {2022 International Conference on ICT for Smart Society (ICISS)},
+    title = {Jaebot: Discord Bot for Network Analysis with NetworkX},
+    year = {2022},
+    volume = {},
+    number = {},
+    pages = {1-6},
+    keywords = {Social networking (online);Network analyzers;Chatbots;Graph
+                theory;Servers;Network Analysis;NetworkX;Data Science;Social
+                Media;Discord},
+    doi = {10.1109/ICISS55894.2022.9915181},
+}
+
+% Topological sort
+@article{10.1145/368996.369025,
+    author = {Kahn, A. B.},
+    title = {Topological sorting of large networks},
+    year = {1962},
+    issue_date = {Nov. 1962},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {5},
+    number = {11},
+    issn = {0001-0782},
+    url = {https://doi.org/10.1145/368996.369025},
+    doi = {10.1145/368996.369025},
+    abstract = {Topological Sorting is a procedure required for many problems
+                involving analysis of networks. An example of one such problem is
+                PERT. The present paper presents a very general method for
+                obtaining topological order. It permits treatment of larger
+                networks than can be handled on present procedures and achieves
+                this with greater efficiency. Although the procedure can be
+                adapted to any machine, it is discussed in terms of the 7090. A
+                PERT network of 30,000 activities can be ordered in less than one
+                hour of machine time. The method was developed as a byproduct of
+                procedure needed by Westinghouse, Baltimore. It has not been
+                programmed and at present there are no plans to implement it. In
+                regard to the techniques described, Westinghouse's present and
+                anticipated needs are completely served by the Lockheed program,
+                which is in current use.},
+    journal = {Commun. ACM},
+    month = nov,
+    pages = {558–562},
+    numpages = {5},
+}
+
+% Similar to what we want to do with compilation, instead of individual
+% modules, have them compile in parallel
+@inproceedings{8977925,
+    author = {Xiao, Yuanlong and Park, Dongjoon and Butt, Andrew and Giesen,
+              Hans and Han, Zhaoyang and Ding, Rui and Magnezi, Nevo and Rubin,
+              Raphael and DeHon, Andre},
+    booktitle = {2019 International Conference on Field-Programmable Technology
+                 (ICFPT)},
+    title = {Reducing FPGA Compile Time with Separate Compilation for FPGA
+             Building Blocks},
+    year = {2019},
+    volume = {},
+    number = {},
+    pages = {153-161},
+    keywords = {FPGA;fast mapping;fast compilation;divide and conquer;partial
+                reconfiguration;incremental compilation;parallel compilation},
+    doi = {10.1109/ICFPT47387.2019.00026},
+}
+
+
+% Call graph visualization
+@inproceedings{9266149,
+    author = {CSÁSZÁR, István-Attila and SLAVESCU, Radu Razvan},
+    booktitle = {2020 IEEE 16th International Conference on Intelligent Computer
+                 Communication and Processing (ICCP)},
+    title = {Interactive call graph generation for software projects},
+    year = {2020},
+    volume = {},
+    number = {},
+    pages = {51-58},
+    keywords = {Tools;Servers;Visualization;User interfaces;Python;Reverse
+                engineering;Protocols;incremental computation;code
+                exploration;language server;call graph},
+    doi = {10.1109/ICCP51029.2020.9266149},
 }
 

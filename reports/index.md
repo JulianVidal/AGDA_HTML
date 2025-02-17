@@ -1049,3 +1049,30 @@ In agda unimath there is a make file that generates an everything.lagda.md
 which has all the modules [Makefile](https://github.com/UniMath/agda-unimath/blob/master/Makefile).
 
 Issue with flags, this will be an issue with the cli, different index files different flags
+
+# 16 - Pre-meeting Report
+
+Tested compiling strategies in unimath and stdlib. They both contain an
+"everything" generator that automatically creates an index file with all the
+modules.
+
+|              | Normal | Unsafe | lvl_2 | lvl_5 | lvlb_2 | lvlb_4 | lvl_disjoint |
+|-------------:|-------:|-------:|------:|------:|-------:|--------|--------------|
+| TypeTopology |    529 |    280 |   345 |   349 |    478 | 391    | 545          |
+|       stdlib |    283 |    247 |   261 |   241 |    306 | 257    | 323          |
+|      unimath |    457 |    282 |   908 |   626 |    714 | 641    | 867          |
+
+Investigated making the definition names more user-friendly but couldn't find a
+realiable method to do so. Asked Job some question to help, he is contacting
+other people about and will get back to me.
+
+Began literature review, found different ways that code can be represent as
+graphs. Found Graph buddy a tool that visualize Java projects, although not
+query them. Couldn't find any similar work that compiles agda in parallel, did
+find a paper that does something similar but not for Agda.
+
+What should the literature review include?
+
+# 16 - Post-meeting Report
+
+# 16 - Notes

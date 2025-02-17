@@ -102,6 +102,7 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
         # "unsafe": (test_unsafe, (dep_graph, index_flags,)),
         # "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
         # "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
+        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
         # "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
         # "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
         "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),

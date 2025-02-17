@@ -24,7 +24,7 @@ test_repos = {
         "url": "https://github.com/agda/agda-stdlib.git",
         "dir": Path("/tmp/agda-stdlib"),
         "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
         "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
     },
     "unimath": {
@@ -64,6 +64,9 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     if not index.exists():
         print(f"{name}: Creating everything index file")
         subprocess.run(kwargs["create_index"], shell=True, check=True)
+    else:
+        print(f"{name}: Found everything index file")
+
 
     # Creates dot file
     dot_file = dir / "graph.dot"

@@ -107,13 +107,13 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
 
     tests = {
         "normal": (test_normal, (index.stem.split(".")[0], index_flags, )),
-        # "unsafe": (test_unsafe, (dep_graph, index_flags,)),
-        # "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
-        # "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
-        # "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
-        # "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
-        # "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
-        # "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),
+        "unsafe": (test_unsafe, (dep_graph, index_flags,)),
+        "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
+        "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
+        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
+        "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
+        "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
+        "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),
     }
 
     global results
@@ -171,7 +171,7 @@ def run_test_helper(name, test_name, test, args, src_dir):
 
 def save_results():
     global results
-    with open(f"results-{datetime.now()}.txt", "a") as f:
+    with open(f"results-{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.txt", "a") as f:
         f.write(str(results))
 
 if __name__ == "__main__":

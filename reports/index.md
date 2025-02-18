@@ -1073,6 +1073,22 @@ find a paper that does something similar but for FPGA.
 
 # 16 - Post-meeting Report
 
+Discussed table of compilation tests results, Typetopology benefits the most
+from the strategies while unimath compiles far slower using the strategies.
+Possible cause would be that unimath uses many small modules, causing overhead
+when checking in parallel.
+
+Writing instructions for agda_tree will allow for other people to test the tool
+and get feedback, since the user needs to know how to create the index file
+containing all the modules.
+
+For next week:
+ - Add percentages to the table that show performance relative to normal compilation.
+ - Using topological sort on unimath to find why the compilations strategy doesn't work
+ - Include the specs and environment that I am running the tests on
+ - Write instructions on using agda_tree CLI on different agda projects.
+ - Research the use of graph in scheduling problems in Operations Research
+
 # 16 - Notes
 Why does the last test not finish.
 
@@ -1085,3 +1101,5 @@ Write specs of the computers.
 Edit pre meeting report
 
 Write instructions on how to use agda_tree in differen agda projecst.
+
+remove numbers from unmabiougous case

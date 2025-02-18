@@ -7,6 +7,8 @@ import concurrent.futures
 import networkx as nx
 from datetime import datetime
 
+import atexit
+
 import test_normal
 import test_unsafe
 import test_lvl
@@ -20,13 +22,13 @@ test_repos = {
     #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
     #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
     # },
-    "stdlib": {
-        "url": "https://github.com/agda/agda-stdlib.git",
-        "dir": Path("/tmp/agda-stdlib"),
-        "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
-        "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
-    },
+    # "stdlib": {
+    #     "url": "https://github.com/agda/agda-stdlib.git",
+    #     "dir": Path("/tmp/agda-stdlib"),
+    #     "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
+    #     "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+    #     "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
+    # },
     "unimath": {
         "url": "https://github.com/UniMath/agda-unimath.git",
         "dir": Path("/tmp/agda-unimath"),
@@ -36,16 +38,18 @@ test_repos = {
     },
 }
 
+results = {}
 
 def main():
-    results = {}
+    global results
+
     for name, repo in test_repos.items():
-        results[name] = test_repo(name, **repo)
+        test_repo(name, **repo)
+
     print()
     print("Results:")
     print(results)
-    with open(f"results-{datetime.now()}.txt", "a") as f:
-        f.write(str(results))
+    save_results()
 
 
 def test_repo(name, url, dir, index, index_flags, **kwargs):
@@ -103,18 +107,20 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
 
     tests = {
         "normal": (test_normal, (index.stem.split(".")[0], index_flags, )),
-        "unsafe": (test_unsafe, (dep_graph, index_flags,)),
-        "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
-        "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
-        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
-        "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
-        "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
-        "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),
+        # "unsafe": (test_unsafe, (dep_graph, index_flags,)),
+        # "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
+        # "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
+        # "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
+        # "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
+        # "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
+        # "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),
     }
 
-    results = []
+    global results
+
     for test_name, (test, args) in tests.items():
-        results.append(run_test(name, test_name, test, args, index.parent))
+        results[name] = results.get(name, [])
+        results[name].append(run_test(name, test_name, test, args, index.parent))
 
     return results
 
@@ -153,14 +159,21 @@ def run_test_helper(name, test_name, test, args, src_dir):
         "cd ..",
         "rm -rf ./_build",
         "make -j -f compilation.mk",
-        # 'find ./source ./src -name "index-*lagda" -delete',
-        # "rm compilation.mk",
+        'find ./source ./src -name "index-*lagda" -delete',
+        "rm compilation.mk",
     ])
 
     start = time.perf_counter()
     subprocess.run(commands, shell=True, stdout=subprocess.DEVNULL)
+    # subprocess.run(commands, shell=True)
     return time.perf_counter() - start
 
 
+def save_results():
+    global results
+    with open(f"results-{datetime.now()}.txt", "a") as f:
+        f.write(str(results))
+
 if __name__ == "__main__":
+    atexit.register(save_results)
     main()

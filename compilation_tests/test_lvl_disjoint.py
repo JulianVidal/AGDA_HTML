@@ -13,6 +13,28 @@ def is_disjoint(*sets):
         uni_set |= s
     return total_length == len(uni_set)
 
+def find_largest_disjoint_greedy(leaf_anc):
+    leaf_keys = set(leaf_anc.keys())
+
+    largest_disjoint = []
+    max_module = 0
+    checked_nums = []
+
+    sorted_keys = sorted(leaf_keys, key=lambda key: len(leaf_anc[key]), reverse=True)
+
+    for max_key in sorted_keys:
+        disjoint = False
+        if is_disjoint(
+            *[leaf_anc[key]
+                for key in [*largest_disjoint, max_key]
+            ]):
+            largest_disjoint.append(max_key)
+
+
+    tmp = leaf_anc.copy()
+    additions = {}
+
+    return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
 
 def find_largest_disjoint(leaf_anc):
     leaf_keys = [k 
@@ -21,7 +43,7 @@ def find_largest_disjoint(leaf_anc):
 
     largest_disjoint = []
     max_module = 0
-    checked_nums = []
+    checked_nums = set()
     for num in range(1, 2**len(leaf_keys)):
         alread_checked = False
         for cn in checked_nums:
@@ -41,7 +63,7 @@ def find_largest_disjoint(leaf_anc):
                 largest_disjoint = keys
                 max_module = count
         else:
-            checked_nums.append(num)
+            checked_nums.add(num)
     tmp = leaf_anc.copy()
 
     additions = {}
@@ -100,7 +122,7 @@ def create_test(g, index_flags, dir="tests/lvl_disjoint"):
             leaf_anc[lfs] = leaf_anc.get(lfs, set())
             leaf_anc[lfs].add(dep)
 
-        sol = find_largest_disjoint(leaf_anc.copy())
+        sol = find_largest_disjoint_greedy(leaf_anc.copy())
 
         comp_ord = []
         for key in sol[0]:

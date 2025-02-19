@@ -16,19 +16,19 @@ import test_lvlb
 import test_lvl_disjoint
 
 test_repos = {
-    # "TypeTopology": {
-    #     "url": "https://github.com/martinescardo/TypeTopology.git",
-    #     "dir": Path("/tmp/TypeTopology"),
-    #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
-    #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
-    # },
-    # "stdlib": {
-    #     "url": "https://github.com/agda/agda-stdlib.git",
-    #     "dir": Path("/tmp/agda-stdlib"),
-    #     "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-    #     "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
-    #     "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
-    # },
+    "TypeTopology": {
+        "url": "https://github.com/martinescardo/TypeTopology.git",
+        "dir": Path("/tmp/TypeTopology"),
+        "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
+        "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
+    },
+    "stdlib": {
+        "url": "https://github.com/agda/agda-stdlib.git",
+        "dir": Path("/tmp/agda-stdlib"),
+        "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
+        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+        "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
+    },
     "unimath": {
         "url": "https://github.com/UniMath/agda-unimath.git",
         "dir": Path("/tmp/agda-unimath"),
@@ -151,6 +151,7 @@ def run_test(*args):
 def run_test_helper(name, test_name, test, args, src_dir):
     print(f"{name}/{test_name}: Generating test")
     test.create_test(*args, dir=src_dir)
+    print(f"{name}/{test_name}: Finished generating test")
 
     print(f"{name}/{test_name}: Running  test")
     commands = "; ".join([
@@ -159,7 +160,7 @@ def run_test_helper(name, test_name, test, args, src_dir):
         "cd ..",
         "rm -rf ./_build",
         "make -j -f compilation.mk",
-        'find ./source ./src -name "index-*lagda" -delete',
+        f'find {src_dir} -name "index-*lagda" -delete',
         "rm compilation.mk",
     ])
 

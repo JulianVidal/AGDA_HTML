@@ -75,16 +75,49 @@ agda_tree definition create_tree [project_file]
 
 ## Example
 
-Example using TypeTopology repo.
-```bash
-agda_tree definition create_tree "/tmp/TypeTopology/source/AllModulesIndex.lagda"
-```
+If you only want a tree for a given module, use the path to that module to
+create the tree. However, if you need a graph for the whole project, there
+needs to be an "everything" index file where all the modules are imported.
 
-This will take some time, once done it will save the tree to the file
-"/home/[user]/.agda_tree/def_tree.pickle" by default or the name set by the
--output option.
+Creating the tree will take some time, once done it will save the tree to the
+file "/home/[user]/.agda_tree/def_tree.pickle" by default or the name set by
+the -output option.
 
 With the tree created all the queries under sub-command definition can be run.
+
+## TypeTopology
+
+Example using the [TypeTopology](https://github.com/martinescardo/TypeTopology) repo. 
+```bash
+cd TypeTopology
+agda_tree definition create_tree "source/AllModulesIndex.lagda"
+
+```
+## Unimath
+
+Example using the [Unimath](https://github.com/UniMath/agda-unimath/tree/master) repo.
+```bash
+cd agda-unimath
+make ./src/everything.lagda.md # Generates everything file
+agda_tree definition create_tree "src/everything.lagda.md"
+```
+
+## stdlib
+
+Example using the [stdlib](https://github.com/agda/agda-stdlib) repo.
+
+Make sure you have installed GenerateEverything from the stdlib repo, to install do:
+```bash
+cd agda-stdlib
+cabal update
+cabal install 
+```
+Once installed you can generate the everything index file and create the tree:
+```bash
+cd agda-stdlib
+GenerateEverything --out-dir src/ # Generates everything file
+agda_tree definition create_tree "src/Everything.agda"
+```
 
 # Commands
 ```bash

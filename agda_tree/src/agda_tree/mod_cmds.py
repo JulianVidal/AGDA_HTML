@@ -24,6 +24,7 @@ def create_tree(project_file, output=None):
 
     dot_file = Path(f"/tmp/{project_file.stem}_graph.dot")
 
+    print(f"Creating dot file in {dot_file}")
     subprocess.run(
         f"cd {project_dir}; agda --dependency-graph={dot_file} {project_file}",
         shell=True,
@@ -44,8 +45,7 @@ def create_tree(project_file, output=None):
     g = nx.relabel_nodes(g, mapping)
 
     output = output or MOD_TREE
-    print(f"Saving graph to {output}")
-    pickle.dump(g, open(output, 'wb'))
+    pickle.dump(g, open(Path(output).expanduser(), 'wb'))
 
 # Find definition from name
 def find(g, pattern):

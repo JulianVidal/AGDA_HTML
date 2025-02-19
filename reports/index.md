@@ -1090,6 +1090,10 @@ For next week:
  - Research the use of graph in scheduling problems in Operations Research
 
 # 16 - Notes
+
+Specs - 13900hx 32GB Ram with 24GB ram WSL Instance ubuntu
+24 cores, 8 performances, 16 efficient
+
 Why does the last test not finish.
 
 On table, add brackets, show percentage relative to normal.

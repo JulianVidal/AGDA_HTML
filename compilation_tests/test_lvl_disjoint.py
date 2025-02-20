@@ -13,129 +13,100 @@ def is_disjoint(*sets):
         uni_set |= s
     return total_length == len(uni_set)
 
-def find_largest_disjoint_greedy(leaf_anc):
-    leaf_keys = set(leaf_anc.keys())
 
-    largest_disjoint = []
-    max_module = 0
-    checked_nums = []
+def create_test(g, index_flags, dir):
+    # Plan
+    # For each module get the leafs it depends on and the lenght of its dependencies
+    # Pick to compile the module with the least amount of leafs first
+    # Then the most amount of dependencies
 
-    sorted_keys = sorted(leaf_keys, key=lambda key: len(leaf_anc[key]), reverse=True)
-
-    for max_key in sorted_keys:
-        disjoint = False
-        if is_disjoint(
-            *[leaf_anc[key]
-                for key in [*largest_disjoint, max_key]
-            ]):
-            largest_disjoint.append(max_key)
-
-
-    tmp = leaf_anc.copy()
-    additions = {}
-
-    return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
-
-def find_largest_disjoint(leaf_anc):
-    leaf_keys = [k 
-        for k in leaf_anc.keys() 
-        if len(leaf_anc[k]) > 4 and len(leaf_anc[k]) < 50]
-
-    largest_disjoint = []
-    max_module = 0
-    checked_nums = set()
-    for num in range(1, 2**len(leaf_keys)):
-        alread_checked = False
-        for cn in checked_nums:
-            if cn & num == cn:
-                alread_checked = True
-                break
-        if alread_checked:
-            continue
-        comb = bin(num)[2:][::-1]
-        keys = []
-        for i, bit in enumerate(comb): 
-            if bit == "1":
-                keys.append(leaf_keys[i])
-        if is_disjoint(*[set(k) for k in keys]):
-            count = sum([len(leaf_anc[k]) for k in keys])
-            if count > max_module:
-                largest_disjoint = keys
-                max_module = count
-        else:
-            checked_nums.add(num)
-    tmp = leaf_anc.copy()
-
-    additions = {}
-    # for key, mod in leaf_anc.items():
-    #     for tup in largest_disjoint:
-    #         if set(key) < set(tup) and len(mod) < 50:
-    #             if key in tmp:
-    #                 tmp[tup] = tmp[tup].copy() | mod
-    #                 additions[tup] = additions.get(tup, set())
-    #                 additions[tup].union(mod)
-    #                 del tmp[key]
-
-    return largest_disjoint, [len(tmp[k]) for k in largest_disjoint], additions
-    
-
-def create_test(g, index_flags, dir="tests/lvl_disjoint"):
-    # g = nx.nx_pydot.read_dot(dot_file)
-    #
-    # mapping = {}
-    # for n in g.nodes(data=True):
-    #     mapping[n[0]] = n[1]['label'].strip('\"')
-    #
-    # g = nx.relabel_nodes(g, mapping)
-    # g.remove_node("Agda.Primitive")
-
-    level = 0
-    topo = depths(g)
-
-    levels = {}
-    end = False
-    while not end:
-        end = True
-        for k, v in topo.items():
-            if v == level:
-                levels[level] = levels.get(level, [])
-                levels[level].append(k)
-                end = False
-        level += 1
-
-    cycle = 0
+    g = g.copy()
     compile_order = []
+
     while g.number_of_nodes() > 0:
-        # We can compile in parallel two modules that depend on different leafs
-        mod_lvl0_deps = {}
+        module_leafs = {} # The leafs a module depends on
+        module_deps = {}
         leafs = [v for v, d in g.out_degree() if d == 0]
-        # For a leaf, find what modules depend on it
+
+        if len(leafs) < 8:
+            compile_order += [[leafs]]
+            for m in leafs:
+                g.remove_node(m)
+            continue
+
         for leaf in leafs:
-            mods = nx.shortest_path(g, target=leaf).keys()
-            # Add leaf to the dependency of each module
+            # All the modules that have a path to a leaf
+            mods = nx.shortest_path(g, target=leaf).keys() 
+
+            # Add a leaf to each module it has a path to
             for mod in mods:
-                mod_lvl0_deps[mod] = mod_lvl0_deps.get(mod, ())
-                mod_lvl0_deps[mod] = mod_lvl0_deps[mod] + (leaf,)
+                if mod in leafs:
+                    continue
+                module_leafs[mod] = module_leafs.get(mod, set())
+                module_leafs[mod].add(leaf)
 
-        leaf_anc = {}
-        for dep, lfs in mod_lvl0_deps.items():
-            leaf_anc[lfs] = leaf_anc.get(lfs, set())
-            leaf_anc[lfs].add(dep)
+        # Count the dependencies of a module
+        for mod in module_leafs.keys():
+            module_deps[mod] = len(nx.descendants(g, mod))
 
-        sol = find_largest_disjoint_greedy(leaf_anc.copy())
+        # print()
+        # print(module_leafs)
+        # print()
+        # Sort the array by the least leafs, then most dependencies
+        heuristic = lambda mod: (len(module_leafs[mod]), -module_deps[mod])
+        modules = sorted(
+            module_leafs.keys(),
+            key=heuristic,
+            reverse=False
+        )
 
-        comp_ord = []
-        for key in sol[0]:
-            mods = list(leaf_anc[key])
-            mods.extend(list(sol[2].get(key, set())))
-            comp_ord.append(mods)
-            g.remove_nodes_from(mods)
-        
-        compile_order.append([leafs])
-        compile_order.append(comp_ord)
-        g.remove_nodes_from(leafs)
 
-        cycle += 1
+        # Store all the leafs used by the modules that are going to be compile
+        # If two modules have similar modules they can't be compiled in parallel
+        # Only if two modules are disjoint or have the same leafs will they
+        # be compiled
+        bucket_index = [module_leafs[modules[0]]]
+        buckets = {0: [modules[0]]}
+
+        for mod in modules[1:]:
+            disjoint = True
+            for i, used_leafs in enumerate(bucket_index):
+                if module_leafs[mod] == used_leafs:
+                    buckets[i].append(mod)
+                    disjoint = False
+                    break
+
+                if not module_leafs[mod].isdisjoint(used_leafs):
+                    disjoint = False
+                    break
+
+            if disjoint:
+                bucket_index.append(module_leafs[mod])
+                buckets[len(bucket_index) - 1] = [mod]
+
+        # print(bucket_index)
+        # print(buckets)
+
+        compile_order += [[leafs]]
+        compile_order += [list(buckets.values())]
+        # print()
+        # print(compile_order)
+        # print()
+
+        for m in leafs:
+            g.remove_node(m)
+
+        for l in buckets.values():
+            for m in l:
+                g.remove_node(m)
+
+        # print(leafs)
+        # for mod in modules[:10]:
+        #     print(mod)
+        #     print("\t", module_deps[mod])
+        #     print("\t", module_leafs[mod])
+        #     print("\t", heuristic(mod))
+
 
     # Merge 1 step compilations into 1 bigger step
     comp = [[[]]]
@@ -150,5 +121,8 @@ def create_test(g, index_flags, dir="tests/lvl_disjoint"):
             comp[-1][0].extend(step[0])
 
     # test_generator.generate_test(comp, dir)
+    # print("levels", len(comp))
+    # for level in comp:
+    #     print("indices", len(level))
     make_generator.generate_test(comp, index_flags, dir)
-    return dir
+    return comp

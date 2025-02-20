@@ -11,4 +11,4 @@ def create_test(main_index, index_flags, dir="./tests/normal"):
         index_flags,
         dir
     )
-    return dir
+    return [[[main_index]]]

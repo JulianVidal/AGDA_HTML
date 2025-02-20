@@ -1,0 +1,104 @@
+{
+    "TypeTopology": [
+        {
+            "test_name": "normal",
+            "runtime": 540.167268463003
+        },
+        {
+            "test_name": "unsafe",
+            "runtime": 283.27847731999645
+        },
+        {
+            "test_name": "lvl_2",
+            "runtime": 348.2030813189922
+        },
+        {
+            "test_name": "lvl_5",
+            "runtime": 353.3630890229979
+        },
+        {
+            "test_name": "lvl_10",
+            "runtime": 410.26882604300044
+        },
+        {
+            "test_name": "lvlb_2",
+            "runtime": 482.5618746909895
+        },
+        {
+            "test_name": "lvlb_4",
+            "runtime": 395.3801264939975
+        },
+        {
+            "test_name": "lvl_disjoint",
+            "runtime": 321.59124695300125
+        }
+    ],
+    "stdlib": [
+        {
+            "test_name": "normal",
+            "runtime": 287.87921157600067
+        },
+        {
+            "test_name": "unsafe",
+            "runtime": 249.97361487599846
+        },
+        {
+            "test_name": "lvl_2",
+            "runtime": 264.46490784198977
+        },
+        {
+            "test_name": "lvl_5",
+            "runtime": 242.0220580890018
+        },
+        {
+            "test_name": "lvl_10",
+            "runtime": 262.11079797000275
+        },
+        {
+            "test_name": "lvlb_2",
+            "runtime": 309.2204670659994
+        },
+        {
+            "test_name": "lvlb_4",
+            "runtime": 263.26467629600666
+        },
+        {
+            "test_name": "lvl_disjoint",
+            "runtime": 157.75863044100697
+        }
+    ],
+    "unimath": [
+        {
+            "test_name": "normal",
+            "runtime": 458.7127900119958
+        },
+        {
+            "test_name": "unsafe",
+            "runtime": 282.4704298190045
+        },
+        {
+            "test_name": "lvl_2",
+            "runtime": 833.7584596289962
+        },
+        {
+            "test_name": "lvl_5",
+            "runtime": 630.7870663580106
+        },
+        {
+            "test_name": "lvl_10",
+            "runtime": 574.1159080779908
+        },
+        {
+            "test_name": "lvlb_2",
+            "runtime": 719.5382815760095
+        },
+        {
+            "test_name": "lvlb_4",
+            "runtime": 643.608837754
+        },
+        {
+            "test_name": "lvl_disjoint",
+            "runtime": 314.14343203599856
+        }
+    ]
+}

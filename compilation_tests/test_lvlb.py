@@ -43,4 +43,4 @@ def create_test(g, index_flags, m=4, dir="tests/lvlb_4"):
 
     # test_generator.generate_test(compile_order, dir)
     make_generator.generate_test(compile_order, index_flags, dir)
-    return dir
+    return compile_order

@@ -51,4 +51,4 @@ def create_test(g, index_flags, m=2, dir="testse/lvl_2"):
         compile_order = compile_order[1:]
 
     make_generator.generate_test(compile_order, index_flags, dir)
-    return dir
+    return compile_order

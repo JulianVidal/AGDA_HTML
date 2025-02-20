@@ -3,13 +3,14 @@ import make_generator
 import networkx as nx
 import subprocess
 from pathlib import Path
+import math
 
 def create_test(g, index_flags, dir):
     # most_descendants = sorted(g.nodes(), key=lambda n: len(nx.descendants(g, n)))
 
     # compile_order = [[[d] for d in most_descendants[-5:]]]
     nodes = list(g.nodes)
-    split = len(nodes) // 4
+    split = math.ceil(len(nodes) / 4)
     compile_order =  [[nodes[i:i+split] for i in range(0, len(nodes), split)]]
     # test_generator.generate_test(compile_order, dir)
     make_generator.generate_test(compile_order, index_flags, dir)

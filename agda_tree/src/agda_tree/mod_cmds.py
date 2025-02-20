@@ -43,6 +43,7 @@ def create_tree(project_file, output=None):
         mapping[n[0]] = n[1]['label'].strip('\"')
 
     g = nx.relabel_nodes(g, mapping)
+    g.remove_node("Agda.Primitive")
 
     output = output or MOD_TREE
     pickle.dump(g, open(Path(output).expanduser(), 'wb'))

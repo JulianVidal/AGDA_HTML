@@ -1107,3 +1107,14 @@ Edit pre meeting report
 Write instructions on how to use agda_tree in differen agda projecst.
 
 remove numbers from unmabiougous case
+
+Looking at the compilation disjoint strategy, I tried a greedy algorithm. This
+algorithm performed exceptionally welll, which was suspicious so I create some
+tests to validate the safety and coverage of the compilation. Did the
+compilation type check all modules and did it do it safely. It turns out neither
+the old algorithm or new algorithm were safe.
+
+I have come up with a better algorithm, it finds the modules with the least
+leafs but the most dependencies, compiling those first. If there are a low
+amount of leafs such that all modules depend on them, the leafs will be
+compiled without any other modules.

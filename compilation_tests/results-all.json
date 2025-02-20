@@ -2,103 +2,103 @@
     "TypeTopology": [
         {
             "test_name": "normal",
-            "runtime": 540.167268463003
+            "runtime": 575.534267883
         },
         {
             "test_name": "unsafe",
-            "runtime": 283.27847731999645
+            "runtime": 280.0564620770001
         },
         {
             "test_name": "lvl_2",
-            "runtime": 348.2030813189922
+            "runtime": 353.91671648600004
         },
         {
             "test_name": "lvl_5",
-            "runtime": 353.3630890229979
+            "runtime": 354.754138494
         },
         {
             "test_name": "lvl_10",
-            "runtime": 410.26882604300044
+            "runtime": 413.0469776030004
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 482.5618746909895
+            "runtime": 482.9834218010001
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 395.3801264939975
+            "runtime": 394.49024790600015
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 321.59124695300125
+            "runtime": 528.0306612089998
         }
     ],
     "stdlib": [
         {
             "test_name": "normal",
-            "runtime": 287.87921157600067
+            "runtime": 288.877113603
         },
         {
             "test_name": "unsafe",
-            "runtime": 249.97361487599846
+            "runtime": 146.66020221500003
         },
         {
             "test_name": "lvl_2",
-            "runtime": 264.46490784198977
+            "runtime": 264.6328070990003
         },
         {
             "test_name": "lvl_5",
-            "runtime": 242.0220580890018
+            "runtime": 242.71676765599932
         },
         {
             "test_name": "lvl_10",
-            "runtime": 262.11079797000275
+            "runtime": 261.0174428290002
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 309.2204670659994
+            "runtime": 309.3997445719997
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 263.26467629600666
+            "runtime": 260.90544699099974
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 157.75863044100697
+            "runtime": 289.1173004299999
         }
     ],
     "unimath": [
         {
             "test_name": "normal",
-            "runtime": 458.7127900119958
+            "runtime": 458.5467385659995
         },
         {
             "test_name": "unsafe",
-            "runtime": 282.4704298190045
+            "runtime": 219.33894566799972
         },
         {
             "test_name": "lvl_2",
-            "runtime": 833.7584596289962
+            "runtime": 862.4310792380002
         },
         {
             "test_name": "lvl_5",
-            "runtime": 630.7870663580106
+            "runtime": 631.8805599730003
         },
         {
             "test_name": "lvl_10",
-            "runtime": 574.1159080779908
+            "runtime": 567.6550269910003
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 719.5382815760095
+            "runtime": 717.1014073210008
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 643.608837754
+            "runtime": 644.4058253029998
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 314.14343203599856
+            "runtime": 462.5259398299986
         }
     ]
 }

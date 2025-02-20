@@ -1,1 +1,0 @@
-{'TypeTopology': [{'test_name': 'normal', 'runtime': 556.4576038960076}]}

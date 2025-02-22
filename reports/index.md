@@ -1118,3 +1118,16 @@ I have come up with a better algorithm, it finds the modules with the least
 leafs but the most dependencies, compiling those first. If there are a low
 amount of leafs such that all modules depend on them, the leafs will be
 compiled without any other modules.
+
+I have pushed a couple of changes for the compilation tests. First when the
+program exits it always save results, even when forcefully closed. Second I
+changed the unsafe test from compiling the 5 most used modules to compiling 4
+index files in parallel that contain al the modules. Third, for lvl_disjoint to
+speed up test generation I used a greedy algorithm to try to find which
+disjoint modules to compile in parallel. Lastly, I have created some test
+validation that makes sure that the compilation strategy compiles all modules
+safely.
+
+Maybe a compilation strategy that indexes the leafs at every point.
+
+Maybe at personas to project report

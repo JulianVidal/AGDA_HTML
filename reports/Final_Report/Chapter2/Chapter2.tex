@@ -1,58 +1,153 @@
 % !TEX root =  ../Dissertation.tex
 
-\chapter{Research}
+\chapter{Literature Review}
 
-This is often referred to the ‘literature review’ section. It is one of the most important
-section of the Project Proposal and the Project Report. It is where you demonstrate that you
-understand the state-of-the-art in the field you’re working. Towards the end of this sections it’s
-normally a good idea to explain how your aim / work / idea / contribution differs from the nearest
-work in the field.
+\marginpar{Add literature about code decay}
 
-Abstract Syntax Tree (AST), Control Flow Graph (CFG), Data Flow Graph (DFG), Program Dependence Graph (PDG), and Code Property Graph (CPG),
+There are many ways to represent code using graphs, each with their own utility
+and purpose. There are Abstract Syntax Tree (AST), Control Flow Graph (CFG),
+Data Flow Graph (DFG), Program Dependence Graph (PDG), and Code Property Graph
+(CPG). These represenations encode all the behaviour and properties of a
+project, they can have many uses such as for code vulnerability detection
+\cite{graph_for_code_vuln}. These representation also allows for static
+analysis, where code isn't ran but the structure is analyzed for software
+validation \cite{static_analysis}. For this project, these graphs encode far
+more information that is require, as for the dependency graph only the
+relationship between definitions is of value. 
 
-Research papers to explore:
-\begin{itemize}
-    \item State of the art in dependency graph extraction 
-    \item state of the art in dependency graph exploration
-    \item State of the art in Agda compilation 
-\end{itemize}
 
-\begin{itemize}
-\item s-expressions 
-\item How graphs can be used to represent the definitions
-\item Most tools focus on data-flow for static analysis, I am looking
-    for a simpler tools that allows the querying of the relationships between
-    definitions.
-\end{itemize}
+\marginpar{Add section explaining dependency graph}
 
-Tools that do a similar job
-\begin{itemize}
-\item \href{https://github.com/universal-ctags/ctags}{CTags}
-    \begin{itemize}
-    \item CTags indexes all the symbols of a project
-    \item This works only on definitions of functions, not where they are referenced
-    \end{itemize}
-\item \href{https://jedi.readthedocs.io/}{Jedi - an awesome autocompletion, static analysis and refactoring library for Python}
-    \begin{itemize}
-    \item It finds function definitions and references which is what we are looking
-        for
-    \end{itemize}
-\item \href{https://github.com/agda/agda-language-server/tree/master}{Agda-Language-Server}
-    \begin{itemize}
-    \item An LSP for agda, it parses the files and analysis them, similar to what we
-        want but it doesn't seem to index them
-    \end{itemize}
-\item \href{https://cormack.uwaterloo.ca/~olhotak/pubs/ecoop12.pdf}{Application-only Call Graph Construction }
-    \begin{itemize}
-    \item A call graph represents the relationships between functions
-    \end{itemize}
-\item \href{https://dl.acm.org/doi/pdf/10.1145/199448.199462}{Precise Interprocedural Dataflow Analysis via Graph Reachabilit}
-    \begin{itemize}
-    \item Data flow is a way to statically analyse code before running it, this is
-        far more complex than what I want.
-    \end{itemize}
-\item \href{https://dl.acm.org/doi/abs/10.1145/3583660.3583664}{CFL/Dyck Reachability: An Algorithmic Perspective}
-    \begin{itemize}
-    \item Analyses the decidability and complexity of this problem
-    \end{itemize}
-\end{itemize}
+\section{Related works}
+
+The Language Server Protocol (LSP) is used by IDEs, such as Vistual Studio Code
+and Intellij, to provide features like goto defintion and goto references. The
+LSP sits between the code editor and the language server, it is the language
+server that analyzes the code structure to support the features
+\cite{LSP_implementation}. Language server has the functionality to implement
+this project, but, they are meant to be used while editing code and the
+language server isn't made to be used with custom queries. Examples of LSP's
+are Jedi \cite{jedi_lsp} and Agda's langauge server \cite{agda_lsp}, while they
+contain the functionality needed they are only meant to work on the current
+open file, not a whole project.
+
+Ctags \cite{ctags} is a tool that indexes all the symbols in a project, this is
+helpful to get all the definitions from an Agda project. But it doesn't capture
+the relationship between the symbols it finds.
+
+Graph Buddy is an interactive code dependency browsing and visualization tool
+\cite{graph_buddy}. It takes large Java codebases turns them into Semantic Code
+Graphs (SCG), and creates a visualization of this graph. This graphs shows
+dependencies between modules, classes and methods which helps the developer
+better understand the project and tackle the pervasive issue of code decay
+\cite{code_decay_evidence}. Graph Buddy is integrated as to an IDE as a plugin,
+where the user can seamlessly explroe the visualization. 
+
+There is also a tool \cite{call_graph_vis} that visualizes the call graph of a
+coding project, this allows for better developer experience. It works in
+real-time, while the user is editing the code the graph will automatically
+update to show the changes.
+
+\section{Parallel Compilation}
+
+\marginpar{Add section explaining DAGs}
+Type-checking is a computationally expensive task that hinders the workflow of
+a developer, this has lead to work to parallelize type-checking algorithms or
+make them incremental. Parallel type-checking aims to type check different
+parts of a project at the same time, while incremental type-checking aims to
+allow the developer to type check a small change in the project without having
+to type-check the whole project again.
+
+An example is the work by Newton et al \cite{paralele_comp_haskell} which seeks to
+parallelize type-checking with Haskell. Also, the work by Zwaan et al.
+\cite{incremental_type_checking} using scope graphs for incremental
+type-checking.
+
+However, this project doesn't aim to optimize the type checking algorithm
+themselves, rather, find independent modules that can be type checked together.
+This is aligns more close with the following paper that explores reducing FPGA
+compile time by changing from a monolithic compilation style to compiling
+separate blocks in parallel \cite{FPGA}.
+
+\marginpar{Add section explaining scheduling problem}
+Fundamentally the compilation problem in this project is a scheduling problem,
+which is NP-complete\cite{scheduling}. This means that there many algorithms
+that attempt to tackle this problem by following different assumptions as shown
+by Yves Robert \cite{scheduling}.
+
+\marginpar{Add section explaining s-expressions}
+
+\section{Conclusion}
+
+There are many tools that analyze and visualize the overall structure of
+programming projects. Allow for static code analysis, where software can be
+validated and developers can have an easier time exploring a project. However,
+most of the tools are not easy to query by the user, meant to be used while
+editing a file and are reserved towards more popular languages like Java. A
+tool that is able to read an entire Agda project and gives the user access to
+the underlying graph is still missing.
+
+Slow compilers is a common problem, hurting developer experience. Due to the
+monolithic nature of compilers, parallelization becomes a route to follow when
+optimizing compilation time. While parallelization can be applied to the
+type-checking algorithm itself, this project looks to type check modules in
+parallel while the type checking algorithm remains the same. This problem is
+closer to a scheduling problem, where the goal is to find the optimal way to
+assign tasks to multiple machines to reduce completion time. There is no tool
+in Agda that attempts to apply an scheduling algorithm to the type-checking of
+modules, which could lead to significant speed ups.  
+
+
+% This is often referred to the ‘literature review’ section. It is one of the most important
+% section of the Project Proposal and the Project Report. It is where you demonstrate that you
+% understand the state-of-the-art in the field you’re working. Towards the end of this sections it’s
+% normally a good idea to explain how your aim / work / idea / contribution differs from the nearest
+% work in the field.
+
+
+% Research papers to explore:
+% \begin{itemize}
+%     \item State of the art in dependency graph extraction 
+%     \item state of the art in dependency graph exploration
+%     \item State of the art in Agda compilation 
+% \end{itemize}
+%
+% \begin{itemize}
+% \item s-expressions 
+% \item How graphs can be used to represent the definitions
+% \item Most tools focus on data-flow for static analysis, I am looking
+%     for a simpler tools that allows the querying of the relationships between
+%     definitions.
+% \end{itemize}
+%
+% Tools that do a similar job
+% \begin{itemize}
+% \item \href{https://github.com/universal-ctags/ctags}{CTags}
+%     \begin{itemize}
+%     \item CTags indexes all the symbols of a project
+%     \item This works only on definitions of functions, not where they are referenced
+%     \end{itemize}
+% \item \href{https://jedi.readthedocs.io/}{Jedi - an awesome autocompletion, static analysis and refactoring library for Python}
+%     \begin{itemize}
+%     \item It finds function definitions and references which is what we are looking
+%         for
+%     \end{itemize}
+% \item \href{https://github.com/agda/agda-language-server/tree/master}{Agda-Language-Server}
+%     \begin{itemize}
+%     \item An LSP for agda, it parses the files and analysis them, similar to what we
+%         want but it doesn't seem to index them
+%     \end{itemize}
+% \item \href{https://cormack.uwaterloo.ca/~olhotak/pubs/ecoop12.pdf}{Application-only Call Graph Construction }
+%     \begin{itemize}
+%     \item A call graph represents the relationships between functions
+%     \end{itemize}
+% \item \href{https://dl.acm.org/doi/pdf/10.1145/199448.199462}{Precise Interprocedural Dataflow Analysis via Graph Reachabilit}
+%     \begin{itemize}
+%     \item Data flow is a way to statically analyse code before running it, this is
+%         far more complex than what I want.
+%     \end{itemize}
+% \item \href{https://dl.acm.org/doi/abs/10.1145/3583660.3583664}{CFL/Dyck Reachability: An Algorithmic Perspective}
+%     \begin{itemize}
+%     \item Analyses the decidability and complexity of this problem
+%     \end{itemize}
+% \end{itemize}

@@ -153,7 +153,7 @@
 }
 
 % How different graphs can be used to analyze code
-@inproceedings{10660979,
+@inproceedings{graph_for_code_vuln,
     author = {Gia Lac, Le Tran and Cao Cuong, Nguyen and Hoang Son, Ngo Duc and
               Pham, Van-Hau and Duy, Phan The},
     booktitle = {2024 International Conference on Multimedia Analysis and
@@ -236,7 +236,7 @@
 }
 
 % Shows what static analysis is, but this is not what we want to do
-@article{1646907,
+@article{static_analysis,
     author = {Fairley, R.E.},
     journal = {Computer},
     title = {Tutorial: Static Analysis and Dynamic Testing of Computer Software},
@@ -418,7 +418,7 @@
 
 % Similar to what we want to do with compilation, instead of individual
 % modules, have them compile in parallel
-@inproceedings{8977925,
+@inproceedings{FPGA,
     author = {Xiao, Yuanlong and Park, Dongjoon and Butt, Andrew and Giesen,
               Hans and Han, Zhaoyang and Ding, Rui and Magnezi, Nevo and Rubin,
               Raphael and DeHon, Andre},
@@ -437,7 +437,7 @@
 
 
 % Call graph visualization
-@inproceedings{9266149,
+@inproceedings{call_graph_vis,
     author = {CSÁSZÁR, István-Attila and SLAVESCU, Radu Razvan},
     booktitle = {2020 IEEE 16th International Conference on Intelligent Computer
                  Communication and Processing (ICCP)},
@@ -452,3 +452,186 @@
     doi = {10.1109/ICCP51029.2020.9266149},
 }
 
+
+@inproceedings{code_decay_evidence,
+    author = {Bandi, Ajay and Williams, Byron J. and Allen, Edward B.},
+    booktitle = {2013 20th Working Conference on Reverse Engineering (WCRE)},
+    title = {Empirical evidence of code decay: A systematic mapping study},
+    year = {2013},
+    volume = {},
+    number = {},
+    pages = {341-350},
+    keywords = {Measurement;Computer architecture;Software;History;Data
+                mining;Systematics;Conferences;Code Decay;Metrics;Coupling;Design
+                Rules;Architecture Violations;Software Evolution},
+    doi = {10.1109/WCRE.2013.6671309},
+}
+
+@book{LSP_implementation,
+    title = {Language Server Protocol and Implementation: Supporting
+             Language-Smart Editing and Programming Tools},
+    author = {Gunasinghe, N. and Marcus, N.},
+    isbn = {9781484277911},
+    url = {https://books.google.com/books?id=zeuezgEACAAJ},
+    year = {2021},
+    publisher = {Apress},
+}
+
+@misc{jedi_lsp,
+    title = {GitHub - pappasam/jedi-language-server},
+    url = {https://github.com/pappasam/jedi-language-server},
+    note = { A Python language server exclusively for Jedi.},
+    journal = {GitHub},
+    author = {pappasam},
+    year = {2024},
+    month = {Dec},
+    annote = { A Python language server exclusively for Jedi.},
+}
+
+@misc{agda_lsp,
+    title = {GitHub - agda/agda-language-server},
+    url = {https://github.com/agda/agda-language-server},
+    note = {Language Server for Agda},
+    journal = {GitHub},
+    author = {agda},
+    year = {2024},
+    month = {Dec},
+    annote = {Language Server for Agda},
+}
+
+ @misc{ctags,
+    title = {GitHub - universal-ctags/ctags},
+    url = {https://github.com/universal-ctags/ctags},
+    journal = {GitHub},
+    publisher = {A maintained ctags implementation},
+    author = {universal-ctags},
+    year = {2023},
+    month = {Dec},
+}
+
+@article{incremental_type_checking,
+    author = {Zwaan, Aron and van Antwerpen, Hendrik and Visser, Eelco},
+    title = {Incremental type-checking for free: using scope graphs to derive
+             incremental type-checkers},
+    year = {2022},
+    issue_date = {October 2022},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {6},
+    number = {OOPSLA2},
+    url = {https://doi.org/10.1145/3563303},
+    doi = {10.1145/3563303},
+    abstract = {Fast analysis response times in IDEs are essential for a good
+                editor experience. Incremental type-checking can provide that in
+                a scalable fashion. However, existing techniques are not reusable
+                between languages. Moreover, mutual and dynamic dependencies
+                preclude traditional approaches to incrementality. This makes
+                finding automatic approaches to incremental type-checking a
+                challenging but important open question. In this paper, we
+                present a technique that automatically derives incremental
+                type-checkers from type system specifications written in the
+                Statix meta-DSL. We use name resolution queries in scope graphs
+                (a generic model of name binding embedded in Statix) to derive
+                dependencies between compilation units. A novel query
+                confirmation algorithm finds queries for which the answer changed
+                due to an edit in the program. Only units with such queries
+                require reanalysis. The effectiveness of this algorithm is
+                improved by (1) splitting the type-checking task into a
+                context-free and a context-sensitive part, and (2) reusing a
+                generic mechanism to resolve mutual dependencies. This
+                automatically yields incremental type-checkers for any Statix
+                specification. Compared to non-incremental parallel execution, we
+                achieve speedups up to 147x on synthetic benchmarks, and up to
+                21x on real-world projects, with initial overheads below 10\%.
+                This suggests that our framework can provide efficient
+                incremental type-checking to the wide range of languages
+                supported by Statix.},
+    journal = {Proc. ACM Program. Lang.},
+    month = oct,
+    articleno = {140},
+    numpages = {25},
+    keywords = {type-checker, type systems, scope graphs, reference resolution,
+                name binding, incremental type-checking, Statix},
+}
+
+
+@article{paralele_comp_haskell,
+    author = {Newton, Ryan R. and A\u{g}acan, \"{O}mer S. and Fogg, Peter and
+              Tobin-Hochstadt, Sam},
+    title = {Parallel type-checking with haskell using saturating LVars and
+             stream generators},
+    year = {2016},
+    issue_date = {August 2016},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {51},
+    number = {8},
+    issn = {0362-1340},
+    url = {https://doi.org/10.1145/3016078.2851142},
+    doi = {10.1145/3016078.2851142},
+    abstract = {Given the sophistication of recent type systems,
+                unification-based type-checking and inference can be a
+                time-consuming phase of compilation---especially when union types
+                are combined with subtyping. It is natural to consider improving
+                performance through parallelism, but these algorithms are
+                challenging to parallelize due to complicated control structure
+                and difficulties representing data in a way that is both
+                efficient and supports concurrency. We provide techniques that
+                address these problems based on the LVish approach to
+                deterministic-by-default parallel programming. We extend LVish
+                with Saturating LVars, the first LVars implemented to release
+                memory during the object's lifetime. Our design allows us to
+                achieve a parallel speedup on worst-case (exponential) inputs of
+                Hindley-Milner inference, and on the Typed Racket type-checking
+                algorithm, which yields up an 8.46\texttimes{} parallel speedup
+                on 14 cores for type-checking examples drawn from the Racket
+                repository.},
+    journal = {SIGPLAN Not.},
+    month = feb,
+    articleno = {6},
+    numpages = {12},
+}
+
+@article{scheduling,
+    author = {Kwok, Yu-Kwong and Ahmad, Ishfaq},
+    title = {Static scheduling algorithms for allocating directed task graphs to
+             multiprocessors},
+    year = {1999},
+    issue_date = {Dec. 1999},
+    publisher = {Association for Computing Machinery},
+    address = {New York, NY, USA},
+    volume = {31},
+    number = {4},
+    issn = {0360-0300},
+    url = {https://doi.org/10.1145/344588.344618},
+    doi = {10.1145/344588.344618},
+    abstract = {Static scheduling of a program represented by a directed task
+                graph on a multiprocessor system to minimize the program
+                completion time is a well-known problem in parallel processing.
+                Since finding an optimal schedule is an NP-complete problem in
+                general, researchers have resorted to devising efficient
+                heuristics. A plethora of heuristics have been proposed based on
+                a wide spectrum of techniques, including branch-and-bound,
+                integer-programming, searching, graph-theory, randomization,
+                genetic algorithms, and evolutionary methods. The objective of
+                this survey is to describe various scheduling algorithms and
+                their functionalities in a contrasting fashion as well as examine
+                their relative merits in terms of performance and
+                time-complexity. Since these algorithms are based on diverse
+                assumptions, they differ in their functionalities, and hence are
+                difficult to describe in a unified context. We propose a taxonomy
+                that classifies these algorithms into different categories. We
+                consider 27 scheduling algorithms, with each algorithm explained
+                through an easy-to-understand description followed by an
+                illustrative example to demonstrate its operation. We also
+                outline some of the novel and promising optimization approaches
+                and current research trends in the area. Finally, we give an
+                overview of the software tools that provide scheduling/mapping
+                functionalities.},
+    journal = {ACM Comput. Surv.},
+    month = dec,
+    pages = {406–471},
+    numpages = {66},
+    keywords = {DAG, automatic parallelization, multiprocessors, parallel
+                processing, software tools, static scheduling, task graphs},
+}

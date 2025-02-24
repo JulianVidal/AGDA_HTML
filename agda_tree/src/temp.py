@@ -4,42 +4,55 @@ import os
 
 from agda_tree import parser
 
-sexp_file = "/tmp/TicTacToe1_sexp/MLTT.Plus-Properties.tex-sexp"
-# sexp_file = "/tmp/AllModulesIndex_sexp/PCF.Lambda.ScottModelOfIfZero.tex-sexp"
-# sexp_file = "/tmp/AllModulesIndex_sexp/Games.TicTacToe1.tex-sexp"
-defs, dtm, dtt = parser.parse_file(sexp_file)
+DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
+g = pickle.load(open(DEF_TREE, "rb"))
 
-changes = dict()
-for def_name, deps in defs.items():
-    print()
+count = {}
 
-    old_name = def_name
+for n in g.nodes:
+    name = n.split(" ")[0]
+    count[name] = count.get(name, 0)
+    count[name] += 1
 
-    if def_name  in changes:
-        def_name = changes[def_name]
+s = sorted(count.items(), key=lambda pair: pair[1], reverse=True)
+print(s[:10], s[-10:])
 
-    for dep in list(deps):
-        counter = 1
-        while "._." in dep:
-            stem = def_name.rsplit(".", counter)[1].rsplit(" ", 1)[0]
-            new_dep = dep.rsplit("._.", 1)
-            new_dep = f".{stem}.".join(new_dep)
-            changes[dep] = new_dep
-            defs[old_name].remove(dep)
-            defs[old_name].append(new_dep)
-            dep = new_dep
-            counter += 1
-
-
-for old_dep, new_dep in changes.items():
-    defs[new_dep] = defs[old_dep]
-    del defs[old_dep]
-
-for def_name, deps in defs.items():
-    print()
-    print(def_name, deps)
-
-print(f"Definitions: {len(defs)}")
+# sexp_file = "/tmp/TicTacToe1_sexp/MLTT.Plus-Properties.tex-sexp"
+# # sexp_file = "/tmp/AllModulesIndex_sexp/PCF.Lambda.ScottModelOfIfZero.tex-sexp"
+# # sexp_file = "/tmp/AllModulesIndex_sexp/Games.TicTacToe1.tex-sexp"
+# defs, dtm, dtt = parser.parse_file(sexp_file)
+#
+# changes = dict()
+# for def_name, deps in defs.items():
+#     print()
+#
+#     old_name = def_name
+#
+#     if def_name  in changes:
+#         def_name = changes[def_name]
+#
+#     for dep in list(deps):
+#         counter = 1
+#         while "._." in dep:
+#             stem = def_name.rsplit(".", counter)[1].rsplit(" ", 1)[0]
+#             new_dep = dep.rsplit("._.", 1)
+#             new_dep = f".{stem}.".join(new_dep)
+#             changes[dep] = new_dep
+#             defs[old_name].remove(dep)
+#             defs[old_name].append(new_dep)
+#             dep = new_dep
+#             counter += 1
+#
+#
+# for old_dep, new_dep in changes.items():
+#     defs[new_dep] = defs[old_dep]
+#     del defs[old_dep]
+#
+# for def_name, deps in defs.items():
+#     print()
+#     print(def_name, deps)
+#
+# print(f"Definitions: {len(defs)}")
 
 
 # DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")

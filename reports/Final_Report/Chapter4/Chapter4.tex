@@ -2,23 +2,155 @@
 
 \chapter{System Requirements}
 
-This section should detail your understanding of what you are planning to
-create. The section should aim to break down the overarching aims of the work into clear,
-measurable requirements that can be used in the evaluation of the project. This is why we often
-function of functional and non-functional requirements.
+The CLI tools should be easy to install by any developer, the developer
+shouldn't need any extra knowledge to use the tool. The interface must be
+intuitive and there should be little friction between the development workflow
+and the use these tools. Also, the tools must work in a variety of environments
+without issues.
 
-\begin{itemize}
-\item Explain what the project should do and how it should do it 
-\item Functional requirements
-\begin{itemize}
-    \item Create graph from agda project
-    \item Should allow for asked queries (the ones mentioned in the Mathodon thread)
-    \item Reduce compilation time by 10\%? 
-    \end{itemize} 
-\item Non-Functional requirements
-    \begin{itemize}
-    \item Installation shouldn't be difficult
-    \item Queries should be done in under 2 seconds 
-    \item Creation of the graph shouldn't take more than 10 minutes 
-    \end{itemize}
-\end{itemize}
+
+\section{Agda Tree}
+
+The Agda Tree CLI tool, is an application that will run on the terminal. It
+will extract and save the definition dependency graph from an Agda project,
+then it will give the user commands to query and explore that graph. This tool
+should work with any Agda project and the user should be able to install the
+tool without any extra dependencies.
+
+
+\subsection{Functional Requirements}
+
+The functional requirements are the features that the tool must implement to be
+usable and meet the expectation of users. For the tool to be easy to use, it
+must be able to automatically extract the dependency graph from any Agda
+project. The user should be able to easily query the dependency graphs and the
+output of the queries should be intuitive to understand.
+
+\begin{table}[H]
+\centering
+\caption{Agda Tree Functional Requirements}
+\label{table:Agda Tree Functional Requirements}
+\begin{tblr}{
+        colspec={|X[1]|X[6]|X[8]|}, hlines,
+    }
+ID & Name                           & Description                                                                                                                \\ 
+1  & Definition Dependency Graph Extraction    & The tool must parse Agda projects and construct a definition dependency graph                                              \\ 
+2  & Querying the Definition Graph  & The CLI must allow the users to query the dependency graph to retrieve important information. (See table \ref{table:Definition Graph Queries} for queries)  \\ 
+3  & Command-Line Interface         & The tool must provide a user-friendly CLI with commands for querying the dependency graph                                  \\ 
+4  & Input Validation               & The CLI must validate user input and provide clear error messages for invalid inputs                                       \\ 
+5  & Integration with Agda Projects & Agda projects are structured differently, this tool must support all valid structures                                      \\ 
+6  & Output Generation              & The CLI must display the query results in a readable format that follows the style of other Unix CLI tools                 \\ 
+7  & Module Dependency Graph Extraction    & The tool must parse Agda projects and construct a module dependency graph                                              \\ 
+8  & Querying the Module Graph  & The CLI must allow the users to query the dependency graph to retrieve important information. (See table \ref{table:Module Graph Queries} for queries)  \\ 
+\end{tblr}
+\end{table}
+
+Martin Escardo asked in Mathstodon for all the possible queries that this tool
+should implement. This tool will allow for the querying of both the definition
+and module dependency graphs, the queries that can be made on the definition
+graph are the following: 
+
+\begin{table}[H]
+\centering
+\caption{Agda Tree Definition Queries}
+\label{table:Definition Graph Queries}
+\begin{tblr}{
+        colspec={|X[1]|X[6]|X[8]|}, hlines,
+    }
+ID & Name                & Description                                                                                       \\ 
+1  & Dependencies        & Get the dependencies of a definition what definitions it uses both directly and indirectly        \\ 
+2  & Dependents          & Get the dependents of a definition, where the definition is used both directly and indirectly     \\ 
+3  & Leafs               & Gets the leafs of the dependency graph, which would be the definitions that have no dependencies  \\ 
+4  & Module Dependencies & Gets the modules that a definition uses both directly and indirectly                              \\ 
+5  & Module Dependants   & Gets the modules that uses a definition both directly and indirectly                              \\ 
+6  & Path to Leaf        & The longest path from a definition to any leaf                                                    \\ 
+7  & Module Path to Leaf & The longest path from a definition to any leaf but only following the modules of the path         \\ 
+8  & Roots               & The definitions with no dependents, meaning they aren't used anywhere                             \\ 
+9  & Definition Type     & The definitions used for the type of the definition                                                  \\ 
+10 & Use count           & Counts how many times a definition is used                                                        \\
+\end{tlbr}
+\end{table}
+
+The queries that can be made on the module are mostly the same the module graph
+is a directed acyclic graph (DAG) giving it special properties. The queries are
+the following:
+
+\begin{table}[H]
+    \centering
+    \caption{Agda Tree Module Queries}
+    \label{table:Module Graph Queries}
+    \begin{tblr}{
+            colspec={|X[1]|X[6]|X[8]|}, hlines,
+        }
+        ID & Name             & Description                                                                                   \\ 
+        1  & Dependencies     & Get the dependencies of a module what modules it uses both directly and indirectly            \\ 
+        2  & Dependents       & Get the dependents of a module, where the module is used both directly and indirectly         \\ 
+        3  & Leafs            & Gets the leafs of the dependency graph, which would be the modules that have no dependencies  \\ 
+        4  & Path to Leaf     & The longest path from a module to any leaf                                                    \\ 
+        5  & Roots            & The modules with no dependents, meaning they aren't used anywhere                             \\ 
+        6  & Use count        & Counts how many times a module is used                                                        \\ 
+        7  & Level Sort       & Returns a list of modules sorted by how far away it is from a leaf                            \\ 
+        8  & Path Between     & Finds the longest path between two modules                                                    \\ 
+        9  & Topological Sort & Returns a list of modules sorted topologically                                                \\
+    \end{tblr}
+\end{table}
+
+\subsection{Non-Functional Requirements}
+
+Since Agda Tree is meant to be a tool that slots into the workflow of
+developers, it is critical for it to be easy to use and performant. The tool be
+plug and play, working on a variety of projects regardless of size. To not
+disrupt the developer, the queries should respond quickly. Agda is used mainly
+with Unix based systems, so this tool must be compatible with macOS and popular
+Linux distributions.
+
+\begin{table}[H]
+    \centering
+    \caption{Agda Tree Non-Functional Requirements}
+    \label{table:Agda Tree Non-Functional Requirements}
+    \begin{tblr}{
+            colspec={|X[1]|X[6]|X[8]|}, hlines,
+        }
+        ID & Name                   & Description                                                                                                 \\ 
+        1  & Extraction Performance & The tool must extract the dependency graph in 10 minutes depending on the size of the project               \\ 
+        2  & Query Performance      & The tool must be able to respond to a query in under 2 seconds                                              \\ 
+        3  & Scalability            & The tool should allow for fast querying of large projects                                                   \\ 
+        4  & Usability              & The tool must be easy to use, with intuitive commands, clear documentation, and meaningful error messages.  \\ 
+        5  & Compatibility          & The tool should work in any operating system                                                                \\ 
+        6  & Reliability            & The tool should handle bad inputs gracefully                                                                \\ 
+        7  & Maintainability         & The codebase should be well documented and well-structured to allow for new queries                         \\ 
+        8  & Testability            & The queries should be tested to ensure the correct output is given                                          \\
+    \end{tblr}
+\end{table}
+
+
+\section{Agda Comp}
+
+The Agda Comp CLI too, is an application that will run on the terminal. It will
+extract the module dependency graph from an Agda project and produce the order
+in which the modules should be type-checked.
+
+\subsection{Functional Requirements}
+
+\section{Non-Functional Requirements}
+
+% This section should detail your understanding of what you are planning to
+% create. The section should aim to break down the overarching aims of the work into clear,
+% measurable requirements that can be used in the evaluation of the project. This is why we often
+% function of functional and non-functional requirements.
+%
+% \begin{itemize}
+% \item Explain what the project should do and how it should do it 
+% \item Functional requirements
+% \begin{itemize}
+%     \item Create graph from agda project
+%     \item Should allow for asked queries (the ones mentioned in the Mathodon thread)
+%     \item Reduce compilation time by 10\%? 
+%     \end{itemize} 
+% \item Non-Functional requirements
+%     \begin{itemize}
+%     \item Installation shouldn't be difficult
+%     \item Queries should be done in under 2 seconds 
+%     \item Creation of the graph shouldn't take more than 10 minutes 
+%     \end{itemize}
+% \enI ud{itemize}

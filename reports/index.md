@@ -1131,3 +1131,35 @@ safely.
 Maybe a compilation strategy that indexes the leafs at every point.
 
 Maybe at personas to project report
+
+# 17 - Pre-Meeting Report
+
+Re-implemneted lvl_disjoint test and unsafe test.
+
+lvl_disjoint will now try to greedily find disjoint modules by getting the
+module with the least leafs and the most dependencies.
+
+Unsafe will split all the modules in a project into n index files which are all compiled in parallel.
+
+Created instructions on generating the everything file to use agda_tree.
+
+Job responded and mentioned that there are no ways to remove the numbers, or
+know whether a definition is underneath a where clause.
+
+# 17 - Post-Meeting Report
+# 17 - Notes
+python, python3 issue with run.sh
+Agda flag to compile dot file morequickly --only-scope-checking
+
+Change README.md, cli.py is no longer used
+
+Add a way to save tree to dot file.
+
+If no number is given, check if there is a definition with the same name.
+
+
+For some reason agdasexp is not being isntalled automatically
+
+Issues with zshrc
+
+GHC version causing issue

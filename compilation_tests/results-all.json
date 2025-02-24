@@ -6,31 +6,31 @@
         },
         {
             "test_name": "unsafe",
-            "runtime": 280.0564620770001
+            "runtime": 280.0564620770001 / 0.48
         },
         {
             "test_name": "lvl_2",
-            "runtime": 353.91671648600004
+            "runtime": 353.91671648600004 / 0.61
         },
         {
             "test_name": "lvl_5",
-            "runtime": 354.754138494
+            "runtime": 354.754138494 / 0.62
         },
         {
             "test_name": "lvl_10",
-            "runtime": 413.0469776030004
+            "runtime": 413.0469776030004 / 0.72
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 482.9834218010001
+            "runtime": 482.9834218010001 / 0.84
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 394.49024790600015
+            "runtime": 394.49024790600015 / 0.69
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 528.0306612089998
+            "runtime": 528.0306612089998 / 0.92
         }
     ],
     "stdlib": [
@@ -40,31 +40,31 @@
         },
         {
             "test_name": "unsafe",
-            "runtime": 146.66020221500003
+            "runtime": 146.66020221500003 / 0.51
         },
         {
             "test_name": "lvl_2",
-            "runtime": 264.6328070990003
+            "runtime": 264.6328070990003 / 0.92
         },
         {
             "test_name": "lvl_5",
-            "runtime": 242.71676765599932
+            "runtime": 242.71676765599932 / 0.84
         },
         {
             "test_name": "lvl_10",
-            "runtime": 261.0174428290002
+            "runtime": 261.0174428290002 / 0.9
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 309.3997445719997
+            "runtime": 309.3997445719997 / 1.07
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 260.90544699099974
+            "runtime": 260.90544699099974 / 0.9
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 289.1173004299999
+            "runtime": 289.1173004299999 / 1
         }
     ],
     "unimath": [
@@ -74,31 +74,31 @@
         },
         {
             "test_name": "unsafe",
-            "runtime": 219.33894566799972
+            "runtime": 219.33894566799972 / 0.48
         },
         {
             "test_name": "lvl_2",
-            "runtime": 862.4310792380002
+            "runtime": 862.4310792380002 / 1.88
         },
         {
             "test_name": "lvl_5",
-            "runtime": 631.8805599730003
+            "runtime": 631.8805599730003 / 1.38
         },
         {
             "test_name": "lvl_10",
-            "runtime": 567.6550269910003
+            "runtime": 567.6550269910003 / 1.25
         },
         {
             "test_name": "lvlb_2",
-            "runtime": 717.1014073210008
+            "runtime": 717.1014073210008 / 1.57
         },
         {
             "test_name": "lvlb_4",
-            "runtime": 644.4058253029998
+            "runtime": 644.4058253029998 / 1.4
         },
         {
             "test_name": "lvl_disjoint",
-            "runtime": 462.5259398299986
+            "runtime": 462.5259398299986 / 1.01
         }
     ]
 }

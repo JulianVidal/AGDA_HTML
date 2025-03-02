@@ -2,6 +2,8 @@
 - [Week 1 - TODO](#week-1-todo)
 - [Week 2 - TODO](#week-2-todo)
 - [Week 3 - TODO](#week-3-todo)
+- [Week 4 - TODO](#week-4-todo)
+- [Week 5 - TODO](#week-5-todo)
 - [Context](#context)
 - [Week 1](#week-1)
   - [1 - Pre-meeting report](#1-pre-meeting-report)
@@ -14,6 +16,49 @@
 - [3 - Pre-Meeting Report](#3-pre-meeting-report)
 - [3 - Post-Meeting Report](#3-post-meeting-report)
 - [3 - Notes](#3-notes)
+- [4 - Pre-Meeting Report](#4-pre-meeting-report)
+- [4 - Post-meeting report](#4-post-meeting-report)
+- [4 - Notes](#4-notes)
+- [5 - Pre-Meeting Report](#5-pre-meeting-report)
+- [5 - Post-Meeting Report](#5-post-meeting-report)
+- [5 - Notes](#5-notes)
+- [Plan_A](#plana)
+- [6 - Pre-Meeting Report](#6-pre-meeting-report)
+- [6 - Post-Meeting Report](#6-post-meeting-report)
+- [6 - Notes](#6-notes)
+- [7 - Pre-Meeting Report](#7-pre-meeting-report)
+- [7 - Post-Meeting Report](#7-post-meeting-report)
+- [7 - Notes](#7-notes)
+- [8 - Pre-Meeting Report](#8-pre-meeting-report)
+- [8 - Post-Meeting Report](#8-post-meeting-report)
+- [8 - Notes](#8-notes)
+- [9 - Pre-Meeting Report](#9-pre-meeting-report)
+- [9 - Post-Meeting Report](#9-post-meeting-report)
+- [9 - Notes](#9-notes)
+- [10 - Pre-Meetin Report](#10-pre-meetin-report)
+- [10 - Post-Meeting Report](#10-post-meeting-report)
+- [10 - Notes](#10-notes)
+- [11 - Pre-meeting Report](#11-pre-meeting-report)
+- [11 - Post-meeting Report](#11-post-meeting-report)
+- [11 - Notes](#11-notes)
+- [12 - Pre-meeting Report](#12-pre-meeting-report)
+- [12 - Post-meeting Report](#12-post-meeting-report)
+- [12 - Notes](#12-notes)
+- [13 - Pre-meeting Report](#13-pre-meeting-report)
+- [13 - Post-meeting Report](#13-post-meeting-report)
+- [13 - Notes](#13-notes)
+- [14 - Pre-meeting Report](#14-pre-meeting-report)
+- [14 - Post-meeting Report](#14-post-meeting-report)
+- [14 - Notes](#14-notes)
+- [15 - Pre-meeting Report](#15-pre-meeting-report)
+- [15 - Post-meeting Report](#15-post-meeting-report)
+- [15 - Notes](#15-notes)
+- [16 - Pre-meeting Report](#16-pre-meeting-report)
+- [16 - Post-meeting Report](#16-post-meeting-report)
+- [16 - Notes](#16-notes)
+- [17 - Pre-Meeting Report](#17-pre-meeting-report)
+- [17 - Post-Meeting Report](#17-post-meeting-report)
+- [17 - Notes](#17-notes)
 <!--toc:end-->
 
 # Week 1 - TODO
@@ -1141,15 +1186,37 @@ module with the least leafs and the most dependencies.
 
 Unsafe will split all the modules in a project into n index files which are all compiled in parallel.
 
-Created instructions on generating the everything file to use agda_tree.
+Created instructions on generating the "everything" file to create definition graph.
 
 Job responded and mentioned that there are no ways to remove the numbers, or
 know whether a definition is underneath a where clause.
 
 # 17 - Post-Meeting Report
+
+Discussed issue  running run.sh file, as is used "python" instead of "python3".
+Tested using --only-sope-checking option, but there wasn't a significant speed-up
+when creating the dependency graph. Went over Agda Tree README.md and attempted
+to install agda_tree. 
+
+There was an issue with installing the agda s-expression extractor. Due to
+differing Haskell versions, cabal couldn't install the s-expression extractor.
+
+For next week:
+ - Add a way for the definition tree to be saved to a dot file
+ - Update README.md by replacing cli.py with agda_tree
+ - Remove the number in a definition name if it causes no ambiguities
+
+Fixed issue where the cli didn't try to automatically install the s-expression
+extractor, do "git pull" then reinstall CLI "pipx install . --force". When
+running agda_tree it will try to find the command "agdasexp" if it doesn't find
+it, it will try to install it. Although, if the cabal issue persists it will
+give the same error.
+
+GHC version used: 9.4.8
+
 # 17 - Notes
 python, python3 issue with run.sh
-Agda flag to compile dot file morequickly --only-scope-checking
+Agda flag to compile dot file more quickly --only-scope-checking
 
 Change README.md, cli.py is no longer used
 
@@ -1158,8 +1225,11 @@ Add a way to save tree to dot file.
 If no number is given, check if there is a definition with the same name.
 
 
-For some reason agdasexp is not being isntalled automatically
+For some reason agdasexp is not being installed automatically
 
 Issues with zshrc
 
 GHC version causing issue
+
+What is needed is a solution that works on the agda compilation level, not the
+user level, as the user level adds too much overhead to compile in parallel.

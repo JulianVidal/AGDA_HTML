@@ -67,6 +67,20 @@ def create_tree(project_file, output):
         for dep in deps
     ])
 
+    # Remove the number from definition if it doesn't cause ambiguity
+    count = {}
+    mappings = {}
+    for n in g.nodes:
+        name = n.split(" ")[0]
+        count[name] = count.get(name, [n, 0])
+        count[name][1] += 1
+
+    for name, [n, c] in count.items():
+        if c == 1:
+            mappings[n] = name
+
+    nx.relabel_nodes(g, mappings, copy=False)
+
     print()
     print(f"Definitions given: {len(definitions.keys())}")
     print(f"Nodes: {g}")
@@ -75,6 +89,13 @@ def create_tree(project_file, output):
     print()
     print(f"Saving graph to {output}")
     pickle.dump(g, open(output, 'wb'))
+
+def save_tree(g, saved_file):
+    """Save definition graph as pydot"""
+    print()
+    print(f"Saving pydot graph to {saved_file}")
+    nx.nx_pydot.write_dot(g, saved_file)
+
 
 # Find definition from name
 def find(g, pattern):
@@ -202,6 +223,11 @@ def uses(g, indirect=False, top=10):
 def type(g, d):
     """Types of definition d"""
     return g.nodes[d]["types"]
+
+
+def cycles(g):
+    """Cycles in graph"""
+    return nx.simple_cycles(g)
 
 # FIXME: There is an issue with my definition graph, there shouldn't be any cycles
 

@@ -22,20 +22,20 @@ test_repos = {
         "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
         "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
     },
-    "stdlib": {
-        "url": "https://github.com/agda/agda-stdlib.git",
-        "dir": Path("/tmp/agda-stdlib"),
-        "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
-        "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
-    },
-    "unimath": {
-        "url": "https://github.com/UniMath/agda-unimath.git",
-        "dir": Path("/tmp/agda-unimath"),
-        "index": Path("/tmp/agda-unimath/src/everything.lagda.md"),
-        "create_index": "cd /tmp/agda-unimath/; make ./src/everything.lagda.md",
-        "index_flags": "{-# OPTIONS --guardedness --cohesion --flat-split --rewriting #-}"
-    },
+    # "stdlib": {
+    #     "url": "https://github.com/agda/agda-stdlib.git",
+    #     "dir": Path("/tmp/agda-stdlib"),
+    #     "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
+    #     "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+    #     "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
+    # },
+    # "unimath": {
+    #     "url": "https://github.com/UniMath/agda-unimath.git",
+    #     "dir": Path("/tmp/agda-unimath"),
+    #     "index": Path("/tmp/agda-unimath/src/everything.lagda.md"),
+    #     "create_index": "cd /tmp/agda-unimath/; make ./src/everything.lagda.md",
+    #     "index_flags": "{-# OPTIONS --guardedness --cohesion --flat-split --rewriting #-}"
+    # },
 }
 
 results = {}
@@ -99,11 +99,13 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     dep_graph.remove_node("Agda.Primitive")
 
     # Attempt to remove index files from typetopology
-    # dot.remove_node("index")
-    #
-    # for node in list(dot.nodes):
-    #     if ".index" in node:
-    #         dot.remove_node(node)
+    dep_graph.remove_node("index")
+    dep_graph.remove_node("AllModulesIndex")
+
+    for node in list(dep_graph.nodes):
+        if ".index" in node:
+            print(node)
+            dep_graph.remove_node(node)
 
     tests = {
         "normal": (test_normal, (index.stem.split(".")[0], index_flags, )),

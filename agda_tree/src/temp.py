@@ -8,14 +8,22 @@ DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
 g = pickle.load(open(DEF_TREE, "rb"))
 
 count = {}
-
+mappings = {}
 for n in g.nodes:
     name = n.split(" ")[0]
-    count[name] = count.get(name, 0)
-    count[name] += 1
+    count[name] = count.get(name, [n, 0])
+    count[name][1] += 1
 
-s = sorted(count.items(), key=lambda pair: pair[1], reverse=True)
-print(s[:10], s[-10:])
+for name, [n, c] in count.items():
+    if c == 1:
+        mappings[n] = name
+
+nx.relabel_nodes(g, mappings, copy=False)
+
+# print(mappings)
+
+# s = sorted(count.items(), key=lambda pair: pair[1], reverse=True)
+# print(s[:10], s[-10:])
 
 # sexp_file = "/tmp/TicTacToe1_sexp/MLTT.Plus-Properties.tex-sexp"
 # # sexp_file = "/tmp/AllModulesIndex_sexp/PCF.Lambda.ScottModelOfIfZero.tex-sexp"

@@ -44,7 +44,7 @@ pip install -r requirements.txt
 # Run cli
 python src/main.py -h
 
-# usage: cli.py [-h] {definition,module} ...
+# usage: agda_tree [-h] {definition,module} ...
 # 
 # Agda dependencies tree
 # 
@@ -123,7 +123,7 @@ agda_tree definition create_tree "src/Everything.agda"
 ```bash
 agda_tree definition -h
 
-# usage: cli.py definition [-h]
+# usage: agda_tree definition [-h]
 #                          {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
 #                          ...
 # 
@@ -154,7 +154,7 @@ want to check:
 ```bash
 agda_tree module create_tree [project_file]
 
-# usage: cli.py module create_tree [-h] [-output OUTPUT] project_file
+# usage: agda_tree module create_tree [-h] [-output OUTPUT] project_file
 # 
 # positional arguments:
 #   project_file        File to check
@@ -180,7 +180,7 @@ With the tree created all the queries under sub-command module can be run.
 ```bash
 agda_tree module -h
 
-# usage: cli.py module [-h]
+# usage: agda_tree module [-h]
 #                      {create_tree,dependencies,dependents,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
 #                      ...
 # 

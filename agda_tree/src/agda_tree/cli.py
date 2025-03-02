@@ -16,6 +16,7 @@ from agda_tree.mod_cmds import MOD_TREE
 arg_help = {
     "g": "Path to tree (Default: ",
     "output": "Output file name (Default: ",
+    "saved_file" : "Path to save file",
     "m": "Module name",
     "d": "Definition name",
     "path": "Path to directory or file",

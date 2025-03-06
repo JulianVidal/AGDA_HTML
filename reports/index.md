@@ -59,6 +59,9 @@
 - [17 - Pre-Meeting Report](#17-pre-meeting-report)
 - [17 - Post-Meeting Report](#17-post-meeting-report)
 - [17 - Notes](#17-notes)
+- [18 - Pre-Meeting Report](#18-pre-meeting-report)
+- [18 - Post-Meeting Report](#18-post-meeting-report)
+- [18 - Notes](#18-notes)
 <!--toc:end-->
 
 # Week 1 - TODO
@@ -1233,3 +1236,52 @@ GHC version causing issue
 
 What is needed is a solution that works on the agda compilation level, not the
 user level, as the user level adds too much overhead to compile in parallel.
+
+
+# 18 - Pre-Meeting Report
+
+The definition tree can be saved to a dot file, updated the README.md to no
+longer have cli.py and removed the number in the definition names that don't
+need them. Tested removing index files but that made the compilation take
+longer.
+
+
+# 18 - Post-Meeting Report
+
+Discussed issues with installing the s-expression extractor, tried using stack
+build instead of cabal, but there are still issues. Talked about the project
+demonstration which lasts about 20 minutes. It can be roughly be split into
+three 6 minute sections, one section explaining the project with some slides,
+one section doing a demo of the project and the last section is left for
+discussion. Show results of the compilations tests and the possible
+explanations.
+
+By Friday send the slides of the demonstration and prepare demo for Monday if
+the demonstration isn't scheduled for the same day.
+
+Switch to installing agda s-expression extractor with "stack build".
+
+ghcup - 0.1.30.0 <br>
+ghc - 9.4.8 <br>
+cabal - 3.10.3.0 <br>
+stack - 3.1.1
+
+# 18 - Notes
+
+Plan inspection, 20 minutes long, divice into three parts, 6 minutes explaining
+with some slides, 6 minutes showing the project and 6 inutes for dicussion,
+Explain the s-expression extractor, the python graph used, the results come
+from my pc, 
+
+Create some slides for the presentation.
+
+Send which version of ghc and cabal is being used.
+ghc - 9.4.8
+cabal - 3.10.3.0
+stack - 3.1.1
+
+Explain possible reasons for results.
+
+Send message to inspector if there is no email by 4pm 4th of march.
+
+Rami Bahsoon is the inspector.

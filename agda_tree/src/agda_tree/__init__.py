@@ -15,22 +15,57 @@ def install_agdasexp():
 
     if ans.lower() in ["y", "ye", "yes", ""]:
         print("Installing agdasexp")
-        if which("cabal") is None:
-            print("Can't install agdasexp without cabal")
+        if which("stack") is None:
+            print("Can't install agdasexp without stack")
             return
 
         print("Cloning s-expressions extractor")
-        subprocess.run(f"git clone {SEXP_REPO} {SEXP_DIR}", shell=True)
+        subprocess.run(f"git clone {SEXP_REPO} {SEXP_DIR}", shell=True, text=True)
 
-        print("Cabal install")
         cmds = "; ".join([
             f"cd {SEXP_DIR}",
             f"git checkout {SEXP_BRNC}",
-            "cabal install . --program-suffix=sexp --overwrite-policy=always"
+        ])
+        GHC = subprocess.run(
+            cmds, shell=True, check=True, capture_output=True, text=True
+            ).stdout.split(" ")[-1]
+        print(f"Found GHC version:{GHC}")
+
+        print(f"Checking out {SEXP_BRNC} branch")
+        cmds = "; ".join([
+            f"cd {SEXP_DIR}",
+            f"git checkout {SEXP_BRNC}",
         ])
         subprocess.run(cmds, shell=True, check=True)
 
+        YAML = f"stack-{GHC}.yaml"
+        print(f"Building with {YAML}")
+        cmds = "; ".join([
+            f"cd {SEXP_DIR}",
+            f"cp {YAML} stack.yaml",
+            f"stack build",
+        ])
+        subprocess.run(cmds, shell=True, check=True)
+
+        print(f"Adding agdasexp binary to /usr/local/bin")
+        cmds = "; ".join([
+            f"cd {SEXP_DIR}",
+            f"stack path --local-install-root",
+        ])
+        BUILD = subprocess.run(
+                    cmds, shell=True, check=True, capture_output=True, text=True
+                ).stdout[:-1]
+
+        BIN = Path(BUILD) / "bin" / "agda"
+
+        print(f"Permissions are required to move binary to /usr/loca/bin")
+        print(f"cp {BIN} /usr/local/bin/agdasexp")
+        subprocess.run(f"sudo cp {BIN} /usr/local/bin/agdasexp", shell=True, check=True)
+
+
+
         print("Installed succesfully please run program again")
+
     else:
         print("You won't be able to create definition graphs without the s-expressions extractor")
         cli.main()
@@ -38,6 +73,9 @@ def install_agdasexp():
 
 
 def main():
+    #
+    # print("Found", BUILD)
+    # print("Found", BIN)
     if which("agdasexp") is not None:
         cli.main()
     else:

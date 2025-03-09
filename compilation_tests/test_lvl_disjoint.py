@@ -1,21 +1,9 @@
 import networkx as nx
-from sort_alg import depths
-from math import ceil
 import test_generator
 import make_generator
 
 
-def is_disjoint(*sets):
-    total_length = 0
-    uni_set = set()
-    for s in sets:
-        total_length += len(s)
-        uni_set |= s
-    return total_length == len(uni_set)
-
-
 def create_test(g, index_flags, dir):
-    # Plan
     # For each module get the leafs it depends on and the lenght of its dependencies
     # Pick to compile the module with the least amount of leafs first
     # Then the most amount of dependencies
@@ -49,9 +37,6 @@ def create_test(g, index_flags, dir):
         for mod in module_leafs.keys():
             module_deps[mod] = len(nx.descendants(g, mod))
 
-        # print()
-        # print(module_leafs)
-        # print()
         # Sort the array by the least leafs, then most dependencies
         heuristic = lambda mod: (len(module_leafs[mod]), -module_deps[mod])
         modules = sorted(

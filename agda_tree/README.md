@@ -123,15 +123,15 @@ agda_tree definition create_tree "src/Everything.agda"
 ```bash
 agda_tree definition -h
 
-# usage: agda_tree definition [-h]
-#                          {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
-#                          ...
-# 
+# usage: agda_tree definition [-h] {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses} ...
+#
 # positional arguments:
-#   {create_tree,dependencies,dependents,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,type,uses}
-#     create_tree         Creates definition dependency tree
+#   {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses}
+#     create_tree         Creates definition dependency tree from file
+#     cycles              Cycles in graph
 #     dependencies        Definitions that definition d depends on
 #     dependents          Definitions that depend on definition d
+#     find                Find definition through regex
 #     leafs               Definitions with no dependencies
 #     module_dependencies
 #                         Module dependencies of definition d
@@ -140,13 +140,15 @@ agda_tree definition -h
 #                         Longest path from definition d to any leaf only counting modules
 #     nodes               List of definitions
 #     path_between        Longest path between two definitions src and dst
-#     path_to_leaf        Longest path from definition d to any leaf
+#     path_to_leaf        Longest path from defintion d to any leaf
 #     roots               Definitions that aren't used
+#     save_tree           Save definition graph as pydot
 #     type                Types of definition d
 #     uses                Counts amount of uses per definition, sorted in descending order
-# 
+#
 # options:
 #   -h, --help            show this help message and exit
+
 ```
 
 To query modules, first create the module tree by passing the agda file you
@@ -165,6 +167,7 @@ agda_tree module create_tree [project_file]
 ```
 
 ## Example
+
 Example using TypeTopology repo
 
 ```
@@ -213,76 +216,76 @@ definition use the find command.
 agda_tree definition find "\_\+\_"
 
 # Output:
-# "UF.TruncationLevels._+_ 34"
-# "Naturals.Binary._+_ 754"
-# "MGS.MLTT.Arithmetic._+_ 122"
-# "MGS.MLTT.Arithmetic'._+_ 140"
-# "InfinitePigeon.Addition._+_ 4"
-# "Naturals.Addition._+_ 4"
-# "Rationals.FractionsOperations._+_ 28"
-# "Rationals.Positive._+_ 44"
-# "MLTT.Plus-Type._+_ 12"
-# "MLTT.Plus-Type._+_.inl 22"
-# "MLTT.Plus-Type._+_.inr 24"
-# "Rationals.Addition._+_ 4"
-# "Integers.Addition._+_ 20"
-# "Dyadics.Addition._+_ 14"
-# "DedekindReals.Addition._+_ 220"
+# "UF.TruncationLevels._+_"
+# "Naturals.Binary._+_"
+# "MGS.MLTT.Arithmetic._+_"
+# "MGS.MLTT.Arithmetic'._+_"
+# "InfinitePigeon.Addition._+_"
+# "Naturals.Addition._+_"
+# "Rationals.FractionsOperations._+_"
+# "Rationals.Positive._+_"
+# "MLTT.Plus-Type._+_"
+# "MLTT.Plus-Type._+_.inl"
+# "MLTT.Plus-Type._+_.inr"
+# "Rationals.Addition._+_"
+# "Integers.Addition._+_"
+# "Dyadics.Addition._+_"
+# "DedekindReals.Addition._+_"
 ```
 
 ## Definition dependencies (and indirect)
 
-The dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 ```bash
-agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
-# "InfinitePigeon.Equality._≡_ 6"
-# "MLTT.Natural-Numbers-Type.ℕ 4"
-# "InfinitePigeon.Addition._+_ 4"
-# "InfinitePigeon.Equality._≡_.reflexivity 12"
+# "InfinitePigeon.Equality._≡_"
+# "MLTT.Natural-Numbers-Type.ℕ"
+# "InfinitePigeon.Addition._+_"
+# "InfinitePigeon.Equality._≡_.reflexivity"
 ```
 
-The indirect dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The indirect dependencies of "InfinitePigeon.Addition.n-plus-zero-equals-n"
 ```bash
-agda_tree definition dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
-# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
-# "MLTT.Natural-Numbers-Type.ℕ.succ 8"
-# "InfinitePigeon.Equality._≡_.reflexivity 12"
-# "InfinitePigeon.Equality._≡_ 6"
-# "MLTT.Natural-Numbers-Type.ℕ 4"
-# "InfinitePigeon.Addition._+_ 4"
+# "MLTT.Natural-Numbers-Type.ℕ.zero"
+# "MLTT.Natural-Numbers-Type.ℕ.succ"
+# "InfinitePigeon.Equality._≡_.reflexivity"
+# "InfinitePigeon.Equality._≡_"
+# "MLTT.Natural-Numbers-Type.ℕ"
+# "InfinitePigeon.Addition._+_"
 ```
 
 ## Definition dependents
 
-The definitions that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The definitions that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n"
 ```bash
-agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 
 # Output:
 # "InfinitePigeon.Addition._.base 108"
 ```
 
-The definitions that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The definitions that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 ```bash
-agda_tree definition dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output
-# "InfinitePigeon.Addition.addition-commutativity 100"
-# "InfinitePigeon.Examples.example4 30"
-# "InfinitePigeon.InfinitePigeon.pigeonhole 22"
-# "InfinitePigeon.J-Examples.example2 22"
-# "InfinitePigeon.J-InfinitePigeon.pigeonhole 22"
-# "InfinitePigeon.Examples.example3 28"
-# "InfinitePigeon.Addition.trivial-addition-rearrangement 170"
-# "InfinitePigeon.J-FinitePigeon.Theorem 112"
-# "InfinitePigeon.FinitePigeon.Theorem 108"
+# "InfinitePigeon.Addition.addition-commutativity"
+# "InfinitePigeon.Examples.example4"
+# "InfinitePigeon.InfinitePigeon.pigeonhole"
+# "InfinitePigeon.J-Examples.example2"
+# "InfinitePigeon.J-InfinitePigeon.pigeonhole"
+# "InfinitePigeon.Examples.example3"
+# "InfinitePigeon.Addition.trivial-addition-rearrangement"
+# "InfinitePigeon.J-FinitePigeon.Theorem"
+# "InfinitePigeon.FinitePigeon.Theorem"
 # ...
 ```
 
@@ -294,25 +297,25 @@ The leafs of the definition tree.
 agda_tree definition leafs
 
 # Ouptut
-# "Unsafe.Haskell.Char 4"
-# "Unsafe.Haskell.String 6"
-# "InfinitePigeon.J-FinitePigeon.conjecture 38"
-# "Notation.General.Type 4"
-# "EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer.Brouwer 10"
-# "Games.TicTacToe1._.GameJ 82"
-# "Games.TicTacToe1._.Player 116"
-# "Unsafe.Type-in-Type-False.blechschmidt.domain 166"
-# "Unsafe.Type-in-Type-False.blechschmidt.codomain 178"
-# "Games.alpha-beta.tic-tac-toe.Player 1030"
-# "Games.alpha-beta.tic-tac-toe-variation.Player 1422"
+# "Unsafe.Haskell.Char"
+# "Unsafe.Haskell.String"
+# "InfinitePigeon.J-FinitePigeon.conjecture"
+# "Notation.General.Type"
+# "EffectfulForcing.MFPSAndVariations.Dialogue-to-Brouwer.Brouwer"
+# "Games.TicTacToe1._.GameJ"
+# "Games.TicTacToe1._.Player"
+# "Unsafe.Type-in-Type-False.blechschmidt.domain"
+# "Unsafe.Type-in-Type-False.blechschmidt.codomain"
+# "Games.alpha-beta.tic-tac-toe.Player"
+# "Games.alpha-beta.tic-tac-toe-variation.Player"
 # ....
 ```
 
 ## Definition module_dependencies (and indirect)
 
-The modules that are used by "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The modules that are used by "InfinitePigeon.Addition.n-plus-zero-equals-n"
 ```bash
-agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 
 # Output:
@@ -321,10 +324,10 @@ agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-eq
 # "InfinitePigeon.Addition"
 ```
 
-The modules that are indirectly used by "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The modules that are indirectly used by "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 ```bash
-agda_tree definition module_dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition module_dependencies -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output
 # "InfinitePigeon.Equality"
@@ -334,18 +337,18 @@ agda_tree definition module_dependencies -indirect "InfinitePigeon.Addition.n-pl
 
 ## Definition module_dependents
 
-The modules that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The modules that depend on "InfinitePigeon.Addition.n-plus-zero-equals-n"
 ```bash
-agda_tree definition module_dependents "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition module_dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 
 # Output:
 ```
 
-The modules that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+The modules that indirectly depend on "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 ```bash
-agda_tree definition module_dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition module_dependents -indirect "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output
 # "InfinitePigeon.J-Examples"
@@ -369,18 +372,18 @@ The nodes in the definition tree
 agda_tree definition nodes
 
 # Output:
-# "Locales.Compactness.Definition._.join-of 228"
-# "Locales.Compactness.Definition._.poset-of 252"
-# "Locales.Compactness.Definition._.rel-syntax 258"
-# "Locales.Compactness.Definition._.Locale.constructor 485"
-# "Locales.Compactness.Definition._.Exists 616"
-# "Locales.Compactness.Definition.is-compact-open 762"
-# "Locales.Compactness.Definition.is-compact 768"
-# "Ordinals.SupSum._.suprema.sup 256"
-# "Ordinals.SupSum._.suprema.sup-is-lower-bound-of-upper-bounds 264"
-# "Ordinals.SupSum._.suprema.sup-is-upper-bound 266"
-# "Ordinals.SupSum.fe 270"
-# "Ordinals.SupSum.pe 278"
+# "Locales.Compactness.Definition._.join-of"
+# "Locales.Compactness.Definition._.poset-of"
+# "Locales.Compactness.Definition._.rel-syntax"
+# "Locales.Compactness.Definition._.Locale.constructor"
+# "Locales.Compactness.Definition._.Exists"
+# "Locales.Compactness.Definition.is-compact-open"
+# "Locales.Compactness.Definition.is-compact"
+# "Ordinals.SupSum._.suprema.sup"
+# "Ordinals.SupSum._.suprema.sup-is-lower-bound-of-upper-bounds"
+# "Ordinals.SupSum._.suprema.sup-is-upper-bound"
+# "Ordinals.SupSum.fe"
+# "Ordinals.SupSum.pe"
 # ...
 ```
 
@@ -388,13 +391,13 @@ agda_tree definition nodes
 
 The maximum path between two definitions
 ```bash
-agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n 14" "MLTT.Natural-Numbers-Type.ℕ 4"
+agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.ℕ"
 
 # Output:
-# "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
-# "InfinitePigeon.Addition._+_ 4"
-# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
-# "MLTT.Natural-Numbers-Type.ℕ 4"
+# "InfinitePigeon.Addition.n-plus-zero-equals-n"
+# "InfinitePigeon.Addition._+_"
+# "MLTT.Natural-Numbers-Type.ℕ.zero"
+# "MLTT.Natural-Numbers-Type.ℕ"
 ```
 ## Definition path_to_leaf
 
@@ -402,13 +405,13 @@ The maximum path to a leaf, note that for complex definitions this command
 might never finish running
 
 ```bash
-agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
-# "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
-# "InfinitePigeon.Addition._+_ 4"
-# "MLTT.Natural-Numbers-Type.ℕ.zero 6"
-# "MLTT.Natural-Numbers-Type.ℕ 4"
+# "InfinitePigeon.Addition.n-plus-zero-equals-n"
+# "InfinitePigeon.Addition._+_"
+# "MLTT.Natural-Numbers-Type.ℕ.zero"
+# "MLTT.Natural-Numbers-Type.ℕ"
 ```
 
 ## Definition module_path_to_leaf
@@ -431,9 +434,9 @@ The definitions that don't have any dependents, they aren't used.
 agda_tree definition roots
 
 # Output:
-# "Various.Dedekind._.being-irrational-is-prop 3506"
-# "Various.Dedekind._.being-strongly-irrational-is-prop 3512"
-# "Various.Dedekind._._.having-a-lub-is-prop 3576"
+# "Various.Dedekind._.being-irrational-is-prop"
+# "Various.Dedekind._.being-strongly-irrational-is-prop"
+# "Various.Dedekind._._.having-a-lub-is-prop"
 # ...
 ```
 
@@ -442,12 +445,12 @@ agda_tree definition roots
 The type of a definition
 
 ```bash
-agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
-# "InfinitePigeon.Equality._≡_ 6"
-# "MLTT.Natural-Numbers-Type.ℕ 4"
-# "InfinitePigeon.Addition._+_ 4"
+# "InfinitePigeon.Equality._≡_"
+# "MLTT.Natural-Numbers-Type.ℕ"
+# "InfinitePigeon.Addition._+_"
 ```
 
 ## Definition uses

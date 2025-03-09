@@ -20,6 +20,7 @@ tool without any extra dependencies.
 
 \subsection{Functional Requirements}
 
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
 The functional requirements are the features that the tool must implement to be
 usable and meet the expectation of users. For the tool to be easy to use, it
 must be able to automatically extract the dependency graph from any Agda
@@ -44,11 +45,16 @@ ID & Name                           & Description                               
 8  & Querying the Module Graph  & The CLI must allow the users to query the dependency graph to retrieve important information. (See table \ref{table:Module Graph Queries} for queries)  \\ 
 \end{tblr}
 \end{table}
+\end{minipage}
 
+\marginpar{Add queries that weren't on mastodon what are on the cli}
+
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
 Martin Escardo asked in Mathstodon for all the possible queries that this tool
 should implement. This tool will allow for the querying of both the definition
 and module dependency graphs, the queries that can be made on the definition
 graph are the following: 
+
 
 \begin{table}[H]
 \centering
@@ -66,11 +72,15 @@ ID & Name                & Description                                          
 6  & Path to Leaf        & The longest path from a definition to any leaf                                                    \\ 
 7  & Module Path to Leaf & The longest path from a definition to any leaf but only following the modules of the path         \\ 
 8  & Roots               & The definitions with no dependents, meaning they aren't used anywhere                             \\ 
-9  & Definition Type     & The definitions used for the type of the definition                                                  \\ 
+9  & Definition Type     & The definitions used for the type of the definition                                               \\ 
 10 & Use count           & Counts how many times a definition is used                                                        \\
-\end{tlbr}
+11 & Cycles              & Returns the cycles in the graph                                                                   \\
+12 & Save Tree           & Saves the tree into a dot file                                                                    \\
+\end{tblr}
 \end{table}
+\end{minipage}
 
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
 The queries that can be made on the module are mostly the same the module graph
 is a directed acyclic graph (DAG) giving it special properties. The queries are
 the following:
@@ -94,9 +104,11 @@ the following:
         9  & Topological Sort & Returns a list of modules sorted topologically                                                \\
     \end{tblr}
 \end{table}
+\end{minipage}
 
 \subsection{Non-Functional Requirements}
 
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
 Since Agda Tree is meant to be a tool that slots into the workflow of
 developers, it is critical for it to be easy to use and performant. The tool be
 plug and play, working on a variety of projects regardless of size. To not
@@ -116,13 +128,13 @@ Linux distributions.
         2  & Query Performance      & The tool must be able to respond to a query in under 2 seconds                                              \\ 
         3  & Scalability            & The tool should allow for fast querying of large projects                                                   \\ 
         4  & Usability              & The tool must be easy to use, with intuitive commands, clear documentation, and meaningful error messages.  \\ 
-        5  & Compatibility          & The tool should work in any operating system                                                                \\ 
+        5  & Compatibility          & The tool should work on macOS and Linux                                                                \\ 
         6  & Reliability            & The tool should handle bad inputs gracefully                                                                \\ 
         7  & Maintainability         & The codebase should be well documented and well-structured to allow for new queries                         \\ 
         8  & Testability            & The queries should be tested to ensure the correct output is given                                          \\
     \end{tblr}
 \end{table}
-
+\end{minipage}
 
 \section{Agda Comp}
 
@@ -132,7 +144,81 @@ in which the modules should be type-checked.
 
 \subsection{Functional Requirements}
 
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
+
+The functional requirements for Agda comp are the features that the users
+needs, to compile their own projects with minimal hassle. This tool must work
+mostly automatically, the user only needs to input what they want to compile, and the tool will determine all the information it needs from there. The tool
+will create index files and a make file that will compile the Agda Project
+based on the selected strategy. This compilation must be safe and correct, it
+must compile all necessary modules and it shouldn't compile two modules
+concurrently.
+
+\begin{table}[H]
+\centering
+\caption{Agda Comp Functional Requirements}
+\label{table:Agda Comp Functional Requirements}
+\begin{tblr}{
+        colspec={|X[1]|X[6]|X[8]|}, hlines,
+    }
+        ID & Name                           & Description                                                                                                                \\ 
+        1  & Module Dependency Graph Parser & The tool must parse Agda's dot file module dependency graph \\ 
+        2  & Compilation Strategies         & The users must be able to select which compilation strategy to use  \\ 
+        3  & Compilation Customization      & The users must be able to custimize parameters of the compilation strategy (i.e. amount of cores used) \\ 
+        4  & Compilation                    & The tool must create index files and a make file that will safely compile all modules \\
+        5  & Command-Line Interface         & The tool must provide a user-friendly CLI with commands for querying the dependency graph                                  \\ 
+        6  & Input Validation               & The CLI must validate user input and provide clear error messages for invalid inputs                                       \\ 
+        7  & Integration with Agda Projects & Agda projects are structured differently, this tool must support all valid structures                                      \\ 
+        8  & Output Generation              & The CLI must output the compilation strategy into a index files and a make file for the user                 \\ 
+\end{tblr}
+\end{table}
+\end{minipage}
+
 \section{Non-Functional Requirements}
+
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
+Agda Comp is meant to be an additional tool that slots in next to Agda
+seamlessly, so it is important that users that already have Agda don't need
+extra setup. The tool should be easy to use and work with any Agda project.
+Agda is not developed for Windows, so the main focus is for the tool to work in
+a Linux or macOS environment.
+
+\begin{table}[H]
+    \centering
+    \caption{Agda Tree Non-Functional Requirements}
+    \label{table:Agda Comp Non-Functional Requirements}
+    \begin{tblr}{
+            colspec={|X[1]|X[6]|X[8]|}, hlines,
+        }
+        ID & Name                   & Description                                                                                                 \\ 
+        3  & Scalability            & The tool should allow for compilation of large projects                                                   \\ 
+        4  & Usability              & The tool must be easy to use, with intuitive commands, clear documentation, and meaningful error messages.  \\ 
+        5  & Compatibility          & The tool should work on macOS and Linux                                                                \\ 
+        7  & Maintainability        & The codebase should be well documented and well-structured to allow for new queries                         \\ 
+        8  & Testability            & The compilation strategies should be tested to ensure the correctness and safety \\
+    \end{tblr}
+\end{table}
+\end{minipage}
+
+\section{Conclusion}
+
+The functional requirements for Agda Tree ensure that it can be widely used
+with little setup with outputs that are useful to the user. It is important to
+make certain that all the queries an Agda developer would need are included,
+along with a simple way to use the output of the tool. The non-functional
+requirements define how the Agda Tree must behave, for it to slot into a
+developer's workflow.
+
+The functional requirements for Agda Comp show the features needed for the tool
+to be used, the tool must work with any Agda project and give the user choice
+on how to run their compilation given some parameters. The non-functional
+requirements define the behaviour of Agda Comp, it must work with any Agda
+project regardless of size and the compilation strategies should be correct and
+safe. That is the compilation strategies should compile every module neccessary
+and do so without compiling two modules at the same time which could cause
+concurrency issues. Since the time it takes to compile varies on the project
+size, performance measures aren't going to be made.
+
 
 % This section should detail your understanding of what you are planning to
 % create. The section should aim to break down the overarching aims of the work into clear,

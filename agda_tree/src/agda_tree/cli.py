@@ -28,20 +28,14 @@ arg_help = {
     "-indirect": "Get indirectly connected nodes"
 }
 
-# TODO: Add topological sort as a query
-# TODO: Add level sort as a query
-def main():
-    usr_dir = os.path.join(os.getenv("HOME"), ".agda_tree")
-    if not os.path.exists(usr_dir):
-        os.makedirs(usr_dir)
+commands = {
+    "definition": def_cmds,
+    "module": mod_cmds
+}
 
+def create_parser():
     parser = argparse.ArgumentParser(description="Agda dependencies tree")
     tree_parser = parser.add_subparsers(dest='tree')
-
-    commands = {
-        "definition": def_cmds,
-        "module": mod_cmds
-    }
 
     subparsers = {}
     
@@ -69,13 +63,9 @@ def main():
                     sub.add_argument(arg, help=arg_help.get(arg, ""), default=param.default, action=action)
                 else:
                     sub.add_argument(f"{arg}", help=arg_help.get(arg, ""))
+    return parser
 
-    args = parser.parse_args()
-
-    if args.tree is None or args.cmd is None:
-        parser.print_help()
-        sys.exit(1)
-
+def run_command(args):
     if hasattr(commands[args.tree], args.cmd):
         params = dict(vars(args))
         del params["cmd"]
@@ -94,6 +84,24 @@ def main():
             print("\n".join(map(lambda n: f'"{n}"', list(result))))
     else:
         print("Couldn't find command")
+
+# TODO: Add topological sort as a query
+# TODO: Add level sort as a query
+def main():
+    usr_dir = os.path.join(os.getenv("HOME"), ".agda_tree")
+    if not os.path.exists(usr_dir):
+        os.makedirs(usr_dir)
+
+    parser = create_parser()
+
+    args = parser.parse_args()
+
+    if args.tree is None or args.cmd is None:
+        parser.print_help()
+        sys.exit(1)
+
+    run_command(args)
+
 
 if __name__ == "__main__":
     main()

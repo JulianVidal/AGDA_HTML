@@ -1,18 +1,9 @@
 import networkx as nx
 from math import ceil
 from agda_comp.sort_alg import depths
-from agda_comp import test_generator, make_generator
+from agda_comp import make_generator
 
-def create_test(g, dir="testes/lvl_2", m=2):
-    # g = nx.nx_pydot.read_dot(dot_file)
-    #
-    # mapping = {}
-    # for n in g.nodes(data=True):
-    #     mapping[n[0]] = n[1]['label'].strip('\"')
-    #
-    # g = nx.relabel_nodes(g, mapping)
-    # g.remove_node("Agda.Primitive")
-
+def create_test(g, index_flags, dir, cores=4, **kwargs):
     level = 0
     topo = depths(g)
 
@@ -30,7 +21,7 @@ def create_test(g, dir="testes/lvl_2", m=2):
     compile_order = [[[]]]
 
     for l, mods in sorted(levels.items()):
-        if len(mods) <= m:
+        if len(mods) <= cores:
             if len(compile_order[-1]) == 1:
                 compile_order[-1][0].extend(mods)
             else:
@@ -40,14 +31,14 @@ def create_test(g, dir="testes/lvl_2", m=2):
 
         compile_order.append([])
         rem_mods = len(mods)
-        for sub in range(ceil(len(mods) / m)):
+        for sub in range(ceil(len(mods) / cores)):
             start = len(mods) - rem_mods
-            end = start + ceil(rem_mods / ceil(rem_mods / m))
+            end = start + ceil(rem_mods / ceil(rem_mods / cores))
             rem_mods -= (end - start)
             compile_order[-1].append(mods[start:end])
     
     if compile_order[0] == [[]]:
         compile_order = compile_order[1:]
 
-    make_generator.generate_test(compile_order, dir)
-    return dir
+    make_generator.generate_test(compile_order, index_flags, dir)
+    return compile_order

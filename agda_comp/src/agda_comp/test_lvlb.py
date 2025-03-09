@@ -1,18 +1,8 @@
 import networkx as nx
-from math import ceil
 from agda_comp.sort_alg import depths 
-from agda_comp import test_generator, make_generator
+from agda_comp import make_generator
 
-def create_test(g, dir="tests/lvlb_4", m=4):
-    # g = nx.nx_pydot.read_dot(dot_file)
-    #
-    # mapping = {}
-    # for n in g.nodes(data=True):
-    #     mapping[n[0]] = n[1]['label'].strip('\"')
-    #
-    # g = nx.relabel_nodes(g, mapping)
-    # g.remove_node("Agda.Primitive")
-
+def create_test(g, index_flags, cores=4, dir="tests/lvlb_4", **kwargs):
     level = 0
     topo = depths(g)
 
@@ -30,15 +20,16 @@ def create_test(g, dir="tests/lvlb_4", m=4):
     compile_order = []
 
     for l, mods in sorted(levels.items()):
-        d = len(mods) // m
-        r =  len(mods) % m
+        d = len(mods) // cores
+        r =  len(mods) % cores
         start = 0
         compile_order.append([])
-        for sub in range(m):
+        for sub in range(cores):
             end = start + (d + (1 if sub < r else 0))
             if end != start:
                 compile_order[-1].append(mods[start:end])
             start = end
 
-    make_generator.generate_test(compile_order, dir)
-    return dir
+    # test_generator.generate_test(compile_order, dir)
+    make_generator.generate_test(compile_order, index_flags, dir)
+    return compile_order

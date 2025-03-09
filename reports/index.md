@@ -1285,3 +1285,6 @@ Explain possible reasons for results.
 Send message to inspector if there is no email by 4pm 4th of march.
 
 Rami Bahsoon is the inspector.
+
+Added more strategies to agda_comp, with options to change cores. Created a
+plan on what to go through in the demonstration.

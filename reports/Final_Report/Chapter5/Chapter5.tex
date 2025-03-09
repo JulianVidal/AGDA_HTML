@@ -2,13 +2,92 @@
 
 \chapter{Design}
 
-Communicating how you think about the composition of your system and how it works. You
-might detail the ways in which the overall system will be broken down into subsystems. Detail should
-then be provided on the design of each of these subsystems.
+\marginpar{Add an introduction of what you want to do for each chapter}
 
-\begin{itemize}
-\item A system that turns agda into s-expressions 
-\item A system that reads s-expressions and turns it into a graph 
-\item A system that queries that graph 
-\item A way to store the graph for future use
-\end{itemize}
+The design of tools will describe the different systems needed to extract the
+dependency graphs and analyse them. Agda Tree analyses two dependencies graphs,
+one for modules and another for definitions. The module dependency graph can be
+generated with Agda but for the definition dependency graph will have to be
+created manually and needs to be designed.
+
+Agda Comp is a simpler tool, as the complexity comes from testing the different
+compilation strategies. It must create the module dependency graph, apply the
+given strategy using the parameters provided the user and run the compilation
+order. 
+
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
+
+\section{Agda Tree}
+
+Agda Tree is a command line interface that allows the user to interact with the
+module and definition graph. The first command that has to be designed is how
+the CLI will create both dependency graphs. Figure \ref{fig:Agda Create Tree
+Diagram} shows how the user will interact with the CLI to create the garphs.
+The user provides the Agda file that they want to analyse, normally this would
+be the entire project. The "Everything Index File" is the file that imports all
+the modules in a project, this allows the user to analyse the entire project.
+This is standard in Agda, as this is the only way to get a file that type
+checks the whole project. Depending on the Agda project, this file will be
+generated automatically or by the project maintainers.
+
+\begin{figure}[H]
+    \centering
+    \label{fig:Agda Create Tree Diagram}
+    \includegraphics{Agda Create Tree.pdf}
+    \caption{Agda Create Tree Diagram}
+\end{figure} 
+
+\pagebreak
+\end{minipage}
+
+\marginpar{What are the algrithms taht are going to be sued for aagda comp}
+\begin{minipage}{\linewidth\fboxsep\fboxrule}
+
+Figure \ref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the
+classes and methods needed to operate the command line. The program starts with
+the command line entry point, that will parse the input by the user and
+delegate the running of the commands to the respective dependency graph. The
+command line stores the default path to the dependency graph, the definition
+and module dependency graph will have their own commands that can be run on
+them. These queries can be found in Table \ref{table:Definition Graph Queries}
+for the definition graph and in Table \ref{table:Module Graph Queries} for the
+module graph for the module graph.
+
+For the definition graph to be created, it depends on the s-expression
+extractor and parser. They will read the Agda projects and convert the data
+found into a graph.
+
+\begin{figure}[H]
+    \centering
+    \label{fig:Agda Tree Class Diagram}
+    \includegraphics{Agda Tree Class Diagram.pdf}
+    \caption{Agda Tree Class Diagram}
+\end{figure} 
+    
+\end{minipage}
+
+\begin{figure}
+    \centering
+    \label{fig:Agda Tree Query Diagram}
+    \includegraphics{Agda Make Query.pdf}
+    \caption{Agda Tree Query Diagram}
+\end{figure} 
+
+\begin{figure}
+    \centering 
+    \label{fig:Agda Comp Diagram}
+    \includegraphics{Agda Comp.pdf}
+    \caption{Agda Comp Diagram}
+\end{figure} 
+
+% Communicating how you think about the composition of your system and how it
+% works. You might detail the ways in which the overall system will be broken
+% down into subsystems. Detail should then be provided on the design of each of
+% these subsystems.
+%
+% \begin{itemize}
+% \item A system that turns agda into s-expressions 
+% \item A system that reads s-expressions and turns it into a graph 
+% \item A system that queries that graph 
+% \item A way to store the graph for future use
+% \end{itemize}

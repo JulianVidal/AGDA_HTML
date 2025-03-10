@@ -1288,3 +1288,13 @@ Rami Bahsoon is the inspector.
 
 Added more strategies to agda_comp, with options to change cores. Created a
 plan on what to go through in the demonstration.
+
+# 19 - Notes
+Check date of agda file
+Way to isolate the modules in an agda project.
+Createa an exact search for the definition name at the end of the module
+Pass in the definitnion into uses returns how many time that definition has been used
+Add the optional options into the documentation
+Focus on the thesis after the demonstration
+
+Write pre meeting and post meeting.

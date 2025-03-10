@@ -1289,8 +1289,45 @@ Rami Bahsoon is the inspector.
 Added more strategies to agda_comp, with options to change cores. Created a
 plan on what to go through in the demonstration.
 
+# 19 - Pre-Meeting Report and Post-Meeting Report
+
+**Pre-Meeting Report**
+
+I have worked on the Agda Comp tool, it can be installed through pipx like Agda
+tree. It compiles an Agda project given the AllModulesIndex file and allows the
+user to pick which strategy to use. Changed Agda Tree to install agdasexp using
+Stack instead of Cabal. 
+
+My project demonstration will be on Thursday 13th March at 9:00am. I have
+prepared some slides explaining the motivation, background, evaluation of the
+project. I have also prepared roughly the commands that I want to show and how
+they meet the requirements for the project.
+
+**Post-Meeting Report**
+
+Tested installing Agda Comp, it worked as expected and the compiled
+TypeTopology successfully. Tested the commands available in Agda Tree such as
+dependencies, nodes, leafs, roots, etc. The commands work as expected, although,
+finding the largest path to a leaf from a definition still takes too long.
+
+After the demonstration, I should focus on completing the report and consider
+the programming done. Unless there are any smaller features that can be quickly
+added.
+
+For next Week:
+  - Add information about the options on a query in the CLI help
+  - Every command should have an example in the documentation
+  - Work on the project report
+
+Possible features:
+  - Instead of the find command searching the whole definition name, there
+    should be an option to only search the name of the definition skipping the
+    module it is in.
+  - The use query shows how many times all definitions are used, add an option
+    to find how many times a given definition is used.
+
 # 19 - Notes
-Check date of agda file
+Check date of agda file to make sure to not re-compiled compiled modules
 Way to isolate the modules in an agda project.
 Createa an exact search for the definition name at the end of the module
 Pass in the definitnion into uses returns how many time that definition has been used

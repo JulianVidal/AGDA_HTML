@@ -15,7 +15,8 @@ compilation strategies. It must create the module dependency graph, apply the
 given strategy using the parameters provided the user and run the compilation
 order. 
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+
+\pagebreak
 
 \section{Agda Tree}
 
@@ -29,19 +30,14 @@ the modules in a project, this allows the user to analyse the entire project.
 This is standard in Agda, as this is the only way to get a file that type
 checks the whole project. Depending on the Agda project, this file will be
 generated automatically or by the project maintainers.
-
 \begin{figure}[H]
     \centering
     \label{fig:Agda Create Tree Diagram}
-    \includegraphics{Agda Create Tree.pdf}
+    \includegraphics[scale=0.8]{Agda Create Tree.pdf}
     \caption{Agda Create Tree Diagram}
 \end{figure} 
 
 \pagebreak
-\end{minipage}
-
-\marginpar{What are the algrithms taht are going to be sued for aagda comp}
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
 
 Figure \ref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the
 classes and methods needed to operate the command line. The program starts with
@@ -60,34 +56,67 @@ found into a graph.
 \begin{figure}[H]
     \centering
     \label{fig:Agda Tree Class Diagram}
-    \includegraphics{Agda Tree Class Diagram.pdf}
+    \includegraphics[scale=0.8]{Agda Tree Class Diagram.pdf}
     \caption{Agda Tree Class Diagram}
 \end{figure} 
     
-\end{minipage}
+\pagebreak
 
-\begin{figure}
+Figure \ref{fig:Agda Tree Query Diagram} shows how the CLI splits into two,
+depending on what dependency graph is being queried. When a user makes a query,
+they will select the dependency graph and the respective methods will perform
+that query. The output will be displayed in stdoutput, this makes sure that the
+output can then be used with other commands like piping and xargs.
+
+\begin{figure}[H]
     \centering
     \label{fig:Agda Tree Query Diagram}
-    \includegraphics{Agda Make Query.pdf}
+    \includegraphics[scale=0.8]{Agda Make Query.pdf}
     \caption{Agda Tree Query Diagram}
 \end{figure} 
 
-\begin{figure}
+\pagebreak 
+
+\section{Agda Comp}
+
+\marginpar{Add more stuff about Agda Comp, I don't know what}
+\marginpar{What are the algorithms that are going to be sued for Agda comp}
+
+Figure \ref{fig:Agda Comp Diagram} demonstrates how the user will interact with
+the Agda Tool. The user provides the module that will be compiled, next to some
+parameters defining the amount of cores used in the parallelization and what
+compilation strategy to use.
+\begin{figure}[H]
     \centering 
     \label{fig:Agda Comp Diagram}
-    \includegraphics{Agda Comp.pdf}
+    \includegraphics[scale=0.8]{Agda Comp.pdf}
     \caption{Agda Comp Diagram}
 \end{figure} 
+
+
+\pagebreak
+
+\section{Conclusion}
+
+The diagram in figure \ref{fig:Agda Tree Class Diagram} show how the structure
+of the program. Figures \ref{fig:Agda Create Tree Diagram} and \ref{fig:Agda
+Tree Query Diagram} also shows how the dependency graphs will be created and
+how the user will interact with CLI. This structure will be important as it
+ensures that the CLI can handle all the requirements and gives the project a
+solid foundation to refer back to. 
+
+The functionality of Agda Comp is modelled in Figure \ref{fig:Agda Comp
+Diagram}, this structure allows the user to select what compilation strategy to
+use and how many cores the compilation can use. Agda Comp is meant to allow the
+user to easily apply the compilation strategies that are going to be explored
+in chapter \ref{ch:implementation}.
 
 % Communicating how you think about the composition of your system and how it
 % works. You might detail the ways in which the overall system will be broken
 % down into subsystems. Detail should then be provided on the design of each of
 % these subsystems.
 %
-% \begin{itemize}
-% \item A system that turns agda into s-expressions 
-% \item A system that reads s-expressions and turns it into a graph 
-% \item A system that queries that graph 
-% \item A way to store the graph for future use
+% \begin{itemize} \item A system that turns agda into s-expressions \item A
+% system that reads s-expressions and turns it into a graph \item A system that
+% queries that graph \item A way to store the graph for future use
 % \end{itemize}

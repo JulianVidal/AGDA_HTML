@@ -10,6 +10,99 @@ sections can be grouped in the Project Report, if these are tightly coupled.
 Likely omitted for the Project Proposal, though should mention your proposed
 implementation technologies somewhere.
 
+\begin{itemize}
+\item File structure and project structure
+\end{itemize}
+
+\section{Agda Tree}
+
+\subsection{Created definition tree}
+\begin{itemize}
+\item How the s-expression are extracted
+\item How the extractor is installed
+\item how the s-expressions are parsed
+\item What are s-expressions and how they work
+\item How to get the s-expression definition and relationships
+\item Explains how the tag works in this context i.e. name are definitions 
+\item How they are imported into networkx and became a tree
+\item Explain how it is stored pickled 
+\item Handling issues with recursion 
+\item Issue with the naming of the defitions 
+\item issue with where clause
+\end{item
+
+\subsection{Created module tree}
+
+\begin{itemize}
+\item Explain what dot files are
+\item Explain how agda extracts it
+\item Explain how it is imported into networkx
+\item Explain how it is stored pickled
+\end{itemize}
+
+\subsection{Queries}
+
+\begin{itemize}
+\item Explain how each query is implemented 
+\item Explain what the english definition means for the graph 
+\item Explain what the technical challenges could be 
+\item Explain the algorithms that were used 
+\item Explain the properties of each graph and how that limits the queries 
+\item Explain the limitations of the algorithms used if any 
+\item Design on how the queries are executed using argparse
+\end{itemize}
+
+\subsection{Command Line Interface}
+
+\begin{itemize}
+\item Explain why using python
+\item Explain what argparse is 
+\item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
+\item How the function parameters are added to the cli 
+\item Explain how dependencies are handle 
+\item Explain how this can be installed as a project using pip 
+\item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
+\item The tool automatically isntalls agdasexp
+\end{itemize}
+
+\section{Agda Comp}
+
+\subsection{Strategies}
+
+\begin{itemize}
+\item Explain each strategy 
+\item How it works 
+\item What the motivation for it is 
+\item Implication on parallelization 
+\item How it was tested for safety and correctness 
+\item Why using index files, to gropu these modules 
+\item How the algorithm is safe and correct 
+\item How make files work 
+\item Why use make files over other options 
+\item What the output of the algorithms is 
+\item How the output is used. 
+\item The limitations of each algorithm, pros and cons 
+\item How they deal with multiple projects
+\end{itemize}
+
+\subsection{Command Line Interface}
+
+\begin{itemize}
+\item Explain why using python
+\item Explain what argparse is 
+\item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
+\item How the function parameters are added to the cli 
+\item Explain how dependencies are handle 
+\item Explain how this can be installed as a project using pip 
+\item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
+\item How it is installed 
+\item How the user can use it
+\end{itemize}
+
+\begin{itemize}
+\item Unit testing and integration testing 
+\item Documentation and version control strategies
+\end{itemize}
 
 \begin{itemize}
 \item Explain the s-expressions extractor

@@ -1,3 +1,4 @@
+import os
 import argparse
 from argparse import RawTextHelpFormatter
 from pathlib import Path
@@ -61,7 +62,11 @@ def main():
 
 
 def agda_compile(module, clean, jobs, strategy):
-    module = Path(module)
+    module = Path(module).resolve()
+
+
+    module_txt = open(module).read()
+    index_flags = re.search("{-#.*#-}", str(module_txt)).group()
 
     # Get project directory
     project_dir = None
@@ -104,15 +109,12 @@ def agda_compile(module, clean, jobs, strategy):
     #     if ".index" in node:
     #         dot.remove_node(node)
 
-    module_txt = open(module).read()
-    index_flags = re.search("{-#.*#-}", str(module_txt)).group()
 
     tests[strategy]["generate"].create_test(main_index=module.stem, g=dot, index_flags=index_flags, dir=source_dir, cores=jobs)
     # test_lvl.create_test(dot, index_flags, dir=source_dir, m=jobs)
 
     commands = "; ".join([
-        f"cd {project_dir}/source",
-        "cd ..",
+        f"cd {project_dir}",
         "rm -rf ./_build",
         f"mv {source_dir}/compilation.mk .",
         "make -j -f compilation.mk",

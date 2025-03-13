@@ -13,7 +13,7 @@ MOD_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "mod_tree.pickle")
 def create_tree(project_file, output=None):
     """Creates modules dependency tree from file"""
 
-    project_file = Path(project_file)
+    project_file = Path(project_file).resolve()
     project_dir = None
     for parent in project_file.parents:
         if parent.name in ["src", "source"]:

@@ -1335,3 +1335,12 @@ Add the optional options into the documentation
 Focus on the thesis after the demonstration
 
 Write pre meeting and post meeting.
+
+I can report this as my own strategy about paralelism, this is a tactic.
+Contributdion is presenting the tactic that we used, show the stratedies used,
+in the ifnal report document how the program was tested, why these were chosen,
+how I selected the program, how I tested this, reflec on what was good and bad
+on the algorithms. Good motivation, good understanding, insteresteing project,
+document the positves and negatives as part of the evaluation. Any tactic took,
+even if it just a trick, should be documented and part of the solution. Report the process, and demonstated in the evaluation section.
+

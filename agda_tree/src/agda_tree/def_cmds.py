@@ -22,7 +22,7 @@ def create_tree(project_file, output):
         print("Can't create definition tree without agda s-expression extractor")
         return
 
-    project_file = Path(project_file)
+    project_file = Path(project_file).resolve()
     project_dir = None
     for parent in project_file.parents:
         if parent.name in ["src", "source"]:

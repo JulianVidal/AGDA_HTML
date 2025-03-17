@@ -473,6 +473,39 @@ agda_tree definition uses -top=10
 # "TWA.Thesis.Chapter4.ParametricRegression.invert-preorder-is-preorder 622"
 ```
 
+## Definition cycles
+
+Finds all the cycles in the definition graph
+
+```bash
+agda_tree definition cycles
+
+# Output:
+```
+
+## Definition uses
+
+Finds how many times one are all definitions are used, with option -top=10 only
+returning the top 10 most used modules if definition -d isn't defined.
+
+```bash
+agda_tree definition uses -top=10
+agda_tree definition uses -d="InfinitePigeon.Addition.n-plus-zero-equals-n"
+
+# Output:
+```
+
+## Definition save tree
+
+Saves the definition tree into a dot file.
+
+```bash
+agda_tree definition save_tree "path/to/dotfile"
+
+# Output:
+```
+
+
 ## Modules path to leaf
 
 To get the longest path to a leaf from module InfinitePigeon.Addition

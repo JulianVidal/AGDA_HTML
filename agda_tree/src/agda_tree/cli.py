@@ -19,6 +19,8 @@ arg_help = {
     "saved_file" : "Path to save file",
     "m": "Module name",
     "d": "Definition name",
+    "-d": "Definition name",
+    "-top": "Get top n modules",
     "path": "Path to directory or file",
     "src": "Source definition",
     "dst": "Destination definition",

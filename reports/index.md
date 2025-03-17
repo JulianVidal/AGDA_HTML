@@ -1344,3 +1344,6 @@ on the algorithms. Good motivation, good understanding, insteresteing project,
 document the positves and negatives as part of the evaluation. Any tactic took,
 even if it just a trick, should be documented and part of the solution. Report the process, and demonstated in the evaluation section.
 
+
+<!-- When checking the last-modified time stamp, the agdai files and agda files -->
+<!-- don't match. -->

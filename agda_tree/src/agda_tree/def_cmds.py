@@ -16,7 +16,7 @@ DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
 # TODO: Query to get what types are used in module m
 
 def create_tree(project_file, output):
-    """Creates definition dependency tree from file"""
+    """Creates definition dependency tree from file, -output option to set the path to store the tree"""
 
     if shutil.which("agdasexp") is None:
         print("Can't create definition tree without agda s-expression extractor")
@@ -98,17 +98,19 @@ def save_tree(g, saved_file):
 
 
 # Find definition from name
-def find(g, pattern):
+def find(g, pattern, name=False):
     """Find definition through regex"""
     matches = []
     for n in list(g.nodes):
-        if re.search(pattern, n) is not None:
+        stem = n.split(" ")[0].split(".")[-1]
+        print(stem)
+        if re.search(pattern, stem if name else n) is not None:
             matches.append(n)
     return matches
 
 # Get all definitions
 def nodes(g, count=False):
-    """List of definitions"""
+    """List of definitions, if -c flag is set returns the number of nodes"""
     ns = g.nodes()
     if count:
         print(f"Node count: {len(list(ns))}")
@@ -118,7 +120,7 @@ def nodes(g, count=False):
 # Given a definition d, which definitions does it use directly or
 # indirectly?
 def dependencies(g, d, indirect=False):
-    """Definitions that definition d depends on"""
+    """Definitions that definition d depends on, -indirect will find the indirect dependencies"""
     if not indirect:
         return g.successors(d)
     else:
@@ -127,7 +129,7 @@ def dependencies(g, d, indirect=False):
 # Given a definition d in a module, which modules *this* definition d
 # really depends on? Directly or indirectly.
 def module_dependencies(g, d, indirect=False):
-    """Module dependencies of definition d"""
+    """Module dependencies of definition d, -indirect finds the indirect module dependencies"""
     if not indirect:
         return {g.nodes[dep]["module"] for dep in g.successors(d)}
     else:
@@ -158,7 +160,7 @@ def module_path_to_leaf(g, d):
 # Given a definition d, which modules actually use it? (This is useful for
 # refactoring code and splitting large modules into smaller modules.)
 def module_dependents(g, d, indirect=False):
-    """Modules that depend on definition d"""
+    """Modules that depend on definition d, -indirect also gets the indirect module dependents"""
     if not indirect:
         return {
             g.nodes[pred]["module"]
@@ -175,7 +177,7 @@ def module_dependents(g, d, indirect=False):
 # Given a definition d, which definitions use it? (That is, how important the
 # definition is.)
 def dependents(g, d, indirect=False):
-    """Definitions that depend on definition d"""
+    """Definitions that depend on definition d, -indirect finds the indirect dependents"""
     if not indirect:
         return g.predecessors(d)
     else:
@@ -206,13 +208,16 @@ def roots(g):
 
 # list *all* definitions by the number of times they are used (in increasing or
 # descreasing order). We can consider this directly or indirectly.
-def uses(g, indirect=False, top=10):
-    """Counts amount of uses per definition, sorted in descending order"""
+def uses(g, d=None, indirect=False, top=10):
+    """Counts amount of uses per definition, sorted in descending order, if -d is passed in a definitino it will return the uses of that definition"""
     top = int(top)
     if not indirect:
         count = {n: g.in_degree(n) for n in g.nodes()}
     else:
         count = {n: len(nx.ancestors(g, n)) for n in g.nodes()}
+
+    if d is not None:
+        return d, count[d] 
 
     # Sorts in ascending order, lowest to highest
     return list(sorted(count, key=lambda k: count[k]))[:top]

@@ -22,14 +22,14 @@ def install_agdasexp():
         print("Cloning s-expressions extractor")
         subprocess.run(f"git clone {SEXP_REPO} {SEXP_DIR}", shell=True, text=True)
 
-        cmds = "; ".join([
-            f"cd {SEXP_DIR}",
-            f"git checkout {SEXP_BRNC}",
-        ])
-        GHC = subprocess.run(
-            cmds, shell=True, check=True, capture_output=True, text=True
-            ).stdout.split(" ")[-1]
-        print(f"Found GHC version:{GHC}")
+        # cmds = "; ".join([
+        #     f"cd {SEXP_DIR}",
+        #     f"git checkout {SEXP_BRNC}",
+        # ])
+        # GHC = subprocess.run(
+        #     "ghc --version", shell=True, check=True, capture_output=True, text=True
+        #     ).stdout.strip().split(" ")[-1]
+        # print(f"Found GHC version:'{GHC}'")
 
         print(f"Checking out {SEXP_BRNC} branch")
         cmds = "; ".join([
@@ -38,6 +38,7 @@ def install_agdasexp():
         ])
         subprocess.run(cmds, shell=True, check=True)
 
+        GHC = '9.4.8'
         YAML = f"stack-{GHC}.yaml"
         print(f"Building with {YAML}")
         cmds = "; ".join([
@@ -58,14 +59,15 @@ def install_agdasexp():
 
         BIN = Path(BUILD) / "bin" / "agda"
 
-        print(f"Permissions are required to move binary to /usr/loca/bin")
+        print(f"This is the path to the agda binary : {BIN}")
+        # print("Put it in your path as 'agdasexp'")
+
+        print(f"Permissions are required to move binary to /usr/local/bin")
         print(f"cp {BIN} /usr/local/bin/agdasexp")
-        subprocess.run(f"sudo cp {BIN} /usr/local/bin/agdasexp", shell=True, check=True)
+        subprocess.run(f"sudo mkdir /usr/local/bin; sudo cp {BIN} /usr/local/bin/agdasexp", shell=True, check=True)
 
-
-
-        print("Installed succesfully please run program again")
-
+        print(f"Make sure that /usr/local/bin is in your path")
+        # print("Installed succesfully please run program again")
     else:
         print("You won't be able to create definition graphs without the s-expressions extractor")
         cli.main()

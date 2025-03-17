@@ -481,19 +481,43 @@ Finds all the cycles in the definition graph
 agda_tree definition cycles
 
 # Output:
+# "['Dyadics.Type._.I 284', 'Dyadics.Type._._.γ₁', "Dyadics.Type.normalise-pos-info'"]"
+# "['Naturals.Order._.IH 96', 'Naturals.Order.subtraction']"
+# "['Notation.Order.Order', 'Notation.Order.Order._≤_']"
+# "['Notation.Order.Order', 'Notation.Order.Order._≤_', 'Notation.Order.Order.constructor']"
+# "['Notation.Order.Order', 'Notation.Order.Order.constructor']"
+# "['Naturals.Exponentiation._.I 44', 'Naturals.Exponentiation._._.iv', 'Naturals.Exponentiation.prod-of-powers']"
+# ...
 ```
 
 ## Definition uses
 
 Finds how many times one are all definitions are used, with option -top=10 only
-returning the top 10 most used modules if definition -d isn't defined.
+returning the top 10 most used modules
 
 ```bash
 agda_tree definition uses -top=10
-agda_tree definition uses -d="InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
+# "('Agda.Primitive.Level', 40715)"
+# "('MLTT.Universes._̇', 28226)"
+# "('UF.PropTrunc.propositional-truncations-exist', 26555)"
+# "('UF.FunExt.Fun-Ext', 22109)"
+# "('MLTT.Identity-Type._＝_', 19108)"
+# "('MLTT.Sigma-Type._,_', 14071)"
+# "('MLTT.Sigma-Type.Σ.pr₁', 10690)"
+# "('MLTT.Natural-Numbers-Type.ℕ', 9523)"
+# "('Agda.Primitive._⊔_', 9109)"
+# "('UF.Subsingletons.Prop-Ext', 8770)"
 ```
+If definition -d is defined then it will only count that definition
+```bash
+agda_tree definition uses -d="InfinitePigeon.Addition.n-plus-zero-equals-n"
+# Output:
+# "('InfinitePigeon.Addition.n-plus-zero-equals-n', 1)"
+```
+
+Both of these can use the -indirect option.
 
 ## Definition save tree
 

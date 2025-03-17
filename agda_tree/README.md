@@ -500,9 +500,7 @@ agda_tree definition uses -d="InfinitePigeon.Addition.n-plus-zero-equals-n"
 Saves the definition tree into a dot file.
 
 ```bash
-agda_tree definition save_tree "path/to/dotfile"
-
-# Output:
+agda_tree definition save_tree "/tmp/definition.dot"
 ```
 
 

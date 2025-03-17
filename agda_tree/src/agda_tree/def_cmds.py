@@ -210,17 +210,21 @@ def roots(g):
 # descreasing order). We can consider this directly or indirectly.
 def uses(g, d=None, indirect=False, top=10):
     """Counts amount of uses per definition, sorted in descending order, if -d is passed in a definitino it will return the uses of that definition"""
+    if d not in g:
+        return ["Definition not found"]
+
     top = int(top)
     if not indirect:
+        if d is not None:
+            return [(d, g.in_degree(d))]
         count = {n: g.in_degree(n) for n in g.nodes()}
     else:
+        if d is not None:
+            return [(d, len(nx.ancestors(g, d)))]
         count = {n: len(nx.ancestors(g, n)) for n in g.nodes()}
 
-    if d is not None:
-        return d, count[d] 
-
     # Sorts in ascending order, lowest to highest
-    return list(sorted(count, key=lambda k: count[k]))[:top]
+    return list(sorted(count.items(), key=lambda k: k[1]))[:top]
 
 # Find all definitions e whose types use definition d. (This may be useful
 # when we want to prove something about d, or when we want to know how crucial

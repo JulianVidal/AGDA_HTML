@@ -16,7 +16,8 @@ DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
 # TODO: Query to get what types are used in module m
 
 def create_tree(project_file, output):
-    """Creates definition dependency tree from file, -output option to set the path to store the tree"""
+    """Creates definition dependency tree from file, -output option to set the
+    path to store the tree"""
 
     if shutil.which("agdasexp") is None:
         print("Can't create definition tree without agda s-expression extractor")
@@ -99,7 +100,8 @@ def save_tree(g, saved_file):
 
 # Find definition from name
 def find(g, pattern, name=False):
-    """Find definition through regex"""
+    """Find definition through regex, if -name flag is set it will only search
+    the pattern on the definition name not its parent modules"""
     matches = []
     for n in list(g.nodes):
         stem = n.split(" ")[0].split(".")[-1]
@@ -209,7 +211,9 @@ def roots(g):
 # list *all* definitions by the number of times they are used (in increasing or
 # descreasing order). We can consider this directly or indirectly.
 def uses(g, d=None, indirect=False, top=10):
-    """Counts amount of uses per definition, sorted in descending order, if -d is passed in a definitino it will return the uses of that definition"""
+    """Counts amount of uses per definition, sorted in descending order, if -d
+    is passed in a definition it will return the uses of that definition. Can
+    be considered direct and indirectly with option -indirect"""
     if d is not None and d not in g:
         return ["Definition not found"]
 

@@ -63,10 +63,9 @@ def install_agdasexp():
         # print("Put it in your path as 'agdasexp'")
 
         print(f"Permissions are required to move binary to /usr/local/bin")
-        print(f"cp {BIN} /usr/local/bin/agdasexp")
         subprocess.run(f"sudo mkdir /usr/local/bin; sudo cp {BIN} /usr/local/bin/agdasexp", shell=True, check=True)
 
-        print(f"Make sure that /usr/local/bin is in your path")
+        print(f"make sure /usr/local/bin/agdasexp is in your path")
         # print("Installed succesfully please run program again")
     else:
         print("You won't be able to create definition graphs without the s-expressions extractor")

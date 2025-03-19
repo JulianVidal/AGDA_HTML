@@ -2,13 +2,24 @@
 
 \chapter{Implementation} \label{ch:implementation}
 
-This section should discuss how you went about developing a system that was
-consistent with your design to meet your stated requirements. The
-implementation of subsystems should be accurately documented, with any
-implementation difficulties being acknowledged. The Design and Implementation
-sections can be grouped in the Project Report, if these are tightly coupled.
-Likely omitted for the Project Proposal, though should mention your proposed
-implementation technologies somewhere.
+The implementation of Agda Tree must create a dependency definition graph from
+an Agda project and allow the user to query this graph through a CLI. First, a
+subsystem that turns Agda projects into a dependency graph needs to be
+implemented. Then, the CLI that will let the user query the graph is
+implemented. These subsystem must meet the functional requirements described in
+\ref{tbl:Agda Tree Functional Requirements} and the non-functional requirements
+described in table \ref{tbl:Agda Tree Non-Functional Requirements}. The CLI
+must also implement all the queries described in table \ref{tbl:Definition Graph Queries} 
+for the definition graph and the queries described in table
+\ref{tbl:Module Graph Queries} for the module graph.
+
+% This section should discuss how you went about developing a system that was
+% consistent with your design to meet your stated requirements. The
+% implementation of subsystems should be accurately documented, with any
+% implementation difficulties being acknowledged. The Design and Implementation
+% sections can be grouped in the Project Report, if these are tightly coupled.
+% Likely omitted for the Project Proposal, though should mention your proposed
+% implementation technologies somewhere.
 
 \begin{itemize}
 \item File structure and project structure
@@ -16,20 +27,144 @@ implementation technologies somewhere.
 
 \section{Agda Tree}
 
+The definition graph is the most important and difficult graph to generate. It
+contains all the detailed information needed by the developer to decipher the
+structure of the definitions and their relationships. Agda can already create
+the module dependency graph, but there is no native feature that can create a
+definition dependency graph. 
+
 \subsection{Created definition tree}
+
+
+At first, a possible option was using the HTML files that Agda can create.
+These HTML files display and format the code with colors and links. This is
+vital because the HTML files would style the text differently depending if the
+text was a definition, keyword, type, operator. Also, all the used definitions
+were hyperlinks which connected back to the module that defined them. With a
+method to find the definitions in a file given the styling and finding the
+dependencies of that definition given the hyperlinks, a graph could be created.
+The main issue was parsing the HTML files, finding which keywords fell into
+which definition was quite difficult and using an Agda parser might have been
+neccesary.
+
+The solution is not to use the HTML files but use s-expressions. The
+s-expressions are the same way the HTML files are with the same information,
+except s-expressions are easier to parse. However, Agda doesn't natively
+generate s-expressions but Andrej Bauer, Matej Petković, Ljupčo Todorovski in
+their paper "MLFMF: Data Sets for Machine Learning for Mathematical
+Formalization" \cite{bauer2023mlfmf} created an s-expression extractor. The
+s-expression extractor is in the Agda backend and it will convert Agda files into
+s-expressions \cite{andrej}.
+
+\subsubsection{S-expression extractor}
+
+S-expressions are a notation that is used in Lisp programming languges, it
+represents programs and data as tree-like data structures \cite{sexp}. The grammar for the
+s-expressions varies, but for this case the s-expression are of the form: (:tag
+sexp-1 sexp-2 ... sexp-n). Where sexp-n can be a number, a string or another
+s-expression and the tag is a keyword that describes the content of the
+s-expression. The "MLFMF" paper describes in more detail
+the structure of the s-expressions with respect to Agda \cite{bauer2023mlfmf}.
+
+Here is a brief summary of the relevant s-expressions that are need for the implementation:
+
+\begin{table}[H]
+\centering
+\caption{Relevant S-expressions}
+\label{tbl:sexp}
+\begin{tblr}{
+        colspec={|X[1]|X[2]|}, hlines,
+    }
+sexp                              & Description                                                                                                                  \\
+(:module module-name entries... ) & The root tag that holds the whole module, module-name is the name of the modules and entries are the definitions in the file \\
+(:module-name name)               & The module name                                                                                                              \\
+(:entries name type body)         & The definition, it includes its name, type and the body of the definition                                                    \\
+(:name name)                      & The name of a definition, this name can appear as the name of an :entry tag, within the :type or :body tag                   \\
+(:type type)                      & The description of the type of the parent definition                                                                         \\
+(:body body)                      & The body of a definition  
+\end{tblr}
+\end{table}
+
+Note that the s-expression extractor is a special version of Agda with an
+extended back-end, which means the user has to compile this Agda version and
+add it to their path. This will be handled by the cli described section
+\ref{sub:Agda Tree CLI} to make sures the usability non-fuction requirement is
+met from Table \ref{tbl:Agda Tree Non-Functional Requirements}.
+
+\subsubsection{S-expression parser}
+
+The :body and :type tags contain other tags like :apply, :sort, :max, etc that
+describe the definition in full detail but this information is not needed. The
+information needed is the definitions in a project and what the dependencies of
+those definitions which means mainly the :name and :entry tags are of interest.
+
+\marginpar{Should I add the figure in MLFML that describes the s-expressions}
+
+The s-expressions are compiled into a directory, this project is implemented in
+Python so the library sexpdata will be used to load the raw s-expression files
+into Python lists. Theses lists will be analyzed recursively, finding the
+relevant tags. The strategy is to find all the :entry tags in the file, each
+:entry tag represents a definition as described in Table \ref{tbl:sexp}. For
+each :entry tag, find all the :name tags contained inside. With this
+information create a dictionary were the key is the definition name and the
+value will be a list of the :name tags. Since :entry tags describe each
+definition and the :name tags describe what definition is being used, the
+resulting dictionary will contain all the defintions along with their
+dependencies. To find the necessary tags a \textsf{find\_exp} function is
+implemented that recursively finds all occurences of a given tag within an
+s-expression.
+
+The s-expression extractor writes an s-expression file for each module, so the
+mentioned dictionary is created for each file and combined together into one
+big dictionary that has all the definitions from the entire project. The same
+process will be repeated but instead of looking for :name tags inside the
+entire :entry tag instead, find all the :name tags in the :type tag. Store this
+in a dictionary with the definition as a key and the :names found in :tag as
+the value. This provides the information about the type of the definition.
+
+This parsing procedure is done in parallel, where each file is parsed in its
+own thread and the output of all the parsed files is combined together.
+
 \begin{itemize}
-\item How the s-expression are extracted
-\item How the extractor is installed
-\item how the s-expressions are parsed
-\item What are s-expressions and how they work
-\item How to get the s-expression definition and relationships
-\item Explains how the tag works in this context i.e. name are definitions 
-\item How they are imported into networkx and became a tree
-\item Explain how it is stored pickled 
-\item Handling issues with recursion 
-\item Issue with the naming of the defitions 
-\item issue with where clause
-\end{item}
+    \item How the s-expression are extracted
+    \item How the extractor is installed
+    \item how the s-expressions are parsed
+    \item What are s-expressions and how they work
+    \item How to get the s-expression definition and relationships
+    \item Explains how the tag works in this context i.e. name are definitions 
+    \item How they are imported into networkx and became a tree
+    \item Explain how it is stored pickled 
+    \item Handling issues with recursion 
+    \item Issue with the naming of the defitions 
+    \item issue with where clause
+\end{itemize}
+
+\subsubsection{Create definition graph}
+
+The dictionary with definitions as keys and their dependencies as values,
+already form the definition dependency graph. Which can be imported to the
+NetowrkX Python library. This library efficiently creates and queries graphs,
+it contains many useful features and performace benefits. NetworkX is a widely
+use tool, so a user can easily become familiar with its use and implement their
+own queries. The graph is first initlized with the command
+\textsf{nx.Digraph()} then all the definitions are added as nodes with the
+command \textsf{graph.add\_nodes\_from}, lastly the edges are added with the command \textsf{graph.add\_edges\_from}
+
+\textsf{text} in two parts, first a graph with all the definitions is created
+with the definitions being the nodes, th. Second, the dependencies are added as
+edges to the graph.
+
+    g = nx.DiGraph()
+    g.add_nodes_from([
+        (n, {"module": def_to_mod[n], "types": def_types[n]})
+        for n in definitions.keys()
+    ])
+
+    g.add_edges_from([
+        (func, dep)
+        for func, deps in definitions.items()
+        for dep in deps
+    ])
 
 \subsection{Created module tree}
 
@@ -52,7 +187,7 @@ implementation technologies somewhere.
 \item Design on how the queries are executed using argparse
 \end{itemize}
 
-\subsection{Command Line Interface}
+\subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
 \begin{itemize}
 \item Explain why using python

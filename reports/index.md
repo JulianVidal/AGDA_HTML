@@ -1346,3 +1346,77 @@ document the positves and negatives as part of the evaluation. Any tactic took,
 even if it just a trick, should be documented and part of the solution. Report the process, and demonstated in the evaluation section.
 
 
+# 20 - Pre-Meeting Report
+
+Added some more documentation for each command, making sure the options that
+the commands accepts are described. Every definition command also has an
+example within the README.md. The find command has a flag that will cause the
+pattern to only match on the definition name instead of the modules. The use
+query accepts a -d option, if a definition is passed in it will count the
+amount of times that definition appears as a dependency.
+
+For Agda Comp, it will check if the modify time stamp of the .agdai files is
+greater than its respective dot file. If the .agdai file is newer, the module
+is removed from the module graph when creating the compilation order.
+
+I have continued working on the report, currently doing the implementation
+section. I have done some work on the Introduction, Literature Review,
+Requirements and Design sections.
+
+The project demonstration feedback was positive, I need to make sure that the
+compilation strategies are well described and the quantitative and qualitative
+results are measured.
+
+# 20 - Post-Meeting Report
+
+Went over the current draft of the report, there are a couple of typos that
+needs to be corrected. Also, there are sub-section titles that need to be
+worded better like "create definition graph". Make sure to add a citation of
+the Mathstodon thread when listing the queries that are going to be
+implemented.
+
+In the literature review, for the future add more detail about the tools in the
+related works section. Also, add a section discussing the MLFMF paper making
+sure to describe the s-expressions, their structure and briefly summarize what
+the paper is about. The figures from the arxiv paper can be used as long as
+they are properly cited.
+
+On the design section explain what the algorithms for compilation are and how
+they work. In the implementation section go over how there were implement into
+the Agda comp tool. In the conclusion or evaluation section add details about
+future work and limitations.
+
+Add a section that describes the CLI in more detail, with a manual page and
+examples of the queries. Make sure to cite the Github repository in this
+section. For now keep using the Github repository, near the deadline either make it
+public, add my inspector to it or move it to the Gitlab.
+
+# 20 - Notes
+
+2.2 parallel compilation typo
+
+In future for literature review, explain more aou the tools.
+  - Add agda s-expression about arhive paper, explain the tool for the s-expression extractor
+
+Use the s-expression figures in the archive paper, make sure to cite it
+
+Add citation to masthodon
+
+Agda comp functional
+  - try to speed up compilation using paralisim
+
+In the design secstion, describe each algorithm.
+
+Creation of definiiton tree - Change subsection title, the same for th enext subsection, creation of module tree
+
+In literature review add a subsection, about andrej bauers paper. Agda s-expression extractor subsection. Explain the paper and the s-expression extractor.
+
+The sections should be somewhat self contained
+
+In conclusion or evaluation, add possible future improvementes
+
+In the design, add the examples of the queries, and add a man page of the tool, 
+
+Write to Rami about my supervisor suggested that I make my github repository
+available to to you. Mention that the project started on github and move to
+gitlab. Section about how to use cli.

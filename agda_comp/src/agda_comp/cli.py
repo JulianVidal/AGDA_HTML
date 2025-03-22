@@ -6,7 +6,7 @@ import networkx as nx
 import time
 import re
 
-from agda_comp import test_lvl, test_lvlb, test_normal, test_unsafe, test_lvl_disjoint
+from . import test_lvl, test_lvlb, test_normal, test_unsafe, test_lvl_disjoint
 
 tests = {
     "level": {
@@ -108,7 +108,9 @@ def unmodified_modules(project_dir, source_dir):
                 # print(agdai_modified, source_modified)
                 # print(source)
                 # print("File has been modified")
-                module = os.path.relpath(source, source_dir).split(".")[0].replace("/", ".")
+                module = (
+                    os.path.relpath(source, source_dir).split(".")[0].replace("/", ".")
+                )
                 unmodified.append(module)
 
     return unmodified
@@ -137,10 +139,7 @@ def agda_compile(module, clean, jobs, strategy):
 
     if not dot_file.exists() or clean:
         if clean:
-            cmds = ";".join(
-                [f"cd {project_dir}",
-                 f"rm -rf _build"]
-            )
+            cmds = ";".join([f"cd {project_dir}", f"rm -rf _build"])
             subprocess.run(cmds, shell=True, stdout=subprocess.DEVNULL)
         print("Creating dot file")
         cmds = ";".join(
@@ -184,7 +183,7 @@ def agda_compile(module, clean, jobs, strategy):
         [
             f"cd {project_dir}",
             f"mv {source_dir}/compilation.mk .",
-            "make -j -f compilation.mk",
+            f"make -j {jobs} -f compilation.mk",
             'find ./source -name "index-*lagda" -delete',
             "rm compilation.mk",
         ]

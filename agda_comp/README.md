@@ -37,7 +37,7 @@ source ./.venv/bin/activate
 pip install -r requirements.txt
 
 # Run cli
-python src/main.py -h
+python -m src.agda_comp -h
 
 # usage: agda_comp [-h] [-c] [-j JOBS] module
 #

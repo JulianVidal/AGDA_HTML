@@ -1,5 +1,6 @@
 import networkx as nx
-from agda_comp import make_generator
+from . import make_generator
+
 
 def create_test(g, index_flags, dir, **kwargs):
     # For each module get the leafs it depends on and the lenght of its dependencies
@@ -10,7 +11,7 @@ def create_test(g, index_flags, dir, **kwargs):
     compile_order = []
 
     while g.number_of_nodes() > 0:
-        module_leafs = {} # The leafs a module depends on
+        module_leafs = {}  # The leafs a module depends on
         module_deps = {}
         leafs = [v for v, d in g.out_degree() if d == 0]
 
@@ -22,7 +23,7 @@ def create_test(g, index_flags, dir, **kwargs):
 
         for leaf in leafs:
             # All the modules that have a path to a leaf
-            mods = nx.shortest_path(g, target=leaf).keys() 
+            mods = nx.shortest_path(g, target=leaf).keys()
 
             # Add a leaf to each module it has a path to
             for mod in mods:
@@ -37,12 +38,7 @@ def create_test(g, index_flags, dir, **kwargs):
 
         # Sort the array by the least leafs, then most dependencies
         heuristic = lambda mod: (len(module_leafs[mod]), -module_deps[mod])
-        modules = sorted(
-            module_leafs.keys(),
-            key=heuristic,
-            reverse=False
-        )
-
+        modules = sorted(module_leafs.keys(), key=heuristic, reverse=False)
 
         # Store all the leafs used by the modules that are going to be compile
         # If two modules have similar modules they can't be compiled in parallel
@@ -89,7 +85,6 @@ def create_test(g, index_flags, dir, **kwargs):
         #     print("\t", module_deps[mod])
         #     print("\t", module_leafs[mod])
         #     print("\t", heuristic(mod))
-
 
     # Merge 1 step compilations into 1 bigger step
     comp = [[[]]]

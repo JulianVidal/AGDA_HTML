@@ -42,7 +42,7 @@ source ./.venv/bin/activate
 pip install -r requirements.txt
 
 # Run cli
-python src/main.py -h
+python -m src.agda_tree -h
 
 # usage: agda_tree [-h] {definition,module} ...
 # 

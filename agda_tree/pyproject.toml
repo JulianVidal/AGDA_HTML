@@ -28,4 +28,4 @@ dependencies = [
 Homepage = "https://github.com/JulianVidal/AGDA_HTML"
 
 [project.scripts]
-agda_tree = "agda_tree:main"
+agda_tree = "agda_tree.cli:run"

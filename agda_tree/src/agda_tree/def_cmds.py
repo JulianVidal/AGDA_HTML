@@ -1,21 +1,20 @@
-import networkx as nx
-from pathlib import Path
-import re
 import pickle
-from agda_tree import parser
-
-
-import os
-import os.path
+import re
 import shutil
 import subprocess
+from pathlib import Path
 
-DEF_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "def_tree.pickle")
+import networkx as nx
+
+from . import parser
+
+DEF_TREE: Path = Path.home() / ".agda_tree" / "def_tree.pickle"
 
 # TODO: Query to get what definitions are used in module m
 # TODO: Query to get what types are used in module m
 
-def create_tree(project_file, output):
+
+def create_tree(project_file: str, output: str):
     """Creates definition dependency tree from file, -output option to set the
     path to store the tree"""
 
@@ -23,30 +22,30 @@ def create_tree(project_file, output):
         print("Can't create definition tree without agda s-expression extractor")
         return
 
-    project_file = Path(project_file).resolve()
+    project_path = Path(project_file).resolve()
     project_dir = None
-    for parent in project_file.parents:
+    for parent in project_path.parents:
         if parent.name in ["src", "source"]:
             project_dir = parent.parent
             break
     if project_dir is None:
         print("Couldn't find project directory from project file")
 
-    sexp_dir = Path(f"/tmp/{project_file.stem}_sexp/")
+    sexp_dir = Path(f"/tmp/{project_path.stem}_sexp/")
 
     if sexp_dir.exists():
         shutil.rmtree(sexp_dir)
 
     subprocess.run(
-        f"cd {project_dir}; agdasexp --sexp {project_file} --sexp-dir={sexp_dir}",
+        f"cd {project_dir}; agdasexp --sexp {project_path} --sexp-dir={sexp_dir}",
         shell=True,
-        check=True
+        check=True,
     )
 
     path = Path(sexp_dir)
     if not path.is_dir():
         raise Exception("path isn't a directory")
-    paths = Path(path).rglob('*sexp')
+    paths = Path(path).rglob("*sexp")
 
     print("Parsing files")
     print()
@@ -57,16 +56,16 @@ def create_tree(project_file, output):
 
     # Turns data into networkx graph
     g = nx.DiGraph()
-    g.add_nodes_from([
-        (n, {"module": def_to_mod[n], "types": def_types[n]})
-        for n in definitions.keys()
-    ])
+    g.add_nodes_from(
+        [
+            (n, {"module": def_to_mod[n], "types": def_types[n]})
+            for n in definitions.keys()
+        ]
+    )
 
-    g.add_edges_from([
-        (func, dep)
-        for func, deps in definitions.items()
-        for dep in deps
-    ])
+    g.add_edges_from(
+        [(func, dep) for func, deps in definitions.items() for dep in deps]
+    )
 
     # Remove the number from definition if it doesn't cause ambiguity
     count = {}
@@ -89,7 +88,8 @@ def create_tree(project_file, output):
     output = output or DEF_TREE
     print()
     print(f"Saving graph to {output}")
-    pickle.dump(g, open(output, 'wb'))
+    pickle.dump(g, open(output, "wb"))
+
 
 def save_tree(g, saved_file):
     """Save definition graph as pydot"""
@@ -110,6 +110,7 @@ def find(g, pattern, name=False):
             matches.append(n)
     return matches
 
+
 # Get all definitions
 def nodes(g, count=False):
     """List of definitions, if -c flag is set returns the number of nodes"""
@@ -118,6 +119,7 @@ def nodes(g, count=False):
         print(f"Node count: {len(list(ns))}")
         return None
     return g.nodes()
+
 
 # Given a definition d, which definitions does it use directly or
 # indirectly?
@@ -128,6 +130,7 @@ def dependencies(g, d, indirect=False):
     else:
         return nx.descendants(g, d)
 
+
 # Given a definition d in a module, which modules *this* definition d
 # really depends on? Directly or indirectly.
 def module_dependencies(g, d, indirect=False):
@@ -137,13 +140,14 @@ def module_dependencies(g, d, indirect=False):
     else:
         return {g.nodes[dep]["module"] for dep in nx.descendants(g, d)}
 
+
 # Given a definition d, what's the longest path, in terms of calling other
 # definitions, until we reach the leaves? (This somehow indicates how
 # complicated the mathematics is from the foundations up to the definition.)
 def path_to_leaf(g, d):
     """Longest path from defintion d to any leaf"""
     # Finds all the leafs and finds all the paths to those leafs
-    leafs = [n for n in g.nodes() if g.out_degree(n)==0]
+    leafs = [n for n in g.nodes() if g.out_degree(n) == 0]
     paths = list(nx.all_simple_paths(g, d, leafs))
     return max(paths, key=len)
 
@@ -153,7 +157,7 @@ def path_to_leaf(g, d):
 # purposes.)
 def module_path_to_leaf(g, d):
     """Longest path from definition d to any leaf only counting modules"""
-    leafs = [n for n in g.nodes() if g.out_degree(n)==0]
+    leafs = [n for n in g.nodes() if g.out_degree(n) == 0]
     paths = nx.all_simple_paths(g, d, leafs)
 
     return max([{g.nodes[n]["module"] for n in p} for p in paths], key=len)
@@ -166,15 +170,16 @@ def module_dependents(g, d, indirect=False):
     if not indirect:
         return {
             g.nodes[pred]["module"]
-            for pred in g.predecessors(d) 
+            for pred in g.predecessors(d)
             if g.nodes[pred]["module"] != g.nodes[d]["module"]
         }
     else:
         return {
             g.nodes[pred]["module"]
-            for pred in nx.ancestors(g, d) 
+            for pred in nx.ancestors(g, d)
             if g.nodes[pred]["module"] != g.nodes[d]["module"]
         }
+
 
 # Given a definition d, which definitions use it? (That is, how important the
 # definition is.)
@@ -185,9 +190,10 @@ def dependents(g, d, indirect=False):
     else:
         return nx.ancestors(g, d)
 
+
 # What is the longest chain from a definition to another definition? (This
 # again somehow indicates how complicated the mathematics is from the
-# foundations up to the intended theorems, but globally.) 
+# foundations up to the intended theorems, but globally.)
 def path_between(g, src, dst):
     """Longest path between two definitions src and dst"""
     paths = nx.all_simple_paths(g, src, dst)
@@ -230,6 +236,7 @@ def uses(g, d=None, indirect=False, top=10):
     # Sorts in descending order, highest to lowest
     return list(sorted(count.items(), key=lambda k: k[1], reverse=True))[:top]
 
+
 # Find all definitions e whose types use definition d. (This may be useful
 # when we want to prove something about d, or when we want to know how crucial
 # e is.)
@@ -241,6 +248,7 @@ def type(g, d):
 def cycles(g):
     """Cycles in graph"""
     return nx.simple_cycles(g)
+
 
 # FIXME: There is an issue with my definition graph, there shouldn't be any cycles
 

@@ -505,7 +505,7 @@ options:
   -h, --help            show this help message and exit
 \end{lstlisting}
 
-\subsection{Installation}
+\subsection{Installation} \label{sub:Agda Tree Installation}
 
 For the tool to be distributed and easily installed by the users, it must be
 packaged. The project can be packaged using a \textsf{pyproject.toml} file
@@ -725,9 +725,46 @@ options:
                         disjoint, if none are found the leaves are removed then repeats
 \end{lstlisting}
 
+There are three options, clean, jobs and strategy. By default, the tool re-uses
+the module dependency graph and removes already compiled modules from the
+graph. The clean option generates the module dependency graph again and deletes
+the _build directory which contains the compiled modules. Note that the way the
+Agda Comp finds if a module is already compiled and hasn't changes is by
+checking whether its corresponding .agdai file exists and if the the module
+wasn't modified after the creation of the .agdai file. If a module was modified
+after the .agdai file is created then it is considered modified. The jobs
+options describe how many cores will be used in the strategy and how many cores
+the make command will use. Lastly, the strategy option lets the user pick which
+strategy to use.
 
-The 
+When the user provides the index file and sets the options they desire, the
+index files and make files are generated. Using the path of the index file, the
+make files and indices are moved to the project root directory and the project
+source directory respectively. Then the command \textsf{mk compilation.mk} is
+run, where "compilation.mk" is the name of the generate make file. This will
+compile the project using the cores provided by the user. Lastly, when the
+compilation is done the index files and make file are deleted and the time to
+compile is printed. Also, if the user chooses to cancel the compilation there
+is a listener that will delete the make files and index files as to not pollute
+the user's project.
 
+For example the following command will compile TypeTopology using 2 cores, it
+will delete previously compiled modules, recreate the module dependency graph
+and use the levelb compilation strategy.
+
+\begin{lstlisting}
+agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.lagda"
+\end{lstlisting}
+
+
+\subsection{Installation}
+
+The installation process for this tool is the same as for Agda Tree in Section
+\ref{sub:Agda Tree Installation}. A pyproject.toml file is created describing
+the dependencies, build backend and python version of the project along with
+other metadata. This packages the projet such that it can be installed through
+PIP, altough PIPX is recommended to install end-user applications as PIPX will
+isolate the depencies of Agda Comp from the packages of the user.
 
 \begin{itemize}
 \item Explain why using python
@@ -744,6 +781,29 @@ The
 \item how it uses hte make and index files
 \item How the modification timestamp is checked to avoid recompiling files.
 \end{itemize}
+
+\section{Conclusion}
+
+Agda Tree will use Andrej Bauer's s-expression extractor to create the
+s-expression files, which are then imported as lists into python using the
+sexpdata library. These lists are explored to find all the definitions and
+their relationships which are then converted into a graph in NetworkX.  Then
+the CLI exposes different queries that can be made to the dependency graph to
+learn more about the relationship of these definitions. The tools is packaged
+such that it is easy to install and handles the building of the s-expression
+extractor.
+
+Agda Comp uses different strategies to analyze Agda's module dependency graph
+to improve compilation time. The strategies read the dependency graph and
+return a list that describe the order in which to compile the modules. With
+this order, index files and a make file is generated that will compile the
+modules in the correct order while allowing for independent index to be
+compiled in parallel. The make file runs compiling the whole project, then
+deletes itself along with the index file to leave the user with a clean
+project. Agda Comp can use different strategies and change the amount of cores
+used. The tool is easy to install with PIPX and doesn't require any external
+dependencies that can't be installed through PIP.
+
 
 \begin{itemize}
 \item Unit testing and integration testing 

@@ -2,13 +2,14 @@ import networkx as nx
 from pathlib import Path
 import pickle
 import re
-from agda_tree import level_sort
+from . import level_sort
 
 import subprocess
 import os
 import os.path
 
 MOD_TREE = os.path.join(os.getenv("HOME"), ".agda_tree", "mod_tree.pickle")
+
 
 def create_tree(project_file, output=None):
     """Creates modules dependency tree from file"""
@@ -28,7 +29,7 @@ def create_tree(project_file, output=None):
     subprocess.run(
         f"cd {project_dir}; agda --dependency-graph={dot_file} {project_file}",
         shell=True,
-        check=True
+        check=True,
     )
 
     # if not dot_file.endswith(".dot"):
@@ -40,13 +41,14 @@ def create_tree(project_file, output=None):
     # Renames nodes to the module name
     mapping = {}
     for n in g.nodes(data=True):
-        mapping[n[0]] = n[1]['label'].strip('\"')
+        mapping[n[0]] = n[1]["label"].strip('"')
 
     g = nx.relabel_nodes(g, mapping)
     g.remove_node("Agda.Primitive")
 
     output = output or MOD_TREE
-    pickle.dump(g, open(Path(output).expanduser(), 'wb'))
+    pickle.dump(g, open(Path(output).expanduser(), "wb"))
+
 
 # Find definition from name
 def find(g, pattern):
@@ -57,10 +59,12 @@ def find(g, pattern):
             matches.append(n)
     return matches
 
+
 # Get all modules
 def nodes(g):
     """List of modules"""
     return g.nodes()
+
 
 # Given a module m, which modules does it import directly or indirectly?
 def dependencies(g, m, indirect=False):
@@ -70,14 +74,16 @@ def dependencies(g, m, indirect=False):
     else:
         return nx.descendants(g, m)
 
+
 # Given a module m, what's the longest path, in terms of importing other
 # modules, until we reach the leaves?
 def path_to_leaf(g, m):
     """Longest path from module m to any leaf"""
     # Finds all the leafs and finds all the paths to those leafs
-    leafs = [n for n in g.nodes() if g.out_degree(n)==0]
+    leafs = [n for n in g.nodes() if g.out_degree(n) == 0]
     paths = nx.all_simple_paths(g, m, leafs)
     return max(paths, key=len)
+
 
 # Given a module m, which modules use it?
 def dependents(g, d, indirect=False):
@@ -87,7 +93,8 @@ def dependents(g, d, indirect=False):
     else:
         return nx.ancestors(g, d)
 
-# What is the longest chain from a module to another module? 
+
+# What is the longest chain from a module to another module?
 def path_between(g, src, dst):
     """Longest path between two modules src and dst"""
     paths = nx.all_simple_paths(g, src, dst)
@@ -100,7 +107,7 @@ def leafs(g):
     return [n for n in g.nodes() if g.out_degree(n) == 0]
 
 
-# What are the roots of the graph? 
+# What are the roots of the graph?
 def roots(g):
     """Modules that aren't imported"""
     return [n for n in g.nodes() if g.in_degree(n) == 0]
@@ -118,20 +125,20 @@ def uses(g, indirect=False):
     # Sorts in ascending order, lowest to highest
     return sorted(count, key=lambda k: count[k])
 
+
 def topo_sort(g):
     """Topological sort"""
     return nx.topological_sort(g)
+
 
 def lvl_sort(g):
     """Level sort"""
     return [",".join(ms) for ms in level_sort.levels(g)]
 
+
 def complex_modules(g, top=10):
-    """ Get the top modules that have the most dependents """
+    """Get the top modules that have the most dependents"""
     top = int(top)
-    module_lengths = [
-        (mod, len(list(nx.ancestors(g, mod))))
-        for mod in g.nodes()
-    ]
+    module_lengths = [(mod, len(list(nx.ancestors(g, mod)))) for mod in g.nodes()]
     modules = sorted(module_lengths, key=lambda t: t[1], reverse=True)[:top]
     return [mod[0] for mod in modules]

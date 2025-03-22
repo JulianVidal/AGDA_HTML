@@ -1,7 +1,7 @@
-import networkx as nx
 from math import ceil
-from agda_comp.sort_alg import depths
-from agda_comp import make_generator
+from .sort_alg import depths
+from . import make_generator
+
 
 def create_test(g, index_flags, dir, cores=4, **kwargs):
     level = 0
@@ -34,9 +34,9 @@ def create_test(g, index_flags, dir, cores=4, **kwargs):
         for sub in range(ceil(len(mods) / cores)):
             start = len(mods) - rem_mods
             end = start + ceil(rem_mods / ceil(rem_mods / cores))
-            rem_mods -= (end - start)
+            rem_mods -= end - start
             compile_order[-1].append(mods[start:end])
-    
+
     if compile_order[0] == [[]]:
         compile_order = compile_order[1:]
 

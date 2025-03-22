@@ -1,6 +1,7 @@
 import networkx as nx
-from agda_comp.sort_alg import depths 
-from agda_comp import make_generator
+from .sort_alg import depths
+from . import make_generator
+
 
 def create_test(g, index_flags, cores=4, dir="tests/lvlb_4", **kwargs):
     level = 0
@@ -21,7 +22,7 @@ def create_test(g, index_flags, cores=4, dir="tests/lvlb_4", **kwargs):
 
     for l, mods in sorted(levels.items()):
         d = len(mods) // cores
-        r =  len(mods) % cores
+        r = len(mods) % cores
         start = 0
         compile_order.append([])
         for sub in range(cores):

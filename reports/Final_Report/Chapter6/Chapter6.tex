@@ -33,7 +33,7 @@ structure of the definitions and their relationships. Agda can already create
 the module dependency graph, but there is no native feature that can create a
 definition dependency graph. 
 
-\subsection{Created definition tree}
+\subsection{Building the definition tree}
 
 
 At first, a possible option was using the HTML files that Agda can create.
@@ -93,7 +93,7 @@ met from Table \ref{tbl:Agda Tree Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}
 
-The :body and :type tags contain other tags like :apply, :sort, :max, etc that
+The :body and :type tags contain other tags like :apply, :sort, :max, etc. That
 describe the definition in full detail but this information is not needed. The
 information needed is the definitions in a project and what the dependencies of
 those definitions which means mainly the :name and :entry tags are of interest.
@@ -109,7 +109,7 @@ each :entry tag, find all the :name tags contained inside. With this
 information create a dictionary were the key is the definition name and the
 value will be a list of the :name tags. Since :entry tags describe each
 definition and the :name tags describe what definition is being used, the
-resulting dictionary will contain all the defintions along with their
+resulting dictionary will contain all the definitions along with their
 dependencies. To find the necessary tags a \textsf{find\_exp} function is
 implemented that recursively finds all occurences of a given tag within an
 s-expression.
@@ -123,7 +123,8 @@ in a dictionary with the definition as a key and the :names found in :tag as
 the value. This provides the information about the type of the definition.
 
 This parsing procedure is done in parallel, where each file is parsed in its
-own thread and the output of all the parsed files is combined together.
+own thread and the dictionary of all the parsed files is combined together by
+adding all the key value pairs into a bigger dictionary.
 
 \begin{itemize}
     \item How the s-expression are extracted
@@ -139,34 +140,46 @@ own thread and the output of all the parsed files is combined together.
     \item issue with where clause
 \end{itemize}
 
-\subsubsection{Create definition graph}
+\subsubsection{Building definition graph}
 
 The dictionary with definitions as keys and their dependencies as values,
 already form the definition dependency graph. Which can be imported to the
 NetowrkX Python library. This library efficiently creates and queries graphs,
-it contains many useful features and performace benefits. NetworkX is a widely
-use tool, so a user can easily become familiar with its use and implement their
-own queries. The graph is first initlized with the command
-\textsf{nx.Digraph()} then all the definitions are added as nodes with the
-command \textsf{graph.add\_nodes\_from}, lastly the edges are added with the command \textsf{graph.add\_edges\_from}
+it contains many useful features and performance benefits. NetworkX is a widely
+used tool, so a user can easily become familiar with its use and implement their
+own queries. 
 
-\textsf{text} in two parts, first a graph with all the definitions is created
-with the definitions being the nodes, th. Second, the dependencies are added as
-edges to the graph.
+The graph is first initialized with the command \textsf{nx.Digraph()} then all
+the definitions are added as nodes with the command
+\textsf{graph.add\_nodes\_from}, where the key values of the dictionary from
+the parsing is given. Lastly the edges are added with the command
+\textsf{graph.add\_edges\_from} where an array is passed in containing tuples
+where each tuple has the key and its dependency. Note that when creating the
+edge the definition is on the first and its the depency is second, since this
+is a directed graph this will cause the direction of the edge to be from the
+definition to its dependency.  Once generated it will be 'pickled', a Python
+library that serializes Python objects, the trees will be serialized and store
+for future use. 
 
-    g = nx.DiGraph()
-    g.add_nodes_from([
-        (n, {"module": def_to_mod[n], "types": def_types[n]})
-        for n in definitions.keys()
-    ])
+When parsing the s-expression files, the definitions will have its name with
+its module path along with an identifier number. Due to the way the
+s-expressions are extracted and the way Agda works sometimes two distinct
+definitions will have the same name, so an identifier is given to distinguish
+them. But this can be cumbersome for the user to deal with, so before the graph
+is created the tool will attempt to remove this number unless it causes an
+ambiguity.
 
-    g.add_edges_from([
-        (func, dep)
-        for func, deps in definitions.items()
-        for dep in deps
-    ])
+\subsection{Building module tree}
 
-\subsection{Created module tree}
+Agda has a built-in feature that creates a DOT file containing all the modules
+in an Agda project, including the relationship with its dependency. This
+command is \textsf{agda --dependency-graph=[PATH] [Index File PATH]}. The DOT
+language describes how to create nodes and edges in a Graphviz graph. This is a
+standard format for graphs, NetworkX already has an extension that uses pydot,
+a Python library to read, write and create DOT files. The extension can import
+DOT files into NetworkX and write them back to DOT files, so once Agda
+generates the DOT file it can simply be imported into NetworkX where it can be
+used by the tool. This graph will then be 'pickled' and stored for future use.
 
 \begin{itemize}
 \item Explain what dot files are
@@ -176,6 +189,144 @@ edges to the graph.
 \end{itemize}
 
 \subsection{Queries}
+
+Most queries are defined similarly between the definition graph and the module
+graph but the module graph being acyclic means that it has different
+properties. 
+
+\subsubsection{Find}
+
+The nodes query gets all the nodes in the graph, it returns a list with all the
+definition names.
+
+\subsubsection{Find}
+
+The find query gets all the names that match the a pattern. The user provides a
+regex pattern to match on, and the query returns all the names that match.
+There is a -name option, if true then it will match the pattern to the name of
+the definition if it is not set then it matches on the whole name including the
+modules the definition it is stored in.
+
+\subsubsection{Dependencies}
+
+The dependencies query gets all the dependencies of a definition. Meaning what
+theorems does the definition need to be defined, either due to its type or what
+it uses to be proved true. Since this is a directed dependency graph and the
+definition's edges point towards its dependencies, the dependencies are the
+children of the definition. NetworkX provides a method for this:
+\textsf{graph.successors(definition)}.
+
+This query must also allow for finding the indirect dependencies of a
+definition, not only the direct dependencies. NetworkX provides a method for
+this as well: \textsf{nx.descendants(graph, definition)}. This will find the
+dependencies and the dependencies' dependencies recursively.
+
+\subsubsection{Dependents}
+
+The dependents query gets the dependents of a definition. The dependents would
+be the theorems that use this definition either in its type or its body. In
+this dependency graph, the dependants' edges point towards the definition so
+the parents of a definition are its dependants. NetworkX provides a method to
+get the parents and the parent's parent recursively which are
+\textsf{graph.predeccessor(definition)} and \textsf{nx.ancestors(graph,
+definition)} respectively.
+
+\subsubsection{Leafs}
+
+The leafs query gets the definitions that have no dependencies, meaning no
+children. This can be found by looping through each definition and checking how
+many outward edges it has with the command \textsf{graph.out\_degree(node)}, if none
+they are a leaf.
+
+\subsubsection{Module Dependencies}
+
+This query is exclusive to the definition graph. The module dependencies query
+will take the output of the dependencies query and only keep the module the
+definition was in. Although, this will cause repetitions from multiple
+definitions in the same module so they are added to a set to remove
+repetitions.
+
+\subsubsection{Module Dependants}
+
+This query is exclusive to the definition graph. The module dependants query will take the output of the dependents query and
+only keep the modules of dependents then added to a set to remove repetition.
+
+\subsubsection{Path To Leaf}
+
+The path to leaf query finds the longest path from a definition to a leaf. The
+definition query is used to get the leafs of the graph, then NetworkX has a
+method \textsf{nx.all\_simple\_paths(graph, definition, leafs)} which finds all
+the simple paths between two nodes. Simple paths are paths where no vertex is
+repeated. Once all the simple paths are found, they are measured for length and
+the biggest one is returned.
+
+The definition dependency graph isn't acyclic while the module dependency graph
+is, this will cause a difference in performance of this command. The definition
+graph also contains significantly more nodes that the modules graph, so the
+amount of paths grows quickly.
+
+\subsubsection{Roots}
+
+The roots query gets the definitions that aren't used by any other theorem, it
+doesn't have parents. This is found similarly to leafs but instead of checking
+for outwards edges, check for inward edges with the command:
+\textsf{graph.in\_degrees(node)} if it has none then its a root.
+
+\subsubsection{Use Count}
+
+The use count query gets the amount of times a definition is used. In other
+words, how many times does a definition appear as a dependency in other
+theorems. To find how many times a definition was used directly or indirectly
+is the same as counting the output the dependents query. This query either
+accepts a -top=n option where it will return the top n most used modules or the
+-d=definition option that finds how many times a specific definition was used.
+
+\subsubsection{Module Path To Leaf}
+
+This query is exclusive to the definition graph. The module path to leaf query
+gets the modules needed to get from one definition to another. This is done
+using the path to leaf query, but only keeping the modules of the path of
+definitions, repeats are removed.
+
+\subsubsection{Definition Type}
+
+This query is exclusive to the definition graph. The definition type query gets
+the type of the definition. This data is collected during the building of the
+definition graph then stored for each node.
+
+\subsubsection{Cycles}
+
+This query is exclusive to the definition graph. The cycles query gets the
+cycles in the graph, NetworkX provides a method to find simple cycles. Simple
+cycles are cycles where nodes aren't repeated, except for the start and end
+node. The method is: \textsf{nx.simple\_cycles(graph)}.
+
+\subsubsection{Save Tree}
+
+This query is exclusive to the definition graph. The save tree query converts
+the graph into the DOT format. NetworkX allows for this conversion using the
+pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path) }.
+
+\subsubsection{Path Between}
+
+The path between query finds the longest path between to definitions. NetworkX
+provides the method: \textsf{nx.all\_simple\_paths(graph, src, dst)}, were given
+two nodes it will return all the simple paths between them. Simple paths are
+paths that don't repeat nodes. After finding all the paths, it measures their
+lengths and returns the maximum length.
+
+\subsubsection{Level Sort}
+
+This query is exclusive to the module graph. The level sort query sorts the
+modules into levels based on how far they are from a leaf module. This is done
+recursively, where the level of a node is based on the maximum level of its
+children plus one.
+
+\subsubsection{Topological Sort}
+
+This query is exclusive to the module graph. The topological sort query sorts
+the modules into a topological order. Topological sort orders the modules into
+list where a module only depends on previous modules in the list.
 
 \begin{itemize}
 \item Explain how each query is implemented 
@@ -189,18 +340,110 @@ edges to the graph.
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
+The command line interface(CLI) will created using Python, as it is a popular
+language that most users will already have installed and most users will have
+some experience with. This makes it easier for users to add their own queries
+and make the changes they want. At first Clojure was considered to create this
+tool, as it is made to store graphs and make queries about them. However,
+Clojure requires Java, isn't popular and more difficult to create queries in.
+Also, NetworkX is in Python which would cause further issues. This makes Python
+the best choice.
+
+
+Python includes a library called argparse to create command line interfaces. In
+Python the values passed in to a program are sotred ins sys.argv, argparse will
+parse sys.argv based on the parsers defined. argparse will also create help and
+usage messages to help the user.
+
+There is a main parser and two sub parsers, one being for the definition
+queries and the other being for the module queries. The main parser decides
+whether the definition graph or module graph should be used. Then the contrl is
+handled to the respective sub parsers.
+
+The sub parsers are generated automatically from the methods that describe the
+queries. There are two files def\_cmds and mod\_cmds which store the functions
+that perform the queries. The functions in these file are read, and are used to
+automatically generate the CLI. This allows for greater flexibility as to add
+or change a query, only the function has to be changed and the interface will
+update by itself.
+
+This is done with the included Python library inspect, which can get the
+functions in a file, get their parameters and their documentation. The way the
+subparsers are created is by first getting all the functions names which will
+be the queries inside the cmd file. For each function, the parameters it
+requires will be the input the user has to give. If it is a position parameter
+then the user must give it, otherwise, it is an optional parameter that can be
+given by the user with -optionName. The inspect library can also read the
+documentation of a function, if a comment is made below a function it is read
+as documentation which is added to the help description of the query. The
+documentation for each parameter has to be done manually, where a dictionary
+with the parameter name and its description is used to give each option in the
+CLI a description.
+
+For example the function:
+
+\begin{lstlisting}
+def dependencies(g, d, indirect=False):
+    """Definitions that definition d depends on, -indirect will find the
+    indirect dependencies"""
+\end{lstlisting}
+
+becomes:
+
+\begin{lstlisting}
+agda\_tree definition -h
+usage: agda\_tree definition [-h]
+                            {dependencies}
+
+positional arguments:
+    dependencies        Definitions that definition d depends on, -indirect will find
+                        the indirect dependencies
+options:
+  -h, --help            show this help message and exit
+
+
+agda\_tree definition dependencies -h
+
+usage: agda\_tree definition dependencies [-h] [-g G] [-indirect] d
+
+positional arguments:
+  d           Definition name
+
+options:
+  -h, --help  show this help message and exit
+  -g G        Path to tree (Default: ~/.agda\_tree/def\_tree.pickle)
+  -indirect   Get indirectly connected nodes
+\end{lstlisting}
+
+Once the parser is created, the input given by the user is evaluated and the
+query can be run. To run the query the firs the appropriate graph is loaded
+depending on the user's choice, this must be created before. Since the name of
+the query is the same name as the function and Python allows for a function to
+be called with the name of the function as a string then the name of the query
+is used to find and run the function. The parameters of the function is the
+same as the input parsed from the user, so this can be passed in directly to
+the function. The output of the function is then printed to standard output.
+
+It is important for the output to be printed to the console, this lets the
+output be piped into other terminal applications and be used in conjunction
+with other commands.
+
 \begin{itemize}
 \item Explain why using python
 \item Explain what argparse is 
 \item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
 \item How the function parameters are added to the cli 
-\item Explain how dependencies are handle 
-\item Explain how this can be installed as a project using pip 
 \item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
-\item The tool automatically isntalls agdasexp 
 \item How clojure failed 
 \item How cycles are difficult andc ant find distance to leafe 
-\item Difficulty with diferenct directory names and index flags
+\end{itemize}
+
+\subsection{Installation}
+
+\begin{itemize}
+\item Explain how dependencies are handle 
+\item Explain how this can be installed as a project using pip 
+\item The tool automatically isntalls agdasexp 
 \end{itemize}
 
 \section{Agda Comp}
@@ -219,6 +462,7 @@ edges to the graph.
 \item Why use make files over other options 
 \item What the output of the algorithms is 
 \item How the output is used. 
+\item Difficulty with diferenct directory names and index flags
 \item The limitations of each algorithm, pros and cons 
 \item How they deal with multiple projects
 \end{itemize}

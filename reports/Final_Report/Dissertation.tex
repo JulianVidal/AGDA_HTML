@@ -3,6 +3,7 @@
 %% Added by me
 \usepackage{tabularray}
 \usepackage{tabularx}
+\usepackage{listings}
 
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -14,6 +15,19 @@
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{verbatim}
+
+\lstset{frame=tb,
+  language=Bash,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \fancyhf{}
 \pagestyle{fancy}

@@ -169,7 +169,7 @@ them. But this can be cumbersome for the user to deal with, so before the graph
 is created the tool will attempt to remove this number unless it causes an
 ambiguity.
 
-\subsection{Building module tree}
+\subsection{Building module tree} \label{sub: Building Module Tree}
 
 Agda has a built-in feature that creates a DOT file containing all the modules
 in an Agda project, including the relationship with its dependency. This
@@ -193,6 +193,8 @@ used by the tool. This graph will then be 'pickled' and stored for future use.
 Most queries are defined similarly between the definition graph and the module
 graph but the module graph being acyclic means that it has different
 properties. 
+
+\marginpar{Add an example of the command and a man page describing its options}
 
 \subsubsection{Find}
 
@@ -349,7 +351,6 @@ Clojure requires Java, isn't popular and more difficult to create queries in.
 Also, NetworkX is in Python which would cause further issues. This makes Python
 the best choice.
 
-
 Python includes a library called argparse to create command line interfaces. In
 Python the values passed in to a program are sotred ins sys.argv, argparse will
 parse sys.argv based on the parsers defined. argparse will also create help and
@@ -391,8 +392,8 @@ def dependencies(g, d, indirect=False):
 becomes:
 
 \begin{lstlisting}
-agda\_tree definition -h
-usage: agda\_tree definition [-h]
+agda_tree definition -h
+usage: agda_tree definition [-h]
                             {dependencies}
 
 positional arguments:
@@ -402,9 +403,9 @@ options:
   -h, --help            show this help message and exit
 
 
-agda\_tree definition dependencies -h
+agda_tree definition dependencies -h
 
-usage: agda\_tree definition dependencies [-h] [-g G] [-indirect] d
+usage: agda_tree definition dependencies [-h] [-g G] [-indirect] d
 
 positional arguments:
   d           Definition name
@@ -438,7 +439,112 @@ with other commands.
 \item How cycles are difficult andc ant find distance to leafe 
 \end{itemize}
 
+
+Here is the help page generated for the Agda Tree definition command
+
+\begin{lstlisting}
+usage: agda_tree definition [-h]
+                            {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses} ...
+
+positional arguments:
+  {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses}
+    create_tree         Creates definition dependency tree from file, -output option to
+                        set the path to store the tree
+    cycles              Cycles in graph
+    dependencies        Definitions that definition d depends on, -indirect will find
+                        the indirect dependencies
+    dependents          Definitions that depend on definition d, -indirect finds the
+                        indirect dependents
+    find                Find definition through regex
+    leafs               Definitions with no dependencies
+    module_dependencies
+                        Module dependencies of definition d, -indirect finds the
+                        indirect module dependencies
+    module_dependents   Modules that depend on definition d, -indirect also gets the
+                        indirect module dependents
+    module_path_to_leaf
+                        Longest path from definition d to any leaf only counting modules
+    nodes               List of definitions, if -c flag is set returns the number of
+                        nodes
+    path_between        Longest path between two definitions src and dst
+    path_to_leaf        Longest path from defintion d to any leaf
+    roots               Definitions that aren't used
+    save_tree           Save definition graph as pydot
+    type                Types of definition d
+    uses                Counts amount of uses per definition, sorted in descending
+                        order, if -d is passed in a definitino it will return the uses
+                        of that definition
+
+options:
+  -h, --help            show this help message and exit
+\end{lstlisting}
+
+Here is the help page generated for the Agda Tree module command
+\begin{lstlisting}
+usage: agda_tree module [-h]
+                        {complex_modules,create_tree,dependencies,dependents,find,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses} ...
+
+positional arguments:
+  {complex_modules,create_tree,dependencies,dependents,find,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
+    complex_modules     Get the top modules that have the most dependents
+    create_tree         Creates modules dependency tree from file
+    dependencies        Modules that module m imports
+    dependents          Modules that import module m
+    find                Find module through regex
+    leafs               Modules with no imports
+    lvl_sort            Level sort
+    nodes               List of modules
+    path_between        Longest path between two modules src and dst
+    path_to_leaf        Longest path from module m to any leaf
+    roots               Modules that aren't imported
+    topo_sort           Topological sort
+    uses                Counts how many times a module is imported, sorted in descending
+                        order
+
+options:
+  -h, --help            show this help message and exit
+\end{lstlisting}
+
 \subsection{Installation}
+
+For the tool to be distributed and easily installed by the users, it must be
+packaged. The project can be packaged using a \textsf{pyproject.toml} file
+which describes the metadata of the project. The Hatchling backend was chosen
+to create the distribution that lets the tool be installed in different
+computers. The project file also contains the dependencies needed along with
+the Python version, the user can use  this file to build the project and
+install it as a binary on their system.
+
+PIP is Python's package manager, this tool can install packages from an online
+repository or locally so with the project file installing this tool is as
+simple as running \textsf{pip install .} . However, for end-user applications it
+is better to install using PIPX which isolates the environemnt of the tool from
+the remaining system, making sure that the version of a package used in the a
+tool doesn't conflict with the package version in the system. PIPX can be
+installed by the user with their respective package manager.
+
+
+\subsection{Installing Agda S-Expression Extractor}
+
+The Agda S-expression extractor is an extension of the Agda language by Andrej
+Bauer \cite{andrej}. This extension isn't pre-built for a user to install
+through their package manager or manually. To make the tool easier to install,
+Agda Tree comes with a script that will download the Github repository and
+compile it. 
+
+This script clones the repository into a temporary directory and checks out the
+branch to the latest version of Agda (2.7.0.1). Using Stack a tool to build
+Haskell projects and manager their dependencies. Stack can be installed through
+most package manager, although Agda is written is Haskell and it is likely that
+Agda Developers already have this tool installed. The extractor repository
+contains a YAML file that describes the project that Stack will read and build
+the binaries for the extractor. The Agda binary is then coppied to the
+\textsf{~/.local/bin/} folder, which the user will likely already have in their
+environment path. 
+
+One the binary is in the path, it can be accessed through the command
+\textsf{agdasexp}, Agda Tree will recognize this command and use it to build
+the definition graph.
 
 \begin{itemize}
 \item Explain how dependencies are handle 
@@ -448,11 +554,50 @@ with other commands.
 
 \section{Agda Comp}
 
+Agda Comp automatically creates the module dependency graph as described in
+sub-section \ref{sub: Building Module Tree}, using Agda's built-in dependency
+graph generator. The dependency graph is passed into each strategy, the
+strategy will return the order in which to compile the modules. Given this
+order, a 'make generator' sub-system will create the index files and the make
+file to compile the modules in parallel following the order.
+
 \subsection{Strategies}
+
+Each strategy will take the module dependency graph as a NetworkX graph where
+each node is a module and each edge is an arrow starting the at the module and
+pointing towards its dependency. To compile a module, its dependencies must be
+compiled first. Also, two modules can't be compiled at the same time as this
+would be inefficient and could cause issues with two files being written at the
+same time. A valid strategy should compile all the modules in a project and do
+it safely so without compiling two modules at the same time. 
+
+The strategies output a 3D array describing the order in which to compile the
+modules and which modules can be compiled in parallel. An index is a collection
+of modules that have to be compiled together, not in parallel. If two indices
+have disjoint dependencies then those two indices can be compiled in parallel.
+The array returned by the strategies is a list of the order in which indices
+can be compiled together have to be compiled. For example, [[[module 1 , module
+2] , [module 3, module 4]], [[module 5]] , [[module 6, module 7]]. What this
+array shows is that "module 1" and "module 2" should be compiled together in an
+index, the same for "module 3", "module 4" and "module 6", "module 7". Then
+they themselves are within a list meaning that these to indices should be
+compiled in parallel. So another way to write the array is the following:
+[[index\_0\_0 , index\_0\_1], [index\_1\_0] , [index\_2\_0]]. Where index\_0\_0,
+index\_0\_1 are compiled in parallel, the index\_1\_0 is compiled by it self then
+index\_2\_0 is compiled by itself in that order.
+
+Once the strategies have generated this array, the make generator
+subsystem will create the index files that contain the modules and the make
+file that will represent the order in which to compile the indices.
+
+\subsubsection{Level Sort}
+
+\subsubsection{Level Disjoint}
 
 \begin{itemize}
 \item Explain each strategy 
 \item How it works 
+\item Explain how you find modified files
 \item What the motivation for it is 
 \item Implication on parallelization 
 \item How it was tested for safety and correctness 
@@ -467,7 +612,122 @@ with other commands.
 \item How they deal with multiple projects
 \end{itemize}
 
+\subsection{Creating The Make File And Indices}
+
+An index file is a module that imports other modules but has no definitions
+within it, this is done to type check all the modules in the index file,
+otherwise, each imported module would have to be type checked individually.
+This index files with be .lagda files, meaning the use a latex like syntax to
+write the module.
+
+Example index file from TypeTopology:
+
+\begin{lstlisting}
+    
+Generated Index file
+
+\begin{code}
+    {-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}
+    import MLTT.Universes
+    import MLTT.Natural-Numbers-Type
+    import InfinitePigeon.Logic
+    import Various.UnivalenceFromScratch
+\end{code}
+\end{lstlisting}
+
+It starts with some flags that tell the type checker to change its behaviour,
+for example not allowing the imports of incomplete modules. These flags are
+going to be different for all projects, but the user needs to input the index
+file containing all modules and the correct flags, so these options are scraped
+from there. Once the flags are added to the file, a code environment is opened
+where each module is imported. All the modules imported will be compiled when
+that index file. The environment closes and nothing else needs to be added.
+
+
+The index files are named based on the order in which they are compiled, so
+index files "index-0-0" and "index-0-1" are compiled first and in parallel,
+then "index-1-x" is compiled and so on. This allows for the Make file to be
+created more simply. 
+
+Example:
+
+\begin{lstlisting}
+all: _build/2.7.0.1/agda/source/index-1-2.agdai 
+
+_build/2.7.0.1/agda/source/index-0-0.agdai: 
+	agda ./source/index-0-0.lagda
+
+_build/2.7.0.1/agda/source/index-1-0.agdai: _build/2.7.0.1/agda/source/index-0-0.agdai 
+	agda ./source/index-1-0.lagda
+
+_build/2.7.0.1/agda/source/index-1-1.agdai: _build/2.7.0.1/agda/source/index-0-0.agdai 
+	agda ./source/index-1-1.lagda
+
+_build/2.7.0.1/agda/source/index-2-0.agdai: _build/2.7.0.1/agda/source/index-1-0.agdai _build/2.7.0.1/agda/source/index-1-1.agdai _build/2.7.0.1/agda/source/index-1-2.agdai _build/2.7.0.1/agda/source/index-1-3.agdai 
+	agda ./source/index-2-0.lagda
+\end{lstlisting}
+
+A makefile describes the commands that need to be run to compile a project.
+Makefiles are made of targets, how to build them and what pre-requisites for
+building. In the example, to compile "index-1-2.lagda" then "index-1-0.lagda"
+and "index-1-1" must be compiled first. The "all:" target is the entry point to
+compile the entire project meaning compiling the highest level index
+"index-2-0". Agda compiles modules into .agdai files, the Makefile will check
+if that .agdai file exists, if it doesn't it attempts to build it otherwise it
+will continue to the next prerequisite. If the Makefile contains two targets
+that don't depend on each other, it will automatically attempt to compile them
+in parallel. In this case "index-1-0.lagda" is compiled in parallel with
+"index-1-1.lagda".
+
+The make file is made naturally from the output of the compilation strategy,
+where the targets are the index files (named after their position in the array)
+and the prerequisites are the index files that came just before it in the
+array. Once all the indexes are in the Makefile, then the last index that needs
+to be compiled, that depends on all the previous modules is add to the "all"
+target. Note that the first index files have no dependencies, so there are no
+pre-requisites.
+
+
 \subsection{Command Line Interface}
+
+The command line interface (CLI) will be created in Python, it is a popular
+language that many people already have. Similarly to Agda Tree CLI Section
+\ref{sub:Agda Tree CLI}, arparse is used to cream the CLI. arprase will parse
+the sys.argv based on the parsers given and generate usage/help outputs.
+
+The parser accepts the path to the all modules index file of the project to
+compile as a positional parameter, then other options can be passed in to
+change what strategy is used.
+
+This is the help page for Agda Comp:
+\begin{lstlisting}
+usage: agda_comp [-h] [-c] [-j JOBS] [-s {level,levelb,normal,unsafe,disjoint}] module
+
+Fast Agda type checker
+
+positional arguments:
+  module                Path to module to compile
+
+options:
+  -h, --help            show this help message and exit
+  -c, --clean           Create dot file even if it already exists
+  -j, --jobs JOBS       Cores that can be used
+  -s, --strategy {level,levelb,normal,unsafe,disjoint}
+                        The strategy that will determine the compilation order, the
+                        choices are: level: Sorts modules into levels, each level
+                        increses the length to a leaf, lvl 5 are the modules that 5
+                        modules away from a leaf. Each level is then split into 4 files
+                        or the value given by --jobs levelb: Sorts modules by levels
+                        like in 'level' but instead each level is separated into n files
+                        with --jobs modules each normal: Normal compilation unsafe:
+                        Tries to compile all the modules with 4 concurrent index files
+                        or --jobs files disjoint: Finds the biggest modules that are
+                        disjoint, if none are found the leaves are removed then repeats
+\end{lstlisting}
+
+
+The 
+
 
 \begin{itemize}
 \item Explain why using python
@@ -479,6 +739,10 @@ with other commands.
 \item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
 \item How it is installed 
 \item How the user can use it
+\item How it creates the module dependency graph
+\item How it uses the strategies
+\item how it uses hte make and index files
+\item How the modification timestamp is checked to avoid recompiling files.
 \end{itemize}
 
 \begin{itemize}

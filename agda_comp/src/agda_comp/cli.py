@@ -135,7 +135,7 @@ def agda_compile(module, clean, jobs, strategy):
         print("Couldn't find project directory from project file")
 
     # Create dot file if it doesn't exist
-    dot_file = Path(f"/tmp/agda_tree_graph_{module.stem}.dot")
+    dot_file = Path(f"/tmp/agda_comp_graph_{module.stem}.dot")
 
     if not dot_file.exists() or clean:
         if clean:

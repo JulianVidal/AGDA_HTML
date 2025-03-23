@@ -102,5 +102,8 @@ def create_test(g, index_flags, dir, **kwargs):
     # print("levels", len(comp))
     # for level in comp:
     #     print("indices", len(level))
+    if "test" in kwargs:
+        return comp
+
     make_generator.generate_test(comp, index_flags, dir)
     return comp

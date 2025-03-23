@@ -31,6 +31,10 @@ def create_test(g, index_flags, cores=4, dir="tests/lvlb_4", **kwargs):
                 compile_order[-1].append(mods[start:end])
             start = end
 
+    if "test" in kwargs:
+        return compile_order
+
     # test_generator.generate_test(compile_order, dir)
     make_generator.generate_test(compile_order, index_flags, dir)
+
     return compile_order

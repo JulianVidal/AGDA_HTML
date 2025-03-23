@@ -1,3 +1,4 @@
+from pathlib import Path
 import pickle
 import unittest
 
@@ -208,7 +209,7 @@ example_path_between = set(
     [
         "InfinitePigeon.Addition.n-plus-zero-equals-n",
         "InfinitePigeon.Addition._+_",
-        "MLTT.Natural-Numbers-Type.ℕ.zero",
+        "MLTT.Natural-Numbers-Type.ℕ.succ",
         "MLTT.Natural-Numbers-Type.ℕ",
     ]
 )
@@ -217,7 +218,7 @@ example_path_to_leaf = set(
     [
         "InfinitePigeon.Addition.n-plus-zero-equals-n",
         "InfinitePigeon.Addition._+_",
-        "MLTT.Natural-Numbers-Type.ℕ.zero",
+        "MLTT.Natural-Numbers-Type.ℕ.succ",
         "MLTT.Natural-Numbers-Type.ℕ",
     ]
 )
@@ -240,16 +241,30 @@ example_type = set(
 
 example_uses = set(
     [
-        ("Agda.Primitive.Level", 40715),
-        ("MLTT.Universes._̇", 28226),
-        ("UF.PropTrunc.propositional-truncations-exist", 26555),
-        ("UF.FunExt.Fun-Ext", 22109),
-        ("MLTT.Identity-Type._＝_", 19108),
-        ("MLTT.Sigma-Type._,_", 14071),
-        ("MLTT.Sigma-Type.Σ.pr₁", 10690),
-        ("MLTT.Natural-Numbers-Type.ℕ", 9523),
-        ("Agda.Primitive._⊔_", 9109),
-        ("UF.Subsingletons.Prop-Ext", 8770),
+        ("Agda.Primitive.Level", 41392),
+        ("MLTT.Universes._̇", 28723),
+        ("UF.PropTrunc.propositional-truncations-exist", 27224),
+        ("UF.FunExt.Fun-Ext", 22778),
+        ("MLTT.Identity-Type._＝_", 19143),
+        ("MLTT.Sigma-Type._,_", 14142),
+        ("MLTT.Sigma-Type.Σ.pr₁", 10738),
+        ("Agda.Primitive._⊔_", 9537),
+        ("MLTT.Natural-Numbers-Type.ℕ", 9526),
+        ("UF.Subsingletons.Prop-Ext", 9439),
+    ]
+)
+example_uses_indirect = set(
+    [
+        ("Agda.Primitive.LevelUniv", 53098),
+        ("Agda.Primitive.Level", 53097),
+        ("MLTT.Universes._̇", 52542),
+        ("MLTT.Identity-Type._＝_", 50503),
+        ("Agda.Primitive._⊔_", 49984),
+        ("MLTT.Sigma-Type.Σ", 47896),
+        ("MLTT.Sigma-Type.Σ.pr₁", 47896),
+        ("MLTT.Sigma-Type.Σ.pr₂", 47896),
+        ("MLTT.Sigma-Type._,_", 47896),
+        ("MLTT.Identity-Type._＝_.refl", 47441),
     ]
 )
 
@@ -346,7 +361,7 @@ class TestDefinitionQueries(unittest.TestCase):
 
     def test_path_to_leaf(self):
         path = path_to_leaf(graph, "InfinitePigeon.Addition.n-plus-zero-equals-n")
-        self.assertEqual(set(path), example_path_to_leaf)
+        self.assertEqual(set(path), example_path_to_leaf, msg=f"{path}")
 
     def test_roots(self):
         r = roots(graph)
@@ -359,6 +374,10 @@ class TestDefinitionQueries(unittest.TestCase):
     def test_uses(self):
         u = uses(graph)
         self.assertEqual(set(u), example_uses)
+
+    def test_uses_indirect(self):
+        u = uses(graph, indirect=True)
+        self.assertEqual(set(u), example_uses_indirect)
 
     def test_uses_definition(self):
         u = uses(graph, d="InfinitePigeon.Addition.n-plus-zero-equals-n")

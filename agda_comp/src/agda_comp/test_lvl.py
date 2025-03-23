@@ -40,5 +40,9 @@ def create_test(g, index_flags, dir, cores=4, **kwargs):
     if compile_order[0] == [[]]:
         compile_order = compile_order[1:]
 
+    if "test" in kwargs:
+        return compile_order
+
     make_generator.generate_test(compile_order, index_flags, dir)
+
     return compile_order

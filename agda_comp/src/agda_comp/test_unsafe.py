@@ -1,6 +1,7 @@
-from . import make_generator
-from pathlib import Path
 import math
+from pathlib import Path
+
+from . import make_generator
 
 
 def create_test(g, index_flags, dir, cores=4, **kwargs):

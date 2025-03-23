@@ -75,7 +75,7 @@ def create_tree(project_file: str, output: str):
     old_definitions = dict(definitions)
     definitions = {}
 
-    for defi in definitions.keys():
+    for defi in old_definitions.keys():
         d = mappings.get(defi, defi)
 
         def_types[d] = def_types.get(d, [])

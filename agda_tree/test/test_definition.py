@@ -1,5 +1,5 @@
-from pathlib import Path
 import pickle
+import time
 import unittest
 
 from src.agda_tree.def_cmds import (
@@ -272,6 +272,13 @@ example_uses_definition = set([("InfinitePigeon.Addition.n-plus-zero-equals-n", 
 
 
 class TestDefinitionQueries(unittest.TestCase):
+    def setUp(self):
+        self.start = time.time()
+
+    def tearDown(self):
+        duration = time.time() - self.start
+        print("%s: %.3f" % (self.id(), duration))
+
     def test_create_tree(self):
         # Parsing needs to be unit tested as well
         pass
@@ -306,11 +313,11 @@ class TestDefinitionQueries(unittest.TestCase):
         self.assertEqual(set(deps), example_dependants_indirect)
 
     def test_find(self):
-        f = find(graph, "\_\+\_")
+        f = find(graph, r"_\+_")
         self.assertEqual(set(f), example_find)
 
     def test_find_name(self):
-        f = find(graph, "Addition.\_\+\_", name=True)
+        f = find(graph, r"Addition._\+_", name=True)
         self.assertEqual(set(f), set())
 
     def test_leafs(self):

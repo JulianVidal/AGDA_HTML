@@ -20,7 +20,7 @@ tool without any extra dependencies.
 
 \subsection{Functional Requirements}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+\begin{minipage}{\linewidth}
 The functional requirements are the features that the tool must implement to be
 usable and meet the expectation of users. For the tool to be easy to use, it
 must be able to automatically extract the dependency graph from any Agda
@@ -49,8 +49,9 @@ ID & Name                           & Description                               
 
 \marginpar{Add queries that weren't on mastodon what are on the cli}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
-Martin Escardo asked in Mathstodon for all the possible queries that this tool
+\begin{minipage}{\linewidth}
+
+Martin Escardo asked in Mathstodon \cite{mathstodon} for all the possible queries that this tool
 should implement. This tool will allow for the querying of both the definition
 and module dependency graphs, the queries that can be made on the definition
 graph are the following: 
@@ -81,7 +82,7 @@ ID & Name                & Description                                          
 \end{table}
 \end{minipage}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+\begin{minipage}{\linewidth}
 The queries that can be made on the module are mostly the same the module graph
 is a directed acyclic graph (DAG) giving it special properties. The queries are
 the following:
@@ -109,7 +110,7 @@ the following:
 
 \subsection{Non-Functional Requirements}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+\begin{minipage}{\linewidth}
 Since Agda Tree is meant to be a tool that slots into the workflow of
 developers, it is critical for it to be easy to use and performant. The tool be
 plug and play, working on a variety of projects regardless of size. To not
@@ -145,7 +146,7 @@ in which the modules should be type-checked.
 
 \subsection{Functional Requirements}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+\begin{minipage}{\linewidth}
 
 The functional requirements for Agda comp are the features that the users
 needs, to compile their own projects with minimal hassle. This tool must work
@@ -178,7 +179,7 @@ concurrently.
 
 \section{Non-Functional Requirements}
 
-\begin{minipage}{\linewidth\fboxsep\fboxrule}
+\begin{minipage}{\linewidth}
 Agda Comp is meant to be an additional tool that slots in next to Agda
 seamlessly, so it is important that users that already have Agda don't need
 extra setup. The tool should be easy to use and work with any Agda project.

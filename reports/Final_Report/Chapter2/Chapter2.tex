@@ -65,7 +65,7 @@ type-checking.
 
 However, this project doesn't aim to optimize the type checking algorithm
 themselves, rather, find independent modules that can be type checked together.
-This is aligns more close with the following paper that explores reducing FPGA
+This aligns more close with the following paper that explores reducing FPGA
 compile time by changing from a monolithic compilation style to compiling
 separate blocks in parallel \cite{FPGA}.
 
@@ -76,6 +76,50 @@ that attempt to tackle this problem by following different assumptions as shown
 by Yves Robert \cite{scheduling}.
 
 \marginpar{Add section explaining s-expressions}
+
+
+\section{MLFMF: Data Sets for Machine Learning for Mathematical Formalization}
+
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{p{5cm}}
+    \texttt{(:entry}\newline
+    \hphantom{oo}\texttt{(:name} $\mathbb{N}$\texttt{)}\newline
+    \hphantom{oo}\texttt{(:type (...))}\newline
+    \hphantom{oo}\texttt{(:data}\newline
+    \hphantom{oooo}\texttt{(...)}\newline
+    \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.zero)}\newline
+    \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.suc)}\newline
+    \hphantom{oo}\texttt{)}\newline
+    \texttt{)}
+  \end{tabular}
+  \caption{Example s-expression from MLFMF Figure 1(b) \cite{bauer2023mlfmf}}
+  \label{fig:example-sexp}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \Vertex[x=0, size=0.8, label={Entry}, RGB, color={128,200,128}]{e}
+    \Vertex[x=-2, y=-0.8, size=0.8, label={name}, RGB, color={75,175,128}]{n}
+    \Vertex[x=0, y=-2, size=1.2, label={declaration}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{d}
+    \Vertex[x=2.25, y=-0.6, style={draw=none}, RGB, color={255, 255, 255}]{fake}
+    \Vertex[x=2, y=-2, size=1, label={body}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{b}
+    \Edge[](e)(n)
+    \Edge[](e)(d)
+    \Edge[](e)(fake)
+  \end{tikzpicture}
+  \caption{Graph representing s-expression entry tag containig a name,
+  delcration and body from MLFMF Figure 3 \cite{bauer2023mlfmf}}
+  \label{fig:sexp-ast}
+\end{figure}
+
+\begin{itemize}
+\item What the paper is about 
+\item How the paper uses s-expressions 
+\item What the s-expressions say 
+\item Add a graphic of the s-expression structure from the arxiv paper, well cited
+\end{itemize}
 
 \section{Conclusion}
 

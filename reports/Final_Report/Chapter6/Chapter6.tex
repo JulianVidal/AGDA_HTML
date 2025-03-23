@@ -21,9 +21,9 @@ for the definition graph and the queries described in table
 % Likely omitted for the Project Proposal, though should mention your proposed
 % implementation technologies somewhere.
 
-\begin{itemize}
-\item File structure and project structure
-\end{itemize}
+% \begin{itemize}
+% \item File structure and project structure
+% \end{itemize}
 
 \section{Agda Tree}
 
@@ -126,19 +126,19 @@ This parsing procedure is done in parallel, where each file is parsed in its
 own thread and the dictionary of all the parsed files is combined together by
 adding all the key value pairs into a bigger dictionary.
 
-\begin{itemize}
-    \item How the s-expression are extracted
-    \item How the extractor is installed
-    \item how the s-expressions are parsed
-    \item What are s-expressions and how they work
-    \item How to get the s-expression definition and relationships
-    \item Explains how the tag works in this context i.e. name are definitions 
-    \item How they are imported into networkx and became a tree
-    \item Explain how it is stored pickled 
-    \item Handling issues with recursion 
-    \item Issue with the naming of the defitions 
-    \item issue with where clause
-\end{itemize}
+% \begin{itemize}
+%     \item How the s-expression are extracted
+%     \item How the extractor is installed
+%     \item how the s-expressions are parsed
+%     \item What are s-expressions and how they work
+%     \item How to get the s-expression definition and relationships
+%     \item Explains how the tag works in this context i.e. name are definitions 
+%     \item How they are imported into networkx and became a tree
+%     \item Explain how it is stored pickled 
+%     \item Handling issues with recursion 
+%     \item Issue with the naming of the defitions 
+%     \item issue with where clause
+% \end{itemize}
 
 \subsubsection{Building definition graph}
 
@@ -181,12 +181,12 @@ DOT files into NetworkX and write them back to DOT files, so once Agda
 generates the DOT file it can simply be imported into NetworkX where it can be
 used by the tool. This graph will then be 'pickled' and stored for future use.
 
-\begin{itemize}
-\item Explain what dot files are
-\item Explain how agda extracts it
-\item Explain how it is imported into networkx
-\item Explain how it is stored pickled
-\end{itemize}
+% \begin{itemize}
+% \item Explain what dot files are
+% \item Explain how agda extracts it
+% \item Explain how it is imported into networkx
+% \item Explain how it is stored pickled
+% \end{itemize}
 
 \subsection{Queries}
 
@@ -330,15 +330,15 @@ This query is exclusive to the module graph. The topological sort query sorts
 the modules into a topological order. Topological sort orders the modules into
 list where a module only depends on previous modules in the list.
 
-\begin{itemize}
-\item Explain how each query is implemented 
-\item Explain what the english definition means for the graph 
-\item Explain what the technical challenges could be 
-\item Explain the algorithms that were used 
-\item Explain the properties of each graph and how that limits the queries 
-\item Explain the limitations of the algorithms used if any 
-\item Design on how the queries are executed using argparse
-\end{itemize}
+% \begin{itemize}
+% \item Explain how each query is implemented 
+% \item Explain what the english definition means for the graph 
+% \item Explain what the technical challenges could be 
+% \item Explain the algorithms that were used 
+% \item Explain the properties of each graph and how that limits the queries 
+% \item Explain the limitations of the algorithms used if any 
+% \item Design on how the queries are executed using argparse
+% \end{itemize}
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
@@ -429,15 +429,15 @@ It is important for the output to be printed to the console, this lets the
 output be piped into other terminal applications and be used in conjunction
 with other commands.
 
-\begin{itemize}
-\item Explain why using python
-\item Explain what argparse is 
-\item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
-\item How the function parameters are added to the cli 
-\item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
-\item How clojure failed 
-\item How cycles are difficult andc ant find distance to leafe 
-\end{itemize}
+% \begin{itemize}
+% \item Explain why using python
+% \item Explain what argparse is 
+% \item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
+% \item How the function parameters are added to the cli 
+% \item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
+% \item How clojure failed 
+% \item How cycles are difficult andc ant find distance to leafe 
+% \end{itemize}
 
 
 Here is the help page generated for the Agda Tree definition command
@@ -546,11 +546,11 @@ One the binary is in the path, it can be accessed through the command
 \textsf{agdasexp}, Agda Tree will recognize this command and use it to build
 the definition graph.
 
-\begin{itemize}
-\item Explain how dependencies are handle 
-\item Explain how this can be installed as a project using pip 
-\item The tool automatically isntalls agdasexp 
-\end{itemize}
+% \begin{itemize}
+% \item Explain how dependencies are handle 
+% \item Explain how this can be installed as a project using pip 
+% \item The tool automatically isntalls agdasexp 
+% \end{itemize}
 
 \section{Agda Comp}
 
@@ -594,23 +594,23 @@ file that will represent the order in which to compile the indices.
 
 \subsubsection{Level Disjoint}
 
-\begin{itemize}
-\item Explain each strategy 
-\item How it works 
-\item Explain how you find modified files
-\item What the motivation for it is 
-\item Implication on parallelization 
-\item How it was tested for safety and correctness 
-\item Why using index files, to gropu these modules 
-\item How the algorithm is safe and correct 
-\item How make files work 
-\item Why use make files over other options 
-\item What the output of the algorithms is 
-\item How the output is used. 
-\item Difficulty with diferenct directory names and index flags
-\item The limitations of each algorithm, pros and cons 
-\item How they deal with multiple projects
-\end{itemize}
+% \begin{itemize}
+% \item Explain each strategy 
+% \item How it works 
+% \item Explain how you find modified files
+% \item What the motivation for it is 
+% \item Implication on parallelization 
+% \item How it was tested for safety and correctness 
+% \item Why using index files, to gropu these modules 
+% \item How the algorithm is safe and correct 
+% \item How make files work 
+% \item Why use make files over other options 
+% \item What the output of the algorithms is 
+% \item How the output is used. 
+% \item Difficulty with diferenct directory names and index flags
+% \item The limitations of each algorithm, pros and cons 
+% \item How they deal with multiple projects
+% \end{itemize}
 
 \subsection{Creating The Make File And Indices}
 
@@ -728,7 +728,7 @@ options:
 There are three options, clean, jobs and strategy. By default, the tool re-uses
 the module dependency graph and removes already compiled modules from the
 graph. The clean option generates the module dependency graph again and deletes
-the _build directory which contains the compiled modules. Note that the way the
+the \_build directory which contains the compiled modules. Note that the way the
 Agda Comp finds if a module is already compiled and hasn't changes is by
 checking whether its corresponding .agdai file exists and if the the module
 wasn't modified after the creation of the .agdai file. If a module was modified
@@ -756,6 +756,7 @@ and use the levelb compilation strategy.
 agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.lagda"
 \end{lstlisting}
 
+\marginpar{Write about switching from individual modules to index files for performance}
 
 \subsection{Installation}
 
@@ -766,21 +767,21 @@ other metadata. This packages the projet such that it can be installed through
 PIP, altough PIPX is recommended to install end-user applications as PIPX will
 isolate the depencies of Agda Comp from the packages of the user.
 
-\begin{itemize}
-\item Explain why using python
-\item Explain what argparse is 
-\item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
-\item How the function parameters are added to the cli 
-\item Explain how dependencies are handle 
-\item Explain how this can be installed as a project using pip 
-\item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
-\item How it is installed 
-\item How the user can use it
-\item How it creates the module dependency graph
-\item How it uses the strategies
-\item how it uses hte make and index files
-\item How the modification timestamp is checked to avoid recompiling files.
-\end{itemize}
+% \begin{itemize}
+% \item Explain why using python
+% \item Explain what argparse is 
+% \item Explain how the functions are stored in a file and the methods are read into for extensibility, one responsibility principle and open close principle.
+% \item How the function parameters are added to the cli 
+% \item Explain how dependencies are handle 
+% \item Explain how this can be installed as a project using pip 
+% \item Explain why it is good to be a cli tool, as it can be piped and used like any other command (wz, fzf, cp) 
+% \item How it is installed 
+% \item How the user can use it
+% \item How it creates the module dependency graph
+% \item How it uses the strategies
+% \item how it uses hte make and index files
+% \item How the modification timestamp is checked to avoid recompiling files.
+% \end{itemize}
 
 \section{Conclusion}
 
@@ -805,14 +806,14 @@ used. The tool is easy to install with PIPX and doesn't require any external
 dependencies that can't be installed through PIP.
 
 
-\begin{itemize}
-\item Unit testing and integration testing 
-\item Documentation and version control strategies
-\end{itemize}
+% \begin{itemize}
+% \item Unit testing and integration testing 
+% \item Documentation and version control strategies
+% \end{itemize}
 
-\begin{itemize}
-\item Explain the s-expressions extractor
-\item How they are loaded into python 
-\item How they are stored for future use 
-\item How the compilation uses graph dot
-\end{itemize}
+% \begin{itemize}
+% \item Explain the s-expressions extractor
+% \item How they are loaded into python 
+% \item How they are stored for future use 
+% \item How the compilation uses graph dot
+% \end{itemize}

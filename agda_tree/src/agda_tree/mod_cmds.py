@@ -45,6 +45,7 @@ def create_tree(project_file, output=None):
 
     g = nx.relabel_nodes(g, mapping)
     g.remove_node("Agda.Primitive")
+    g.remove_node("AllModulesIndex")
 
     output = output or MOD_TREE
     pickle.dump(g, open(Path(output).expanduser(), "wb"))
@@ -61,8 +62,12 @@ def find(g, pattern):
 
 
 # Get all modules
-def nodes(g):
-    """List of modules"""
+def nodes(g, count=False):
+    """List of modules, if -c flag is set returns the number of nodes"""
+    ns = g.nodes()
+    if count:
+        print(f"Node count: {len(list(ns))}")
+        return None
     return g.nodes()
 
 
@@ -115,15 +120,25 @@ def roots(g):
 
 # list *all* modules by the number of times they are imported. We can consider
 # this directly or indirectly.
-def uses(g, indirect=False):
-    """Counts how many times a module is imported, sorted in descending order"""
+def uses(g, d=None, indirect=False, top=10):
+    """Counts amount of uses per module, sorted in descending order, if -d
+    is passed in a definition it will return the uses of that module. Can
+    be considered direct and indirectly with option -indirect"""
+    if d is not None and d not in g:
+        return ["Definition not found"]
+
+    top = int(top)
     if not indirect:
+        if d is not None:
+            return [(d, g.in_degree(d))]
         count = {n: g.in_degree(n) for n in g.nodes()}
     else:
+        if d is not None:
+            return [(d, len(nx.ancestors(g, d)))]
         count = {n: len(nx.ancestors(g, n)) for n in g.nodes()}
 
-    # Sorts in ascending order, lowest to highest
-    return sorted(count, key=lambda k: count[k])
+    # Sorts in descending order, highest to lowest
+    return list(sorted(count.items(), key=lambda k: k[1], reverse=True))[:top]
 
 
 def topo_sort(g):
@@ -134,11 +149,3 @@ def topo_sort(g):
 def lvl_sort(g):
     """Level sort"""
     return [",".join(ms) for ms in level_sort.levels(g)]
-
-
-def complex_modules(g, top=10):
-    """Get the top modules that have the most dependents"""
-    top = int(top)
-    module_lengths = [(mod, len(list(nx.ancestors(g, mod)))) for mod in g.nodes()]
-    modules = sorted(module_lengths, key=lambda t: t[1], reverse=True)[:top]
-    return [mod[0] for mod in modules]

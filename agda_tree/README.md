@@ -420,10 +420,10 @@ The maximum module path to a leaf, note that for complex definitions this
 command might never finish running
 
 ```bash
-agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n 14"
+agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 # Output:
-# "InfinitePigeon.Equality"
+# "MLTT.Natural-Numbers-Type"
 # "InfinitePigeon.Addition"
 ```
 

@@ -6,6 +6,8 @@ import sys
 from inspect import getdoc, getmembers, isfunction, signature
 from shutil import which
 
+from networkx.exception import NetworkXError
+
 from . import def_cmds, mod_cmds
 from .agdasexp_installer import install_agdasexp
 from .def_cmds import DEF_TREE

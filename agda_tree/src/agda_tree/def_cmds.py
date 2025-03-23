@@ -54,6 +54,42 @@ def create_tree(project_file: str, output: str):
     print()
     print("Building graph")
 
+    # Remove the number from definition if it doesn't cause ambiguity
+    count = {}
+    mappings = {}
+    for n in definitions.keys():
+        name = n.split(" ")[0]
+        count[name] = count.get(name, [n, 0])
+        count[name][1] += 1
+
+    for name, [n, c] in count.items():
+        if c == 1:
+            mappings[n] = name
+
+    old_def_types = dict(def_types)
+    def_types = {}
+
+    old_def_to_mod = dict(def_to_mod)
+    def_to_mod = {}
+
+    old_definitions = dict(definitions)
+    definitions = {}
+
+    for defi in definitions.keys():
+        d = mappings.get(defi, defi)
+
+        def_types[d] = def_types.get(d, [])
+        for t in old_def_types[defi]:
+            def_types[d].append(mappings.get(t, t))
+
+        def_to_mod[d] = old_def_to_mod[defi]
+
+        definitions[d] = definitions.get(d, [])
+        for dep in old_definitions[defi]:
+            definitions[d].append(mappings.get(dep, dep))
+
+    # nx.relabel_nodes(g, mappings, copy=False)
+
     # Turns data into networkx graph
     g = nx.DiGraph()
     g.add_nodes_from(
@@ -66,20 +102,6 @@ def create_tree(project_file: str, output: str):
     g.add_edges_from(
         [(func, dep) for func, deps in definitions.items() for dep in deps]
     )
-
-    # Remove the number from definition if it doesn't cause ambiguity
-    count = {}
-    mappings = {}
-    for n in g.nodes:
-        name = n.split(" ")[0]
-        count[name] = count.get(name, [n, 0])
-        count[name][1] += 1
-
-    for name, [n, c] in count.items():
-        if c == 1:
-            mappings[n] = name
-
-    nx.relabel_nodes(g, mappings, copy=False)
 
     print()
     print(f"Definitions given: {len(definitions.keys())}")
@@ -105,7 +127,6 @@ def find(g, pattern, name=False):
     matches = []
     for n in list(g.nodes):
         stem = n.split(" ")[0].split(".")[-1]
-        print(stem)
         if re.search(pattern, stem if name else n) is not None:
             matches.append(n)
     return matches

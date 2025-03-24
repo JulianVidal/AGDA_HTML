@@ -12,7 +12,7 @@ created manually and needs to be designed.
 
 Agda Comp is a simpler tool, as the complexity comes from testing the different
 compilation strategies. It must create the module dependency graph, apply the
-given strategy using the parameters provided the user and run the compilation
+given strategy using the parameters provided by the user, and run the compilation
 order. 
 
 
@@ -23,12 +23,11 @@ order.
 Agda Tree is a command line interface that allows the user to interact with the
 module and definition graph. The first command that has to be designed is how
 the CLI will create both dependency graphs. Figure \ref{fig:Agda Create Tree
-Diagram} shows how the user will interact with the CLI to create the garphs.
-The user provides the Agda file that they want to analyse, normally this would
+Diagram} shows how the user will interact with the CLI to create the graphs.
+The user provides the Agda file that they want to analyze, normally this would
 be the entire project. The "Everything Index File" is the file that imports all
-the modules in a project, this allows the user to analyse the entire project.
-This is standard in Agda, as this is the only way to get a file that type
-checks the whole project. Depending on the Agda project, this file will be
+the modules in a project, this allows the user to analyze the entire project.
+This is standard in Agda, as this is the only way to get a file that type-checks the whole project. Depending on the Agda project, this file will be
 generated automatically or by the project maintainers.
 \begin{figure}[H]
     \centering
@@ -234,3 +233,4 @@ in chapter \ref{ch:implementation}.
 % system that reads s-expressions and turns it into a graph \item A system that
 % queries that graph \item A way to store the graph for future use
 % \end{itemize}
+

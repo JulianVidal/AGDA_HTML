@@ -1420,3 +1420,20 @@ In the design, add the examples of the queries, and add a man page of the tool,
 Write to Rami about my supervisor suggested that I make my github repository
 available to to you. Mention that the project started on github and move to
 gitlab. Section about how to use cli.
+
+# 21 - Pre-Meeting Report
+
+Finished the remaining sections, implementation, test, evaluation and
+conclusion. The sub-section naming was changed for clarity, and the Mathstodon
+thread is cited. The literature review contains a section summarizing the MLFMF
+paper along with their explanation and use of s-expressions. The design section
+has a sub-section describing the compilation strategies and the implementation
+goes over how the CLI applies those strategies.
+
+The evaluation section contains a section about limitations of each cli and the
+conclusion has a section about improvements and future work. In the
+implementation section details about each query and the corresponding command
+were added. The usage text from the CLI was also added to the report.
+
+# 21 - Post-Meeting Report
+# 21 - Notes

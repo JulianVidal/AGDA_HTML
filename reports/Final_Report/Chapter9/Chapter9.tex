@@ -11,7 +11,7 @@ expected behaviour.
 
 Agda Tree extracts the definitions and their relationships from any Agda
 project, uses Agda to generate the module dependency graph and imports them
-into a NetworkX graph. It implements several methods that analyze this
+into a NetworkX graph. It implements several methods that analyse this
 graph for information, meeting all the queries outlined for the definition
 graph in Table \ref{tbl:Definition Graph Queries} and the module graph in Table
 \ref{tbl:Module Graph Queries}. These methods are then exposed through a
@@ -28,7 +28,7 @@ complete in under 2 seconds regardless of project size, but queries that
 require finding a path in the graph can take far longer depending on the size
 of the graph. The CLI is documented in the README and the \textsf{--help}
 options in the command, making the commands easier to learn and understand.
-Since Agda is mainly developed in macOS and Linux, the tools was tested in WSL
+Since Agda is mainly developed in macOS and Linux, the tools were tested in WSL
 and a MacBook Air without issues. If the CLI is provided with bad inputs it
 returns an error from NetworkX explaining what the issue was. The code base is
 documented through READMEs and unit tested allowing for better maintainability

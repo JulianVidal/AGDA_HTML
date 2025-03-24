@@ -6,7 +6,7 @@ The implementation of Agda Tree must create a dependency definition graph from
 an Agda project and allow the user to query this graph through a CLI. First, a
 subsystem that turns Agda projects into a dependency graph needs to be
 implemented. Then, the CLI that will let the user query the graph is
-implemented. These subsystem must meet the functional requirements described in
+implemented. These subsystems must meet the functional requirements described in
 \ref{tbl:Agda Tree Functional Requirements} and the non-functional requirements
 described in table \ref{tbl:Agda Tree Non-Functional Requirements}. The CLI
 must also implement all the queries described in table \ref{tbl:Definition Graph Queries} 
@@ -37,28 +37,28 @@ definition dependency graph.
 
 
 At first, a possible option was using the HTML files that Agda can create.
-These HTML files display and format the code with colors and links. This is
-vital because the HTML files would style the text differently depending if the
-text was a definition, keyword, type, operator. Also, all the used definitions
-were hyperlinks which connected back to the module that defined them. With a
+These HTML files display and format the code with colours and links. This is
+vital because the HTML files would style the text differently depending on if the
+text was a definition, keyword, type, or operator. Also, all the used definitions
+were hyperlinks that connected back to the module that defined them. With a
 method to find the definitions in a file given the styling and finding the
 dependencies of that definition given the hyperlinks, a graph could be created.
 The main issue was parsing the HTML files, finding which keywords fell into
-which definition was quite difficult and using an Agda parser might have been
-neccesary.
+which definition was quite difficult, and using an Agda parser might have been
+necessary.
 
-The solution is not to use the HTML files but use s-expressions. The
+The solution is not to use the HTML files but to use s-expressions. The
 s-expressions are the same way the HTML files are with the same information,
 except s-expressions are easier to parse. However, Agda doesn't natively
 generate s-expressions but Andrej Bauer, Matej Petković, Ljupčo Todorovski in
 their paper "MLFMF: Data Sets for Machine Learning for Mathematical
 Formalization" \cite{bauer2023mlfmf} created an s-expression extractor. The
-s-expression extractor is in the Agda backend and it will convert Agda files into
+s-expression extractor is in the Agda backend, and it will convert Agda files into
 s-expressions \cite{andrej}.
 
 \subsubsection{S-expression extractor}
 
-S-expressions are a notation that is used in Lisp programming languges, it
+S-expressions are a notation that is used in Lisp programming languages, it
 represents programs and data as tree-like data structures \cite{sexp}. The grammar for the
 s-expressions varies, but for this case the s-expression are of the form: (:tag
 sexp-1 sexp-2 ... sexp-n). Where sexp-n can be a number, a string or another
@@ -66,7 +66,7 @@ s-expression and the tag is a keyword that describes the content of the
 s-expression. The "MLFMF" paper describes in more detail
 the structure of the s-expressions with respect to Agda \cite{bauer2023mlfmf}.
 
-Here is a brief summary of the relevant s-expressions that are need for the implementation:
+Here is a brief summary of the relevant s-expressions that are needed for the implementation:
 
 \begin{table}[H]
 \centering
@@ -87,43 +87,43 @@ sexp                              & Description                                 
 
 Note that the s-expression extractor is a special version of Agda with an
 extended back-end, which means the user has to compile this Agda version and
-add it to their path. This will be handled by the cli described section
-\ref{sub:Agda Tree CLI} to make sures the usability non-fuction requirement is
+add it to their path. This will be handled by the CLI described section
+\ref{sub:Agda Tree CLI} to make sure the usability non-functional requirement is
 met from Table \ref{tbl:Agda Tree Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}
 
 The :body and :type tags contain other tags like :apply, :sort, :max, etc. That
-describe the definition in full detail but this information is not needed. The
-information needed is the definitions in a project and what the dependencies of
+describe the definition in full detail, but this information is not needed. The
+information needed is the definitions in a project and the dependencies of
 those definitions which means mainly the :name and :entry tags are of interest.
 
 \marginpar{Should I add the figure in MLFML that describes the s-expressions}
 
 The s-expressions are compiled into a directory, this project is implemented in
 Python so the library sexpdata will be used to load the raw s-expression files
-into Python lists. Theses lists will be analyzed recursively, finding the
+into Python lists. These lists will be analysed recursively, finding the
 relevant tags. The strategy is to find all the :entry tags in the file, each
 :entry tag represents a definition as described in Table \ref{tbl:sexp}. For
 each :entry tag, find all the :name tags contained inside. With this
-information create a dictionary were the key is the definition name and the
+information create a dictionary where the key is the definition name and the
 value will be a list of the :name tags. Since :entry tags describe each
 definition and the :name tags describe what definition is being used, the
 resulting dictionary will contain all the definitions along with their
 dependencies. To find the necessary tags a \textsf{find\_exp} function is
-implemented that recursively finds all occurences of a given tag within an
+implemented that recursively finds all occurrences of a given tag within an
 s-expression.
 
 The s-expression extractor writes an s-expression file for each module, so the
-mentioned dictionary is created for each file and combined together into one
+mentioned dictionary is created for each file and combined into one
 big dictionary that has all the definitions from the entire project. The same
 process will be repeated but instead of looking for :name tags inside the
-entire :entry tag instead, find all the :name tags in the :type tag. Store this
+entire :entry tag, find all the :name tags in the :type tag. Store this
 in a dictionary with the definition as a key and the :names found in :tag as
 the value. This provides the information about the type of the definition.
 
 This parsing procedure is done in parallel, where each file is parsed in its
-own thread and the dictionary of all the parsed files is combined together by
+own thread and the dictionary of all the parsed files is combined by
 adding all the key value pairs into a bigger dictionary.
 
 % \begin{itemize}
@@ -143,7 +143,7 @@ adding all the key value pairs into a bigger dictionary.
 \subsubsection{Building definition graph}
 
 The dictionary with definitions as keys and their dependencies as values,
-already form the definition dependency graph. Which can be imported to the
+already forms the definition dependency graph. Which can be imported into the
 NetowrkX Python library. This library efficiently creates and queries graphs,
 it contains many useful features and performance benefits. NetworkX is a widely
 used tool, so a user can easily become familiar with its use and implement their
@@ -152,18 +152,18 @@ own queries.
 The graph is first initialized with the command \textsf{nx.Digraph()} then all
 the definitions are added as nodes with the command
 \textsf{graph.add\_nodes\_from}, where the key values of the dictionary from
-the parsing is given. Lastly the edges are added with the command
+the parsing are given. Lastly, the edges are added with the command
 \textsf{graph.add\_edges\_from} where an array is passed in containing tuples
 where each tuple has the key and its dependency. Note that when creating the
-edge the definition is on the first and its the depency is second, since this
+edge the definition is the first, and it's the decency is second, since this
 is a directed graph this will cause the direction of the edge to be from the
 definition to its dependency.  Once generated it will be 'pickled', a Python
-library that serializes Python objects, the trees will be serialized and store
+library that serializes Python objects, the trees will be serialized and stored
 for future use. 
 
-When parsing the s-expression files, the definitions will have its name with
+When parsing the s-expression files, the definitions will have their names with
 its module path along with an identifier number. Due to the way the
-s-expressions are extracted and the way Agda works sometimes two distinct
+s-expressions are extracted and the way Agda sometimes works two distinct
 definitions will have the same name, so an identifier is given to distinguish
 them. But this can be cumbersome for the user to deal with, so before the graph
 is created the tool will attempt to remove this number unless it causes an
@@ -192,7 +192,8 @@ used by the tool. This graph will then be 'pickled' and stored for future use.
 
 Most queries are defined similarly between the definition graph and the module
 graph but the module graph being acyclic means that it has different
-properties. 
+properties. These queries can be explored in further detail in its repository
+\cite{agda_html}.
 
 \subsubsection{Create Tree}
 
@@ -219,7 +220,7 @@ agda_tree definition nodes -c
 
 \subsubsection{Find}
 
-The find query gets all the names that match the a pattern. The user provides a
+The find query gets all the names that match the pattern. The user provides a
 regex pattern to match on, and the query returns all the names that match.
 There is a -name option, if true then it will match the pattern to the name of
 the definition if it is not set then it matches on the whole name including the
@@ -232,9 +233,9 @@ agda_tree definition find "\_\+\_" -name
 
 \subsubsection{Dependencies}
 
-The dependencies query gets all the dependencies of a definition. Meaning what
-theorems does the definition need to be defined, either due to its type or what
-it uses to be proved true. Since this is a directed dependency graph and the
+The dependencies query gets all the dependencies of a definition. This means what
+theorems do the definition need to be defined, either due to their type or what
+it used to be proved true. Since this is a directed dependency graph and the
 definition's edges point towards its dependencies, the dependencies are the
 children of the definition. NetworkX provides a method for this:
 \textsf{graph.successors(definition)}.
@@ -252,8 +253,8 @@ agda_tree definition dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals
 \subsubsection{Dependents}
 
 The dependents query gets the dependents of a definition. The dependents would
-be the theorems that use this definition either in its type or its body. In
-this dependency graph, the dependants' edges point towards the definition so
+be the theorems that use this definition either in their type or their body. In
+this dependency graph, the dependants' edges point towards the definition, so
 the parents of a definition are its dependants. NetworkX provides a method to
 get the parents and the parent's parent recursively which are
 \textsf{graph.predeccessor(definition)} and \textsf{nx.ancestors(graph,
@@ -279,8 +280,8 @@ agda_tree definition leafs
 
 This query is exclusive to the definition graph. The module dependencies query
 will take the output of the dependencies query and only keep the module the
-definition was in. Although, this will cause repetitions from multiple
-definitions in the same module so they are added to a set to remove
+the definition was in. Although, this will cause repetitions from multiple
+definitions in the same module, so they are added to a set to remove
 repetitions.
 
 \begin{lstlisting}
@@ -291,7 +292,7 @@ agda_tree definition module_dependencies -i "InfinitePigeon.Addition.n-plus-zero
 \subsubsection{Module Dependants}
 
 This query is exclusive to the definition graph. The module dependants query will take the output of the dependents query and
-only keep the modules of dependents then added to a set to remove repetition.
+only keep the modules of dependents then add them to a set to remove repetition.
 
 \begin{lstlisting}
 agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -300,15 +301,15 @@ agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-e
 \subsubsection{Path To Leaf}
 
 The path to leaf query finds the longest path from a definition to a leaf. The
-definition query is used to get the leafs of the graph, then NetworkX has a
-method \textsf{nx.all\_simple\_paths(graph, definition, leafs)} which finds all
+definition query is used to get the leaves of the graph, then NetworkX has a
+method \textsf{nx.all\_simple\_paths(graph, definition, leaves)} which finds all
 the simple paths between two nodes. Simple paths are paths where no vertex is
 repeated. Once all the simple paths are found, they are measured for length and
 the biggest one is returned.
 
 The definition dependency graph isn't acyclic while the module dependency graph
 is, this will cause a difference in performance of this command. The definition
-graph also contains significantly more nodes that the modules graph, so the
+graph also contains significantly more nodes than the modules graph, so the
 amount of paths grows quickly.
 
 \begin{lstlisting}
@@ -318,9 +319,9 @@ agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \subsubsection{Roots}
 
 The roots query gets the definitions that aren't used by any other theorem, it
-doesn't have parents. This is found similarly to leafs but instead of checking
-for outwards edges, check for inward edges with the command:
-\textsf{graph.in\_degrees(node)} if it has none then its a root.
+doesn't have parents. This is found similarly to leaves but instead of checking
+for outward edges, check for inward edges with the command:
+\textsf{graph.in\_degrees(node)} if it has none then it's a root.
 
 \begin{lstlisting}
 agda_tree definition roots
@@ -328,10 +329,10 @@ agda_tree definition roots
 
 \subsubsection{Use Count}
 
-The use count query gets the amount of times a definition is used. In other
+The use count query gets the number of times a definition is used. In other
 words, how many times does a definition appear as a dependency in other
 theorems. To find how many times a definition was used directly or indirectly
-is the same as counting the output the dependents query. This query either
+is the same as counting the output of the dependents query. This query either
 accepts a -top=n option where it will return the top n most used modules or the
 -d=definition option that finds how many times a specific definition was used.
 
@@ -378,7 +379,7 @@ agda_tree definition cycles
 
 This query is exclusive to the definition graph. The save tree query converts
 the graph into the DOT format. NetworkX allows for this conversion using the
-pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path) }.
+pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path).
 
 \begin{lstlisting}
 agda_tree definition save_tree "/tmp/definition.dot"
@@ -430,7 +431,7 @@ agda_tree module topo_sort
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
-The command line interface(CLI) will created using Python, as it is a popular
+The command line interface(CLI) will create using Python, as it is a popular
 language that most users will already have installed and most users will have
 some experience with. This makes it easier for users to add their own queries
 and make the changes they want. At first Clojure was considered to create this
@@ -440,20 +441,20 @@ Also, NetworkX is in Python which would cause further issues. This makes Python
 the best choice.
 
 Python includes a library called argparse to create command line interfaces. In
-Python the values passed in to a program are sotred ins sys.argv, argparse will
+Python the values passed in to a program are sorted ins sys.argv, argparse will
 parse sys.argv based on the parsers defined. argparse will also create help and
 usage messages to help the user.
 
 There is a main parser and two sub parsers, one being for the definition
 queries and the other being for the module queries. The main parser decides
-whether the definition graph or module graph should be used. Then the contrl is
+whether the definition graph or module graph should be used. Then the control is
 handled to the respective sub parsers.
 
 The sub parsers are generated automatically from the methods that describe the
 queries. There are two files def\_cmds and mod\_cmds which store the functions
-that perform the queries. The functions in these file are read, and are used to
+that perform the queries. The functions in this file are read, and are used to
 automatically generate the CLI. This allows for greater flexibility as to add
-or change a query, only the function has to be changed and the interface will
+or change a query, only the function has to be changed, and the interface will
 update by itself.
 
 This is done with the included Python library inspect, which can get the
@@ -489,8 +490,9 @@ positional arguments:
                         the indirect dependencies
 options:
   -h, --help            show this help message and exit
+\end{lstlisting}
 
-
+\begin{lstlisting}
 agda_tree definition dependencies -h
 
 usage: agda_tree definition dependencies [-h] [-g G] [-indirect] d
@@ -622,8 +624,8 @@ install it as a binary on their system.
 PIP is Python's package manager, this tool can install packages from an online
 repository or locally so with the project file installing this tool is as
 simple as running \textsf{pip install .} . However, for end-user applications it
-is better to install using PIPX which isolates the environemnt of the tool from
-the remaining system, making sure that the version of a package used in the a
+is better to install using PIPX which isolates the environment of the tool from
+the remaining system, making sure that the version of a package used in the
 tool doesn't conflict with the package version in the system. PIPX can be
 installed by the user with their respective package manager.
 
@@ -633,16 +635,16 @@ installed by the user with their respective package manager.
 The Agda S-expression extractor is an extension of the Agda language by Andrej
 Bauer \cite{andrej}. This extension isn't pre-built for a user to install
 through their package manager or manually. To make the tool easier to install,
-Agda Tree comes with a script that will download the Github repository and
+Agda Tree comes with a script that will download the GitHub repository and
 compile it. 
 
 This script clones the repository into a temporary directory and checks out the
 branch to the latest version of Agda (2.7.0.1). Using Stack a tool to build
 Haskell projects and manager their dependencies. Stack can be installed through
-most package manager, although Agda is written is Haskell and it is likely that
+most package manager, although Agda is written is Haskell, and it is likely that
 Agda Developers already have this tool installed. The extractor repository
 contains a YAML file that describes the project that Stack will read and build
-the binaries for the extractor. The Agda binary is then coppied to the
+the binaries for the extractor. The Agda binary is then copied to the
 \textsf{~/.local/bin/} folder, which the user will likely already have in their
 environment path. 
 
@@ -659,7 +661,7 @@ the definition graph.
 \section{Agda Comp}
 
 Agda Comp automatically creates the module dependency graph as described in
-sub-section \ref{sub: Building Module Tree}, using Agda's built-in dependency
+subsection \ref{sub: Building Module Tree}, using Agda's built-in dependency
 graph generator. The dependency graph is passed into each strategy, the
 strategy will return the order in which to compile the modules. Given this
 order, a 'make generator' sub-system will create the index files and the make
@@ -847,7 +849,7 @@ going to be different for all projects, but the user needs to input the index
 file containing all modules and the correct flags, so these options are scraped
 from there. Once the flags are added to the file, a code environment is opened
 where each module is imported. All the modules imported will be compiled when
-that index file. The environment closes and nothing else needs to be added.
+that index files. The environment closes and nothing else needs to be added.
 
 
 The index files are named based on the order in which they are compiled, so
@@ -874,12 +876,12 @@ _build/2.7.0.1/agda/source/index-2-0.agdai: _build/2.7.0.1/agda/source/index-1-0
 \end{lstlisting}
 
 A makefile describes the commands that need to be run to compile a project.
-Makefiles are made of targets, how to build them and what pre-requisites for
+Makefiles are made of targets, how to build them and what prerequisites for
 building. In the example, to compile "index-1-2.lagda" then "index-1-0.lagda"
 and "index-1-1" must be compiled first. The "all:" target is the entry point to
 compile the entire project meaning compiling the highest level index
 "index-2-0". Agda compiles modules into .agdai files, the Makefile will check
-if that .agdai file exists, if it doesn't it attempts to build it otherwise it
+if that .agdai file exists, if it doesn't, it attempts to build it otherwise it
 will continue to the next prerequisite. If the Makefile contains two targets
 that don't depend on each other, it will automatically attempt to compile them
 in parallel. In this case "index-1-0.lagda" is compiled in parallel with
@@ -889,16 +891,16 @@ The make file is made naturally from the output of the compilation strategy,
 where the targets are the index files (named after their position in the array)
 and the prerequisites are the index files that came just before it in the
 array. Once all the indexes are in the Makefile, then the last index that needs
-to be compiled, that depends on all the previous modules is add to the "all"
+to be compiled, that depends on all the previous modules is added to the "all"
 target. Note that the first index files have no dependencies, so there are no
-pre-requisites.
+prerequisites.
 
 
 \subsection{Command Line Interface}
 
 The command line interface (CLI) will be created in Python, it is a popular
 language that many people already have. Similarly to Agda Tree CLI Section
-\ref{sub:Agda Tree CLI}, arparse is used to cream the CLI. arprase will parse
+\ref{sub:Agda Tree CLI}, argparse is used to cream the CLI. argparse will parse
 the sys.argv based on the parsers given and generate usage/help outputs.
 
 The parser accepts the path to the all modules index file of the project to
@@ -936,7 +938,7 @@ the module dependency graph and removes already compiled modules from the
 graph. The clean option generates the module dependency graph again and deletes
 the \_build directory which contains the compiled modules. Note that the way the
 Agda Comp finds if a module is already compiled and hasn't changes is by
-checking whether its corresponding .agdai file exists and if the the module
+checking whether its corresponding .agdai file exists and if the module
 wasn't modified after the creation of the .agdai file. If a module was modified
 after the .agdai file is created then it is considered modified. The jobs
 options describe how many cores will be used in the strategy and how many cores
@@ -969,9 +971,9 @@ agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.l
 The installation process for this tool is the same as for Agda Tree in Section
 \ref{sub:Agda Tree Installation}. A pyproject.toml file is created describing
 the dependencies, build backend and python version of the project along with
-other metadata. This packages the projet such that it can be installed through
-PIP, altough PIPX is recommended to install end-user applications as PIPX will
-isolate the depencies of Agda Comp from the packages of the user.
+other metadata. This packages the project such that it can be installed through
+PIP, although PIPX is recommended to install end-user applications as PIPX will
+isolate the dependencies of Agda Comp from the packages of the user.
 
 % \begin{itemize}
 % \item Explain why using python
@@ -996,11 +998,11 @@ s-expression files, which are then imported as lists into python using the
 sexpdata library. These lists are explored to find all the definitions and
 their relationships which are then converted into a graph in NetworkX.  Then
 the CLI exposes different queries that can be made to the dependency graph to
-learn more about the relationship of these definitions. The tools is packaged
+learn more about the relationship of these definitions. The tools are packaged
 such that it is easy to install and handles the building of the s-expression
 extractor.
 
-Agda Comp uses different strategies to analyze Agda's module dependency graph
+Agda Comp uses different strategies to analyse Agda's module dependency graph
 to improve compilation time. The strategies read the dependency graph and
 return a list that describe the order in which to compile the modules. With
 this order, index files and a make file is generated that will compile the
@@ -1023,3 +1025,4 @@ dependencies that can't be installed through PIP.
 % \item How they are stored for future use 
 % \item How the compilation uses graph dot
 % \end{itemize}
+

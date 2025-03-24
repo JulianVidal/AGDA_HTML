@@ -5,13 +5,13 @@
 The CLI tools should be easy to install by any developer, the developer
 shouldn't need any extra knowledge to use the tool. The interface must be
 intuitive and there should be little friction between the development workflow
-and the use these tools. Also, the tools must work in a variety of environments
+and the use of these tools. Also, the tools must work in a variety of environments
 without issues.
 
 
 \section{Agda Tree}
 
-The Agda Tree CLI tool, is an application that will run on the terminal. It
+The Agda Tree CLI tool is an application that will run on the terminal. It
 will extract and save the definition dependency graph from an Agda project,
 then it will give the user commands to query and explore that graph. This tool
 should work with any Agda project and the user should be able to install the
@@ -22,7 +22,7 @@ tool without any extra dependencies.
 
 \begin{minipage}{\linewidth}
 The functional requirements are the features that the tool must implement to be
-usable and meet the expectation of users. For the tool to be easy to use, it
+usable and meet the expectations of users. For the tool to be easy to use, it
 must be able to automatically extract the dependency graph from any Agda
 project. The user should be able to easily query the dependency graphs and the
 output of the queries should be intuitive to understand.
@@ -65,11 +65,11 @@ graph are the following:
         colspec={|X[1]|X[6]|X[8]|}, hlines,
     }
 ID & Name                & Description                                                                                       \\ 
-1  & Dependencies        & Get the dependencies of a definition what definitions it uses both directly and indirectly        \\ 
+1  & Dependencies        & Get the dependencies of a definition and what definitions it uses both directly and indirectly        \\ 
 2  & Dependents          & Get the dependents of a definition, where the definition is used both directly and indirectly     \\ 
-3  & Leafs               & Gets the leafs of the dependency graph, which would be the definitions that have no dependencies  \\ 
+3  & Leafs               & Gets the leaves of the dependency graph, which would be the definitions that have no dependencies  \\ 
 4  & Module Dependencies & Gets the modules that a definition uses both directly and indirectly                              \\ 
-5  & Module Dependants   & Gets the modules that uses a definition both directly and indirectly                              \\ 
+5  & Module Dependants   & Gets the modules that use a definition both directly and indirectly                              \\ 
 6  & Path to Leaf        & The longest path from a definition to any leaf                                                    \\ 
 7  & Module Path to Leaf & The longest path from a definition to any leaf but only following the modules of the path         \\ 
 8  & Roots               & The definitions with no dependents, meaning they aren't used anywhere                             \\ 
@@ -95,9 +95,9 @@ the following:
             colspec={|X[1]|X[6]|X[8]|}, hlines,
         }
         ID & Name             & Description                                                                                   \\ 
-        1  & Dependencies     & Get the dependencies of a module what modules it uses both directly and indirectly            \\ 
+        1  & Dependencies     & Get the dependencies of a module and what modules it uses both directly and indirectly            \\ 
         2  & Dependents       & Get the dependents of a module, where the module is used both directly and indirectly         \\ 
-        3  & Leafs            & Gets the leafs of the dependency graph, which would be the modules that have no dependencies  \\ 
+        3  & Leafs            & Gets the leaves of the dependency graph, which would be the modules that have no dependencies  \\ 
         4  & Path to Leaf     & The longest path from a module to any leaf                                                    \\ 
         5  & Roots            & The modules with no dependents, meaning they aren't used anywhere                             \\ 
         6  & Use count        & Counts how many times a module is used                                                        \\ 
@@ -112,10 +112,10 @@ the following:
 
 \begin{minipage}{\linewidth}
 Since Agda Tree is meant to be a tool that slots into the workflow of
-developers, it is critical for it to be easy to use and performant. The tool be
-plug and play, working on a variety of projects regardless of size. To not
+developers, it must be easy to use and performant. The tool is
+plug-and-play, working on a variety of projects regardless of size. To not
 disrupt the developer, the queries should respond quickly. Agda is used mainly
-with Unix based systems, so this tool must be compatible with macOS and popular
+with Unix-based systems, so this tool must be compatible with macOS and popular
 Linux distributions.
 
 \begin{table}[H]
@@ -149,7 +149,7 @@ in which the modules should be type-checked.
 \begin{minipage}{\linewidth}
 
 The functional requirements for Agda comp are the features that the users
-needs, to compile their own projects with minimal hassle. This tool must work
+need, to compile their projects with minimal hassle. This tool must work
 mostly automatically, the user only needs to input what they want to compile, and the tool will determine all the information it needs from there. The tool
 will create index files and a make file that will compile the Agda Project
 based on the selected strategy. This compilation must be safe and correct, it
@@ -166,13 +166,13 @@ concurrently.
         ID & Name                           & Description                                                                                                                \\ 
         1  & Module Dependency Graph Parser & The tool must parse Agda's dot file module dependency graph \\ 
         2  & Compilation Strategies         & The users must be able to select which compilation strategy to use  \\ 
-        3  & Compilation Customization      & The users must be able to custimize parameters of the compilation strategy (i.e. amount of cores used) \\ 
+        3  & Compilation Customization      & The users must be able to customize parameters of the compilation strategy (i.e. amount of cores used) \\ 
         4  & Compilation                    & The tool must create index files and a make file that will safely compile all modules \\
         5  & Command-Line Interface         & The tool must provide a user-friendly CLI with commands for querying the dependency graph                                  \\ 
         6  & Input Validation               & The CLI must validate user input and provide clear error messages for invalid inputs                                       \\ 
         7  & Integration with Agda Projects & Agda projects are structured differently, this tool must support all valid structures                                      \\ 
-        % 8  & Output Generation              & The CLI must output the compilation strategy into a index files and a make file for the user                 \\ 
-        8  & Speed Up Compilation            & The tool must compile Agda projects faster than normal compilation.
+        % 8  & Output Generation              & The CLI must output the compilation strategy into index files and a make file for the user                 \\ 
+        8  & Speed Up Compilation            & The tool must compile Agda projects faster than a normal compilation.
 \end{tblr}
 \end{table}
 \end{minipage}
@@ -181,7 +181,7 @@ concurrently.
 
 \begin{minipage}{\linewidth}
 Agda Comp is meant to be an additional tool that slots in next to Agda
-seamlessly, so it is important that users that already have Agda don't need
+seamlessly, so users who already have Agda mustn't need
 extra setup. The tool should be easy to use and work with any Agda project.
 Agda is not developed for Windows, so the main focus is for the tool to work in
 a Linux or macOS environment.
@@ -213,11 +213,11 @@ requirements define how the Agda Tree must behave, for it to slot into a
 developer's workflow.
 
 The functional requirements for Agda Comp show the features needed for the tool
-to be used, the tool must work with any Agda project and give the user choice
+to be used, the tool must work with any Agda project and give the user a choice
 on how to run their compilation given some parameters. The non-functional
-requirements define the behaviour of Agda Comp, it must work with any Agda
+requirements define the behavior of Agda Comp, it must work with any Agda
 project regardless of size and the compilation strategies should be correct and
-safe. That is the compilation strategies should compile every module neccessary
+safe. That is the compilation strategies should compile every module necessary
 and do so without compiling two modules at the same time which could cause
 concurrency issues. Since the time it takes to compile varies on the project
 size, performance measures aren't going to be made.
@@ -243,3 +243,4 @@ size, performance measures aren't going to be made.
 %     \item Creation of the graph shouldn't take more than 10 minutes 
 %     \end{itemize}
 % \enI ud{itemize}
+

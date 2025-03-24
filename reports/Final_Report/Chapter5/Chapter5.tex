@@ -32,9 +32,9 @@ checks the whole project. Depending on the Agda project, this file will be
 generated automatically or by the project maintainers.
 \begin{figure}[H]
     \centering
-    \label{fig:Agda Create Tree Diagram}
     \includegraphics[scale=0.8]{Agda Create Tree.pdf}
     \caption{Agda Create Tree Diagram}
+    \label{fig:Agda Create Tree Diagram}
 \end{figure} 
 
 \pagebreak
@@ -55,9 +55,9 @@ found into a graph.
 
 \begin{figure}[H]
     \centering
-    \label{fig:Agda Tree Class Diagram}
     \includegraphics[scale=0.8]{Agda Tree Class Diagram.pdf}
     \caption{Agda Tree Class Diagram}
+    \label{fig:Agda Tree Class Diagram}
 \end{figure} 
     
 \pagebreak
@@ -70,9 +70,9 @@ output can then be used with other commands like piping and xargs.
 
 \begin{figure}[H]
     \centering
-    \label{fig:Agda Tree Query Diagram}
     \includegraphics[scale=0.8]{Agda Make Query.pdf}
     \caption{Agda Tree Query Diagram}
+    \label{fig:Agda Tree Query Diagram}
 \end{figure} 
 
 \pagebreak 
@@ -89,30 +89,123 @@ parameters defining the amount of cores used in the parallelization and what
 compilation strategy to use.
 \begin{figure}[H]
     \centering 
-    \label{fig:Agda Comp Diagram}
     \includegraphics[scale=0.8]{Agda Comp.pdf}
     \caption{Agda Comp Diagram}
+    \label{fig:Agda Comp Diagram}
 \end{figure} 
 
-\subsubsection{Level Strategy}
+\pagebreak
+\subsection{Level Strategy} \label{sub:design level strategy}
 
-\begin{itemize}
-\item What level ssortin is, connection to topo sort 
-\item Image of what the level means 
-\item How this is safe and correct from module dependency graph 
-\item How this finds parallel moduels
-\end{itemize}
+The level strategy sorts the modules into levels, where leaf nodes with no
+children are at level \(0\). Level \(1\) contains all the modules which only depend on
+modules at level \(0\). Level \(n\) contains all the modules that depend on levels \(n
+- 1\) or below. In other words, the level of a module is its maximum distance
+from a leaf module. This algorithm can be visualized with the Figures \ref{subfig: lvl strat}.
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[scale=0.9]{lvl_graph.pdf}
+    \caption{Example dependency graph}
+    \label{fig:example lvl dep graph}
+  \end{subfigure} \hfill
+  \begin{subfigure}[t]{0.45\textwidth}
+    \centering
+    \includegraphics[scale=0.9]{lvl_sort.pdf}
+    \caption{Example dependency graph sorted by levels where green means level
+    0, red level 1 and blue level 2}
+    \label{fig:example lvl sort}
+  \end{subfigure}
+  \caption{}
+  \label{subfig: lvl strat}
+\end{figure}
+
+This sorting has the property such that each level only depends on the levels
+below it, meaning if the below modules were already compiled the modules at the
+current level could all be compiled in parallel. The level strategy is to sort
+the modules into levels, then compile each level linearly and the modules at
+each level are compiled concurrently. This strategy also compiles every module
+in the graph as the sorting keeps all the modules in the dependency graph and
+the level strategy compiles every level. Therefore, this algorithm is both safe
+and correct.
 
 
-\subsubsection{Level Disjoint Strategy}
+The advantage of this solution is that it can be quickly generated recursively,
+where each module will take the maximum of the recursive call to its children
+and add one the maximum of the children's level. The disadvantage is that if a
+level has a small amount of modules there isn't a significant opportunity to
+parallelize the type checking. Also, There could be two modules that each
+depend  on 20 distinct modules that could be compiled in parallel that could
+lead to massive savings. Instead, this method would compile the 40 combine
+dependencies in previous levels, then compile the two modules in parallel. This
+becomes significant during implementation \ref{sub:imp lvl strategy}, as there
+is an overhead to parallelization which is exacerbated when compiling a small
+collection of modules.
 
-\begin{itemize}
-\item What level disjoint does
-\item Image of what it attemps to do
-\item How this is safe and correct from module dependency graph 
-\item How this finds parallel moduels 
-\item the greedy algorithm to find disjoint modules
-\end{itemize}
+
+% \begin{itemize}
+% \item What level ssortin is, connection to topo sort 
+% \item Image of what the level means 
+% \item How this is safe and correct from module dependency graph 
+% \item How this finds parallel moduels
+% \end{itemize}
+
+
+\pagebreak
+\subsection{Level Disjoint Strategy} \label{sub:design disjoint strategy}
+
+The level disjoint strategy aims to target the weakness of the level sort
+strategy. It aims to find the largest modules that can be compiled in parallel,
+the largest module being one with many dependencies. If such modules are found,
+then they are compiled in parallel, otherwise the leaf modules are compiled.
+Note that once a module is compiled, it is no longer a dependency on future
+modules. This process is visualized on Figures \ref{subfig:disj strat}.
+\begin{figure}[H]
+  \begin{subfigure}[t]{0.5\textwidth}
+    \centering
+    \includegraphics[scale=0.9]{disj_graph.pdf}
+    \caption{Example dependency graph}
+    \label{fig:example disj dep graph}
+  \end{subfigure} \hfill
+  \begin{subfigure}[t]{0.40\textwidth}
+    \centering
+    \includegraphics[scale=0.9]{disj_strat.pdf}
+    \caption{Example dependency graph sorted where the leafs were removed,
+    creating two modules that can be compiled in parallel. }
+    \label{fig:example disj strat}
+  \end{subfigure}
+  \caption{}
+  \label{subfig:disj strat}
+\end{figure}
+
+This ensures that at each step the amount of module to compile is reduced,
+until all modules are compiled. It also ensures that if no distinct modules,
+modules that don't share dependencies, are found then the conflicting
+dependencies might be the leaf that is being compiled. The strategy only
+compiles two modules in parallel if their dependencies are disjoint, if such
+modules aren't found then the leafs are compiles which don't have any
+dependencies. Therefore, this strategy is both safe and correct, as it doesn't
+compile conflicting modules and compiles all modules in a project.
+
+The advantage of this approach is that it better manages the overhead of
+parallelization, instead of compiling a couple of individual modules at a time
+it can compile modules with multiple dependencies such that Agda doesn't have
+to loading interface files as often as explained in the implementation
+Sub-Section \ref{sub:imp disj strategy}. The disadvantage is that finding these
+disjoint modules is difficult, projects  have hundreds of modules and finding
+multiple modules that don't share dependency can't be done through brute force.
+Each Agda project also has different structures with Agda-unimath having
+smaller independent modules while TypeTopology has bigger dependent modules
+that make finding distinct module more difficult. A greedy approach has to be
+taken, which doesn't guarantee the optimal solution.
+
+% \begin{itemize}
+% \item What level disjoint does
+% \item Image of what it attemps to do
+% \item How this is safe and correct from module dependency graph 
+% \item How this finds parallel moduels 
+% \item the greedy algorithm to find disjoint modules
+% \end{itemize}
 
 
 \pagebreak
@@ -129,7 +222,7 @@ solid foundation to refer back to.
 The functionality of Agda Comp is modelled in Figure \ref{fig:Agda Comp
 Diagram}, this structure allows the user to select what compilation strategy to
 use and how many cores the compilation can use. Agda Comp is meant to allow the
-user to easily apply the compilation strategies that are going to be explored
+user to easily apply the compilation strategies which are modelled with Figures that are going to be explored
 in chapter \ref{ch:implementation}.
 
 % Communicating how you think about the composition of your system and how it

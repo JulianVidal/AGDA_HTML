@@ -17,7 +17,7 @@ module isn't compiled at the same time as one of its dependencies. The time to
 creat the compilation order with the strategy is also measured, but it is
 insignificant compared to the time to compile an Agda project.
 
-\subsection{Agda Tree}
+\subsection{Agda Tree Unit Tests}
 
 Unit tests have been created for each query and the options that the queries
 can take. These test use the TypeTopology definition and module dependency
@@ -32,6 +32,8 @@ is also a unit test for the indirect option. Integration testing while
 possible, isn't necessary as the CLI parsers are generated from the query
 functions. So the CLI and the queries don't need to be tested for their
 integration as the CLI is based of the queries directly. 
+
+\subsection{Agda Tree Performance} \label{sub:agda tree performance}
 
 The performance of the queries has been tested, although, this will be highly
 dependent of the size of the graph and the Agda project. In this case
@@ -53,7 +55,7 @@ a graph. For TypeTopology this can take 10 minutes or more, although, this is
 mitigated as the command would only need to be run once and the graph can then
 be re-used.
 
-\subsection{Agda Comp}
+\subsection{Agda Comp Strategy Validation}
 
 The testing for Agda Comp centered around the correctness and safety of the
 strategies. For a compilation strategy to be valid it must be correct, that is

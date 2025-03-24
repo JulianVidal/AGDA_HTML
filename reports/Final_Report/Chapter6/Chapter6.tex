@@ -590,11 +590,112 @@ Once the strategies have generated this array, the make generator
 subsystem will create the index files that contain the modules and the make
 file that will represent the order in which to compile the indices.
 
-\subsubsection{Level Sort}
+\subsubsection{Level Strategy} \label{sub:imp lvl strategy}
 
-\subsubsection{Level Disjoint}
+As explained in the design Section \ref{sub:design level strategy}, the level
+strategy works by sorting the modules into levels. Where the level of a module
+is its maximum distance from a leaf, guaranteeing that if previous levels are
+compiled then the modules in the current levels can be compiled in parallel.
+
+The sorting algorithm is created using dynamic programming, where the distance
+of a module to a leaf is stored in a dictionary. The level of a module is the
+same as the maximum level of its children plus one, so the algorithm
+recursively calls the function with it's the module's children. The dictionary
+stores previously analysed modules, that can be re-used when calculating the
+level of other modules.
+
+\begin{lstlisting}
+def depth(g, node, mem):
+    if node in mem:
+        return mem
+
+    children = list(g.successors(node))
+    if len(children) == 0:
+        mem[node] = 0
+        return mem
+
+    for c in children:
+        m = depth(g, c, mem)
+        mem |= m
+        mem[node] = max(mem.get(node, 0), mem[c])
+    mem[node] += 1
+
+    return mem
+
+def depths(g):
+    m = {}
+    for n in g.nodes:
+        m |= depth(g, n, m)
+    return m
+\end{lstlisting}
+
+The compilation order array is created from this sorting, where each level is a
+step in the compilation order containing the modules that can be compiled in
+parallel. Then the make file is automatically generated from this compilation
+order as shown in Section \ref{sub:building make file and index}.
+
+A practical detail to note is that compiling modules individually causes a
+large amount of overhead, as for Agda to type check a module it has to load
+interface files of the module's dependencies which can be large. This loading
+process will occur every time a module is type-checked, to avoid this overhead
+the modules in the same level are grouped into index files. This way the
+loading of interface files only happens once per index file.
+
+There are two ways to split the modules in to index files, method A is to split
+the modules evenly across \(n\) index files were \(n\) would be analogous to
+the cores of a system. A performance increase could only happen if the computer
+is doing the compilation work in parallel on separate cores, so creating more
+index files than cores would cause more than 1 index file being compiled in the
+same core.
+
+Method B is to cap the amount of modules in an index file, if the cap is
+exceeded another index file is created. While this will create more index files
+than cores that can compile in parallel, due to the overhead of loading
+interface files, being able to type check one index file while waiting for the
+data of another could still result in a performance increase. These two methods
+will be tested on the evaluation Section \ref{sub:eval comp strat} as level A
+and level B.
+
+\subsubsection{Level Disjoint Strategy} \label{sub:imp disj strategy}
+
+As explained in the design Section \ref{sub:design disjoint strategy}, the
+level disjoint strategy works by finding the largest disjoint modules, modules
+with a large amount of dependencies which are all distinct two modules don't
+share a dependency. If the algorithm finds the disjoint modules, it compiles
+them and doesn't consider them further. Otherwise, it compiles the leafs
+removing common dependencies. Eventually the algorithm will terminate as there
+aren't any modules left.
+
+The challenge is in finding the disjoint modules efficiently, large projects
+can have hundreds of modules, so a brute force approach isn't feasible. To find
+disjoint modules, a greedy approach was taken. For two modules to be disjoint
+from each other, that means that the leafs they indirectly/directly depend on
+must also be different. The greedy algorithm sorts the modules in ascending
+first by the amount leafs a module depends on, then breaks ties by putting the
+module with the largest amount of  dependencies first.
+
+Using that sorting the greedy algorithm stores the modules into buckets. Each
+bucket has modules that depend on distinct leafs. The first item of the sorted
+list creates a new bucket which is added to it. Then the algorithm loops through
+the remaining modules in the sorted list, the module depends on distinct leafs
+from previous buckets the new bucket is created with itself in it. If a
+module depends on the same leafs as one of the buckets, then it is added to it.
+But if a module shares only some but not all the leafs it depends on with
+another bucket, it is discarded.
+
+The compilation order array is created by first adding the list of leafs to be
+compiled as their own step, then the buckets are added as a step that can
+combine each bucket in parallel. These bucket approximate the most amount
+modules that can be compiled in parallel without conflict. Eventually all
+modules would have been added as a leaf or a bucket to the compilation order
+and the algorithm terminates.
+
+Sometimes this algorithm will not be able to compile in parallel is only one
+bucket was found, in these cases the leafs and the buckets are combined into
+one compilation step.
 
 % \begin{itemize}
+% \item mention combining linear steps into one big step
 % \item Explain each strategy 
 % \item How it works 
 % \item Explain how you find modified files
@@ -606,13 +707,14 @@ file that will represent the order in which to compile the indices.
 % \item How make files work 
 % \item Why use make files over other options 
 % \item What the output of the algorithms is 
-% \item How the output is used. 
 % \item Difficulty with diferenct directory names and index flags
 % \item The limitations of each algorithm, pros and cons 
-% \item How they deal with multiple projects
+% \item How idsjoint is np-hard, greedy algorithm to find it 
+% \item There is no good way to find disjoint modules 
+% \item level sort compiles onde modules at a time, meaning .agdai files are constantly loaded.
 % \end{itemize}
 
-\subsection{Creating The Make File And Indices}
+\subsection{Building The Make File And Indices} \label{sub:building make file and index }
 
 An index file is a module that imports other modules but has no definitions
 within it, this is done to type check all the modules in the index file,

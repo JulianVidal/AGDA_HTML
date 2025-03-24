@@ -80,39 +80,73 @@ by Yves Robert \cite{scheduling}.
 
 \section{MLFMF: Data Sets for Machine Learning for Mathematical Formalization}
 
-\begin{figure}[H]
-  \centering
-  \begin{tabular}{p{5cm}}
-    \texttt{(:entry}\newline
-    \hphantom{oo}\texttt{(:name} $\mathbb{N}$\texttt{)}\newline
-    \hphantom{oo}\texttt{(:type (...))}\newline
-    \hphantom{oo}\texttt{(:data}\newline
-    \hphantom{oooo}\texttt{(...)}\newline
-    \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.zero)}\newline
-    \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.suc)}\newline
-    \hphantom{oo}\texttt{)}\newline
-    \texttt{)}
-  \end{tabular}
-  \caption{Example s-expression from MLFMF Figure 1(b) \cite{bauer2023mlfmf}}
-  \label{fig:example-sexp}
-\end{figure}
+MLFMF is a collection of data sets used to benchmarking systems that help
+mathematicians find which theorems are relevant when proving a new theorem. The
+data sets are created from large libraries of formalized mathematics in Agda or
+Lean. The data sets represent each library as a network and as a list of
+s-expressions. The data sets include libraries such as Agda-unimath and
+TypeTopology. The collection is a solid base to investigate machine learning
+methods to mathematics. The data set methodology to extract s-expressions can
+be used with other libraries to continue expanding the 250000 entries in the
+data sets.
+
+The method to extract s-expressions from Agda libraries is by extending the
+Agda backend. The backend has access to the important information about a
+project's theorems and its relationships with other theorems. Andrej Bauer used
+that backend and turned the information into easy to parse s-expressions. The
+Figure \ref{fig:example-sexp} is an example of the :entry s-expression, each
+:entry tag marks where a theorem is defined, and it contains the name of the
+theorem, its type and the definitions it needs to be defined. Mind that
+\texttt{(...)} are more s-expressions that were replaced for readability. A
+more general structure to this tag can be seen in Figure \ref{fig:sexp-ast}
+where the three parts are shown as subtrees and a node.
 
 \begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    \Vertex[x=0, size=0.8, label={Entry}, RGB, color={128,200,128}]{e}
-    \Vertex[x=-2, y=-0.8, size=0.8, label={name}, RGB, color={75,175,128}]{n}
-    \Vertex[x=0, y=-2, size=1.2, label={declaration}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{d}
-    \Vertex[x=2.25, y=-0.6, style={draw=none}, RGB, color={255, 255, 255}]{fake}
-    \Vertex[x=2, y=-2, size=1, label={body}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{b}
-    \Edge[](e)(n)
-    \Edge[](e)(d)
-    \Edge[](e)(fake)
-  \end{tikzpicture}
-  \caption{Graph representing s-expression entry tag containig a name,
-  delcration and body from MLFMF Figure 3 \cite{bauer2023mlfmf}}
-  \label{fig:sexp-ast}
+  \begin{subfigure}[b]{0.40\textwidth}
+    \centering
+    \begin{tabular}{p{5cm}}
+      \texttt{(:entry}\newline
+      \hphantom{oo}\texttt{(:name} $\mathbb{N}$\texttt{)}\newline
+      \hphantom{oo}\texttt{(:type (...))}\newline
+      \hphantom{oo}\texttt{(:data}\newline
+      \hphantom{oooo}\texttt{(...)}\newline
+      \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.zero)}\newline
+      \hphantom{oooo}\texttt{(:name} $\mathbb{N}$\texttt{.suc)}\newline
+      \hphantom{oo}\texttt{)}\newline
+      \texttt{)}
+    \end{tabular}
+    \caption{Example s-expression from MLFMF Figure 1(b) \cite{bauer2023mlfmf}}
+    \label{fig:example-sexp}
+  \end{subfigure} \hfill
+  \begin{subfigure}[b]{0.50\textwidth}
+    \centering
+    \begin{tikzpicture}
+      \Vertex[x=0, size=0.8, label={Entry}, RGB, color={128,200,128}]{e}
+      \Vertex[x=-2, y=-0.8, size=0.8, label={name}, RGB, color={75,175,128}]{n}
+      \Vertex[x=0, y=-2, size=1.2, label={declaration}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{d}
+      \Vertex[x=2.25, y=-0.6, style={draw=none}, RGB, color={255, 255, 255}]{fake}
+      \Vertex[x=2, y=-2, size=1, label={body}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{b}
+      \Edge[](e)(n)
+      \Edge[](e)(d)
+      \Edge[](e)(fake)
+    \end{tikzpicture}
+    \caption{Graph representing s-expression entry tag containing a name,
+    declaration and body from MLFMF Figure 3 \cite{bauer2023mlfmf}}
+    \label{fig:sexp-ast}
+  \end{subfigure}
 \end{figure}
+
+The :entry tag is of particular interest to this project, as Agda by itself
+doesn't provide a convenient method to find all the definition of an Agda
+project along with its declaration. This extractor packages the important
+information into a format that is easy to parse into a graph. Andrej Bauer made
+the s-expression extractor open-source in a GitHub repository \cite{andrej}.
+
+This paper also describes a graph that can be generated from these
+s-expressions, this graph contains all the information about each theorem and
+what definitions it uses and in which way. While this graph could be used
+queried by the user, it contains a massive amount of information that is
+unnecessary for the user to know the querying.
 
 \begin{itemize}
 \item What the paper is about 
@@ -130,6 +164,12 @@ most of the tools are not easy to query by the user, meant to be used while
 editing a file and are reserved towards more popular languages like Java. A
 tool that is able to read an entire Agda project and gives the user access to
 the underlying graph is still missing.
+
+The MLFMF paper \cite{bauer2023mlfmf} describes a methodology to extract the
+definitions and dependencies of an Agda project into s-expression. Which are
+easier to parse than Agda source code. The also converts this into a graph that
+contains all the details of the Agda source code. Which is more detail that a
+user who wants to query that information needs.
 
 Slow compilers is a common problem, hurting developer experience. Due to the
 monolithic nature of compilers, parallelization becomes a route to follow when

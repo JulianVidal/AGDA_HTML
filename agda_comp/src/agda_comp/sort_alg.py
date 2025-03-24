@@ -1,4 +1,4 @@
-def depth(g, node, mem):
+def level_sort_helper(g, node, mem):
     if node in mem:
         return mem
 
@@ -8,16 +8,16 @@ def depth(g, node, mem):
         return mem
 
     for c in children:
-        m = depth(g, c, mem)
+        m = level_sort_helper(g, c, mem)
         mem |= m
         mem[node] = max(mem.get(node, 0), mem[c])
     mem[node] += 1
 
     return mem
 
-def depths(g):
+
+def lvl_sort(g):
     m = {}
     for n in g.nodes:
-        m |= depth(g, n, m)
+        m |= level_sort_helper(g, n, m)
     return m
-

@@ -63,14 +63,8 @@ def create_test(g, index_flags, dir, **kwargs):
                 bucket_index.append(module_leafs[mod])
                 buckets[len(bucket_index) - 1] = [mod]
 
-        # print(bucket_index)
-        # print(buckets)
-
         compile_order += [[leafs]]
         compile_order += [list(buckets.values())]
-        # print()
-        # print(compile_order)
-        # print()
 
         for m in leafs:
             g.remove_node(m)
@@ -78,13 +72,6 @@ def create_test(g, index_flags, dir, **kwargs):
         for l in buckets.values():
             for m in l:
                 g.remove_node(m)
-
-        # print(leafs)
-        # for mod in modules[:10]:
-        #     print(mod)
-        #     print("\t", module_deps[mod])
-        #     print("\t", module_leafs[mod])
-        #     print("\t", heuristic(mod))
 
     # Merge 1 step compilations into 1 bigger step
     comp = [[[]]]
@@ -98,10 +85,6 @@ def create_test(g, index_flags, dir, **kwargs):
         elif len(comp[-1]) < 2:
             comp[-1][0].extend(step[0])
 
-    # test_generator.generate_test(comp, dir)
-    # print("levels", len(comp))
-    # for level in comp:
-    #     print("indices", len(level))
     if "test" in kwargs:
         return comp
 

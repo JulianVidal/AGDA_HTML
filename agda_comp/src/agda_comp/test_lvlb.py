@@ -1,11 +1,11 @@
 import networkx as nx
-from .sort_alg import depths
+from .sort_alg import lvl_sort
 from . import make_generator
 
 
 def create_test(g, index_flags, cores=4, dir="tests/lvlb_4", **kwargs):
     level = 0
-    topo = depths(g)
+    topo = lvl_sort(g)
 
     levels = {}
     end = False

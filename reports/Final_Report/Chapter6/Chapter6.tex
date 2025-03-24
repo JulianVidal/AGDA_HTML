@@ -528,14 +528,21 @@ with other commands.
 % \end{itemize}
 
 
+\begin{minipage}{\linewidth}
 Here is the help page generated for the Agda Tree definition command
-
 \begin{lstlisting}
 usage: agda_tree definition [-h]
-                            {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses} ...
+                            {create_tree,cycles,dependencies,dependents,
+                            find,leafs,module_dependencies,module_dependents,
+                            module_path_to_leaf,nodes,path_between,
+                            path_to_leaf, roots,save_tree,type,uses}
+                            ...
 
 positional arguments:
-  {create_tree,cycles,dependencies,dependents,find,leafs,module_dependencies,module_dependents,module_path_to_leaf,nodes,path_between,path_to_leaf,roots,save_tree,type,uses}
+  {create_tree,cycles,dependencies,dependents,
+  find,leafs,module_dependencies,module_dependents,
+  module_path_to_leaf,nodes,path_between,path_to_leaf,
+  roots,save_tree,type,uses}
     create_tree         Creates definition dependency tree from file, -output option to
                         set the path to store the tree
     cycles              Cycles in graph
@@ -566,14 +573,22 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
 \end{lstlisting}
+\end{minipage}
 
+\begin{minipage}{\linewidth}
 Here is the help page generated for the Agda Tree module command
 \begin{lstlisting}
 usage: agda_tree module [-h]
-                        {complex_modules,create_tree,dependencies,dependents,find,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses} ...
+                        {complex_modules,create_tree,dependencies,
+                        dependents,find,leafs,lvl_sort,nodes,
+                        path_between,path_to_leaf,roots,topo_sort,
+                        uses} ...
 
 positional arguments:
-  {complex_modules,create_tree,dependencies,dependents,find,leafs,lvl_sort,nodes,path_between,path_to_leaf,roots,topo_sort,uses}
+  {complex_modules,create_tree,dependencies,
+  dependents,find,leafs,lvl_sort,nodes,
+  path_between,path_to_leaf,roots,topo_sort,
+  uses}
     complex_modules     Get the top modules that have the most dependents
     create_tree         Creates modules dependency tree from file
     dependencies        Modules that module m imports
@@ -586,12 +601,13 @@ positional arguments:
     path_to_leaf        Longest path from module m to any leaf
     roots               Modules that aren't imported
     topo_sort           Topological sort
-    uses                Counts how many times a module is imported, sorted in descending
-                        order
+    uses                Counts how many times a module is imported, sorted
+                        in descending order
 
 options:
   -h, --help            show this help message and exit
 \end{lstlisting}
+\end{minipage}
 
 \subsection{Installation} \label{sub:Agda Tree Installation}
 

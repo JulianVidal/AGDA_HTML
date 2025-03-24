@@ -1,0 +1,367 @@
+\documentclass{article}
+
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2023
+
+
+% ready for submission
+\usepackage{neurips_2023}
+
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2023}
+
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2023}
+
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2023}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+\usepackage{tikz-network}
+\usepackage{subcaption}
+\usepackage{fontawesome}
+\usepackage{multirow}
+
+\usepackage{xcolor}
+\newcommand{\meta}[1]{\textcolor{blue}{#1}}
+
+\title{MLFMF: Data Sets for Machine Learning for Mathematical Formalization}
+
+\begin{document}
+
+\section{Reviewer 7Q4p}
+
+Rating: 8: Top 50% of accepted papers, clear accept
+Confidence: 3: The reviewer is fairly confident that the evaluation is correct
+Summary And Contributions:
+
+This paper focuses on the setting of premise selection, which is the recommendation of theorems that can be used as a basis for proving some desired statement. This is used by automated theorem-proving systems for coming up with novel proofs. The authors take existing libraries of formalized mathematics (in different proof assistants, the authors focus on Agda and Lean) and they transform library entries (theorems, axioms, definitions) into nodes of a graph and construct edges between them if one references the other. They frame the machine learning problem as either an edge prediction task or a recommendation task (while noting that these tasks are equivalent). The resulting datasets are used to benchmark several baseline methods and are also released for use in future research projects.
+Strengths:
+
+S1: The context that the authors tackle is very relevant and it would be useful to have a public benchmark for this task.
+
+S2: The authors apply their domain-specific knowledge about theorem provers to nicely interpret the original problem into a graph edge prediction problem.
+
+S3: The paper is well-written and easy to follow, even for someone who does not possess a lot of knowledge of theorem provers.
+Opportunities For Improvement:
+
+I'm not sure how I would improve the paper. The scope is well-defined and the authors provide a solid contribution within that scope.
+Limitations:
+
+The authors briefly discuss some limitations in the form of directions for future development.
+Correctness:
+
+I did not find any issues with correctness.
+Clarity:
+
+Yes, overall easy to follow.
+Relation To Prior Work:
+
+The authors mention several previous contributions in this space and contextualize their work relatively well.
+Documentation:
+
+The authors provide specific information about the data organization in the supplementary materials.
+Ethics:
+
+I was not able to identify any ethics issues with this paper.
+Flag For Ethics Review: 2: No, there are no or only very minor ethics concerns
+Additional Feedback:
+
+n/a
+
+\subsection{Response}
+
+No response.
+
+
+\section{Reviewer F1US}
+
+Rating: 8: Top 50% of accepted papers, clear accept
+Confidence: 5: The reviewer is absolutely certain that the evaluation is correct and very familiar with the relevant literature
+Summary And Contributions:
+
+The paper presents a new benchmark with 250,000 entries from a library of formalized mathematics written in the Agda and Lean proof assistants. The data set is also supported by 5 baseline implementations with non-trivial performance. Overall, the paper is well-written, and the dataset is likely to be very useful.
+Strengths:
+
+    The data set is quite substantial: 250,000 entries from two proof assistants. Further, each data set is represented as a heterogeneous network and a list of s-expressions. This will likely support a new wave of research into automated theorem proving.
+    The baseline methods included in the paper are non-trivial: graph and word embeddings, tree ensembles, and instance-based approaches. Table 2 shows the relative efficacy of these methods.
+    The idea of using a DAG representation of the internal type-theoretic format that is not too closely tied to the syntactic sugar of the two proof assistants gives me hope that others can contribute to this effort in the future and tools built using this library will apply to other proof assistants. It should be highlighted that this design decision comes with a penalty, often replacing kilobytes of source code in the vernacular of the proof assistant with gigabytes of internal representations.
+
+Opportunities For Improvement:
+
+The train-test split is not obvious to me. Choosing two threshold p\_test and p\_body, and then completing proofs with randomly placed "so-called holes" may have interesting consequences. For example, we know that random matrices have exciting properties. Do randomly sampled incomplete proof trees actually represent real-world use cases? I doubt it. However, this is not a concern to me as the train-test split can be evaluated and perhaps improved by others after this data set and code are published.
+Limitations:
+
+The authors have used the last paragraph of the conclusion section to identify future work. However, a more explicit discussion of the limitations may be more helpful.
+Correctness:
+
+The data set is constructed in a sound manner and the baseline evaluation methods are sound.
+Clarity:
+
+The paper is very clearly written.
+Relation To Prior Work:
+
+There is a good discussion of the prior research.
+Documentation:
+
+Yes, the data set is adequately documented.
+Ethics:
+
+None
+Flag For Ethics Review: 2: No, there are no or only very minor ethics concerns
+Additional Feedback:
+
+The figures on Page 5 use a lot of space that could be better used to discuss hosting, maintenance and even documentation.
+
+\subsection{Response}
+
+We added a discussion related to train-test split in Section~X. We also enumerated the limitations explicitly in Section~X.
+
+\section{Reviewer zApR}
+
+Rating: 4: Ok but not good enough - rejection
+Confidence: 2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper
+Summary And Contributions:
+
+The authors propose a set of datasets of mathematical proofs for recommendation system benchmarking. This dataset suite is a combination of multiple mathematical proof libraries, and the authors developed specialized logic to convert the different libraries to a unified format. The correctness of recommendations is evaluated by an automated proof assistant. This suite, with >250,000 total entries, is the largest collection of such mathematical proof data yet available. Through representing the data in a directed multi-graph, the authors propose a method to split the data into train and test for the purposes of evaluation via iterative pruning to generate positive and negative samples. The authors conduct a benchmark comparison on the dataset suite with a variety of baseline methods, showing that node2vec embeddings inputted into a tree-bagging model far outperformed the other baselines.
+Strengths:
+
+The authors contribute a relatively large data set suite of mathematical proof data and have made it publicly available to the research community. They appear to have meticulously unified the different library formats to be compatible with one another. They also go into considerable detail about how the data is constructed that would be of interest to subject matter experts.
+
+Assuming that this data set and benchmark is correlated with practical application from an evaluation metric standpoint, it can serve as an important testing bed for new methods to be developed.
+Opportunities For Improvement:
+
+The experiments appear to lack multiple meaningful baselines. It appears as if all methods except node2vec perform extremely poorly (If I'm not mistaken, they all perform at virtually random guess performance in link prediction). For the one method that performs well, it performs very strongly and thus I question whether the dataset is too easy to base further improvements on.
+
+Little information is provided on the specifics of the node2vec implementation. For example, the usage of the bagged tree model does not include the hyperparameters of the tree, nor the reasoning for the hyperparameters. It was not explained why a bagged tree model was used specifically. Why not a neural network or gradient boosting model?
+
+Why is Lean not used in any experiments, despite it making up ~70% of the data set and the inclusion of multiple proof assistants being a core part of the claimed contribution?
+
+minRank seems to be a strange metric to use as a mean. Wouldn't it be better to have a metric such as top-k accuracy, with k set to a value such as 5? This would be far more useful when discussing the practical usability as an assistant to a human for recommendations.
+
+"For link prediction, one can use standard classification metrics, such as accuracy, precision, recall, and F1-score. If the model returns its confidence M(u,v) $\in$ [0,1] instead of the class value (M (u, v) $\in$ {0, 1}, one could additionally consider area under the receiver-operating-characteristic curve. Similarly goes for the recommendation models: one can use precision and recall."
+
+    There is not a justification or explanation for why accuracy was chosen specifically, and it is unclear why the other metrics are discussed in detail when they are not actually used. This further raises the question as to why the other metric scores were not reported.
+
+The benchmark lacks insight into the quality of the dataset itself and justifying how it is an improvement over pre-existing datasets. For example, no ablation on dataset size was performed to show the impact of the "more than 250,000 mathematical formalization entries". It also lacks multiple random seeds.
+
+The benchmark itself uses a very modest amount of compute, running on a single laptop with an 8 year old dual-core CPU. I wonder if the methods tested were limited due to this lack of compute. Would the authors have tested additional baselines given more compute, and if so, which ones?
+Limitations:
+
+I do not see expect any negative societal impact from this work. Refer to the prior section for the limitations within the current paper.
+Correctness:
+
+The claims and dataset appear to be correct, however due to the complexity of the dataset construction and train-test split, it is very possible that I overlooked a flaw in the approach and/or execution.
+
+The evaluation methods and experiment design appear to be performed correctly, but the results suggest that most methods perform very poorly, while one method performs very strongly, which could be the result of an implementation error or data leak.
+Clarity:
+
+While the paper is structurally correct, it is extremely dense and hard to follow in sections 2, 3.1, 3.2, 3.3, 3.4, and 4.1. The descriptions are very technical and domain-specialized. I felt at many points that it would be infeasible to properly understand what was being communicated without substantial subject matter expertise. For example, Lines 246-247 and Lines 253-254 contain terms like "almost connected", "almost acyclic", "almost DAG-structure" that I was not familiar with. In addition, the abstract itself is very dense and information heavy. I wonder if much of the nuanced descriptions would be better suited to the appendix.
+Relation To Prior Work:
+
+The relation to prior work was somewhat discussed in the introduction (L42-L56), but it was challenging to understand what specific differences the given contribution has compared to the prior data sets except its larger size and use of more than one proof assistant. The authors may want to motivate and justify the need for a larger corpus by performing ablation studies that showcase the impact of the size of the training data to the end performance on the benchmark.
+Documentation:
+
+The documentation appears sufficient for the datasets. For benchmarks, it appears mostly reproducible, however I may have missed key gaps in my reading due to the complexity of the setup of the train-test split. For some methods such as node2vec, hyperparameters of models did not appear to be disclosed, but I did not dive into the code directly.
+Ethics:
+
+I do not see any ethical concerns with this submission.
+Flag For Ethics Review: 2: No, there are no or only very minor ethics concerns
+Additional Feedback:
+
+Minor typo/grammar fixes:
+
+L59 - recomendation -> recommendation L121 - to learning how do do -> to learning how to do L168 - every is converted L225 - Them -> The
+
+One comment I have is that the topics of mathematical proof formulation and proof assistants are not ones I am very familiar with, and so I am open to increasing my score if other reviews provide strong arguments for why certain contributions are significant in those areas.
+\subsection{Response}
+
+MATEJ:
+
+\textit{For the one method that performs well, it performs very strongly and thus I question whether the dataset is too easy to base further improvements on.}
+
+Smo pokazali, da se da še izboljšati z epohami ... Sploh pa lean
+
+\textit{Little information is provided on the specifics of the node2vec implementation. For example, the usage of the bagged tree model does not include the hyperparameters of the tree, nor the reasoning for the hyperparameters. It was not explained why a bagged tree model was used specifically. Why not a neural network or gradient boosting model?}
+
+Bomo dodali specifitete. Bagged tree model: no hyperparameters, that's why.
+
+\textit{Why is Lean not used in any experiments, despite it making up $\tilde{}$ 70\% of the data set and the inclusion of multiple proof assistants being a core part of the claimed contribution?}
+
+Ran out of time. Now, we have the results ...
+
+\textit{minRank seems to be a strange metric to use as a mean. Wouldn't it be better to have a metric such as top-k accuracy, with k set to a value such as 5? This would be far more useful when discussing the practical usability as an assistant to a human for recommendations.}
+
+Ja ...
+
+
+\textit{There is not a justification or explanation for why accuracy was chosen specifically, and it is unclear why the other metrics are discussed in detail when they are not actually used. This further raises the question as to why the other metric scores were not reported.}
+
+Ker imamo balanced problem 50 : 50 in ker so si zelo podobni.
+
+\textit{The benchmark lacks insight into the quality of the dataset itself and justifying how it is an improvement over pre-existing datasets. For example, no ablation on dataset size was performed to show the impact of the "more than 250,000 mathematical formalization entries". It also lacks multiple random seeds.
+}
+\textit{The benchmark itself uses a very modest amount of compute, running on a single laptop with an 8 year old dual-core CPU. I wonder if the methods tested were limited due to this lack of compute. Would the authors have tested additional baselines given more compute, and if so, which ones?
+}
+
+TODO
+
+\textit{while one method performs very strongly, which could be the result of an implementation error or data leak.}
+Extensive comment on the data leaks.
+Still: not very strongly (average rank ... + too easy train test?)
+
+\textit{Clarity}
+
+TODO
+
+
+
+
+\section{Reviewer yGPU}
+
+Rating: 5: Marginally below acceptance threshold
+Confidence: 2: The reviewer is willing to defend the evaluation, but it is quite likely that the reviewer did not understand central parts of the paper
+Summary And Contributions:
+
+In this paper, the authors prepare a new dataset for applying ML approaches in mathematical formalization. The authors conduct preprocessing on these datasets so that different proof assistant can work on these datasets. Results from different baselines are reported and the datasets can be accessible from Google Drive.
+Strengths:
+
+    The paper is well motivated and the introduction is easy to follow.
+    The authors spend lots of efforts to transform the datasets into different forms so that they can be easily used.
+
+Opportunities For Improvement:
+
+    Provide more real illustrative examples for the general ML/DL readers.
+    Provide more readme files on the datasets.
+    Experiment with SOTA baselines on the proposed datasets.
+
+Limitations:
+
+   1. I am not an expert in the field of mathematical formalization. I am not quite clear about the real-world usage of the proposed datasets. What's the real meaning if we conduct link prediction on the given DAG graphs.
+
+   2. There are too many small DAG files in the proposed dataset. Are we supposed to merge them into one computational graph? If we want to train an ML model? How do we split the train and test sets (just by files)?
+
+   3. The baseline results seem very strange to me. node2vec is almost doing perfect on this data while all other baselines are very close to the Dummy approach. Do we have better choices on these baselines?
+
+Correctness:
+
+There is no correctness issue.
+Clarity:
+
+It is a bit challenging to follow the paper without background of mathematical formalization. More real illustrative examples may help.
+Relation To Prior Work:
+
+Previous works on this topic are briefly mentioned in lines 30-37.
+Documentation:
+
+Documentation needs many improvements. There is no readme file and there are too many DAG files to explore.
+Ethics:
+
+No ethical issues.
+Flag For Ethics Review: 2: No, there are no or only very minor ethics concerns
+Additional Feedback:
+
+No additional feedback.
+\subsection{Response}
+
+
+\textit{I am not an expert in the field of mathematical formalization. I am not quite clear about the real-world usage of the proposed datasets. What's the real meaning if we conduct link prediction on the given DAG graphs.}
+
+Link prediction = suggest next lemma
+
+\textit{There are too many small DAG files in the proposed dataset. Are we supposed to merge them into one computational graph? If we want to train an ML model? How do we split the train and test sets (just by files)?
+}
+
+Zato smo pripravili skripta
+
+\textit{The baseline results seem very strange to me. node2vec is almost doing perfect on this data while all other baselines are very close to the Dummy approach. Do we have better choices on these baselines?
+}
+
+Train/test easy split ...
+
+
+
+\section{Reviewer XBPs}
+
+Rating: 5: Marginally below acceptance threshold
+Confidence: 4: The reviewer is confident but not absolutely certain that the evaluation is correct
+Summary And Contributions:
+
+Summary and contributions A proof assistant enables the algorithmic verification of the accuracy of mathematical proofs and constructions. The papers present a dataset designed for evaluating recommendation systems that aid in the formalization of mathematics using proof assistants.
+
+According to the authors, this dataset contains over 250,000 entries (collected from 4 mathematical formalization library including Agda stdlib, Agda Unimath, Agda Type Topology and Lean Mathlib4), making it the most extensive collection of formalized mathematical knowledge available in a machine-readable format. I find this dataset interesting because, despite its primary purpose of benchmarking recommendation systems, it has potential for broader applications, such as learning about proof assistants in general.
+Strengths:
+
+The motivation of the dataset was clearly explained in the paper, especially in section 2. This is a challenging application of machine learning, the release of the dataset could help benchmarking machine learning methods in this research field.
+Opportunities For Improvement:
+
+Opportunities For Improvement
+
+I have a suggestion for improving text presentation focuses on providing clearer and more accessible explanations for readers who may not be familiar with the topics discussed. For instance, including an example at the beginning of the paper, specifically in the introduction section, to help these readers better understand the content. Please refer to more comments on the Clarity section of the reviews.
+
+Documentation could be improved, especially the details about how the benchmark models were created, how to execute the codes provided in supplementary materials to get the results reported in the paper for example.
+Limitations:
+
+The text is challenging to comprehend, requiring substantial improvements before it can be considered for publication. For detailed information on the specific areas that require clarity enhancements, please refer to the Clarity section of my reviews.
+
+In subsection 3.5, examples of machine learning tasks were presented, including link prediction, recommendation, and node classification. I find it challenging to grasp the relationship between solving these tasks and the relevance of recommending mathematical proofs. More specifically, each machine learning task corresponds to a specific step within a mathematical formalization language that is understood by machines. However, it remains unclear how this type of language can be translated into a format that is easily comprehensible to humans?
+
+The documentation accompanying the paper is lacking, as it primarily emphasizes dataset collection while devoting minimal attention to constructing comprehensive documentation. Although some benchmark results are presented, reproducing these results proves to be exceedingly challenging. Furthermore, there is a dearth of specific details regarding the construction of the link prediction model, the hyperparameters employed, and the methodology for sampling negative links.
+Correctness:
+
+NA
+Clarity:
+
+Readers who are unfamiliar with the topics may find it difficult to comprehend the paper. Until section 3.1, there is a lack of a precise definition for a proof assistant, and it would be beneficial to provide an example with a specific entry in the dataset to aid understanding.
+
+The definitions of the data were presented in sections 3.1 and 3.2. However, I found these definitions to be overly abstract. Even after reading these subsections, I still struggle to visualize how computational graphs and the multigraph are structured, especially in relation to a specific example.
+
+Section 3.5 introduces the notation M(u, v) without providing a specific definition. As a result, it is unclear how these notations are connected to the concept of recommendation.
+
+Insufficient attention is given to the sampling of negative edges for link prediction tasks. This omission hinders the ability of readers to replicate the experimental outcomes documented in the paper.
+Relation To Prior Work:
+
+I am not aware of prior work concerning the same topics that has been officially published. I found this related work https://leandojo.org/ available on arxiv recently, maybe worth mentioning in the related work.
+Documentation:
+
+The documentation provided for the dataset is inadequate. Despite accessing the anonymous shared Google Drive folder, I was unable to locate useful information regarding the usage of the dataset. It is particularly unclear how to reproduce the results mentioned in the paper using this dataset.
+Ethics:
+
+NA
+Flag For Ethics Review: 2: No, there are no or only very minor ethics concerns
+Additional Feedback:
+
+NA
+
+\subsection{Response}
+
+Example definition (actually two definitions) in Section~X: the role of the proof assistant, can we illustrate how this definition is actually implemented by a human - emphasize the fact that the human expert has to infer the fact that the second definition has to be used in the first one. That illustrates the way proof assistant is being used (instead of providing an exact, precise definition, which is out of scope of this paper).
+
+How recommending system help human experts to use proof assistants. Recommending, classification task, explain that node classification is not related to assisting human experts.
+
+Add baseline experiments to the repo, assuring reproducibility and providing example of how to use alternative ML approaches on the data set.
+
+Section~3.5 M(u,v)?
+
+Negative examples - refer to the baseline section of the repo.
+
+Leandojo: published after the deadline. We have noticed that the paper is submitted to the same track, so not sure whether a reference would be appropriate.
+
+
+\end{document}

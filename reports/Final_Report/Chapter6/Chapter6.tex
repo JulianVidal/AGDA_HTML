@@ -188,18 +188,34 @@ used by the tool. This graph will then be 'pickled' and stored for future use.
 % \item Explain how it is stored pickled
 % \end{itemize}
 
-\subsection{Queries}
+\subsection{Commands}
 
 Most queries are defined similarly between the definition graph and the module
 graph but the module graph being acyclic means that it has different
 properties. 
 
+\subsubsection{Create Tree}
+
+The create tree command will create the dependency graph for either definitions
+or modules. It will perform the parsing and extraction automatically and save
+the graph to the home directory or the path of option -o.
+
+\begin{lstlisting}
+agda_tree definition create_tree "source/AllModulesIndex.lagda" -o=~/.agda_tree/def_tree.pickle
+\end{lstlisting}
+
 \marginpar{Add an example of the command and a man page describing its options}
 
-\subsubsection{Find}
+\subsubsection{Nodes}
 
 The nodes query gets all the nodes in the graph, it returns a list with all the
-definition names.
+definition names. For the \textsf{-c} option it will return the amount of nodes
+in the graph. 
+
+\begin{lstlisting}
+agda_tree definition nodes
+agda_tree definition nodes -c
+\end{lstlisting}
 
 \subsubsection{Find}
 
@@ -208,6 +224,10 @@ regex pattern to match on, and the query returns all the names that match.
 There is a -name option, if true then it will match the pattern to the name of
 the definition if it is not set then it matches on the whole name including the
 modules the definition it is stored in.
+
+\begin{lstlisting}
+agda_tree definition find "\_\+\_"
+\end{lstlisting}
 
 \subsubsection{Dependencies}
 
@@ -223,6 +243,11 @@ definition, not only the direct dependencies. NetworkX provides a method for
 this as well: \textsf{nx.descendants(graph, definition)}. This will find the
 dependencies and the dependencies' dependencies recursively.
 
+\begin{lstlisting}
+agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
+agda_tree definition dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
+
 \subsubsection{Dependents}
 
 The dependents query gets the dependents of a definition. The dependents would
@@ -233,12 +258,21 @@ get the parents and the parent's parent recursively which are
 \textsf{graph.predeccessor(definition)} and \textsf{nx.ancestors(graph,
 definition)} respectively.
 
+\begin{lstlisting}
+agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
+agda_tree definition dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
+
 \subsubsection{Leafs}
 
 The leafs query gets the definitions that have no dependencies, meaning no
 children. This can be found by looping through each definition and checking how
 many outward edges it has with the command \textsf{graph.out\_degree(node)}, if none
 they are a leaf.
+
+\begin{lstlisting}
+agda_tree definition leafs
+\end{lstlisting}
 
 \subsubsection{Module Dependencies}
 
@@ -248,10 +282,19 @@ definition was in. Although, this will cause repetitions from multiple
 definitions in the same module so they are added to a set to remove
 repetitions.
 
+\begin{lstlisting}
+agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
+agda_tree definition module_dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
+
 \subsubsection{Module Dependants}
 
 This query is exclusive to the definition graph. The module dependants query will take the output of the dependents query and
 only keep the modules of dependents then added to a set to remove repetition.
+
+\begin{lstlisting}
+agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
 
 \subsubsection{Path To Leaf}
 
@@ -267,12 +310,20 @@ is, this will cause a difference in performance of this command. The definition
 graph also contains significantly more nodes that the modules graph, so the
 amount of paths grows quickly.
 
+\begin{lstlisting}
+agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
+
 \subsubsection{Roots}
 
 The roots query gets the definitions that aren't used by any other theorem, it
 doesn't have parents. This is found similarly to leafs but instead of checking
 for outwards edges, check for inward edges with the command:
 \textsf{graph.in\_degrees(node)} if it has none then its a root.
+
+\begin{lstlisting}
+agda_tree definition roots
+\end{lstlisting}
 
 \subsubsection{Use Count}
 
@@ -283,6 +334,10 @@ is the same as counting the output the dependents query. This query either
 accepts a -top=n option where it will return the top n most used modules or the
 -d=definition option that finds how many times a specific definition was used.
 
+\begin{lstlisting}
+agda_tree definition uses -top=10
+\end{lstlisting}
+
 \subsubsection{Module Path To Leaf}
 
 This query is exclusive to the definition graph. The module path to leaf query
@@ -290,11 +345,19 @@ gets the modules needed to get from one definition to another. This is done
 using the path to leaf query, but only keeping the modules of the path of
 definitions, repeats are removed.
 
+\begin{lstlisting}
+agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
+
 \subsubsection{Definition Type}
 
 This query is exclusive to the definition graph. The definition type query gets
 the type of the definition. This data is collected during the building of the
 definition graph then stored for each node.
+
+\begin{lstlisting}
+agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n"
+\end{lstlisting}
 
 \subsubsection{Cycles}
 
@@ -303,11 +366,19 @@ cycles in the graph, NetworkX provides a method to find simple cycles. Simple
 cycles are cycles where nodes aren't repeated, except for the start and end
 node. The method is: \textsf{nx.simple\_cycles(graph)}.
 
+\begin{lstlisting}
+agda_tree definition cycles
+\end{lstlisting}
+
 \subsubsection{Save Tree}
 
 This query is exclusive to the definition graph. The save tree query converts
 the graph into the DOT format. NetworkX allows for this conversion using the
 pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path) }.
+
+\begin{lstlisting}
+agda_tree definition save_tree "/tmp/definition.dot"
+\end{lstlisting}
 
 \subsubsection{Path Between}
 
@@ -317,6 +388,10 @@ two nodes it will return all the simple paths between them. Simple paths are
 paths that don't repeat nodes. After finding all the paths, it measures their
 lengths and returns the maximum length.
 
+\begin{lstlisting}
+agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.ℕ"
+\end{lstlisting}
+
 \subsubsection{Level Sort}
 
 This query is exclusive to the module graph. The level sort query sorts the
@@ -324,11 +399,20 @@ modules into levels based on how far they are from a leaf module. This is done
 recursively, where the level of a node is based on the maximum level of its
 children plus one.
 
+\begin{lstlisting}
+agda_tree module lvl_sort
+\end{lstlisting}
+
 \subsubsection{Topological Sort}
 
 This query is exclusive to the module graph. The topological sort query sorts
 the modules into a topological order. Topological sort orders the modules into
 list where a module only depends on previous modules in the list.
+
+
+\begin{lstlisting}
+agda_tree module topo_sort
+\end{lstlisting}
 
 % \begin{itemize}
 % \item Explain how each query is implemented 

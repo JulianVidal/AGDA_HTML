@@ -2,17 +2,68 @@
 
 \chapter{Conclusion}
 
-Generally speaking, section can take different forms - as a minimum you would
-normally provide a brief summary of your project work and a discussion of
-possible future work. You may also wish to reiterate the main outcomes of your
-project and give some idea of how you think the ideas dealt with by your
-project relate to real-world situations, etc.. For the Proposal, don’t mention
-future work but do summarise your document.
+Overall, Agda Tree is a CLI tool that extracts definition dependency graphs by
+using Andrej Bauer's s-expression extractor \cite{andrej}. Parsing the
+s-expressions and importing them into a NetworkX graph. It also imports the
+module dependency graph from Agda. The CLI exposes queries on these graphs,
+that user that utilizes to better understand the code base. The CLI is
+user-friendly and easy to install for developers. Although the queries and
+accessibility are somewhat limited, due to the size of the Agda project and the
+verbosity of the Agda backend. The size of the Agda project can cause queries
+to take a significant amount of time and the Agda backend adds extra
+information that clutters the CLI output. Agda Tree achieved the project aim to
+be a tool that helps user understand large Agda codebases.
 
-\begin{itemize}
-\item Compilation time could be further reduced 
-\item A clever way of removing cycles could lead to faster queries 
-\item Many useless nodes that are part of Agda's backend but not necessary for
-    the user. 
-\item Work on making the whole process more automatic and easily distributable
-\end{itemize}
+Agda Comp explores two strategies to compile modules in parallel, while
+maintaining safety and correctness. The first one is level sort, which sorts
+the modules into levels that can be compiled in parallel. The second being
+disjoint which finds large disjoint modules that are compiled in parallel.
+These two strategies were implemented into a CLI that allows the user to
+compile their projects by passing in the module they want to compile. Testing
+was done with these strategies using different parameters, across different
+Agda libraries. The tests showed that TypeTopology benefited the most from the
+speed-up while the other libraries got modest to no improvement.
+
+This approach is limited in two ways, one being that having to call Agda's type
+checker multiple times means that the same interface files are being loaded
+multiple times. The second limitation is that to create the module dependency
+graph, the project must be compiled first which limits the use of the tool.
+Agda Comp doesn't fully meet its aim to speed up compilation time, depending on
+the system and project there could be no improvement.
+
+\section{Future work}
+
+Currently, it is cumbersome to search for definitions as the names aren't
+intuitive and become quite long. A better approach to deal with the definition
+names or a GUI could make the tool more intuitive to use. The definition
+dependency graph also contains a large amount of definitions that the user
+isn't interested in, finding an approach to reliably remove these definitions
+would improve user experience.
+
+While Agda Comp shows the potential of parallelizing type checking and the
+possible time savings that could be made. In its current state it can't be used
+as a drop-in replacement and could be made more efficient. To address its
+limitations, the Agda type checker itself would need to be parallelized from
+within. This would avoid the overhead of loading interface files for every
+index file compiled, all the interface files could be loaded at once while the
+type checker works in parallel. To create the dependency graph the project must
+be compiled which severely limits the usage of the tool, an option to create
+the dependency graph without type checking would be incredibly useful. Ideally
+this would be implemented as a part of Agda, but the source code includes
+import statements for every module so exploring generating a module dependency
+graph from these import statements could help.
+
+% Generally speaking, section can take different forms - as a minimum you would
+% normally provide a brief summary of your project work and a discussion of
+% possible future work. You may also wish to reiterate the main outcomes of your
+% project and give some idea of how you think the ideas dealt with by your
+% project relate to real-world situations, etc.. For the Proposal, don’t mention
+% future work but do summarise your document.
+%
+% \begin{itemize}
+% \item Compilation time could be further reduced 
+% \item A clever way of removing cycles could lead to faster queries 
+% \item Many useless nodes that are part of Agda's backend but not necessary for
+%     the user. 
+% \item Work on making the whole process more automatic and easily distributable
+% \end{itemize}

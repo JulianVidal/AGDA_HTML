@@ -1436,4 +1436,26 @@ implementation section details about each query and the corresponding command
 were added. The usage text from the CLI was also added to the report.
 
 # 21 - Post-Meeting Report
+
+Reviewed the first draft of the report, there are some citations missing for
+the MLFMF section of the literature review. There are also typos throughout the
+report, so it needs to be proofread. There is a todonotes package that makes
+todo notes more apparent on the report, so they aren't submitted by accident.
+There is also a package cleveref, that adds the type of reference being made
+which makes it easy to keep references consistent. When explaining the reason
+for the compilation speed up or slow down, make sure to say that it is
+speculation as the real reason isn't known. Run tests on the MacBook Air to get
+more results.
+
 # 21 - Notes
+
+On of first sentence of the literautere rewview of MLFMF should have a
+citation. Andrej baure used that backend, add a citation to the git repository.
+
+check todonotes package to add to do notes to the report.
+
+when referencing sub seciton only metion sesction, even better
+
+Using clever ref, using cref that adds the type of reference it is.
+
+Write that the reason are speculation on why thee compilation can take a long time.

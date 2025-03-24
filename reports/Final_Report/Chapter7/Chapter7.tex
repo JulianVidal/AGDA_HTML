@@ -42,10 +42,10 @@ good representation of how long the queries will take with a most projects.
 Most queries can be completed is less than a millisecond and the rest being
 completed in under 20 milliseconds. The exceptions being the cycles queries,
 finding how many indirect uses a definition has and finding the path between
-two definitions or a leaf. The cycles queries takes about 622 ms to be
-completed and the indirect uses takes about 3804 ms to be completed. Since the
+two definitions or a leaf. The cycles query takes about 622 ms to be
+completed, and the indirect uses takes about 3804 ms to be completed. Since the
 queries have recursively calls that traverse the whole graph, this is expected.
-The path between two definitions query can vary depending on the definitions,
+The path between two definitions queries can vary depending on the definitions,
 due to cycles and size of the graph the time to complete this query can go from
 less than a millisecond to impossible.
 
@@ -57,12 +57,12 @@ be re-used.
 
 \subsection{Agda Comp Strategy Validation}
 
-The testing for Agda Comp centered around the correctness and safety of the
+The testing for Agda Comp centred around the correctness and safety of the
 strategies. For a compilation strategy to be valid it must be correct, that is
 it compiles all the modules in the project. It must also be safe, so a module
 can't be compiled at the same time as one of its dependencies or itself. These
 two properties are checked for the level strategy and the disjoint level
-strategy described in Sub Section \ref{sub:key}. The correctness check is done
+strategy described in Sub \cref{sub:design level strategy}. The correctness check is done
 by adding each module and its dependencies to a set, if this set is the same as
 the set of all the modules in the dependency graph then it is correct as all
 modules are compiled eventually. The safety check is done by checking each step
@@ -74,7 +74,7 @@ files compiled in parallel had disjoint dependencies then the overall
 compilation is safe.
 
 The performance of Agda Comp is highly dependent on the Agda project, and will
-be assessed on the evaluation Section \ref{sec:key} as the purpose of the tool
+be assessed on the evaluation \cref{sec:key} as the purpose of the tool
 is to speed up compilation. The time to create the level and level B tests is
 1-millisecond and level disjoint takes about 50 milliseconds. This time is
 insignificant compared to the 5 minutes it normally takes TypeTopology to be

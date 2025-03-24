@@ -6,12 +6,14 @@ The implementation of Agda Tree must create a dependency definition graph from
 an Agda project and allow the user to query this graph through a CLI. First, a
 subsystem that turns Agda projects into a dependency graph needs to be
 implemented. Then, the CLI that will let the user query the graph is
-implemented. These subsystems must meet the functional requirements described in
-\ref{tbl:Agda Tree Functional Requirements} and the non-functional requirements
-described in table \ref{tbl:Agda Tree Non-Functional Requirements}. The CLI
-must also implement all the queries described in table \ref{tbl:Definition Graph Queries} 
-for the definition graph and the queries described in table
-\ref{tbl:Module Graph Queries} for the module graph.
+implemented. These subsystems must meet the functional requirements described
+in \cref{tbl:Agda Tree Functional Requirements} and the non-functional
+requirements described in \cref{tbl:Agda Tree Non-Functional Requirements}. The
+CLI must also implement all the queries described in \cref{tbl:Definition Graph
+Queries} for the definition graph and the queries described in \cref{tbl:Module
+Graph Queries} for the module graph.
+
+
 
 % This section should discuss how you went about developing a system that was
 % consistent with your design to meet your stated requirements. The
@@ -87,9 +89,9 @@ sexp                              & Description                                 
 
 Note that the s-expression extractor is a special version of Agda with an
 extended back-end, which means the user has to compile this Agda version and
-add it to their path. This will be handled by the CLI described section
-\ref{sub:Agda Tree CLI} to make sure the usability non-functional requirement is
-met from Table \ref{tbl:Agda Tree Non-Functional Requirements}.
+add it to their path. This will be handled by the CLI described 
+\cref{sub:Agda Tree CLI} to make sure the usability non-functional requirement is
+met from \cref{tbl:Agda Tree Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}
 
@@ -104,7 +106,7 @@ The s-expressions are compiled into a directory, this project is implemented in
 Python so the library sexpdata will be used to load the raw s-expression files
 into Python lists. These lists will be analysed recursively, finding the
 relevant tags. The strategy is to find all the :entry tags in the file, each
-:entry tag represents a definition as described in Table \ref{tbl:sexp}. For
+:entry tag represents a definition as described in \cref{tbl:sexp}. For
 each :entry tag, find all the :name tags contained inside. With this
 information create a dictionary where the key is the definition name and the
 value will be a list of the :name tags. Since :entry tags describe each
@@ -379,7 +381,7 @@ agda_tree definition cycles
 
 This query is exclusive to the definition graph. The save tree query converts
 the graph into the DOT format. NetworkX allows for this conversion using the
-pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path).
+pydot library by using the method: \textsf{nx.nx\_pydot.write\_dot(graph, path)}.
 
 \begin{lstlisting}
 agda_tree definition save_tree "/tmp/definition.dot"
@@ -393,9 +395,9 @@ two nodes it will return all the simple paths between them. Simple paths are
 paths that don't repeat nodes. After finding all the paths, it measures their
 lengths and returns the maximum length.
 
-\begin{lstlisting}
-agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.ℕ"
-\end{lstlisting}
+% \begin{lstlisting}
+% agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.ℕ"
+% \end{lstlisting}
 
 \subsubsection{Level Sort}
 
@@ -661,7 +663,7 @@ the definition graph.
 \section{Agda Comp}
 
 Agda Comp automatically creates the module dependency graph as described in
-subsection \ref{sub: Building Module Tree}, using Agda's built-in dependency
+\cref{sub: Building Module Tree}, using Agda's built-in dependency
 graph generator. The dependency graph is passed into each strategy, the
 strategy will return the order in which to compile the modules. Given this
 order, a 'make generator' sub-system will create the index files and the make
@@ -698,7 +700,7 @@ file that will represent the order in which to compile the indices.
 
 \subsubsection{Level Strategy} \label{sub:imp lvl strategy}
 
-As explained in the design Section \ref{sub:design level strategy}, the level
+As explained in the design \cref{sub:design level strategy}, the level
 strategy works by sorting the modules into levels. Where the level of a module
 is its maximum distance from a leaf, guaranteeing that if previous levels are
 compiled then the modules in the current levels can be compiled in parallel.
@@ -738,7 +740,7 @@ def depths(g):
 The compilation order array is created from this sorting, where each level is a
 step in the compilation order containing the modules that can be compiled in
 parallel. Then the make file is automatically generated from this compilation
-order as shown in Section \ref{sub:building make file and index}.
+order as shown in \cref{sub:building make file and index}.
 
 A practical detail to note is that compiling modules individually causes a
 large amount of overhead, as for Agda to type check a module it has to load
@@ -759,12 +761,12 @@ exceeded another index file is created. While this will create more index files
 than cores that can compile in parallel, due to the overhead of loading
 interface files, being able to type check one index file while waiting for the
 data of another could still result in a performance increase. These two methods
-will be tested on the evaluation Section \ref{sub:eval comp strat} as level A
+will be tested on the evaluation \cref{sub:eval comp strat} as level A
 and level B.
 
 \subsubsection{Level Disjoint Strategy} \label{sub:imp disj strategy}
 
-As explained in the design Section \ref{sub:design disjoint strategy}, the
+As explained in the design \cref{sub:design disjoint strategy}, the
 level disjoint strategy works by finding the largest disjoint modules, modules
 with a large amount of dependencies which are all distinct two modules don't
 share a dependency. If the algorithm finds the disjoint modules, it compiles
@@ -899,8 +901,8 @@ prerequisites.
 \subsection{Command Line Interface}
 
 The command line interface (CLI) will be created in Python, it is a popular
-language that many people already have. Similarly to Agda Tree CLI Section
-\ref{sub:Agda Tree CLI}, argparse is used to cream the CLI. argparse will parse
+language that many people already have. Similarly to Agda Tree CLI 
+\cref{sub:Agda Tree CLI}, argparse is used to cream the CLI. argparse will parse
 the sys.argv based on the parsers given and generate usage/help outputs.
 
 The parser accepts the path to the all modules index file of the project to
@@ -968,8 +970,8 @@ agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.l
 
 \subsection{Installation}
 
-The installation process for this tool is the same as for Agda Tree in Section
-\ref{sub:Agda Tree Installation}. A pyproject.toml file is created describing
+The installation process for this tool is the same as for Agda Tree in 
+\cref{sub:Agda Tree Installation}. A pyproject.toml file is created describing
 the dependencies, build backend and python version of the project along with
 other metadata. This packages the project such that it can be installed through
 PIP, although PIPX is recommended to install end-user applications as PIPX will

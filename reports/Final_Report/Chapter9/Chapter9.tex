@@ -3,7 +3,7 @@
 \chapter{Evaluation}
 
 This section evaluates the Agda Tree and Agda Comp tools with respect to the
-function and non-functional requirements set on Chapter \ref{ch:system
+function and non-functional requirements set on \cref{ch:system
 requirements}. These requirements outline the purpose of these tools and their
 expected behaviour.
 
@@ -13,8 +13,8 @@ Agda Tree extracts the definitions and their relationships from any Agda
 project, uses Agda to generate the module dependency graph and imports them
 into a NetworkX graph. It implements several methods that analyse this
 graph for information, meeting all the queries outlined for the definition
-graph in Table \ref{tbl:Definition Graph Queries} and the module graph in Table
-\ref{tbl:Module Graph Queries}. These methods are then exposed through a
+graph in \cref{tbl:Definition Graph Queries} and the module graph in 
+\cref{tbl:Module Graph Queries}. These methods are then exposed through a
 command line interface that lets the user runs those queries on their Agda
 project. The python library argparse validates that the input to the queries is
 valid. Then CLI the outputs the modules to standard output, which can then be
@@ -23,7 +23,7 @@ index files containing all modules needs to be passed in.
 
 Agda Tree is able to extract s-expressions from any Agda project but depending
 on the size of the project and the user's computer it can take more than 10
-minutes as seen on Section \ref{sub:agda tree performance}. Most queries are
+minutes as seen on \cref{sub:agda tree performance}. Most queries are
 complete in under 2 seconds regardless of project size, but queries that
 require finding a path in the graph can take far longer depending on the size
 of the graph. The CLI is documented in the README and the \textsf{--help}
@@ -34,7 +34,8 @@ returns an error from NetworkX explaining what the issue was. The code base is
 documented through READMEs and unit tested allowing for better maintainability
 and testability. Therefore, Agda Tree meets all its functional requirement but
 doesn't fully meet its non-functional requirements due to performance issues.
-The requirements as described on Table \ref{tbl:Agda Tree Functional Requirements} for functional requirements and Table \ref{tbl:Agda Tree Non-Functional Requirements} for non-functional requirements.
+The requirements as described on \cref{tbl:Agda Tree Functional Requirements} for functional requirements and 
+\cref{tbl:Agda Tree Non-Functional Requirements} for non-functional requirements.
 
 \subsubsection{Limitations}
 
@@ -65,15 +66,15 @@ user-friendly error message if not. The tool is able to discern the project
 structure from the index file the user passes in, making it usable across any
 Agda project. Therefore, Agda Comp meets most of its functional requirements
 except for speeding up compilation for any Agda project which will be explored
-in Section \ref{ssub:eval comp strat}.  The functional requirements were
-described in Table \ref{tbl:Agda Comp Functional Requirements}.
+in \cref{ssub:eval comp strat}.  The functional requirements were
+described in \cref{tbl:Agda Comp Functional Requirements}.
 
 Agda Comp works for any sized project, it has a simple command line interface
 to choose the compilation strategy. It was tested within WSL and macOS, for
 compatibility. The codebase is documented with a README and the CLI has a
 \textsf{--help} option to help users better understand the tool. The strategies
 were tested to ensure correctness and safety. Therefore, Agda Comp meets all of
-its non-functional requirements as described on Table \ref{tbl:Agda Comp
+its non-functional requirements as described on \cref{tbl:Agda Comp
 Non-Functional Requirements}.
 
 \subsubsection{Limitations} \label{ssub:eval comp limitations}
@@ -100,7 +101,7 @@ overhead.
 
 \subsubsection{Compilation Strategies} \label{ssub:eval comp strat}
 
-The following Table \ref{tbl:WSL strategies results} and Table \ref{tbl:martin
+The following \cref{tbl:WSL strategies results} and \cref{tbl:martin
 strategies results} show the results of the testing of the compilation
 strategies. The compilation testing consisted of 7 tests of different
 strategies across 3 libraries. The three libraries picked are TypeTopology
@@ -113,8 +114,8 @@ The 7 strategies tested are normal, which is the standard compilation which
 gives a baseline for the other modules. The unsafe test, which attempts to
 compile all modules in 4 index files at the same time, without regards to
 safety which shows the potential of parallelization. Then the level strategy
-using method A to split modules into index files described in Section
-\ref{sub:imp lvl strategy}, the modules in the same level will be tested when
+using method A to split modules into index files described in 
+\cref{sub:imp lvl strategy}, the modules in the same level will be tested when
 split into 2 index files or 5 index files. The next test is using method B
 instead, where each index file has at most 2 modules or 5 modules. Lastly, the
 disjoint strategy is tested which has no parameters.
@@ -162,7 +163,7 @@ compilation time also depends on the user's system, with WSL achieving  a
 speed-up in level A 5 cores with all projects.
 
 The cause in the difference in compilation improvement per project, is likely
-due to the limitation discussed in the Section \ref{ssub:eval comp
+due to the limitation discussed in the \cref{ssub:eval comp
 limitations}. Since unimath has more small modules, there is a large amount of
 interface files that are constantly being loaded and unloaded when normal
 compilation can load all the interface files at once and keep them. 
@@ -170,7 +171,7 @@ compilation can load all the interface files at once and keep them.
 \section{Conclusion}
 
 Both Agda Tree and Agda Comp meets most of the functional and non-functional
-requirements set out in Chapter \ref{ch:system requirements}. Agda Tree
+requirements set out in \cref{ch:system requirements}. Agda Tree
 effectively extracts definition dependency graphs from any Agda project, but it
 can take a long time to generate that graph. All queries are implemented,
 however some queries can take an indefinite amount of time to complete

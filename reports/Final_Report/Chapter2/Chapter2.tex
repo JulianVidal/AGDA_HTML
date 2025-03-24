@@ -81,7 +81,7 @@ by Yves Robert \cite{scheduling}.
 \section{MLFMF: Data Sets for Machine Learning for Mathematical Formalization}
 
 MLFMF is a collection of data sets used to benchmarking systems that help
-mathematicians find which theorems are relevant when proving a new theorem. The
+mathematicians find which theorems are relevant when proving a new theorem \cite{bauer2023mlfmf}. The
 data sets are created from large libraries of formalized mathematics in Agda or
 Lean. The data sets represent each library as a network and as a list of
 s-expressions. The data sets include libraries such as Agda-unimath and
@@ -90,15 +90,17 @@ methods to mathematics. The data set methodology to extract s-expressions can
 be used with other libraries to continue expanding the 250000 entries in the
 data sets.
 
+\marginpar{The text overlofws in the figure}
+
 The method to extract s-expressions from Agda libraries is by extending the
-Agda backend. The backend has access to important information about a
+Agda backend \cite{andrej}. The backend has access to important information about a
 project's theorems and its relationships with other theorems. Andrej Bauer used
 that backend and turned the information into easy-to-parse s-expressions. The
-Figure \ref{fig:example-sexp} is an example of the :entry s-expression, each
+Figure \cref{fig:example-sexp} is an example of the :entry s-expression, each
 :entry tag marks where a theorem is defined, and it contains the name of the
 theorem, its type, and the definitions it needs to be defined. Mind that
 \texttt{(...)} are more s-expressions that were replaced for readability. A
-more general structure to this tag can be seen in Figure \ref{fig:sexp-ast}
+more general structure to this tag can be seen in \cref{fig:sexp-ast}
 where the three parts are shown as subtrees and a node.
 
 \begin{figure}[H]

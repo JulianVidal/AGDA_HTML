@@ -22,7 +22,7 @@ order.
 
 Agda Tree is a command line interface that allows the user to interact with the
 module and definition graph. The first command that has to be designed is how
-the CLI will create both dependency graphs. Figure \ref{fig:Agda Create Tree
+the CLI will create both dependency graphs. \cref{fig:Agda Create Tree
 Diagram} shows how the user will interact with the CLI to create the graphs.
 The user provides the Agda file that they want to analyze, normally this would
 be the entire project. The "Everything Index File" is the file that imports all
@@ -38,14 +38,14 @@ generated automatically or by the project maintainers.
 
 \pagebreak
 
-Figure \ref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the
+\cref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the
 classes and methods needed to operate the command line. The program starts with
 the command line entry point, that will parse the input by the user and
 delegate the running of the commands to the respective dependency graph. The
 command line stores the default path to the dependency graph, the definition
 and module dependency graph will have their own commands that can be run on
-them. These queries can be found in Table \ref{table:Definition Graph Queries}
-for the definition graph and in Table \ref{table:Module Graph Queries} for the
+them. These queries can be found in \cref{tbl:Definition Graph Queries}
+for the definition graph and in \cref{tbl:Module Graph Queries} for the
 module graph for the module graph.
 
 For the definition graph to be created, it depends on the s-expression
@@ -61,7 +61,7 @@ found into a graph.
     
 \pagebreak
 
-Figure \ref{fig:Agda Tree Query Diagram} shows how the CLI splits into two,
+\cref{fig:Agda Tree Query Diagram} shows how the CLI splits into two,
 depending on what dependency graph is being queried. When a user makes a query,
 they will select the dependency graph and the respective methods will perform
 that query. The output will be displayed in stdoutput, this makes sure that the
@@ -82,7 +82,7 @@ output can then be used with other commands like piping and xargs.
 \marginpar{Add more stuff about Agda Comp, I don't know what}
 \marginpar{What are the algorithms that are going to be sued for Agda comp}
 
-Figure \ref{fig:Agda Comp Diagram} demonstrates how the user will interact with
+\cref{fig:Agda Comp Diagram} demonstrates how the user will interact with
 the Agda Tool. The user provides the module that will be compiled, next to some
 parameters defining the amount of cores used in the parallelization and what
 compilation strategy to use.
@@ -100,7 +100,7 @@ The level strategy sorts the modules into levels, where leaf nodes with no
 children are at level \(0\). Level \(1\) contains all the modules which only depend on
 modules at level \(0\). Level \(n\) contains all the modules that depend on levels \(n
 - 1\) or below. In other words, the level of a module is its maximum distance
-from a leaf module. This algorithm can be visualized with the Figures \ref{subfig: lvl strat}.
+from a leaf module. This algorithm can be visualized with the \cref{subfig: lvl strat}.
 \begin{figure}[H]
   \begin{subfigure}[t]{0.45\textwidth}
     \centering
@@ -135,9 +135,9 @@ and add one the maximum of the children's level. The disadvantage is that if a
 level has a small amount of modules there isn't a significant opportunity to
 parallelize the type checking. Also, There could be two modules that each
 depend  on 20 distinct modules that could be compiled in parallel that could
-lead to massive savings. Instead, this method would compile the 40 combine
+lead to massive savings. Instead, this method would compile the 40 combined
 dependencies in previous levels, then compile the two modules in parallel. This
-becomes significant during implementation \ref{sub:imp lvl strategy}, as there
+becomes significant during implementation \cref{sub:imp lvl strategy}, as there
 is an overhead to parallelization which is exacerbated when compiling a small
 collection of modules.
 
@@ -158,7 +158,7 @@ strategy. It aims to find the largest modules that can be compiled in parallel,
 the largest module being one with many dependencies. If such modules are found,
 then they are compiled in parallel, otherwise the leaf modules are compiled.
 Note that once a module is compiled, it is no longer a dependency on future
-modules. This process is visualized on Figures \ref{subfig:disj strat}.
+modules. This process is visualized on \cref{subfig:disj strat}.
 \begin{figure}[H]
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -177,7 +177,7 @@ modules. This process is visualized on Figures \ref{subfig:disj strat}.
   \label{subfig:disj strat}
 \end{figure}
 
-This ensures that at each step the amount of module to compile is reduced,
+This ensures that at each step the amount of modules to compile is reduced,
 until all modules are compiled. It also ensures that if no distinct modules,
 modules that don't share dependencies, are found then the conflicting
 dependencies might be the leaf that is being compiled. The strategy only
@@ -190,7 +190,7 @@ The advantage of this approach is that it better manages the overhead of
 parallelization, instead of compiling a couple of individual modules at a time
 it can compile modules with multiple dependencies such that Agda doesn't have
 to loading interface files as often as explained in the implementation
-Sub-Section \ref{sub:imp disj strategy}. The disadvantage is that finding these
+\cref{sub:imp disj strategy}. The disadvantage is that finding these
 disjoint modules is difficult, projects  have hundreds of modules and finding
 multiple modules that don't share dependency can't be done through brute force.
 Each Agda project also has different structures with Agda-unimath having
@@ -211,18 +211,16 @@ taken, which doesn't guarantee the optimal solution.
 
 \section{Conclusion}
 
-The diagram in figure \ref{fig:Agda Tree Class Diagram} show how the structure
-of the program. Figures \ref{fig:Agda Create Tree Diagram} and \ref{fig:Agda
-Tree Query Diagram} also shows how the dependency graphs will be created and
+The diagram in \cref{fig:Agda Tree Class Diagram} show how the structure
+of the program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query Diagram} also shows how the dependency graphs will be created and
 how the user will interact with CLI. This structure will be important as it
 ensures that the CLI can handle all the requirements and gives the project a
 solid foundation to refer back to. 
 
-The functionality of Agda Comp is modelled in Figure \ref{fig:Agda Comp
-Diagram}, this structure allows the user to select what compilation strategy to
+The functionality of Agda Comp is modelled in Figure \cref{fig:Agda Comp Diagram}, this structure allows the user to select what compilation strategy to
 use and how many cores the compilation can use. Agda Comp is meant to allow the
 user to easily apply the compilation strategies which are modelled with Figures that are going to be explored
-in chapter \ref{ch:implementation}.
+in \cref{ch:implementation}.
 
 % Communicating how you think about the composition of your system and how it
 % works. You might detail the ways in which the overall system will be broken

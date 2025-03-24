@@ -227,6 +227,7 @@ modules the definition it is stored in.
 
 \begin{lstlisting}
 agda_tree definition find "\_\+\_"
+agda_tree definition find "\_\+\_" -name
 \end{lstlisting}
 
 \subsubsection{Dependencies}
@@ -336,6 +337,9 @@ accepts a -top=n option where it will return the top n most used modules or the
 
 \begin{lstlisting}
 agda_tree definition uses -top=10
+agda_tree definition uses -i -top=10
+agda_tree definition uses -d "InfinitePigeon.Addition.n-plus-zero-equals-n"
+agda_tree definition uses -d -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
 
 \subsubsection{Module Path To Leaf}

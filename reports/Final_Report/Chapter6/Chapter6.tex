@@ -100,8 +100,6 @@ describe the definition in full detail, but this information is not needed. The
 information needed is the definitions in a project and the dependencies of
 those definitions which means mainly the :name and :entry tags are of interest.
 
-\marginpar{Should I add the figure in MLFML that describes the s-expressions}
-
 The s-expressions are compiled into a directory, this project is implemented in
 Python so the library sexpdata will be used to load the raw s-expression files
 into Python lists. These lists will be analysed recursively, finding the
@@ -207,8 +205,6 @@ the graph to the home directory or the path of option -o.
 agda_tree definition create_tree "source/AllModulesIndex.lagda" -o=~/.agda_tree/def_tree.pickle
 \end{lstlisting}
 
-\marginpar{Add an example of the command and a man page describing its options}
-
 \subsubsection{Nodes}
 
 The nodes query gets all the nodes in the graph, it returns a list with all the
@@ -239,8 +235,7 @@ The dependencies query gets all the dependencies of a definition. This means wha
 theorems do the definition need to be defined, either due to their type or what
 it used to be proved true. Since this is a directed dependency graph and the
 definition's edges point towards its dependencies, the dependencies are the
-children of the definition. NetworkX provides a method for this:
-\textsf{graph.successors(definition)}.
+children of the definition. NetworkX provides a method for this: \linebreak \textsf{graph.successors(definition)}.
 
 This query must also allow for finding the indirect dependencies of a
 definition, not only the direct dependencies. NetworkX provides a method for
@@ -322,7 +317,7 @@ agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 The roots query gets the definitions that aren't used by any other theorem, it
 doesn't have parents. This is found similarly to leaves but instead of checking
-for outward edges, check for inward edges with the command:
+for outward edges, check for inward edges with the command: \linebreak
 \textsf{graph.in\_degrees(node)} if it has none then it's a root.
 
 \begin{lstlisting}
@@ -531,13 +526,14 @@ with other commands.
 % \item How cycles are difficult andc ant find distance to leafe 
 % \end{itemize}
 
-
+\noindent
 \begin{minipage}{\linewidth}
 Here is the help page generated for the Agda Tree definition command
 \begin{lstlisting}
 usage: agda_tree definition [-h]
-                            {create_tree,cycles,dependencies,dependents,
-                            find,leafs,module_dependencies,module_dependents,
+                            {create_tree,cycles,dependencies,
+                            dependents, find,leafs,
+                            module_dependencies,module_dependents,
                             module_path_to_leaf,nodes,path_between,
                             path_to_leaf, roots,save_tree,type,uses}
                             ...
@@ -547,31 +543,37 @@ positional arguments:
   find,leafs,module_dependencies,module_dependents,
   module_path_to_leaf,nodes,path_between,path_to_leaf,
   roots,save_tree,type,uses}
-    create_tree         Creates definition dependency tree from file, -output option to
-                        set the path to store the tree
+    create_tree         Creates definition dependency tree from file, 
+                        -output option to set the path 
+                        to store the tree
     cycles              Cycles in graph
-    dependencies        Definitions that definition d depends on, -indirect will find
-                        the indirect dependencies
-    dependents          Definitions that depend on definition d, -indirect finds the
-                        indirect dependents
+    dependencies        Definitions that definition d depends on,
+                        -indirect will find the indirect dependencies
+    dependents          Definitions that depend on definition d,
+                        -indirect finds the indirect dependents
     find                Find definition through regex
     leafs               Definitions with no dependencies
     module_dependencies
-                        Module dependencies of definition d, -indirect finds the
-                        indirect module dependencies
-    module_dependents   Modules that depend on definition d, -indirect also gets the
-                        indirect module dependents
+                        Module dependencies of definition d, 
+                        -indirect finds the indirect 
+                        module dependencies
+    module_dependents   Modules that depend on definition d, 
+                        -indirect also gets the indirect 
+                        module dependents
     module_path_to_leaf
-                        Longest path from definition d to any leaf only counting modules
-    nodes               List of definitions, if -c flag is set returns the number of
-                        nodes
-    path_between        Longest path between two definitions src and dst
+                        Longest path from definition d to any leaf only
+                        counting modules
+    nodes               List of definitions, if -c flag is set returns 
+                        the number of nodes
+    path_between        Longest path between two definitions src 
+                        and dst
     path_to_leaf        Longest path from defintion d to any leaf
     roots               Definitions that aren't used
     save_tree           Save definition graph as pydot
     type                Types of definition d
-    uses                Counts amount of uses per definition, sorted in descending
-                        order, if -d is passed in a definitino it will return the uses
+    uses                Counts amount of uses per definition, 
+                        sorted in descending order, if -d is passed 
+                        in a definitino it will return the uses 
                         of that definition
 
 options:
@@ -579,8 +581,10 @@ options:
 \end{lstlisting}
 \end{minipage}
 
+\noindent
 \begin{minipage}{\linewidth}
-Here is the help page generated for the Agda Tree module command
+Here is the help page generated for the Agda Tree module command:
+
 \begin{lstlisting}
 usage: agda_tree module [-h]
                         {complex_modules,create_tree,dependencies,
@@ -690,9 +694,13 @@ array shows is that "module 1" and "module 2" should be compiled together in an
 index, the same for "module 3", "module 4" and "module 6", "module 7". Then
 they themselves are within a list meaning that these to indices should be
 compiled in parallel. So another way to write the array is the following:
-[[index\_0\_0 , index\_0\_1], [index\_1\_0] , [index\_2\_0]]. Where index\_0\_0,
-index\_0\_1 are compiled in parallel, the index\_1\_0 is compiled by it self then
-index\_2\_0 is compiled by itself in that order.
+[[index\_0\_0 , index\_0\_1], [index\_1\_0] , [index\_2\_0]]. Where
+index\_0\_0, index\_0\_1 are compiled in parallel, the index\_1\_0 is compiled
+by it self then index\_2\_0 is compiled by itself in that order. When Agda
+compiles a modules, it has to load in interface files that are the compiled
+version of the modules it depends on. By adding as many modules into one index,
+means that the interface files only have to be loaded in once limiting
+overhead.
 
 Once the strategies have generated this array, the make generator
 subsystem will create the index files that contain the modules and the make
@@ -965,8 +973,6 @@ and use the levelb compilation strategy.
 \begin{lstlisting}
 agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.lagda"
 \end{lstlisting}
-
-\marginpar{Write about switching from individual modules to index files for performance}
 
 \subsection{Installation}
 

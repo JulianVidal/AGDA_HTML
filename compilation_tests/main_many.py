@@ -16,29 +16,30 @@ import test_lvlb
 import test_lvl_disjoint
 
 test_repos = {
-    "TypeTopology": {
-        "url": "https://github.com/martinescardo/TypeTopology.git",
-        "dir": Path("/tmp/TypeTopology"),
-        "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
-        "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}"
+    # "TypeTopology": {
+    #     "url": "https://github.com/martinescardo/TypeTopology.git",
+    #     "dir": Path("/tmp/TypeTopology"),
+    #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
+    #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}",
+    # },
+    "stdlib": {
+        "url": "https://github.com/agda/agda-stdlib.git",
+        "dir": Path("/tmp/agda-stdlib"),
+        "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
+        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+        "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}",
     },
-    # "stdlib": {
-    #     "url": "https://github.com/agda/agda-stdlib.git",
-    #     "dir": Path("/tmp/agda-stdlib"),
-    #     "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-    #     "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
-    #     "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}"
-    # },
-    # "unimath": {
-    #     "url": "https://github.com/UniMath/agda-unimath.git",
-    #     "dir": Path("/tmp/agda-unimath"),
-    #     "index": Path("/tmp/agda-unimath/src/everything.lagda.md"),
-    #     "create_index": "cd /tmp/agda-unimath/; make ./src/everything.lagda.md",
-    #     "index_flags": "{-# OPTIONS --guardedness --cohesion --flat-split --rewriting #-}"
-    # },
+    "unimath": {
+        "url": "https://github.com/UniMath/agda-unimath.git",
+        "dir": Path("/tmp/agda-unimath"),
+        "index": Path("/tmp/agda-unimath/src/everything.lagda.md"),
+        "create_index": "cd /tmp/agda-unimath/; make ./src/everything.lagda.md",
+        "index_flags": "{-# OPTIONS --guardedness --cohesion --flat-split --rewriting #-}",
+    },
 }
 
 results = {}
+
 
 def main():
     global results
@@ -71,15 +72,11 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     else:
         print(f"{name}: Found everything index file")
 
-
     # Creates dot file
     dot_file = dir / "graph.dot"
     if not dot_file.exists():
         print(f"{name}: Creating dot file in {dot_file}")
-        cmds = ";".join([
-            f"cd {dir}",
-            f"agda --dependency-graph={dot_file} {index}"
-        ])
+        cmds = ";".join([f"cd {dir}", f"agda --dependency-graph={dot_file} {index}"])
         subprocess.run(cmds, shell=True, stdout=subprocess.DEVNULL, check=True)
         # subprocess.run(cmds, shell=True, check=True)
     else:
@@ -91,7 +88,7 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     # Renames each node with its label
     mapping = {}
     for n in dep_graph.nodes(data=True):
-        mapping[n[0]] = n[1]['label'].strip('\"')
+        mapping[n[0]] = n[1]["label"].strip('"')
 
     # Remove Agda.Prmitive which can't be checked and possible removal of index
     # files
@@ -99,8 +96,10 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     dep_graph.remove_node("Agda.Primitive")
 
     # Attempt to remove index files from typetopology
-    dep_graph.remove_node("index")
-    dep_graph.remove_node("AllModulesIndex")
+    if "index" in dep_graph:
+        dep_graph.remove_node("index")
+    if "AllModulesIindex" in dep_graph:
+        dep_graph.remove_node("AllModulesIndex")
 
     for node in list(dep_graph.nodes):
         if ".index" in node:
@@ -108,14 +107,32 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
             dep_graph.remove_node(node)
 
     tests = {
-        "normal": (test_normal, (index.stem.split(".")[0], index_flags, )),
-        "unsafe": (test_unsafe, (dep_graph, index_flags,)),
+        "normal": (
+            test_normal,
+            (
+                index.stem.split(".")[0],
+                index_flags,
+            ),
+        ),
+        "unsafe": (
+            test_unsafe,
+            (
+                dep_graph,
+                index_flags,
+            ),
+        ),
         "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
         "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
-        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
+        # "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
         "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
         "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
-        "lvl_disjoint": (test_lvl_disjoint, (dep_graph, index_flags, )),
+        "lvl_disjoint": (
+            test_lvl_disjoint,
+            (
+                dep_graph,
+                index_flags,
+            ),
+        ),
     }
 
     global results
@@ -136,11 +153,11 @@ def run_test(*args):
         script = executor.submit(run_test_helper, *args)
 
         start = time.time()
-        while not script.done()\
-                and not script.cancelled():
+        while not script.done() and not script.cancelled():
             time.sleep(0.2)
             print(
-                f'Time elapsed ----------- {time.time() - start:1.0f}s\033[K', end="\r")
+                f"Time elapsed ----------- {time.time() - start:1.0f}s\033[K", end="\r"
+            )
 
         elapsed = script.result()
         result = {"test_name": test_name, "runtime": elapsed}
@@ -156,15 +173,17 @@ def run_test_helper(name, test_name, test, args, src_dir):
     print(f"{name}/{test_name}: Finished generating test")
 
     print(f"{name}/{test_name}: Running  test")
-    commands = "; ".join([
-        f"cd {src_dir}",
-        "mv compilation.mk ../",
-        "cd ..",
-        "rm -rf ./_build",
-        "make -j -f compilation.mk",
-        f'find {src_dir} -name "index-*lagda" -delete',
-        "rm compilation.mk",
-    ])
+    commands = "; ".join(
+        [
+            f"cd {src_dir}",
+            "mv compilation.mk ../",
+            "cd ..",
+            "rm -rf ./_build",
+            "make -j -f compilation.mk",
+            f'find {src_dir} -name "index-*lagda" -delete',
+            "rm compilation.mk",
+        ]
+    )
 
     start = time.perf_counter()
     subprocess.run(commands, shell=True, stdout=subprocess.DEVNULL)
@@ -174,8 +193,9 @@ def run_test_helper(name, test_name, test, args, src_dir):
 
 def save_results():
     global results
-    with open(f"results-{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}.txt", "a") as f:
+    with open(f"results-{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}.txt", "a") as f:
         f.write(str(results))
+
 
 if __name__ == "__main__":
     atexit.register(save_results)

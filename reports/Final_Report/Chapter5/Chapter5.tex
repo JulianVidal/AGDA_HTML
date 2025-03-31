@@ -2,19 +2,16 @@
 
 \chapter{Design}
 
-\marginpar{Add an introduction of what you want to do for each chapter}
-
-The design of tools will describe the different systems needed to extract the
-dependency graphs and analyse them. Agda Tree analyses two dependencies graphs,
-one for modules and another for definitions. The module dependency graph can be
-generated with Agda but for the definition dependency graph will have to be
-created manually and needs to be designed.
+The design section describes the systems needed to extract the dependency
+graphs and analyse them. Agda Tree analyses two dependencies graphs, one for
+modules and another for definitions. The module dependency graph can be
+generated with Agda but for the definition dependency graph is created
+manually.
 
 Agda Comp is a simpler tool, as the complexity comes from testing the different
-compilation strategies. It must create the module dependency graph, apply the
-given strategy using the parameters provided by the user, and run the compilation
+compilation strategies. It creates the module dependency graph, apply the
+given strategy using the parameters provided by the user, and compile with the
 order. 
-
 
 \pagebreak
 
@@ -79,9 +76,6 @@ output can then be used with other commands like piping and xargs.
 
 \section{Agda Comp}
 
-\marginpar{Add more stuff about Agda Comp, I don't know what}
-\marginpar{What are the algorithms that are going to be sued for Agda comp}
-
 \cref{fig:Agda Comp Diagram} demonstrates how the user will interact with
 the Agda Tool. The user provides the module that will be compiled, next to some
 parameters defining the amount of cores used in the parallelization and what
@@ -115,7 +109,7 @@ from a leaf module. This algorithm can be visualized with the \cref{subfig: lvl 
     0, red level 1 and blue level 2}
     \label{fig:example lvl sort}
   \end{subfigure}
-  \caption{}
+  \caption{Level Strategy Example}
   \label{subfig: lvl strat}
 \end{figure}
 
@@ -173,7 +167,7 @@ modules. This process is visualized on \cref{subfig:disj strat}.
     creating two modules that can be compiled in parallel. }
     \label{fig:example disj strat}
   \end{subfigure}
-  \caption{}
+  \caption{Level Disjoint Example}
   \label{subfig:disj strat}
 \end{figure}
 

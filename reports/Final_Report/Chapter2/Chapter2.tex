@@ -2,111 +2,117 @@
 
 \chapter{Literature Review}
 
-\marginpar{Add literature about code decay}
+\todo[inline]{Add literature about code decay?}
 
 There are many ways to represent code using graphs, each with their own utility
 and purpose. There are Abstract Syntax Trees (AST), Control Flow Graphs (CFG),
-Data Flow Graph (DFG), Program Dependence Graph (PDG), and Code Property Graph
-(CPG). These representations encode all the behavior and properties of a
-project, they can have many uses such as for code vulnerability detection
-\cite{graph_for_code_vuln}. These representations also allows for static
-analysis, where code isn't run but the structure is analyzed for software
-validation \cite{static_analysis}. For this project, these graphs encode far
-more information that is required, as for the dependency graph only the
-relationship between definitions is of value. 
+Data Flow Graph (DFG), and Code Property Graph (CPG). These representations
+encode the behaviour and properties of a code base, they can have many uses
+such as for code vulnerability detection \cite{graph_for_code_vuln}. These
+representations also help with static analysis, where code isn't run, but the
+structure is analysed for software validation \cite{static_analysis}. For this
+project these graphs encode too much information, what is needed is a
+dependency graph only with definitions are their relationships.
 
-
-\marginpar{Add section explaining dependency graph}
+\todo[inline]{Explain what dependency graphs are?}
+\todo[inline]{Extend related works?}
 
 \section{Related works}
 
 The Language Server Protocol (LSP) is used by IDEs, such as Visual Studio Code
-and IntelliJ, to provide features like goto definition and goto references. The
-LSP sits between the code editor and the language server, it is the language
-server that analyzes the code structure to support the features
-\cite{LSP_implementation}. Language server has the functionality to implement
+and IntelliJ, to provide features like \textsf{goto} definition and
+\textsf{goto} references which lets the user jump to where a definition is
+defined or referenced.. The LSP sits between the code editor and the language
+server, the language server analyses the code to support these features
+\cite{LSP_implementation}. Language servers have the functionality to implement
 this project, but, they are meant to be used while editing code, and the
-language server isn't made to be used with custom queries. Examples of LSPs
-are Jedi \cite{jedi_lsp} and Agda's language server \cite{agda_lsp}, while they
-contain the functionality needed they are only meant to work on the current
-open file, not a whole project.
+language server isn't made to be used with custom queries. Examples of LSPs are
+Jedi \cite{jedi_lsp} and Agda's language server \cite{agda_lsp}.
 
 Ctags \cite{ctags} is a tool that indexes all the symbols in a project, this is
-helpful to get all the definitions from an Agda project. But it doesn't capture
-the relationship between the symbols it finds.
+helpful to get all the definitions from an Agda project. It helps the user with
+code comprehension and gives the text editor more information to improve the
+developer experience. However, it doesn't capture the relationship between the
+symbols which is a key aspect of a dependency graph.
 
 Graph Buddy is an interactive code dependency browsing and visualization tool
-\cite{graph_buddy}. It takes large Java codebases and turns them into Semantic Code
-Graphs (SCG), and creates a visualization of this graph. This graph shows
+\cite{graph_buddy}. It takes large Java codebases and turns them into Semantic
+Code Graphs (SCG), and creates a visualization of this graph. It shows
 dependencies between modules, classes, and methods which helps the developer
 better understand the project and tackle the pervasive issue of code decay
 \cite{code_decay_evidence}. Graph Buddy is integrated into an IDE as a plugin,
-where the user can seamlessly explore the visualization. 
+where the user can seamlessly explore the visualization. This is quite similar
+to the goal of this project, it contains all the definitions and their
+relationships. The visualization would also make it simpler to use than a
+Command Line Interface. However, it is exclusive to Java.
 
 There is also a tool \cite{call_graph_vis} that visualizes the call graph of a
 coding project, this allows for better developer experience. It works in
 real-time, while the user is editing the code the graph will automatically
-update to show the changes.
+update to show the changes. Helping with developer experience and understanding
+how the code flows through the project. This isn't relevant to Agda, as a proof
+assistant it helps with proving theorems which doesn't fit with call graphs.
 
 \section{Parallel Compilation}
 
-\marginpar{Add section explaining DAGs}
-Type-checking is a computationally expensive task that hinders the workflow of
-a developer, this has led to work to parallelize type-checking algorithms or
-make them incremental. Parallel type-checking aims to type-check different
-parts of a project at the same time, while incremental type-checking aims to
-allow the developer to type-check a small change in the project without having
-to type-check the whole project again.
+\todo[inline]{Add section explaining DAGs?}
 
-An example is the work by Newton et al \cite{paralele_comp_haskell} which seeks to
-parallelize type-checking with Haskell. Also, the work by Zwaan et al.
+\todo[inline]{Is there any related work that I could add?}
+
+Type-checking is a computationally expensive sequential task that hinders
+workflow during development, so parallelizing could lead to a speed-up like in
+other applications. Parallel type-checking aims to type-check different parts
+of a project at the same time, while incremental type-checking aims to allow
+the developer to type-check a small change in the project without having to
+type-check the whole project again. Both can reduce compilation time, improving
+the developer experience.
+
+An example is the work by Newton et al. \cite{paralele_comp_haskell} which
+seeks to parallelize type-checking with Haskell. Also, the work by Zwaan et al.
 \cite{incremental_type_checking} using scope graphs for incremental
-type-checking.
+type-checking. These tools give methods to improve type checkers for general
+applications, there isn't a focus on Agda.
 
-However, this project doesn't aim to optimize the type-checking algorithm
-themselves, rather, find independent modules that can be type checked together.
+This project doesn't aim to optimize the type-checking algorithm
+itself, rather, find independent modules that can be type checked together.
 This aligns more closely with the following paper that explores reducing FPGA
 compile time by changing from a monolithic compilation style to compiling
 separate blocks in parallel \cite{FPGA}.
 
-\marginpar{Add section explaining scheduling problem}
+\todo[inline]{Add section explaining scheduling problem?}
+
 Fundamentally the compilation problem in this project is a scheduling problem,
 which is NP-complete\cite{scheduling}. This means that there many algorithms
 that attempt to tackle this problem by following different assumptions as shown
 by Yves Robert \cite{scheduling}.
 
-\marginpar{Add section explaining s-expressions}
-
-
 \section{MLFMF: Data Sets for Machine Learning for Mathematical Formalization}
 
-MLFMF is a collection of data sets used to benchmarking systems that help
-mathematicians find which theorems are relevant when proving a new theorem \cite{bauer2023mlfmf}. The
-data sets are created from large libraries of formalized mathematics in Agda or
-Lean. The data sets represent each library as a network and as a list of
-s-expressions. The data sets include libraries such as Agda-unimath and
-TypeTopology. The collection is a solid base for investigating machine learning
-methods to mathematics. The data set methodology to extract s-expressions can
-be used with other libraries to continue expanding the 250000 entries in the
-data sets.
+MLFMF is a collection of data sets for benchmarking systems that help
+mathematicians find relevant theorems when proving a new one
+\cite{bauer2023mlfmf}. The data sets are created from large libraries of
+formalized mathematics in Agda and Lean. They represent each library as a graph
+and as a list of s-expressions. Some of the libraries included are as
+Agda-unimath and TypeTopology. The collection is a base for investigating
+machine learning methods to mathematics. The methodology to extract
+s-expressions can be used with other libraries to continue expanding the 250000
+entries in the data sets.
 
-\marginpar{The text overlofws in the figure}
-
-The method to extract s-expressions from Agda libraries is by extending the
-Agda backend \cite{andrej}. The backend has access to important information about a
-project's theorems and its relationships with other theorems. Andrej Bauer used
-that backend and turned the information into easy-to-parse s-expressions. The
-Figure \cref{fig:example-sexp} is an example of the :entry s-expression, each
-:entry tag marks where a theorem is defined, and it contains the name of the
-theorem, its type, and the definitions it needs to be defined. Mind that
-\texttt{(...)} are more s-expressions that were replaced for readability. A
-more general structure to this tag can be seen in \cref{fig:sexp-ast}
-where the three parts are shown as subtrees and a node.
+The s-expressions extractor is created in Agda by extending the backend
+\cite{andrej}. The backend has access to internal information about a project's
+definitions and its connection with other theorems. Andrej Bauer used that
+backend and converted the internal information into easy-to-parse
+s-expressions. The Figure \cref{fig:example-sexp} is an example of the
+\textsf{:entry} s-expression, each \textsf{:entry} tag marks where a theorem is
+defined, and it contains the name of the theorem, its type, and its
+implementation. Mind that \texttt{(...)} are more s-expressions that were
+replaced for readability. A more general structure to the tag can be seen in
+\cref{fig:sexp-ast} where the three parts are shown as subtrees and a node.
 
 \begin{figure}[H]
   \begin{subfigure}[b]{0.40\textwidth}
     \centering
-    \begin{tabular}{p{5cm}}
+    \begin{tabular}{p{4cm}}
       \texttt{(:entry}\newline
       \hphantom{oo}\texttt{(:name} $\mathbb{N}$\texttt{)}\newline
       \hphantom{oo}\texttt{(:type (...))}\newline
@@ -117,15 +123,15 @@ where the three parts are shown as subtrees and a node.
       \hphantom{oo}\texttt{)}\newline
       \texttt{)}
     \end{tabular}
-    \caption{Example s-expression from MLFMF Figure 1(b) \cite{bauer2023mlfmf}}
+    \caption{\raggedright Example s-expression from MLFMF Figure 1(b) \cite{bauer2023mlfmf}}
     \label{fig:example-sexp}
   \end{subfigure} \hfill
-  \begin{subfigure}[b]{0.50\textwidth}
+  \begin{subfigure}[b]{0.55\textwidth}
     \centering
     \begin{tikzpicture}
       \Vertex[x=0, size=0.8, label={Entry}, RGB, color={128,200,128}]{e}
       \Vertex[x=-2, y=-0.8, size=0.8, label={name}, RGB, color={75,175,128}]{n}
-      \Vertex[x=0, y=-2, size=1.2, label={declaration}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{d}
+      \Vertex[x=0, y=-2, size=5.2, label={\tiny declaration}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{d}
       \Vertex[x=2.25, y=-0.6, style={draw=none}, RGB, color={255, 255, 255}]{fake}
       \Vertex[x=2, y=-2, size=1, label={body}, RGB, color={75,175,128}, style={isosceles triangle, minimum width=1cm, rotate=90, minimum height=2cm}]{b}
       \Edge[](e)(n)
@@ -138,50 +144,41 @@ where the three parts are shown as subtrees and a node.
   \end{subfigure}
 \end{figure}
 
-The :entry tag is of particular interest to this project, as Agda by itself
-doesn't provide a convenient method to find all the definitions of an Agda
-project along with its declaration. This extractor packages the important
-information into a format that is easy to parse into a graph. Andrej Bauer made
-the s-expression extractor open-source in a GitHub repository \cite{andrej}.
+The \textsf{:entry} tag is of important, as Agda by itself doesn't provide a
+convenient method to find all the definitions of an Agda project along with its
+implementation. This extractor packages the important information into a format
+that is easy to parse. Andrej Bauer made the s-expression
+extractor open-source in a GitHub repository \cite{andrej}.
 
-This paper also describes a graph that can be generated from these
+This paper also describes another graph that can be generated from these
 s-expressions, this graph contains all the information about each theorem and
-what definitions it uses and in which way. While this graph could be used
-queried by the user, it contains a massive amount of information that is
-unnecessary for the user to know the query.
-
-\begin{itemize}
-\item What the paper is about 
-\item How the paper uses s-expressions 
-\item What the s-expressions say 
-\item Add a graphic of the s-expression structure from the arxiv paper, well cited
-\end{itemize}
+what definitions it uses and how. While this graph could be queried by the
+user, it contains a too much information that is unnecessary for the
+user to explore.
 
 \section{Conclusion}
 
-Many tools analyze and visualize the overall structure of
-programming projects. Allow for static code analysis, where software can be
-validated and developers can have an easier time exploring a project. However,
-most of the tools are not easy to query by the user, are meant to be used while
-editing a file and are reserved for more popular languages like Java. A
-tool that can read an entire Agda project and gives the user access to
-the underlying graph is still missing.
+There are many tools that analyse and visualize the structure of programming
+projects. They are used in static code analysis, where software can be
+validated and developers can use them to explore a project. However, most of
+the tools are not easy to query by the user, are meant to be used while editing
+a file or are reserved for more popular languages like Java. A tool that can
+read an Agda project and give access to the underlying graph is missing.
 
 The MLFMF paper \cite{bauer2023mlfmf} describes a methodology to extract the
 definitions and dependencies of an Agda project into s-expression. Which are
-easier to parse than Agda source code. The also converts this into a graph that
-contains all the details of the Agda source code. Which is more detailed than a
-user who wants to query that information needs.
+easier to parse than Agda source code. Which is then converted into a graph
+that contains all the details of the Agda source code.
 
-Slow compilers are a common problem, hurting developer experience. Due to the
-monolithic nature of compilers, parallelization becomes a route to follow when
-optimizing compilation time. While parallelization can be applied to the
+Slow compilers are a common problem which hurts developer experience. Due to
+the monolithic nature of type-checker, parallelization becomes a route to
+reduce compilation time. While parallelization can be applied to the
 type-checking algorithm itself, this project looks to type-check modules in
 parallel while the type-checking algorithm remains the same. This problem is
 closer to a scheduling problem, where the goal is to find the optimal way to
-assign tasks to multiple machines to reduce completion time. No tool
-in Agda attempts to apply a scheduling algorithm to the type-checking of
-modules, which could lead to significant speed-ups.  
+assign tasks to multiple machines to reduce completion time. No tool in Agda
+attempts to apply a scheduling algorithm to the type-checking of modules, which
+could lead to significant speed-ups.  
 
 
 % This is often referred to the ‘literature review’ section. It is one of the most important

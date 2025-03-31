@@ -1,4 +1,5 @@
-\documentclass[pdftex,10pt,a4paper,oneside]{report}
+% \documentclass[pdftex,10pt,a4paper,oneside]{report}
+\documentclass[10pt,a4paper,oneside]{report}
 
 %% Added by me
 \usepackage{tabularray}
@@ -6,6 +7,7 @@
 \usepackage{listings}
 \usepackage{pgfgantt}
 \usepackage{subcaption}
+\usepackage{todonotes}
 
 \usepackage[utf8]{inputenc} % allow utf-8 input
 \usepackage{amsfonts}       % blackboard math symbols
@@ -48,8 +50,12 @@
 
 \begin{document}
 
+\listoftodos
 \include{Preamble/Frontpage}
 \include{Preamble/Abstract}
+\todo[inline]{Add an introduction of what you want to do for each chapter}
+\todo[inline]{Proof read}
+
 %\include{Preamble/Dedication} % Comment out for UG dissertations
 \include{Preamble/Acknowledge}
 %\include{Preamble/Declarations} % Comment out for UG dissertations

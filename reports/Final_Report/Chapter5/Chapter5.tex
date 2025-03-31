@@ -17,14 +17,14 @@ order.
 
 \section{Agda Tree}
 
-Agda Tree is a command line interface that allows the user to interact with the
-module and definition graph. The first command that has to be designed is how
-the CLI will create both dependency graphs. \cref{fig:Agda Create Tree
-Diagram} shows how the user will interact with the CLI to create the graphs.
-The user provides the Agda file that they want to analyze, normally this would
-be the entire project. The "Everything Index File" is the file that imports all
-the modules in a project, this allows the user to analyze the entire project.
-This is standard in Agda, as this is the only way to get a file that type-checks the whole project. Depending on the Agda project, this file will be
+Agda Tree is a command line interface that lets the user interact with the
+module and definition graphs. The first command designed is how the both
+dependency graphs are created. \cref{fig:Agda Create Tree Diagram} illustrates
+how the user will interact with the CLI to create the graphs. The user provides
+the Agda file that they want to analyse, normally this would be the entire
+everything index file. The everything index file is the file that imports all
+the modules in a project. This is standard in Agda, as this is the only way to
+type-check the whole project. Depending on the Agda project, this file will be
 generated automatically or by the project maintainers.
 \begin{figure}[H]
     \centering
@@ -35,19 +35,17 @@ generated automatically or by the project maintainers.
 
 \pagebreak
 
-\cref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the
-classes and methods needed to operate the command line. The program starts with
-the command line entry point, that will parse the input by the user and
-delegate the running of the commands to the respective dependency graph. The
-command line stores the default path to the dependency graph, the definition
-and module dependency graph will have their own commands that can be run on
-them. These queries can be found in \cref{tbl:Definition Graph Queries}
-for the definition graph and in \cref{tbl:Module Graph Queries} for the
-module graph for the module graph.
+\cref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the classes and
+methods to operate the command line. The program starts with the command line's
+entry point, that will parse the input by the user and delegate the query to
+the respective dependency graph. Each dependency graph allows for a different
+set of queries. These queries can be found in \cref{tbl:Definition Graph
+Queries} for the definition graph and in \cref{tbl:Module Graph Queries} for
+the module graph.
 
-For the definition graph to be created, it depends on the s-expression
-extractor and parser. They will read the Agda projects and convert the data
-found into a graph.
+The definition graph creation depends on the s-expression extractor and parser.
+They read the Agda projects and convert the data found into the dependency
+graph.
 
 \begin{figure}[H]
     \centering
@@ -58,11 +56,11 @@ found into a graph.
     
 \pagebreak
 
-\cref{fig:Agda Tree Query Diagram} shows how the CLI splits into two,
-depending on what dependency graph is being queried. When a user makes a query,
-they will select the dependency graph and the respective methods will perform
-that query. The output will be displayed in stdoutput, this makes sure that the
-output can then be used with other commands like piping and xargs.
+\cref{fig:Agda Tree Query Diagram} shows how is split CLI into two, depending
+on what dependency graph is being queried. When the user makes a query, they
+will select the dependency graph and the respective queries will perform that
+query. The output will be displayed in stdout, which can be used with other
+operations like piping and xargs.
 
 \begin{figure}[H]
     \centering
@@ -77,8 +75,8 @@ output can then be used with other commands like piping and xargs.
 \section{Agda Comp}
 
 \cref{fig:Agda Comp Diagram} demonstrates how the user will interact with
-the Agda Tool. The user provides the module that will be compiled, next to some
-parameters defining the amount of cores used in the parallelization and what
+the Agda Comp tool. The user provides the module that to be compiled, next to some
+parameters defining the amount of cores used in the parallelization and the
 compilation strategy to use.
 \begin{figure}[H]
     \centering 
@@ -113,7 +111,7 @@ from a leaf module. This algorithm can be visualized with the \cref{subfig: lvl 
   \label{subfig: lvl strat}
 \end{figure}
 
-This sorting has the property such that each level only depends on the levels
+This sorting has the property that each level only depends on the levels
 below it, meaning if the below modules were already compiled the modules at the
 current level could all be compiled in parallel. The level strategy is to sort
 the modules into levels, then compile each level linearly and the modules at
@@ -122,12 +120,11 @@ in the graph as the sorting keeps all the modules in the dependency graph and
 the level strategy compiles every level. Therefore, this algorithm is both safe
 and correct.
 
-
-The advantage of this solution is that it can be quickly generated recursively,
+The advantage of this solution is that it can be quickly generated,
 where each module will take the maximum of the recursive call to its children
 and add one the maximum of the children's level. The disadvantage is that if a
-level has a small amount of modules there isn't a significant opportunity to
-parallelize the type checking. Also, There could be two modules that each
+level has a small amount of modules there isn't an opportunity to
+parallelize the type checking. Also, there could be two modules that each
 depend  on 20 distinct modules that could be compiled in parallel that could
 lead to massive savings. Instead, this method would compile the 40 combined
 dependencies in previous levels, then compile the two modules in parallel. This
@@ -147,12 +144,13 @@ collection of modules.
 \pagebreak
 \subsection{Level Disjoint Strategy} \label{sub:design disjoint strategy}
 
-The level disjoint strategy aims to target the weakness of the level sort
-strategy. It aims to find the largest modules that can be compiled in parallel,
-the largest module being one with many dependencies. If such modules are found,
-then they are compiled in parallel, otherwise the leaf modules are compiled.
-Note that once a module is compiled, it is no longer a dependency on future
-modules. This process is visualized on \cref{subfig:disj strat}.
+The level disjoint strategy targets the weakness of the level sort strategy. It
+aims to find the largest modules that can be compiled in parallel, the largest
+module being one with many dependencies. If such modules are found, then they
+are compiled in parallel, otherwise the leaf modules are compiled and tries
+finding large modules again. Note that once a module is compiled, it is no
+longer a dependency of future modules. This process is visualized below on
+\cref{subfig:disj strat}.
 \begin{figure}[H]
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -171,26 +169,25 @@ modules. This process is visualized on \cref{subfig:disj strat}.
   \label{subfig:disj strat}
 \end{figure}
 
-This ensures that at each step the amount of modules to compile is reduced,
-until all modules are compiled. It also ensures that if no distinct modules,
-modules that don't share dependencies, are found then the conflicting
-dependencies might be the leaf that is being compiled. The strategy only
-compiles two modules in parallel if their dependencies are disjoint, if such
-modules aren't found then the leafs are compiles which don't have any
-dependencies. Therefore, this strategy is both safe and correct, as it doesn't
-compile conflicting modules and compiles all modules in a project.
+This strategy ensures that at each step the amount of modules to compile is
+reduced. The strategy only compiles two modules in parallel if their
+dependencies are disjoint, if such modules aren't found then the leafs are
+compiled which don't have any dependencies. Therefore, this strategy is both
+safe and correct, as it doesn't compile conflicting modules and compiles all
+modules in a project.
 
-The advantage of this approach is that it better manages the overhead of
+The advantage of this approach is that it manages the overhead of
 parallelization, instead of compiling a couple of individual modules at a time
 it can compile modules with multiple dependencies such that Agda doesn't have
 to loading interface files as often as explained in the implementation
-\cref{sub:imp disj strategy}. The disadvantage is that finding these
-disjoint modules is difficult, projects  have hundreds of modules and finding
-multiple modules that don't share dependency can't be done through brute force.
-Each Agda project also has different structures with Agda-unimath having
-smaller independent modules while TypeTopology has bigger dependent modules
-that make finding distinct module more difficult. A greedy approach has to be
-taken, which doesn't guarantee the optimal solution.
+\cref{sub:imp disj strategy}. The disadvantage is that finding these disjoint
+modules is difficult, projects  have hundreds of modules and finding multiple
+modules that don't share dependency can't be done through brute force. Each
+Agda project also has different structures with Agda-unimath
+\cite{agda-unimath} having smaller independent modules while TypeTopology
+\cite{type-topology} has bigger dependent modules that make finding distinct
+module more difficult. A greedy approach has to be taken, which doesn't
+guarantee the optimal solution.
 
 % \begin{itemize}
 % \item What level disjoint does
@@ -205,16 +202,16 @@ taken, which doesn't guarantee the optimal solution.
 
 \section{Conclusion}
 
-The diagram in \cref{fig:Agda Tree Class Diagram} show how the structure
-of the program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query Diagram} also shows how the dependency graphs will be created and
-how the user will interact with CLI. This structure will be important as it
-ensures that the CLI can handle all the requirements and gives the project a
-solid foundation to refer back to. 
+The diagram in \cref{fig:Agda Tree Class Diagram} show how the structure of the
+program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query Diagram} also shows how the dependency graphs will be created and how the user
+will interact with CLI. This structure is important to ensure that the
+CLI can handle all the requirements and gives the project a solid foundation to
+refer back to. 
 
 The functionality of Agda Comp is modelled in Figure \cref{fig:Agda Comp Diagram}, this structure allows the user to select what compilation strategy to
-use and how many cores the compilation can use. Agda Comp is meant to allow the
-user to easily apply the compilation strategies which are modelled with Figures that are going to be explored
-in \cref{ch:implementation}.
+use and how many cores the compilation can use. Agda Comp is lets the user to
+easily apply the compilation strategies which are modelled in \cref{sub:design level strategy} and in \cref{sub:design disjoint strategy}, then are
+implemented in \cref{ch:implementation}.
 
 % Communicating how you think about the composition of your system and how it
 % works. You might detail the ways in which the overall system will be broken

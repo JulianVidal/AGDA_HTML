@@ -2,16 +2,15 @@
 
 \chapter{Implementation} \label{ch:implementation}
 
-The implementation of Agda Tree must create a dependency definition graph from
-an Agda project and allow the user to query this graph through a CLI. First, a
-subsystem that turns Agda projects into a dependency graph needs to be
-implemented. Then, the CLI that will let the user query the graph is
-implemented. These subsystems must meet the functional requirements described
-in \cref{tbl:Agda Tree Functional Requirements} and the non-functional
-requirements described in \cref{tbl:Agda Tree Non-Functional Requirements}. The
-CLI must also implement all the queries described in \cref{tbl:Definition Graph
-Queries} for the definition graph and the queries described in \cref{tbl:Module
-Graph Queries} for the module graph.
+The Agda Tree creates a dependency definition graph from an Agda project and
+lets the user query this graph through a CLI. First, a subsystem  is made that
+turns Agda projects into a dependency graph is implemented. Then, a CLI is
+created that lets the user query the graph. These subsystems must meet the
+functional requirements described in \cref{tbl:Agda Tree Functional
+Requirements} and the non-functional requirements described in \cref{tbl:Agda
+Tree Non-Functional Requirements}. The CLI implements all the queries described
+in \cref{tbl:Definition Graph Queries} for the definition graph and the queries
+described in \cref{tbl:Module Graph Queries} for the module graph.
 
 
 
@@ -29,44 +28,46 @@ Graph Queries} for the module graph.
 
 \section{Agda Tree}
 
-The definition graph is the most important and difficult graph to generate. It
-contains all the detailed information needed by the developer to decipher the
-structure of the definitions and their relationships. Agda can already create
-the module dependency graph, but there is no native feature that can create a
-definition dependency graph. 
+Agda Tree uses the s-expression extractor \cite{andrej} to get the definitions
+and relationships from the project. These s-expressions are parsed and
+converted into a definition dependency graph. Which is then exposed through a
+CLI that the user can query. Agda already includes a command to generate the
+module dependency graph, so it only needs to be imported and attached to a CLI.
 
 \subsection{Building the definition tree}
 
-
-At first, a possible option was using the HTML files that Agda can create.
-These HTML files display and format the code with colours and links. This is
-vital because the HTML files would style the text differently depending on if the
-text was a definition, keyword, type, or operator. Also, all the used definitions
-were hyperlinks that connected back to the module that defined them. With a
-method to find the definitions in a file given the styling and finding the
+\todo[inline]{Should I explain the HTML files, as I am not using them but they were explore}
+At first, HTML files that Agda generates were explored. These HTML files
+display and format the code with colours and links. This is vital because the
+HTML files would style the text differently depending on if the text was a
+definition, keyword, type, or operator. Also, all the used definitions were
+hyperlinks that connected back to the module that defined them. With a method
+to find the definitions in a file given the styling and finding the
 dependencies of that definition given the hyperlinks, a graph could be created.
 The main issue was parsing the HTML files, finding which keywords fell into
 which definition was quite difficult, and using an Agda parser might have been
 necessary.
 
 The solution is not to use the HTML files but to use s-expressions. The
-s-expressions are the same way the HTML files are with the same information,
-except s-expressions are easier to parse. However, Agda doesn't natively
+s-expressions are generated the same way the HTML files are with the same
+information, except s-expressions are easier to parse. Agda doesn't natively
 generate s-expressions but Andrej Bauer, Matej Petković, Ljupčo Todorovski in
 their paper "MLFMF: Data Sets for Machine Learning for Mathematical
 Formalization" \cite{bauer2023mlfmf} created an s-expression extractor. The
-s-expression extractor is in the Agda backend, and it will convert Agda files into
-s-expressions \cite{andrej}.
+s-expression extractor works in the Agda backend, and converts Agda
+files into s-expressions \cite{andrej}.
 
 \subsubsection{S-expression extractor}
 
-S-expressions are a notation that is used in Lisp programming languages, it
-represents programs and data as tree-like data structures \cite{sexp}. The grammar for the
+\todo[inline]{format sexp-1, sexp-n in a good way?}
+
+The s-expression notation is used in Lisp programming languages, it represents
+programs and data as tree-like data structures \cite{sexp}. The grammar for the
 s-expressions varies, but for this case the s-expression are of the form: (:tag
 sexp-1 sexp-2 ... sexp-n). Where sexp-n can be a number, a string or another
 s-expression and the tag is a keyword that describes the content of the
-s-expression. The "MLFMF" paper describes in more detail
-the structure of the s-expressions with respect to Agda \cite{bauer2023mlfmf}.
+s-expression. The "MLFMF" paper describes in more detail the structure of the
+s-expressions with respect to Agda \cite{bauer2023mlfmf}.
 
 Here is a brief summary of the relevant s-expressions that are needed for the implementation:
 
@@ -78,20 +79,20 @@ Here is a brief summary of the relevant s-expressions that are needed for the im
         colspec={|X[1]|X[2]|}, hlines,
     }
 sexp                              & Description                                                                                                                  \\
-(:module module-name entries... ) & The root tag that holds the whole module, module-name is the name of the modules and entries are the definitions in the file \\
-(:module-name name)               & The module name                                                                                                              \\
-(:entries name type body)         & The definition, it includes its name, type and the body of the definition                                                    \\
-(:name name)                      & The name of a definition, this name can appear as the name of an :entry tag, within the :type or :body tag                   \\
-(:type type)                      & The description of the type of the parent definition                                                                         \\
-(:body body)                      & The body of a definition  
+(:module module-name entries... ) & Root tag that holds the whole module, module-name is the name of the modules and entries are the definitions in the implementation \\
+(:module-name name)               & Module name                                                                                                              \\
+(:entries name type body)         & Definition, it includes its name, type and the body of the definition                                                    \\
+(:name name)                      & Name of a definition, this name can appear as the name of an :entry tag, within the :type or :body tag                   \\
+(:type type)                      & Description of the type of the parent definition                                                                         \\
+(:body body)                      & Body of a definition  
 \end{tblr}
 \end{table}
 
-Note that the s-expression extractor is a special version of Agda with an
-extended back-end, which means the user has to compile this Agda version and
-add it to their path. This will be handled by the CLI described 
-\cref{sub:Agda Tree CLI} to make sure the usability non-functional requirement is
-met from \cref{tbl:Agda Tree Non-Functional Requirements}.
+Note that the s-expression extractor is a modified version of Agda, which means
+the user has to compile this Agda version and add it to their path. This will
+be handled by the CLI described \cref{sub:Agda Tree CLI} to make sure the
+usability non-functional requirement is met from \cref{tbl:Agda Tree
+Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}
 

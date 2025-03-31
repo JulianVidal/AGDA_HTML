@@ -7,7 +7,7 @@ function and non-functional requirements set on \cref{ch:system
 requirements}. These requirements outline the purpose of these tools and their
 expected behaviour.
 
-\subsection{Agda Tree} \label{sub:eval agda tree}
+\section{Agda Tree} \label{sec:eval agda tree}
 
 Agda Tree extracts the definitions and their relationships from any Agda
 project, uses Agda to generate the module dependency graph and imports them
@@ -37,7 +37,7 @@ doesn't fully meet its non-functional requirements due to performance issues.
 The requirements as described on \cref{tbl:Agda Tree Functional Requirements} for functional requirements and 
 \cref{tbl:Agda Tree Non-Functional Requirements} for non-functional requirements.
 
-\subsubsection{Limitations}
+\subsection{Limitations}
 
 A major limitation of the tool is finding the maximum path between a node and a
 leaf, depending on the node the query can run indefinitely. This greatly limits
@@ -51,7 +51,7 @@ definitions are ambiguous, so they require an ID number. Overall making find
 the name of a definition a bit cumbersome.
 
 
-\subsection{Agda Comp} \label{sub:eval agda comp}
+\section{Agda Comp} \label{sec:eval agda comp}
 
 Agda Comp effectively uses Agda to generate the module dependency graph and
 imports the module dependency graph into Python. Using this graph, Agda Comp
@@ -66,7 +66,7 @@ user-friendly error message if not. The tool is able to discern the project
 structure from the index file the user passes in, making it usable across any
 Agda project. Therefore, Agda Comp meets most of its functional requirements
 except for speeding up compilation for any Agda project which will be explored
-in \cref{ssub:eval comp strat}.  The functional requirements were
+in \cref{sub:eval comp strat}.  The functional requirements were
 described in \cref{tbl:Agda Comp Functional Requirements}.
 
 Agda Comp works for any sized project, it has a simple command line interface
@@ -77,7 +77,7 @@ were tested to ensure correctness and safety. Therefore, Agda Comp meets all of
 its non-functional requirements as described on \cref{tbl:Agda Comp
 Non-Functional Requirements}.
 
-\subsubsection{Limitations} \label{ssub:eval comp limitations}
+\subsection{Limitations} \label{sub:eval comp limitations}
 
 This approach encounters two significant limitations, the first is that to
 create the module dependency graph it has to compile the project. Which means
@@ -99,7 +99,7 @@ be parallelized from within, this would mean all the necessary interface files
 can be loaded once and the type checker can check modules in parallel with less
 overhead.
 
-\subsubsection{Compilation Strategies} \label{ssub:eval comp strat}
+\subsection{Compilation Strategies} \label{sub:eval comp strat}
 
 The following \cref{tbl:WSL strategies results} and \cref{tbl:martin
 strategies results} show the results of the testing of the compilation
@@ -163,8 +163,7 @@ compilation time also depends on the user's system, with WSL achieving  a
 speed-up in level A 5 cores with all projects.
 
 The cause in the difference in compilation improvement per project, is likely
-due to the limitation discussed in the \cref{ssub:eval comp
-limitations}. Since unimath has more small modules, there is a large amount of
+due to the limitation discussed in the \cref{sub:eval comp limitations}. Since unimath has more small modules, there is a large amount of
 interface files that are constantly being loaded and unloaded when normal
 compilation can load all the interface files at once and keep them. 
 

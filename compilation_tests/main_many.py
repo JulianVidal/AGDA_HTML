@@ -16,12 +16,12 @@ import test_lvlb
 import test_lvl_disjoint
 
 test_repos = {
-    # "TypeTopology": {
-    #     "url": "https://github.com/martinescardo/TypeTopology.git",
-    #     "dir": Path("/tmp/TypeTopology"),
-    #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
-    #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}",
-    # },
+    "TypeTopology": {
+        "url": "https://github.com/martinescardo/TypeTopology.git",
+        "dir": Path("/tmp/TypeTopology"),
+        "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
+        "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}",
+    },
     "stdlib": {
         "url": "https://github.com/agda/agda-stdlib.git",
         "dir": Path("/tmp/agda-stdlib"),
@@ -96,15 +96,15 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     dep_graph.remove_node("Agda.Primitive")
 
     # Attempt to remove index files from typetopology
-    if "index" in dep_graph:
-        dep_graph.remove_node("index")
-    if "AllModulesIindex" in dep_graph:
-        dep_graph.remove_node("AllModulesIndex")
-
-    for node in list(dep_graph.nodes):
-        if ".index" in node:
-            print(node)
-            dep_graph.remove_node(node)
+    # if "index" in dep_graph:
+    #     dep_graph.remove_node("index")
+    # if "AllModulesIindex" in dep_graph:
+    #     dep_graph.remove_node("AllModulesIndex")
+    #
+    # for node in list(dep_graph.nodes):
+    # if ".index" in node:
+    #     print(node)
+    #     dep_graph.remove_node(node)
 
     tests = {
         "normal": (
@@ -123,7 +123,7 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
         ),
         "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
         "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
-        # "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
+        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
         "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
         "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
         "lvl_disjoint": (

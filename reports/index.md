@@ -1459,3 +1459,15 @@ when referencing sub seciton only metion sesction, even better
 Using clever ref, using cref that adds the type of reference it is.
 
 Write that the reason are speculation on why thee compilation can take a long time.
+
+
+# 22 - Pre-Meeting Report
+
+Proofread part of the report, making grammatical changes, making sure the same
+tense is used throughout. The content and overall structure hasn't changed. Ran
+most of the tests on my Mac. Sometimes the CPU reached 100%, and it was
+noticeably hot.
+
+# 22 - Post-Meeting Report
+
+# 22 - Notes

@@ -3,91 +3,98 @@
 \chapter{Evaluation}
 
 This section evaluates the Agda Tree and Agda Comp tools with respect to the
-function and non-functional requirements set on \cref{ch:system
-requirements}. These requirements outline the purpose of these tools and their
+function and non-functional requirements set on \cref{ch:system requirements}. These requirements outline the purpose of these tools and their
 expected behaviour.
 
 \section{Agda Tree} \label{sec:eval agda tree}
 
-Agda Tree extracts the definitions and their relationships from any Agda
-project, uses Agda to generate the module dependency graph and imports them
-into a NetworkX graph. It implements several methods that analyse this
-graph for information, meeting all the queries outlined for the definition
-graph in \cref{tbl:Definition Graph Queries} and the module graph in 
-\cref{tbl:Module Graph Queries}. These methods are then exposed through a
-command line interface that lets the user runs those queries on their Agda
-project. The python library argparse validates that the input to the queries is
-valid. Then CLI the outputs the modules to standard output, which can then be
-piped to other utilities. The CLI will work with any Agda project, only the
-index files containing all modules needs to be passed in. 
+Agda Tree extracts the definitions and relationships from an Agda project, and
+uses Agda to generate the module dependency graph then imports them into
+NetworkX. The queries outlined in \cref{tbl:Definition Graph Queries} for the
+definition graph and in \cref{tbl:Module Graph Queries} for the module graph,
+are implemented. These methods are exposed through a command line interface
+that the user uses to execute those queries on their Agda projects. The python
+library argparse validates the user input. Lastly, CLI the outputs the modules to
+console, which can be piped to other utilities. The CLI will work
+with any Agda project.
 
-Agda Tree is able to extract s-expressions from any Agda project but depending
-on the size of the project and the user's computer it can take more than 10
-minutes as seen on \cref{sub:agda tree performance}. Most queries are
-complete in under 2 seconds regardless of project size, but queries that
-require finding a path in the graph can take far longer depending on the size
-of the graph. The CLI is documented in the README and the \textsf{--help}
-options in the command, making the commands easier to learn and understand.
-Since Agda is mainly developed in macOS and Linux, the tools were tested in WSL
-and a MacBook Air without issues. If the CLI is provided with bad inputs it
-returns an error from NetworkX explaining what the issue was. The code base is
-documented through READMEs and unit tested allowing for better maintainability
+At first, HTML files that Agda generates were explored instead of
+s-expressions. These HTML files display and format the code with colours and
+links. Styling the text differently depending on if it was a definition,
+keyword, type, or operator. Also, the definitions were hyperlinks that linked
+back to the module that defined them. By exploring the HTML, a definition
+dependency graph could be created. The main issue becomes parsing the HTML
+files, finding which keywords fell into which definition is challenging.
+Switching to using s-expressions which are easier to parse was a significant
+step forward.
+
+Clojure was considered instead of Python to store the graphs, as it is made to
+store information as graphs and make queries. However, Clojure requires Java,
+isn't popular, and it is more difficult to learn. This makes Python the better
+choice.
+
+Agda Tree the extracts s-expressions from an Agda project but depending on the
+size of the project and the user's computer it can take more than 10 minutes as
+seen on \cref{sub:agda tree performance}. Most queries are completed in under 2
+seconds regardless of project size, but queries that require finding a path in
+the graph can take far longer depending on the size of the graph. The CLI is
+well-documented in the \texttt{README.md} file and the \texttt{--help} option,
+making it easy to learn and understand. Since Agda is mainly developed on macOS
+and Linux, the tools were tested in WSL and a MacBook Air without issues. If
+the CLI is given bad inputs it returns an error from NetworkX explaining what
+the issue is. The code base is unit tested allowing for better maintainability
 and testability. Therefore, Agda Tree meets all its functional requirement but
-doesn't fully meet its non-functional requirements due to performance issues.
-The requirements as described on \cref{tbl:Agda Tree Functional Requirements} for functional requirements and 
-\cref{tbl:Agda Tree Non-Functional Requirements} for non-functional requirements.
+doesn't fully meet its non-functional requirements due to performance. The
+requirements as described on \cref{tbl:Agda Tree Functional Requirements} for
+functional requirements and \cref{tbl:Agda Tree Non-Functional Requirements}
+for non-functional requirements.
 
 \subsection{Limitations}
 
-A major limitation of the tool is finding the maximum path between a node and a
-leaf, depending on the node the query can run indefinitely. This greatly limits
-the usefulness of the query. Another limitation is the verbosity of the
-definition names and amount of definitions. The TypeTopology definition graph
-has more than 50,000 definitions but with further inspection not all these
-definitions provide valuable information for the user. Sometimes the
-definitions come from Agda's backend which the user has no use in seeing. The
-definition names become difficult to understand due to their length, and some
-definitions are ambiguous, so they require an ID number. Overall making find
-the name of a definition a bit cumbersome.
+A limitation of the tool is finding the maximum path between a node and a leaf,
+depending on the node the query can run indefinitely. This limits the usage of
+the query. Another limitation is the verbosity of the definition names and the
+amount of definitions. The TypeTopology definition graph has more than 50,000
+definitions but in further inspection not all these definitions provide
+valuable information to the user. Sometimes they come from Agda's backend which
+isn't valuable. Also, the definition names become difficult to understand due
+to their length, and some definitions are ambiguous, so they require an ID
+number. Overall making the name of the definitions cumbersome to use.
 
 
 \section{Agda Comp} \label{sec:eval agda comp}
 
-Agda Comp effectively uses Agda to generate the module dependency graph and
-imports the module dependency graph into Python. Using this graph, Agda Comp
-allows for the user to pick between multiple strategies to compiles their
-project. The user can choose how many cores the compilation will use to limit
-the resource usage. The tool creates the necessary index files and make file,
-uses them to compile the project and then cleans up these files. The CLI has a
-README and a usage section with the \textsf{--help} options that make the
-commands more user-friendly and easy to understand. The argparse library
-validates that the correct options are passed in to the CLI or gives a
-user-friendly error message if not. The tool is able to discern the project
-structure from the index file the user passes in, making it usable across any
-Agda project. Therefore, Agda Comp meets most of its functional requirements
-except for speeding up compilation for any Agda project which will be explored
-in \cref{sub:eval comp strat}.  The functional requirements were
-described in \cref{tbl:Agda Comp Functional Requirements}.
+Agda Comp uses Agda to generate the module dependency graph and import it into
+Python. With this graph, Agda Comp lets the user pick between multiple
+strategies for compilation. The user chooses how many cores to use during
+compilation. Then the necessary index files and make file are generated,
+compiles the project and lastly cleans up the generated files. The CLI has a
+\texttt{README.md} and a usage message with the \texttt{--help} option making
+it user-friendly and easy to learn. The argparse library validates the user
+input to the CLI and gives a user-friendly error message if not. The tool
+detects the project structure from the user input, making
+it usable in any project structure. Therefore, Agda Comp meets its
+functional requirements, except it speeds up compilation for some Agda projects
+which is explored in \cref{sub:eval comp strat}. The functional
+requirements were described in \cref{tbl:Agda Comp Functional Requirements}.
 
-Agda Comp works for any sized project, it has a simple command line interface
-to choose the compilation strategy. It was tested within WSL and macOS, for
-compatibility. The codebase is documented with a README and the CLI has a
-\textsf{--help} option to help users better understand the tool. The strategies
-were tested to ensure correctness and safety. Therefore, Agda Comp meets all of
-its non-functional requirements as described on \cref{tbl:Agda Comp
-Non-Functional Requirements}.
+Agda Comp works in any project, it has a simple command line interface for
+choosing the compilation strategy. It was tested within WSL and macOS
+environment, for compatibility. The codebase is well-documented, and the
+strategies were tested for correctness and safety. Therefore, Agda Comp
+meets all of its non-functional requirements as described on \cref{tbl:Agda
+Comp Non-Functional Requirements}.
 
 \subsection{Limitations} \label{sub:eval comp limitations}
 
-This approach encounters two significant limitations, the first is that to
-create the module dependency graph it has to compile the project. Which means
-the only way this method could save time is if the user makes a change the
-doesn't change the module dependency graph allowing for a previous dependency
-graph to be re-used.
+This approach encounters two limitations, the first is that to create the
+module dependency graph it has to compile the project. Which means that for
+Agda Comp to save time the user only makes changes that don't alter the module
+dependency graph, such that a previous dependency graph can be re-used.
 
 The second limitation is the overhead caused by the loading of the interface
 files. Interface files are the compiled Agda source code, when a module is type
-checked the information is stored in an interface file and used when compiling
+checked the information is stored in an interface file and used when type checking
 modules that depend on it. Every time a new process is created, it has to load
 all the interface files it requires to type-check a module and discard them
 once done, then the next process might load the same interface files again
@@ -101,17 +108,16 @@ overhead.
 
 \subsection{Compilation Strategies} \label{sub:eval comp strat}
 
-The following \cref{tbl:WSL strategies results} and \cref{tbl:martin
-strategies results} show the results of the testing of the compilation
-strategies. The compilation testing consisted of 7 tests of different
-strategies across 3 libraries. The three libraries picked are TypeTopology
+The \cref{tbl:WSL comp results} and \cref{tbl:martin comp results}
+show the compilation times of each strategy. The compilation testing consisted
+of 7 strategies across 3 libraries. The three libraries picked are TypeTopology
 \cite{type-topology}, unimath \cite{agda-unimath} and Agda's stdlib
 \cite{stdlib}. These libraries vary in size and methodology, for example
 unimath structure is of many small independent modules while TypeTopology has
 less but longer modules.
 
-The 7 strategies tested are normal, which is the standard compilation which
-gives a baseline for the other modules. The unsafe test, which attempts to
+The 7 strategies tested are normal, which is the standard compilation that
+gives a baseline for the other strategies. The unsafe test, which attempts to
 compile all modules in 4 index files at the same time, without regards to
 safety which shows the potential of parallelization. Then the level strategy
 using method A to split modules into index files described in 
@@ -120,13 +126,15 @@ split into 2 index files or 5 index files. The next test is using method B
 instead, where each index file has at most 2 modules or 5 modules. Lastly, the
 disjoint strategy is tested which has no parameters.
 
-Tested on Agda 2.0.17, WSL has 16GB of ram with 8 performance cores at 5.4 GHz.
-Macos tested on Agda 2.0.17 has nGB of ram with n cores and n GHz.
+% Tested on Agda 2.0.17, WSL has 16GB of ram with 8 performance cores at 5.4 GHz.
+% Macos tested on Agda 2.0.17 has nGB of ram with n cores and n GHz.
+
+\todo[inline]{Should I add the tables here, or move some to the appendix?}
 
 \begin{table}[H]
   \centering
   \caption{Results from WSL Testing Compilation Strategies}
-  \label{tbl:WSL strategies results}
+  \label{tbl:WSL comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
       cells   = {font = \fontsize{8pt}{10pt}\selectfont},
@@ -140,8 +148,25 @@ Macos tested on Agda 2.0.17 has nGB of ram with n cores and n GHz.
 
 \begin{table}[H]
   \centering
-  \caption{Results from Martin Escardo Testing Compilation Strategies macOS}
-  \label{tbl:martin strategies results}
+  \caption{Computer Specifications for WSL 13900hx}
+  \label{tbl:WSL specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 5.4         \\
+    CPU P-cores                   & 8           \\
+    CPU E-Cores                   & 16          \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Results from Martin Escardo Testing Compilation Strategies Mac Mini}
+  \label{tbl:martin comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
       cells   = {font = \fontsize{8pt}{10pt}\selectfont},
@@ -153,19 +178,75 @@ Macos tested on Agda 2.0.17 has nGB of ram with n cores and n GHz.
   \end{tblr}
 \end{table}
 
-The results show that a time saving from compilation is dependent on the
-project it is compiling. TypeTopology benefitted the most from the compilations
-strategies achieving about a 40\% faster compilation in WSL and 23\% faster
-compilation in macOS. Although the results from the remaining Agda projects
-aren't as promising, with the macOS results showing no improvement in
-compilation time in any safe strategy. The results also show that the
-compilation time also depends on the user's system, with WSL achieving  a
-speed-up in level A 5 cores with all projects.
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for Mac Mini M4}
+  \label{tbl:martin specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Results from MacBook Air M4 Compilation Strategies }
+  \label{tbl:mba comp results}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    seconds (\%)                  & Normal      & Unsafe     & { Level A\\2 cores} & {Level A \\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
+    TypeTopology & {371\\(100\%)} & {234\\(63\%)} & {331\\(89\%)}        & {298\\(80\%)}        & {366\\(99\%)}      & {334\\(90\%)}      & {340\\(92\%)}    \\
+    stdlib       & {191\\(100\%)} & {134\\(70\%)} & {316\\(165\%)}       & {267\\(140\%)}       & {277\\(145\%)}     & {273\\(143\%)}     & {223\\(117\%)}   \\
+    Unimath      & {335\\(100\%)} & {295\\(88\%)} & {1437\\(429\%)}      & {802\\(239\%)}       & {674\\(201\%)}     & {687\\(205\%)}     & {314\\(94\%)}    \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[]
+\begin{tabular}{llllllll}
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for MacBook Air M4}
+  \label{tbl:mba specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 16          \\
+    Cooling                       & Passive     \\
+  \end{tblr}
+\end{table}
+
+The tables show compilation time is affected on the project structure.
+TypeTopology benefitted the most from the compilations strategies achieving
+about a 40\% faster compilation in WSL, 23\% faster in the Mac Mini and 20\%
+faster in the MacBook Air. Although the results from the remaining Agda
+projects aren't as promising, with the macOS results showing little to no
+improvement in any safe strategy. The results also show that the compilation
+time also depends on the user's system, with WSL achieving a speed-up in level
+A 5 cores for all projects.
 
 The cause in the difference in compilation improvement per project, is likely
-due to the limitation discussed in the \cref{sub:eval comp limitations}. Since unimath has more small modules, there is a large amount of
-interface files that are constantly being loaded and unloaded when normal
-compilation can load all the interface files at once and keep them. 
+due to the limitation discussed in the \cref{sub:eval comp limitations}. Since
+unimath has many small modules, there is a large amount of interface files that
+are constantly being loaded and unloaded when normal compilation can load all
+the interface files at once and keep them. This is a hypothesis that could be
+explored further.
 
 \section{Conclusion}
 

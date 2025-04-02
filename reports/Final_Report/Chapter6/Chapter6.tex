@@ -36,27 +36,27 @@ module dependency graph, so it only needs to be imported and attached to a CLI.
 
 \subsection{Building the definition tree}
 
-\todo[inline]{Should I explain the HTML files, as I am not using them but they were explore}
-\todo[inline]{Moved the fialed attempt to the evaluation, explain why s-experssion was a better approach}
-At first, HTML files that Agda generates were explored. These HTML files
-display and format the code with colours and links. This is vital because the
-HTML files would style the text differently depending on if the text was a
-definition, keyword, type, or operator. Also, all the used definitions were
-hyperlinks that connected back to the module that defined them. With a method
-to find the definitions in a file given the styling and finding the
-dependencies of that definition given the hyperlinks, a graph could be created.
-The main issue was parsing the HTML files, finding which keywords fell into
-which definition was quite difficult, and using an Agda parser might have been
-necessary.
+% \todo[inline]{Should I explain the HTML files, as I am not using them but they were explore}
+% \todo[inline]{Moved the fialed attempt to the evaluation, explain why
+% s-experssion was a better approach}
+% At first, HTML files that Agda generates were explored. These HTML files
+% display and format the code with colours and links. This is vital because the
+% HTML files would style the text differently depending on if the text was a
+% definition, keyword, type, or operator. Also, all the used definitions were
+% hyperlinks that connected back to the module that defined them. With a method
+% to find the definitions in a file given the styling and finding the
+% dependencies of that definition given the hyperlinks, a graph could be created.
+% The main issue was parsing the HTML files, finding which keywords fell into
+% which definition was quite difficult, and using an Agda parser might have been
+% necessary.
 
-The solution is not to use the HTML files but to use s-expressions. The
-s-expressions are generated the same way the HTML files are with the same
-information, except s-expressions are easier to parse. Agda doesn't natively
-generate s-expressions but Andrej Bauer, Matej Petković, Ljupčo Todorovski in
-their paper "MLFMF: Data Sets for Machine Learning for Mathematical
-Formalization" \cite{bauer2023mlfmf} created an s-expression extractor. The
-s-expression extractor works in the Agda backend, and converts Agda
-files into s-expressions \cite{andrej}.
+Agda's backend has the information needed to find the definitions and their
+dependencies, in an Agda project. Natively there isn't a way to retrieve this
+information but Andrej Bauer, Matej Petković, Ljupčo Todorovski in their paper
+"MLFMF: Data Sets for Machine Learning for Mathematical Formalization"
+\cite{bauer2023mlfmf} created an s-expression extractor. The s-expression
+extractor works in the backend, and converts Agda source code into
+s-expressions \cite{andrej} which are easy to parse.
 
 \subsubsection{S-expression extractor}
 
@@ -435,18 +435,12 @@ agda_tree module topo_sort
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
-\todo[inline]{should clojure be mentioned as a failed attempt?}
-
 The command line interface(CLI) uses Python, as it is a popular language that
 most users already have installed and may have some experience with. Making it
-easier for users to add new queries and make the changes. At first Clojure was
-considered to create this tool, as it is made to information as graphs and make
-queries. However, Clojure requires Java, isn't popular, and it is more difficult
-to create queries. Also, NetworkX is in Python which would cause further issues
-when importing the dependency graphs. This makes Python the best choice.
+easier for users to add new queries and make the changes. 
 
-Python includes a library called argparse to create command line interfaces. In
-Python passes CLI parameters to sys.argv, argparse parses it based on the
+Python includes a library called argparse to create command line interfaces.
+The CLI parameters are stored in sys.argv, argparse parses it based on the
 defined parsers and creates help with usage messages. There is the main parser
 which contains two sub parsers, one being for the definition queries and the
 other being for the module queries. The main parser decides whether the

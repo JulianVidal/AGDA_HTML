@@ -7,7 +7,30 @@
 % point of appendices is to make your report more readable. I don’t expect to see apprentices in any
 % Project Proposals.
 
+\begin{lstlisting}[caption={Agda Comp Help Message},label={code:agda comp help}]
+usage: agda_comp [-h] [-c] [-j JOBS] [-s {level,levelb,normal,unsafe,disjoint}] module
 
+Fast Agda type checker
+
+positional arguments:
+  module                Path to module to compile
+
+options:
+  -h, --help            show this help message and exit
+  -c, --clean           Create dot file even if it already exists
+  -j, --jobs JOBS       Cores that can be used
+  -s, --strategy {level,levelb,normal,unsafe,disjoint}
+                        The strategy that will determine the compilation order, the
+                        choices are: level: Sorts modules into levels, each level
+                        increses the length to a leaf, lvl 5 are the modules that 5
+                        modules away from a leaf. Each level is then split into 4 files
+                        or the value given by --jobs levelb: Sorts modules by levels
+                        like in 'level' but instead each level is separated into n files
+                        with --jobs modules each normal: Normal compilation unsafe:
+                        Tries to compile all the modules with 4 concurrent index files
+                        or --jobs files disjoint: Finds the biggest modules that are
+                        disjoint, if none are found the leaves are removed then repeats
+\end{lstlisting}
 
 \begin{lstlisting}[caption={Agda Tree Definition Help Message},label={code:definition help}]
 usage: agda_tree definition [-h]
@@ -116,4 +139,55 @@ def depths(g):
         m |= depth(g, n, m)
     return m
 \end{lstlisting}
+
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for WSL 13900hx}
+  \label{tbl:WSL specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 5.4         \\
+    CPU P-cores                   & 8           \\
+    CPU E-Cores                   & 16          \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for Mac Mini M4}
+  \label{tbl:martin specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for MacBook Air M4}
+  \label{tbl:mba specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+    }
+    Specification                 &             \\
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 16          \\
+    Cooling                       & Passive     \\
+  \end{tblr}
+\end{table}
 

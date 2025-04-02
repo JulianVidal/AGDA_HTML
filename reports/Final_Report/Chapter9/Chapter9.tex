@@ -148,23 +148,6 @@ disjoint strategy is tested which has no parameters.
 
 \begin{table}[H]
   \centering
-  \caption{Computer Specifications for WSL 13900hx}
-  \label{tbl:WSL specs}
-  \begin{tblr}{
-      colspec={|Q[m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
-    }
-    Specification                 &             \\
-    Max Clock (GHz)               & 5.4         \\
-    CPU P-cores                   & 8           \\
-    CPU E-Cores                   & 16          \\
-    RAM (GB)                      & 24          \\
-    Cooling                       & Active      \\
-  \end{tblr}
-\end{table}
-
-\begin{table}[H]
-  \centering
   \caption{Results from Martin Escardo Testing Compilation Strategies Mac Mini}
   \label{tbl:martin comp results}
   \begin{tblr}{
@@ -175,23 +158,6 @@ disjoint strategy is tested which has no parameters.
     TypeTopology & {345\\(100\%)} & {172\\(50\%)} & {287\\(83\%)}        & {265\\(77\%)}        & {344\\(100\%)}     & {295\\(86\%)}      & {369\\(107\%)} \\
     stdlib       & {189\\(100\%)} & {123\\(65\%)} & {241\\(128\%)}       & {197\\(104\%)}       & {231\\(122\%)}     & {203\\(107\%)}     & {203\\(107\%)} \\
     Unimath      & {302\\(100\%)} & {168\\(56\%)} & {863\\(286\%)}       & {575\\(190\%)}       & {633\\(210\%)}     & {568\\(188\%)}     & {304\\(101\%)} \\
-  \end{tblr}
-\end{table}
-
-\begin{table}[H]
-  \centering
-  \caption{Computer Specifications for Mac Mini M4}
-  \label{tbl:martin specs}
-  \begin{tblr}{
-      colspec={|Q[m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
-    }
-    Specification                 &             \\
-    Max Clock (GHz)               & 4.4         \\
-    CPU P-cores                   & 4           \\
-    CPU E-Cores                   & 6           \\
-    RAM (GB)                      & 24          \\
-    Cooling                       & Active      \\
   \end{tblr}
 \end{table}
 
@@ -210,36 +176,15 @@ disjoint strategy is tested which has no parameters.
   \end{tblr}
 \end{table}
 
-\begin{table}[]
-\begin{tabular}{llllllll}
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-  \centering
-  \caption{Computer Specifications for MacBook Air M4}
-  \label{tbl:mba specs}
-  \begin{tblr}{
-      colspec={|Q[m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
-    }
-    Specification                 &             \\
-    Max Clock (GHz)               & 4.4         \\
-    CPU P-cores                   & 4           \\
-    CPU E-Cores                   & 6           \\
-    RAM (GB)                      & 16          \\
-    Cooling                       & Passive     \\
-  \end{tblr}
-\end{table}
-
-The tables show compilation time is affected on the project structure.
-TypeTopology benefitted the most from the compilations strategies achieving
-about a 40\% faster compilation in WSL, 23\% faster in the Mac Mini and 20\%
-faster in the MacBook Air. Although the results from the remaining Agda
-projects aren't as promising, with the macOS results showing little to no
-improvement in any safe strategy. The results also show that the compilation
-time also depends on the user's system, with WSL achieving a speed-up in level
-A 5 cores for all projects.
+The tables show compilation time is affected on the project structure. The
+specs of the machines used can be seen in \cref{tbl:WSL specs},
+\cref{tbl:martin specs} and \cref{tbl:mba specs}. TypeTopology benefitted the
+most from the compilations strategies achieving about a 40\% faster compilation
+in WSL, 23\% faster in the Mac Mini and 20\% faster in the MacBook Air.
+Although the results from the remaining Agda projects aren't as promising, with
+the macOS results showing little to no improvement in any safe strategy. The
+results also show that the compilation time also depends on the user's system,
+with WSL achieving a speed-up in level A 5 cores for all projects.
 
 The cause in the difference in compilation improvement per project, is likely
 due to the limitation discussed in the \cref{sub:eval comp limitations}. Since

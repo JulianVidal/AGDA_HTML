@@ -244,7 +244,7 @@ theorems that use this definition. In this dependency graph, the dependants'
 edges point towards the definition, so the parents of a definition are its
 dependants. NetworkX provides a method to get the parents and their parents
 recursively which are \texttt{graph.predeccessor(definition)} and
-\textsf{nx.ancestors(graph, definition)} respectively.
+\texttt{nx.ancestors(graph, definition)} respectively.
 
 \begin{lstlisting}
 agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -537,7 +537,7 @@ binary is then copied to the \texttt{~/.local/bin/} folder, which the user
 already has in their environment path. 
 
 One the binary is in the path, it can be accessed through the command
-\textsf{agdasexp}, Agda Tree will recognize this command and use it to build
+\texttt{agdasexp}, Agda Tree will recognize this command and use it to build
 the definition graph.
 
 % \begin{itemize}
@@ -763,33 +763,8 @@ that many people already have. Similarly to Agda Tree CLI \cref{sub:Agda Tree
 CLI}, argparse for the CLI. argparse parses the user input and generates
 usage/help messages. The parser accepts the path to the modules file to compile
 as a positional parameter, then other options can be passed in to change what
-strategy to use.
-
-This is the help page for Agda Comp:
-\begin{lstlisting}
-usage: agda_comp [-h] [-c] [-j JOBS] [-s {level,levelb,normal,unsafe,disjoint}] module
-
-Fast Agda type checker
-
-positional arguments:
-  module                Path to module to compile
-
-options:
-  -h, --help            show this help message and exit
-  -c, --clean           Create dot file even if it already exists
-  -j, --jobs JOBS       Cores that can be used
-  -s, --strategy {level,levelb,normal,unsafe,disjoint}
-                        The strategy that will determine the compilation order, the
-                        choices are: level: Sorts modules into levels, each level
-                        increses the length to a leaf, lvl 5 are the modules that 5
-                        modules away from a leaf. Each level is then split into 4 files
-                        or the value given by --jobs levelb: Sorts modules by levels
-                        like in 'level' but instead each level is separated into n files
-                        with --jobs modules each normal: Normal compilation unsafe:
-                        Tries to compile all the modules with 4 concurrent index files
-                        or --jobs files disjoint: Finds the biggest modules that are
-                        disjoint, if none are found the leaves are removed then repeats
-\end{lstlisting}
+strategy to use. The help message showing these options is show in
+\cref{code:agda comp help}.
 
 There are three options, clean, jobs and strategy. By default, the tool re-uses
 the previous module dependency graph and removes already compiled modules from

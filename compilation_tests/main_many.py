@@ -16,19 +16,19 @@ import test_lvlb
 import test_lvl_disjoint
 
 test_repos = {
-    "TypeTopology": {
-        "url": "https://github.com/martinescardo/TypeTopology.git",
-        "dir": Path("/tmp/TypeTopology"),
-        "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
-        "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}",
-    },
-    "stdlib": {
-        "url": "https://github.com/agda/agda-stdlib.git",
-        "dir": Path("/tmp/agda-stdlib"),
-        "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
-        "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
-        "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}",
-    },
+    # "TypeTopology": {
+    #     "url": "https://github.com/martinescardo/TypeTopology.git",
+    #     "dir": Path("/tmp/TypeTopology"),
+    #     "index": Path("/tmp/TypeTopology/source/AllModulesIndex.lagda"),
+    #     "index_flags": "{-# OPTIONS --without-K --type-in-type --no-level-universe --no-termination-check --guardedness #-}",
+    # },
+    # "stdlib": {
+    #     "url": "https://github.com/agda/agda-stdlib.git",
+    #     "dir": Path("/tmp/agda-stdlib"),
+    #     "index": Path("/tmp/agda-stdlib/src/Everything.agda"),
+    #     "create_index": "cd /tmp/agda-stdlib/; if ! command -v GenerateEverything 2>&1 >/dev/null; then cabal update; cabal install --overwrite-policy=always; fi; GenerateEverything --out-dir /tmp/agda-stdlib/src/",
+    #     "index_flags": "{-# OPTIONS --rewriting --guardedness --sized-types #-}",
+    # },
     "unimath": {
         "url": "https://github.com/UniMath/agda-unimath.git",
         "dir": Path("/tmp/agda-unimath"),
@@ -107,24 +107,24 @@ def test_repo(name, url, dir, index, index_flags, **kwargs):
     #     dep_graph.remove_node(node)
 
     tests = {
-        "normal": (
-            test_normal,
-            (
-                index.stem.split(".")[0],
-                index_flags,
-            ),
-        ),
-        "unsafe": (
-            test_unsafe,
-            (
-                dep_graph,
-                index_flags,
-            ),
-        ),
-        "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
-        "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
-        "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
-        "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
+        # "normal": (
+        #     test_normal,
+        #     (
+        #         index.stem.split(".")[0],
+        #         index_flags,
+        #     ),
+        # ),
+        # "unsafe": (
+        #     test_unsafe,
+        #     (
+        #         dep_graph,
+        #         index_flags,
+        #     ),
+        # ),
+        # "lvl_2": (test_lvl, (dep_graph, index_flags, 2)),
+        # "lvl_5": (test_lvl, (dep_graph, index_flags, 5)),
+        # "lvl_10": (test_lvl, (dep_graph, index_flags, 10)),
+        # "lvlb_2": (test_lvlb, (dep_graph, index_flags, 2)),
         "lvlb_4": (test_lvlb, (dep_graph, index_flags, 4)),
         "lvl_disjoint": (
             test_lvl_disjoint,

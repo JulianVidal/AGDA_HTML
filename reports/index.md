@@ -1470,4 +1470,45 @@ noticeably hot.
 
 # 22 - Post-Meeting Report
 
+Discussed the first 6 chapters of the report, stopping at the testing chapter.
+Andrej Bauer and Job Petrovčič should be added to the acknowledgements section.
+Discussed adding background about refactoring, dependency graphs and DAGs into
+the literature review, but the word count is quite long already. The
+introduction shouldn't be too long, so nothing else should be added.
+
+The exploration of the Agda HTML files and using Clojure instead of python
+should be documented in the evaluation section. Explaining why the switch was
+made and why these two options didn't work.
+
+Use typewriter font on computer related words like CLI commands, file names,
+definition names, etc. Move some of the CLI help text into the appendix, only
+leaving one in the main report as an example. The code for the sorting
+algorithm could also be moved to the appendix.
+
+Next week there will be another supervision session at the same time, possibly
+by zoom. I need to advance as much as possible with my report and send it
+before the meeting (mention that the last 4 chapters haven't been seen thoroughly).
+
 # 22 - Notes
+
+Andrej Bauer in acknowledge and job.
+
+Supervision session next week. Work on the projects as much as I can, send
+report before meeting. Mention which parts a new and concentrate on.
+
+Add to literature review stuff about refactoring, if needed.
+
+Expalin about dags and graphs, 
+
+\todo[inline]{Moved the fialed attempt to the evaluation, explain why s-experssion was a better approach}
+\todo[inline]{move clojure attempt to evaluation}
+\todo[inline]{use typewritte, {\tt word} for writting file names}
+
+Show one example of the help, then put other examples in an appendix. Appendix
+command and reference them when needed.
+
+Maybe remove sort code, add to appendix.
+
+Use printer font for commands and file names, computer related names.
+
+Remind to read from testing section and beyond.

@@ -4,31 +4,30 @@
 
 Testing ensures that the tools behave correctly, it also allows for better
 maintainability as any changes can be automatically checked for issues. For
-Agda Tree, unit tests have been created for each query. This gives some
-guarantee that the queries are working as expected and that any future changes
-still return the same results. These tests were also timed, to measure the
-performance of the queries, while some will vary in performance depending on
-their input it gives a good estimate of their expected performance.
+Agda Tree, there are unit tests for each query. Giving some guarantee that the
+queries are working as expected and that any future changes still return the
+same results. These tests were also timed, to measure the performance of the
+queries, while some will vary in performance depending on their input it gives
+a good estimate of their expected performance.
 
 For Agda Comp, the performance of the compilation is the overall goal, so the
 testing is centred around the strategies. Checking that the strategies compile
 the projects correctly, such that no module is left not compiled and that a
 module isn't compiled at the same time as one of its dependencies. The time to
 create the compilation order with the strategy is also measured, but it is
-insignificant compared to the time to compile an Agda project.
+insignificant compared to the time to compile a project.
 
 \subsection{Agda Tree Unit Tests}
 
-Unit tests have been created for each query and the options that the queries
-can take. These test use the TypeTopology definition and module dependency
-graph to test the results of the queries. While testing every combination of
-input for this graph and checking the output isn't possible, the test instead
-test one example of the use of that query. For example, to test the
-dependencies queries the definition
-"InfinitePigeon.Addition.n-plus-zero-equals-n" is used, and checked if the
-output is correct given a hard coded expected response. This is done for each
-query, along with their different options so for the dependencies query there
-is also a unit test for the indirect option. Integration testing while
+Each query and the options that the queries can take are unit tested. These
+test use the TypeTopology definition and module dependency graph to test the
+results of the queries. While testing every combination of input for this graph
+and checking the output isn't possible, the test instead test one example of
+the use of that query. For example, to test the dependencies queries the
+definition "InfinitePigeon.Addition.n-plus-zero-equals-n" is used, and checked
+if the output is correct given a hard coded expected response. This is done for
+each query, along with their different options so for the dependencies query
+there is also a unit test for the indirect option. Integration testing while
 possible, isn't necessary as the CLI parsers are generated from the query
 functions. So the CLI and the queries don't need to be tested for their
 integration as the CLI is based of the queries directly. 

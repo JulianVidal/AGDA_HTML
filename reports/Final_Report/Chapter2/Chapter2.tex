@@ -2,7 +2,9 @@
 
 \chapter{Literature Review}
 
-\todo[inline]{Add literature about code decay?}
+% \todo[inline]{Add literature about code decay?}
+% \todo[inline]{Explain what dependency graphs are?}
+% \todo[inline]{Extend related works?}
 
 There are many ways to represent code using graphs, each with their own utility
 and purpose. There are Abstract Syntax Trees (AST), Control Flow Graphs (CFG),
@@ -14,15 +16,13 @@ structure is analysed for software validation \cite{static_analysis}. For this
 project these graphs encode too much information, what is needed is a
 dependency graph only with definitions are their relationships.
 
-\todo[inline]{Explain what dependency graphs are?}
-\todo[inline]{Extend related works?}
 
 \section{Related works}
 
 The Language Server Protocol (LSP) is used by IDEs, such as Visual Studio Code
-and IntelliJ, to provide features like \textsf{goto} definition and
-\textsf{goto} references which lets the user jump to where a definition is
-defined or referenced.. The LSP sits between the code editor and the language
+and IntelliJ, to provide features like \texttt{goto} definition and
+\texttt{goto} references which lets the user jump to where a definition is
+defined or referenced. The LSP sits between the code editor and the language
 server, the language server analyses the code to support these features
 \cite{LSP_implementation}. Language servers have the functionality to implement
 this project, but, they are meant to be used while editing code, and the
@@ -55,7 +55,7 @@ assistant it helps with proving theorems which doesn't fit with call graphs.
 
 \section{Parallel Compilation}
 
-\todo[inline]{Add section explaining DAGs?}
+% \todo[inline]{Add section explaining DAGs?}
 
 \todo[inline]{Is there any related work that I could add?}
 
@@ -144,7 +144,7 @@ replaced for readability. A more general structure to the tag can be seen in
   \end{subfigure}
 \end{figure}
 
-The \textsf{:entry} tag is of important, as Agda by itself doesn't provide a
+The \texttt{:entry} tag is of important, as Agda by itself doesn't provide a
 convenient method to find all the definitions of an Agda project along with its
 implementation. This extractor packages the important information into a format
 that is easy to parse. Andrej Bauer made the s-expression

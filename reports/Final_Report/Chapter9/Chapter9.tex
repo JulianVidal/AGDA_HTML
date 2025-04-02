@@ -251,20 +251,19 @@ explored further.
 \section{Conclusion}
 
 Both Agda Tree and Agda Comp meets most of the functional and non-functional
-requirements set out in \cref{ch:system requirements}. Agda Tree
-effectively extracts definition dependency graphs from any Agda project, but it
-can take a long time to generate that graph. All queries are implemented,
-however some queries can take an indefinite amount of time to complete
-depending on the user input. One of the limitations of Agda Tree is the
-difficult to understand definitions and definition names, as the Agda backend
-doesn't make them user-friendly.
+requirements set out in \cref{ch:system requirements}. Agda Tree effectively
+extracts definition dependency graphs from any Agda project, but it can take a
+long time to generate that graph. All queries are implemented, however some
+queries can take an indefinite amount of time to complete. One of the
+limitations of Agda Tree is the difficult to understand definitions and
+definition names, as the Agda backend doesn't make them user-friendly.
 
-Agda Comp is able to import the module dependency graph from any Agda project
-and compile it using different strategies. Although, the effectiveness of those
-strategies to lower compilation time varies depending on the system and the
-Agda project. The limitation that to create the dependency graph the Agda
-project is compiled, means this tool could only be used safely when the user
-makes a change that doesn't alter the module dependency graph.
+Agda Comp imports the module dependency graph from any Agda project and
+compiles the project in parallel by using different strategies. Although, the
+effectiveness of those strategies varies depending on the system and the Agda
+project. There is a limitation where creating the module dependency graph
+compiles the project. Meaning this tool is used when the user makes a change
+that doesn't alter the module dependency graph, limiting its scope.
 
 
 % \begin{itemize}

@@ -61,9 +61,8 @@ Agda doesn't provide a built-in tool to extract the definitions from a project,
 but there is an s-expression extractor by Andrej Bauer \cite{andrej} that
 allows for a better view of Agda's internal representation. Although,
 S-expressions aren't a well-suited data structure for querying these
-definitions \todo{do i need to explain why s-expressions aren't well suited?}.
-They are structured for syntax and contain other information that can be
-discarded. A better data structure would be a graph, that contains the
+definitions. They are structured for syntax and contain other information that
+can be discarded. A better data structure would be a graph, that contains the
 definitions as nodes are their relationships as edges. A tool that could
 explore this dependency graph of definitions, would let the user get a better
 graphs of large code bases faster.
@@ -90,7 +89,7 @@ Applying a strategy to find the optimal order that modules should be compiled
 in parallel while maintaining safety. And lastly, running that strategy,
 compiling the entire project.
 
-\section{Project Structure} \todo{Is this section necessary?}
+\section{Project Structure}
 
 First, there will be an exploration of related works pertaining to using graphs
 for code analysis. As well as, an explanation of s-expressions, other instances

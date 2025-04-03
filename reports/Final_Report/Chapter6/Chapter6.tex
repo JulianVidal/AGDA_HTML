@@ -34,7 +34,7 @@ converted into a definition dependency graph. Which is then exposed through a
 CLI that the user can query. Agda already includes a command to generate the
 module dependency graph, so it only needs to be imported and attached to a CLI.
 
-\subsection{Building the definition tree}
+\subsection{Building the dependency graphs}
 
 Agda's backend has the information needed to find the definitions and their
 dependencies, in an Agda project. Natively there isn't a way to retrieve this
@@ -81,37 +81,27 @@ Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}\label{sub:s-expression parser implementation}
 
-The \texttt{:body} and \texttt{:type} tags contain other tags like
-\texttt{:apply}, \texttt{:sort}, \texttt{:max}, etc. That describe the
-definition in complete detail, but this information is not needed. The
-information needed is the definition names and its dependencies which means the
-\texttt{:name} and \texttt{:entry} tags are of interest.
+The S-expression parser extracts only the relevant information
+from Agda's s-expressions, specifically the \texttt{:entry} and \texttt{:name} tags, which
+represent definitions and their dependencies. The s-expressions
+are compiled and stored in a directory, then processed using Python's sexpdata
+library to load them into lists. These lists are traversed recursively to
+collect the required tags.
 
-The s-expressions are compiled and saved into a directory. Then using Python
-and the library sexpdata is used to load the raw s-expression files into lists.
-These lists are traversed recursively to find the relevant tags. The
-methodology is to find all the \texttt{:entry} tags, each \texttt{:entry} tag
-represents a definition as described in \cref{tbl:sexp}. For each :entry tag,
-find all the :name tags contained inside. With this information create a
-dictionary where each key is the definition name and the value is a list of
-:name tags. Since an \texttt{:entry} tag represents a definition and the
-\texttt{:name} tags are the names of the definitions being used, the resulting
-dictionary will contain all the definitions along with their dependencies. To
-find the necessary tags a \texttt{find\_exp} function is implemented that
-recursively traverses an s-expression, keeping track of the occurrences of a
-given tag.
+The parsing methodology involves finding all \texttt{:entry} tags, each
+representing a definition. For every \texttt{:entry}, the nested \texttt{:name}
+tags are extracted to construct a dictionary where each key is a definition
+name, and its value is a list of dependencies. This dictionary maps all
+definitions to their dependencies. A helper function, \texttt{find\_exp}, is
+implemented to recursively traverse the s-expression structure and collect
+specific tags.
 
-The s-expression extractor writes the s-expression to a file per module, so the
-mentioned dictionary is created for each file and combined into one dictionary
-with all the definitions. The same process repeats, instead of looking for
-\texttt{:name} tags inside the \texttt{:name} tags in the \texttt{:type} tag
-instead of \texttt{:entry} tag. Store this in a separate dictionary with the
-definition as a key and the \texttt{:names} found in \texttt{:tag} as the
-value. This provides the information about the type of the definition.
-
-This parsing procedure is done in parallel, where each file is parsed in its
-own thread and the dictionary of all the parsed files is combined by
-adding all the key value pairs into a bigger dictionary.
+The parser processes each module file separately and in parallel, generating a
+dictionary for each. These dictionaries are then merged into a single
+dictionary containing all definitions and dependencies across the project.
+Additionally, a similar process is applied to extract type information by
+analysing \texttt{:type} tags within the s-expressions. This produces another
+dictionary mapping definitions to their types.
 
 % \begin{itemize}
 %     \item How the s-expression are extracted
@@ -129,52 +119,24 @@ adding all the key value pairs into a bigger dictionary.
 
 \subsubsection{Building definition graph}
 
-The dictionary built in \cref{sub:s-expression parser implementation} forms the
-definition dependency graph, with keys as nodes and values as edges. It is
-imported into the NetworkX library. This library efficiently creates and
-queries graphs, it implements useful features and is performant. NetworkX is a
-widely used tool, so a user can become familiar with its use and
-implement their own queries. 
+The parsed dictionary from \cref{sub:s-expression parser implementation}
+constructs the definition dependency graph using NetworkX, where keys become
+nodes and dependency lists form edges. Nodes are added via
+\texttt{add\_nodes\_from()} using dictionary keys, while edges are created
+through \texttt{add\_edges\_from()} with \texttt{(definition, dependency)}
+tuples. This creates directed edges from definitions to their dependencies. The
+resulting graph is serialized using Python's Pickle library for storage and
+reuse.
 
-\todo[inline]{Do I need to explain the code this specifically} The directed
-graph is first in NetworkX. Then the definitions are added as nodes with the
-command \texttt{graph.add\_nodes\_from}, with the keys of the dictionary passed
-in. Lastly, the edges are added with the command
-\texttt{graph.add\_edges\_from} where an array is passed in containing tuples
-with the definition and its dependency. Note that when creating the edge the
-definition is the first, and it's the dependency is second, since this is a
-directed graph this will cause the direction of the edge to be from the
-definition to its dependency.  Once generated it will be 'pickled', Pickle is a
-Python library that serializes Python objects, the trees will be serialized and
-stored for future use. 
+Definition names originally include module paths and identifiers from Agda's
+internal representation. Before graph creation, these identifiers are removed
+unless needed to resolve naming conflicts improving readability.
 
-When parsing the s-expression files, the definitions names include their module
-path along with an identifier number. Due to the way the s-expressions are
-extracted and the way Agda works internally two distinct definitions will have
-the same name with identifier to distinguish them. This can be cumbersome for
-the user to deal with, so before the graph is created the tool will attempt to
-remove this number unless it causes an ambiguity.
-
-\subsection{Building module tree} \label{sub: Building Module Tree}
-
-\todo[inline]{Do i need to mention what commands were used to create the
-graph?} 
+\subsubsection{Building module tree} \label{sub: Building Module Tree}
 
 Agda has a built-in feature that creates a DOT file of the module dependency
-graph of an Agda project. This command is \texttt{agda
---dependency-graph=[PATH] [Index File PATH]}. The DOT language describes how to
-describe nodes and edges for a Graphviz graph. This is a standard format for
-graphs, NetworkX already has an extension that uses pydot, a Python library to
-read, write and create DOT files. Once Agda generates the DOT file it can be
-imported into NetworkX where it can be queried. This graph will then be
-pickled and stored for future use.
-
-% \begin{itemize}
-% \item Explain what dot files are
-% \item Explain how agda extracts it
-% \item Explain how it is imported into networkx
-% \item Explain how it is stored pickled
-% \end{itemize}
+graph of an Agda project. The file is imported into NetworkX, serialized and
+stored for future use.
 
 \subsection{Commands}
 
@@ -182,8 +144,7 @@ Most queries are the same between the definition graph and the module graph,
 but the module graph is acyclic giving it different properties. These queries
 can be explored in further detail in its repository \cite{agda_html}.
 
-\todo[inline]{Should I trim this, or keep all the queries}
-\todo[inline]{Show output of commands?}
+\todo[inline]{Should I remove some queries}
 
 \subsubsection{Create Tree}
 
@@ -383,40 +344,22 @@ agda_tree module topo_sort
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
-The CLI uses Python, as it is a popular language that most users already have
-installed and may have some experience with. Making it easier for users to add
-new queries and make the changes. 
+The CLI is implemented in Python, a widely used language that most users are
+familiar with, for easier modification by the user. Python's
+argparse library is used to handle user input, generate help messages, and
+manage command parsing. The CLI includes a main parser with two subparsers: one
+for definition queries and the other for module queries. Based on the user’s
+input, the main parser delegates tasks to the appropriate subparser.
 
-Python includes a library called argparse to create CLIs. The
-user inputs are stored in \texttt{sys.argv}, argparse parses it based
-on the defined parsers and creates help with usage messages. There is the main
-parser which contains two sub parsers, one being for the definition queries and
-the other being for the module queries. The main parser decides whether the
-definition graph or module graph is used. Then it is delegated to the
-respective sub parsers.
-
-\todo[inline]{Do i need to go into this much detail}
-\todo[inline]{How do i format file names}
-
-The sub parsers are generated automatically from the methods that implement the
-queries. There are two files \texttt{def\_cmds.py} and \texttt{mod\_cmds.py} which store the functions
-that perform the queries. The functions in this file are read, and are used to
-automatically generate the CLI. This allows for greater flexibility as to add
-or change a query, only the function has to be changed, and the interface will
-update by itself.
-
-This is done with the included Python library inspect, which can get the
-functions in a file, get their parameters and their documentation. The way the
-subparsers are generated is by first getting all the functions names which are
-the queries. For each function, the parameters it requires will be the input
-from the user. If it is a position parameter then the user must give it,
-otherwise, it is an optional parameter. The inspect library can also read the
-documentation of a function, if a comment is made below a function it is read
-as documentation which is added to the help description of the query. The
-documentation for each parameter has to be done manually, where a dictionary
-with the parameter name and its description is used to give each option in the
-CLI a description. Agda Tree's help messages can be seen in
-\cref{code:definition help} and \cref{code:module help}.
+Query methods are stored in two files: \texttt{def\_cmds.py} (for definition
+queries) and \texttt{mod\_cmds.py} (for module queries). Using Python’s inspect
+library, the CLI automatically generates commands from these functions,
+extracting their names, parameters, and documentation. Positional parameters
+become required inputs, while optional parameters are specified with flags.
+This approach ensures that adding or modifying queries only requires changes to
+the respective function, with no need to manually update the CLI. Agda Tree's
+help messages can be seen in \cref{code:definition help} and \cref{code:module
+help}.
 
 For example the function:
 
@@ -442,17 +385,10 @@ options:
   -indirect   Get indirectly connected nodes
 \end{lstlisting}
 
-Once the parser is created, the user input is validated then the query
-executes. To execute the query the appropriate graph is loaded, assuming the
-graph to already exists. Since the name of the query is the name of the
-function and Python allows for a function to be called with its name as a
-string then it is used run the function. The parameters of the function are the
-same as the input from the user, so this is passed in directly. The output of
-the function is then printed to standard output.
-
-It is important for the output to be printed to the console, then the
-output can be piped into other terminal applications and be used in conjunction
-with other commands.
+Once user input is validated, the CLI loads the appropriate graph (definition
+or module) and executes the query. Using the query name the respective function
+is called. The query output is printed to the console, enabling integration
+with other terminal commands via piping.
 
 % \begin{itemize}
 % \item Explain why using python
@@ -466,42 +402,36 @@ with other commands.
 
 \subsection{Installation} \label{sub:Agda Tree Installation}
 
-For the tool to be distributed and installed by the users, it is packaged. The
-project is packaged using the \texttt{pyproject.toml} file which describes
-the metadata of the project. The Hatchling backend was chosen to create the
-distribution that builds the tool for other computers. The
-project file also contains the project dependencies along with the Python
-version, this file is used to build the project and locally install it.
+To distribute and install the tool, it is packaged using a \texttt{pyproject.toml} file,
+which defines the project’s metadata, dependencies, and supported Python
+version. The Hatchling backend is used to build the distribution, enabling
+installation on other systems. 
 
-PIP is Python's package manager, it can install packages from an online
-repository or locally so with the project file installing this tool is as
-simple as running \texttt{pip install .} . However, for end-user applications
-it is better to install using PIPX which isolates the environment of the tool
-from the remaining system, to avoid clashing package version. PIPX can be
-installed by the user with their respective package manager.
-
+For installation, Python's package manager, PIP, can be used to install the
+tool locally. Simply run \texttt{pip install .} in the project directory.
+However, it is recommended to use PIPX. PIPX isolates the tool’s environment
+from the rest of the system, preventing dependency conflicts. Users can install
+PIPX through their respective package managers.
 
 \subsection{Installing Agda S-Expression Extractor}
 
-\todo[inline]{Should I explain s-expression extractor installation}
 
-The Agda S-expression extractor is an extension of the Agda backend by Andrej
-Bauer \cite{andrej}. This extension isn't pre-built for a user to download, it
-must be built. To make the Agda Tree easier to install, it includes a script to
-install it.
+The Agda S-expression extractor, an extension of the Agda backend developed by
+Andrej Bauer \cite{andrej}, is not pre-built for download and must be manually
+built. Agda Tree includes a script that automates this installation.
 
-This script clones the repository into a temporary directory and checks out the
-branch to the latest version of Agda (2.7.0.1). Using Stack, a tool to build
-Haskell projects and manager their dependencies, to build it. Stack can be
-installed through most package manager, although Agda is written in Haskell, so
-Agda Developers likely already have this tool installed. The repository
-contains a YAML file with instructions for Stack to build the binaries. The
-binary is then copied to the \texttt{~/.local/bin/} folder, which the user
-already has in their environment path. 
+The script clones the repository into a temporary directory, checks out the
+branch compatible with the latest Agda version (2.7.0.1), and uses Stack to
+build the extractor. Stack, a Haskell build tool and dependency manager, is
+commonly used by Agda developers and can be installed via most package
+managers. The repository includes a YAML configuration file with instructions
+for building the binaries. Once built, the binary is copied to the
+\texttt{~/.local/bin/} directory, which is typically included in the user's
+path.
 
-One the binary is in the path, it can be accessed through the command
-\texttt{agdasexp}, Agda Tree will recognize this command and use it to build
-the definition graph.
+After installation, the extractor can be accessed using the agdasexp command.
+The Agda Tree tool automatically detects this command and uses it to generate
+definition dependency graphs.
 
 % \begin{itemize}
 % \item Explain how dependencies are handle 
@@ -513,120 +443,107 @@ the definition graph.
 
 Agda Comp automatically creates the module dependency graph as described in
 \cref{sub: Building Module Tree}, using Agda's built-in command. The graph is
-passed into a strategy, the strategy will return the order in which to compile
+passed into a strategy, that will return the order in which to compile
 the modules. Given this order, a 'make generator' sub-system creates the index
 files and the make file which compile the modules in parallel following the
 order.
 
 \subsection{Strategies}
 
-Each strategy will take the module dependency graph as a NetworkX graph where
-each node is a module and each edge is an arrow starting the at the module and
-pointing towards its dependency. To compile a module, its dependencies must be
-compiled first. Also, two modules can't be compiled at the same time as this
-would be inefficient and could cause issues with two files being written at the
-same time. A valid strategy should compile all the modules in a project and do
-it safely so without compiling a module and its dependency at the same time. 
+Each strategy processes the module dependency graph, represented as a directed
+graph using NetworkX. In this graph, nodes are modules, and edges points to
+its dependencies. To compile a module, all its dependencies must be compiled
+first. Additionally, two modules cannot be compiled simultaneously if they
+share dependencies, as this could lead to conflicts. A valid strategy compiles
+all modules safely.
 
-The strategies output a 3D array describing the order in which to compile the
-modules and which modules can be compiled in parallel. An index file is a
-collection of modules that are compiled together, not in parallel. If two
-indices have disjoint dependencies then those two indices can be compiled in
-parallel. The array returned by the strategies is a list of the order in which
-indices are compiled together. For example, \texttt{[[[module 1 , module 2] ,
-[module 3, module 4]], [[module 5]] , [[module 6, module 7]]}. What this array
-shows is that \texttt{module 1} and \texttt{module 2} should be compiled
-together in an index, the same for \texttt{module 3}, \texttt{module 4} and
-\texttt{module 6}, \texttt{module 7}. 
+The strategies produce a 3D array that defines the order of compilation and
+identifies which modules can be compiled in parallel. An index file groups
+modules that are compiled together. If two indices have disjoint
+dependencies, they can be compiled in parallel. The array specifies the
+compilation order by grouping indices into sequential phases. For example:
 
-Then they themselves are within a list meaning that these to indices should be
-compiled in parallel. So another way to write the array is the following:
-\texttt{[[index\_0\_0 , index\_0\_1], [index\_1\_0] , [index\_2\_0]]}. Where
-\texttt{index\_0\_0}, \texttt{index\_0\_1} are compiled in parallel, the
-\texttt{index\_1\_0} is compiled by itself then \texttt{index\_2\_0} is
-compiled by itself in that order. When Agda compiles a module, it has to load
-in interface files that are the compiled version of the modules it depends on.
-By adding as many modules into one index, means that the interface files only
-have to be loaded in once limiting overhead. With this array, the make
-generator subsystem will create the index files and make file that will compile
-the indices in order.
+\begin{lstlisting}
+[
+  [[module1, module2], [module3, module4]],  # Phase 0
+  [[module5]],                               # Phase 1
+  [[module6, module7]]                       # Phase 2
+]
+\end{lstlisting}
+
+In this example, \texttt{module1} and \texttt{module2} are compiled together in one index file,
+while \texttt{module3} and \texttt{module4} are grouped into another index file. Both index files
+are compiled in parallel during Phase 0. In Phase 1, \texttt{module5} is compiled on its
+own, followed by \texttt{module6} and \texttt{module7} in Phase 2.
+
+When Agda compiles a module, it loads the interface files of its dependencies.
+By grouping multiple modules into a single index file, shared interface files
+are loaded once for the entire group rather than repeatedly for each module.
+
+Finally, the make generator subsystem uses this array to create both index
+files and a Makefile. The Makefile ensures that indices are compiled in the
+correct order while taking advantage of parallelism wherever possible.
 
 \subsubsection{Level Strategy} \label{sub:imp lvl strategy}
 
-As explained in the design \cref{sub:design level strategy}, the level
-strategy works by sorting the modules into levels. Where the level of a module
-is its maximum distance from a leaf, guaranteeing that if previous levels are
-compiled then the modules in the current levels can be compiled in parallel.
+The level strategy, as explained in \cref{sub:design level strategy}, orders
+modules into levels based on their maximum distance from a leaf node.
+Dependencies in previous the levels are compiled before modules in the next
+levels. This guarantees safe parallel compilation within each level. The
+algorithm works recursively as shown in \cref{code:lvl sort}. Once sorted,
+modules at the same level are grouped into index files, where each index file
+can be compiled concurrently. This array is then used to generate a Makefile
+that runs the compilation sequence, as explained in
+\cref{sub:build_make_index}.
 
-The sorting algorithm, groups modules into levels where the level is the
-maximum distance of a module to a leaf, the output is stored in a dictionary.
-The level of a module is the same as the maximum level of its children plus
-one, so the algorithm recursively calls the function with it's the module's
-children. The dictionary stores previously analysed modules to avoid repeated
-work. This algorithm is shown in \cref{code:lvl sort}
+When Agda type-checks a module, it reloads the dependency's interface files
+which could be large. To avoid reloading these files, the strategy groups
+modules within the same level into index files. Then interface files will load
+once per index rather than per module, reducing overhead. Two methods are
+employed to split modules into index files:
 
-The compilation order array is created from this sorting, where each level is a
-list of modules that can be compiled in parallel. Then the make file is
-generated from this compilation order as explained in \cref{sub:build_make_index}.
+Method A: modules are split evenly across index files, where the split is
+guided by the available CPU cores. Creating more index files  that cores could
+cause two compilations to share a core, reducing effectiveness.
 
-A practical detail to note is that compiling modules individually causes a
-large amount of overhead, as for Agda to type check a module it has to load
-interface files of the module's dependencies which can be large. This loading
-process will occur every time a module is type-checked, to avoid this overhead
-the modules in the same level are grouped into index files. This way the
-loading of interface files only happens once per index file.
+Method B: caps the number of modules per index file, creating more files when
+the threshold is exceeded. While this may produce more index files than cores,
+it could mean that while one compilation is waiting for their interface files
+another is running their compilation. 
 
-There are two ways to split the modules in to index files, method A is to split
-the modules evenly across \(n\) index files were \(n\) would be analogous to
-the cores of a system. A performance increase could only happen if the computer
-is doing the compilation work in parallel on separate cores, so creating more
-index files than cores would cause more than 1 index file being compiled in the
-same core.
-
-Method B is to cap the amount of modules in an index file, if the cap is
-exceeded another index file is created. While this will create more index files
-than cores that can compile in parallel, due to the overhead of loading
-interface files, being able to type check one index file while waiting for the
-data of another could still result in a performance increase. These two methods
-will be tested on the evaluation \cref{sub:eval comp strat} as level A
-and level B.
+These approaches (labelled Level A and Level B in \cref{sub:eval comp strat})
+were tested to evaluate their impact on compilation time across multiple
+projects and computers.
 
 \subsubsection{Level Disjoint Strategy} \label{sub:imp disj strategy}
 
-As explained in \cref{sub:design disjoint strategy}, the level disjoint
-strategy finds the largest disjoint modules, modules with a large amount of
-dependencies which are all distinct. If the algorithm finds the disjoint
-modules, it compiles them and doesn't consider them further. Otherwise, it
-compiles the leafs removing common dependencies. Eventually the algorithm will
-terminate as there aren't any modules left.
+The level disjoint strategy, as described in \cref{sub:design disjoint strategy}, addresses the limitations of the level sort strategy by focusing on
+large modules with many distinct dependencies. These modules, referred to as
+disjoint modules, are compiled first. If no disjoint modules are found, the
+strategy compiles leaf nodes, eliminating shared dependencies. This iterative
+approach means that the algorithm terminates when all modules have been
+compiled.
 
-The challenge is in finding the disjoint modules efficiently, large projects
-can have hundreds of modules, so a brute force approach isn't feasible. Thus, a
-greedy approach was taken. For two modules to be disjoint from each other, that
-means that the leafs they indirectly/directly depend on must also be different.
-The greedy algorithm sorts the modules in ascending first by the amount leafs a
-module depends on, then breaks ties by putting the module with the largest
-amount of  dependencies first.
 
-Using that sorting the greedy algorithm stores the modules into buckets. Each
-bucket has modules that depend on a set of leafs. The first item of the sorted
-list creates a new bucket which is added to it. Then the algorithm loops through
-the remaining modules in the sorted list, if the module depends on distinct leafs
-from previous buckets a new bucket is created, and it is added to it. If a
-module depends on the same leafs as one of previous buckets, then it is added to it.
-But if a module shares only some but not all the leafs it depends on with
-another bucket, it is ignored.
+Identifying disjoint modules is challenging, especially for large projects with
+hundreds of modules. A brute-force approach is computationally not possible. So
+a greedy approach is used to approximate these modules. The algorithm sorts
+modules: first by the number leaf nodes they depend on (in ascending order),
+and then by the total number of dependencies (in descending order to break
+ties). This sorting prioritizes modules with few leafs and  many dependencies.
 
-The compilation order array is created by first adding the list of leafs to be
-compiled as their own step, then the buckets are added as a step that can
-compile each bucket in parallel. These bucket approximate the most amount
-modules that can be compiled in parallel without conflict. Eventually all
-modules would have been added as a leaf or a bucket to the compilation order
-and the algorithm terminates.
+After sorting, the algorithm groups modules into buckets based on their leafs.
+A new bucket is created for the first module in the sorted list, and subsequent
+modules are either added to existing buckets or ignored based on how their
+leafs overlap. Modules that share all leaf dependencies with a bucket are added
+to that bucket, while those sharing only some dependencies are ignored. Buckets
+represent groups of modules that can be compiled in parallel safely.
 
-Sometimes this algorithm will not be able to compile in parallel if only one
-bucket is found, in these cases the leafs and the buckets are combined into one
-compilation step.
+The compilation order array generated by this strategy begins with a step for
+compiling the leaf nodes sequentially. The buckets are then added as parallel
+compilation step. If only one bucket is found it is combined with leaf nodes
+into a single compilation step to avoid overhead. This ensures that all
+modules are eventually included in either a leaf step or a bucket step.
 
 % \begin{itemize}
 % \item mention combining linear steps into one big step
@@ -650,10 +567,12 @@ compilation step.
 
 \subsection{Building The Make File And Indices} \label{sub:build_make_index}
 
-An index file is a module that imports other modules but has no definitions
-within it, this is done to type check a collection of modules. The
-\texttt{.lagda} file extension is used for the index files, meaning latex like
-syntax is used to write the module. Example index file from TypeTopology:
+An index file is a module that imports other modules but contains no
+definitions. Its purpose is to allow the type-checking of multiple modules as a
+group. Each index file starts with flags that modify the behaviour of the type
+checker. These flags vary between projects and are extracted from an index file
+provided by the user. Below is an example of an index file from the
+TypeTopology project:
 
 \begin{lstlisting}
     
@@ -668,16 +587,19 @@ Generated Index file
 \end{code}
 \end{lstlisting}
 
-It starts with flags that changes the behaviour of the type checker, for
-example not allowing the imports of incomplete modules. These flags are going
-to be different for all projects, so the flags are scraped from index file
-passed in by the user. Then, code environment is opened, and each module is
-imported. The environment closes and nothing else needs to be added.
+Index files are named according to their compilation order. For instance,
+\texttt{index-0-0} and \texttt{index-0-1} represent files compiled first in parallel, followed by
+\texttt{index-1-x} files compiled after. 
 
-The index files are named based on the order in which they are compiled, so
-index files \texttt{index-0-0} and \texttt{index-0-1} are compiled first and in
-parallel, then \texttt{index-1-x} is compiled next and so on. This allows for
-the Make file to be generated intuitively. 
+The Makefile defines the list of commands required to compile a project. It
+consists of "targets," which specify what to build, how to build it, and their
+prerequisites. For example, to compile \texttt{index-1-2.lagda}, its
+prerequisites (\texttt{index-1-0.lagda} and \texttt{index-1-1.lagda)} must be
+compiled first. The \texttt{all:} target compiles the entire project starting
+from the highest-level index file (\texttt{index-2-0.lagda}). Agda compiles
+modules into interface files with the \texttt{.agdai} extension. If an
+interface file does not exist, it triggers its compilation
+before dependent targets.
 
 Example:
 
@@ -697,62 +619,55 @@ _build/2.7.0.1/agda/source/index-2-0.agdai: _build/2.7.0.1/agda/source/index-1-0
 	agda ./source/index-2-0.lagda
 \end{lstlisting}
 
-A makefile describes order of commands that need to be run to compile a
-project. Makefiles are made of targets, how to build them and the prerequisites
-for building them. In the example, to compile \texttt{index-1-2.lagda} then
-\texttt{index-1-0.lagda} and \texttt{index-1-1.lagda} must be compiled first.
-The \texttt{all:} target is the entry point to compile the entire project
-meaning compiling the highest level index \texttt{index-2-0.lagda}. Agda
-compiles modules into interface \texttt{.agdai} files, the Makefile will check
-if interface files exist, if it doesn't, it attempts to build it otherwise it
-will continue to the next prerequisite. If the Makefile contains two targets
-that do not depend on each other, it will automatically attempt to compile them
-in parallel. In this case \texttt{index-1-0.lagda} is compiled in parallel with
-\texttt{index-1-1.lagda}.
+If two targets do not share dependencies, they are compiled in parallel
+automatically by the Makefile. For instance, \texttt{index-1-0.lagda}
+and \texttt{index-1-1.lagda} can be compiled together.
 
-The make file is made naturally from the output of the compilation strategy,
-where the targets are the index files (named after their position in the array)
-and the prerequisites are the index files that came just before it in the
-array. Once all the indexes are in the Makefile, then the last index that needs
-to be compiled, that depends on all the previous modules is added to the
-\texttt{all:} target. Note that the first index files have no dependencies, so
-there are no prerequisites.
-
+The Makefile is generated based on the output of the chosen compilation
+strategy. Each index file corresponds to a target named after its position in
+the compilation order array, with prerequisites being the previous index
+files in the array. The final target includes all previous indices and is added
+to the \texttt{all:} target for complete project compilation. Initial index files
+without dependencies have no prerequisites.
 
 \subsection{Command Line Interface}
 
-The CLI is written in Python, it is a popular language
-that many people already have. Similarly to Agda Tree CLI \cref{sub:Agda Tree
-CLI}, argparse for the CLI. argparse parses the user input and generates
-usage/help messages. The parser accepts the path to the modules file to compile
-as a positional parameter, then other options can be passed in to change what
-strategy to use. The help message showing these options is show in
+
+The Command Line Interface (CLI) is implemented in Python, as most users are
+likely to have it installed and may already be familiar with it. Similar to the
+Agda Tree CLI (\cref{sub:Agda Tree CLI}), the argparse library is used to parse
+user input, validate commands, and generate usage and help messages. The parser
+accepts the path to the module file to compile as a positional parameter while
+allowing additional options to customize the compilation process, such as
+selecting a strategy. The help message detailing these options is displayed in
 \cref{code:agda comp help}.
 
-There are three options, clean, jobs and strategy. By default, the tool re-uses
-the previous module dependency graph and removes already compiled modules from
-the graph. The clean option generates the module dependency graph again and
-deletes the \texttt{\_build} directory which contains the compiled modules.
-Note that Agda Comp finds if a module is already compiled and unmodified is by
-checking whether its corresponding interface file exists and wasn't modified
-after its creation. If a module was changed after then it is considered
-modified and will be re-compiled. The jobs option sets how many cores are used
-in the strategy and compilation. Lastly, the strategy option lets the user pick
-which strategy to use.
+The CLI provides three main options: \texttt{clean,} \texttt{jobs,} and
+\texttt{strategy.} By default, the tool reuses the existing module dependency
+graph and excludes already compiled modules from further compilation. The clean
+option forces regeneration of the module dependency graph and deletes the
+\texttt{\_build} directory containing compiled modules. Agda Comp determines
+whether a module is already compiled by checking if its corresponding interface
+file exists and whether it has been modified since its creation. If a module
+has been altered, it is recompiled. The jobs option specifies how many CPU
+cores should be used during compilation. Finally, the strategy option allows
+users to choose which compilation strategy to apply.
 
-When the user provides the index file and sets the options they want, the index
-files and make files are generated. Using the path of the index file, the make
-files and indices are moved to the project root directory and the project
-source directory respectively. Then the command \texttt{mk compilation.mk} is
-run, where \texttt{compilation.mk} is the name of the generated make file. This
-will compile the project using the cores given by the user. Once finished the
-index files and make file are deleted and the time to compile is printed. Also,
-if the user chooses to cancel the compilation there is a listener that will
-delete the make files and index files as to not pollute the user's project.
 
-For example the following command will compile TypeTopology using 2 cores, it
-will delete previously compiled modules, recreate the module dependency graph
-and use the level B compilation strategy.
+When the user provides the index file path and options, the tool
+generates index files and a Makefile. These files are then moved to their
+respective directories: index files to the project source directory and
+Makefiles to the project root directory. The command \texttt{mk compilation.mk} is
+executed, where \texttt{compilation.mk} is the generated Makefile. This command
+compiles the project using the specified number of cores. Upon completion, both
+index files and Makefiles are deleted to maintain a clean project directory. If
+the user cancels compilation midway, a listener will remove the temporary
+files, preventing clutter in the project.
+
+
+For example, to compile TypeTopology using two cores, deleting previously
+compiled modules, regenerating the module dependency graph, and applying the
+Level B strategy, the following command can be used:
 
 \begin{lstlisting}
 agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.lagda"

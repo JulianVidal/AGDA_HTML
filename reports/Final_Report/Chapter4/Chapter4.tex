@@ -36,13 +36,13 @@ understand.
         colspec={|X[1]|X[6]|X[8]|}, hlines,
     }
 ID & Name                           & Description                                                                                                                \\ 
-1  & Definition Dependency Graph Extraction    & Parses Agda projects and constructs a definition dependency graph                                              \\ 
+1  & Definition Dependency Graph Extraction    & Extracts the definition dependency graph from an Agda Project                                              \\ 
 2  & Querying the Definition Graph  & Allows the users to query the dependency graph and retrieve information. (See \cref{tbl:Definition Graph Queries} for queries)  \\ 
 3  & Command-Line Interface         & User-friendly CLI that queries the dependency graph  \\ 
 4  & Input Validation               & Validates user input and provides clear error messages for invalid inputs                                       \\ 
 5  & Integration with Agda Projects & Agda projects are structured differently, all valid structures are supported                                      \\ 
 6  & Output Generation              & Displays the query results in a readable format that follows the style of other Unix CLI tools                 \\ 
-7  & Module Dependency Graph Extraction    & Parses Agda projects and constructs a module dependency graph                                              \\ 
+7  & Module Dependency Graph Extraction    & Extracts the module dependency graph from an Agda Project                                              \\ 
 8  & Querying the Module Graph  & Allows the users to query the dependency graph to retrieve information. (See \cref{tbl:Module Graph Queries} for queries)  \\ 
 \end{tblr}
 \end{table}
@@ -115,10 +115,11 @@ special properties. The queries are the following:
 \begin{minipage}{\linewidth}
 
 Since Agda Tree is a tool that slots into the workflow of developers, it must
-be easy to use and performant. The tool is plug-and-play, working on a variety
-of projects regardless of size. To not disrupt the developer, the queries must
-respond in less than 1 second. Agda is used mainly in Unix-based systems, so this tool must
-be compatible with macOS and popular Linux distributions.
+be easy to use and performant. The tool integrates seamlessly and works on a
+variety of projects regardless of size. To not disrupt the developer, the
+queries must respond in less than 1 second. Agda is used mainly in Unix-based
+systems, so this tool must be compatible with macOS and popular Linux
+distributions.
 
 \begin{table}[H]
     \centering
@@ -134,7 +135,7 @@ be compatible with macOS and popular Linux distributions.
         4  & Usability              & Easy to use, with intuitive commands, clear documentation, and meaningful error messages.  \\ 
         5  & Compatibility          & Works on macOS and Linux \\ 
         6  & Reliability            & Handles bad inputs gracefully \\ 
-        7  & Maintainability         & Well documented and well-structured to allow for new queries                         \\ 
+        7  & Maintainability        & Well documented and well-structured to allow for new queries                         \\ 
         8  & Testability            & Tested to ensure queries give the correct output \\
     \end{tblr}
 \end{table}

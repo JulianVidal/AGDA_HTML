@@ -2,22 +2,26 @@
 
 \chapter{Testing}
 
+
 Testing ensures that the tools behave correctly, it also allows for better
 maintainability as any changes can be automatically checked for issues. For
 Agda Tree, there are unit tests for each query. Giving some guarantee that the
 queries are working as expected and that any future changes still return the
 same results. These tests were also timed, to measure the performance of the
 queries, while some will vary in performance depending on their input it gives
-a good estimate of their expected performance.
+a good estimate of their performance.
 
-For Agda Comp, the performance of the compilation is the overall goal, so the
-testing is centred around the strategies. Checking that the strategies compile
-the projects correctly, such that no module is left not compiled and that a
-module isn't compiled at the same time as one of its dependencies. The time to
-create the compilation order with the strategy is also measured, but it is
-insignificant compared to the time to compile a project.
+
+For Agda Comp, testing focused on validating the correctness and safety of its
+compilation strategies. The tests ensured that all modules in a project were
+compiled, no modules were skipped, and no module was compiled simultaneously
+with one of its dependencies. Additionally, the time required to generate the
+compilation order was measured but negligible compared to the overall project
+compilation time.
+
 
 \section{Agda Tree Unit Tests}
+
 
 Each query and the options that the queries can take are unit tested. These
 test use the TypeTopology definition and module dependency graph. While testing

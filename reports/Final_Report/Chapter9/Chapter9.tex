@@ -177,21 +177,19 @@ disjoint strategy is tested which has no parameters.
   \end{tblr}
 \end{table}
 
-The tables show compilation time is affected on the project structure. The
-specs of the machines used can be seen in \cref{tbl:WSL specs},
+
+
+The specs of the machines used can be seen in \cref{tbl:WSL specs},
 \cref{tbl:martin specs} and \cref{tbl:mba specs}. TypeTopology benefitted the
 most from the compilations strategies achieving up to 40\% faster compilation
 in WSL. Although the results from the other Agda projects aren't promising,
 they show improvement ranging from 21 \% better to 329 \% worse. The
-compilation times appear to depend heavily on the user's system, as seen by WSL
-achieving a speed-up in level A 5 cores for all projects.
+compilation times appear to depend heavily on the user's system.
 
 The difference in compilation time between projects, is likely due to the
 limitation discussed in the \cref{sub:eval comp limitations}. Since unimath has
 many small modules, there is a large amount of interface files that are
-constantly being loaded and unloaded while normal compilation can load all the
-interface files and keep them. This is a hypothesis that could be explored
-further.
+reloaded. This is a hypothesis that could be explored further.
 
 \section{Conclusion}
 

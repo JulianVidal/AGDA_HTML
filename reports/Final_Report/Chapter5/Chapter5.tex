@@ -36,12 +36,11 @@ generated automatically or by the project maintainers.
 \pagebreak
 
 \cref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the classes and
-methods to operate the command line. The program starts with the command line's
-entry point, that will parse the input by the user and delegate the query to
-the respective dependency graph. Each dependency graph allows for a different
-set of queries. These queries can be found in \cref{tbl:Definition Graph
-Queries} for the definition graph and in \cref{tbl:Module Graph Queries} for
-the module graph.
+methods to operate the command line. The CLI parses the input by the user and
+delegates the query to the respective dependency graph. Each dependency graph
+allows for a different set of queries. These queries can be found in
+\cref{tbl:Definition Graph Queries} for the definition graph and in
+\cref{tbl:Module Graph Queries} for the module graph.
 
 The definition graph creation depends on the s-expression extractor and parser.
 They read the Agda projects and convert the data found into the dependency

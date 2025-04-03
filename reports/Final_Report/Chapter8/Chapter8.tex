@@ -2,32 +2,30 @@
 
 \chapter{Project Management}
 
-The timeline of the project can be seen in the below Gantt chart
-\cref{fig:Gantt}. The focus on the first 2 months was to write Agda Tree and
-Agda Comp. For Agda Tree, the first milestone was to parse an Agda project and to
-extract the definition dependency graph. The next milestone is to implement the
-queries on the dependency graph. Once the queries were implemented,
-the last milestone was the CLI that gives the user a
-way to run those queries with their own parameters. Lastly, the queries were
-unit tested for correctness and for performance. This was done by the
-date of the demonstration, which is a major milestone as it marked the first
-stable version of the CLI tools.
+The project timeline is shown in the Gantt chart (\cref{fig:Gantt}). During the
+first two months, the focus was on developing Agda Tree and Agda Comp. For Agda
+Tree, the initial milestone was parsing an Agda project to extract the
+definition dependency graph. The next step involved implementing queries for
+this graph. Once the queries were functional, the final milestone was creating
+the CLI that allowed users to execute these queries. The queries were then
+unit tested for correctness and performance and a stable version of
+the CLI tools was finished by the demonstration date.
 
-While developing Agda Tree, Agda Comp was also being developed. The first task
-of Agda Comp was to explore different compilation strategies and different
-methods to compile an Agda project. Once the strategies were selected, they
-were tested for correctness, safety and compilation time which was a major
-milestone. With the strategies implemented, the CLI was created that
-runs the strategy and compilation strategy. This was done by the date
-of the demonstration.
+At the same, Agda Comp was being developed. The first task was exploring
+various compilation strategies and methods to compile an Agda project. After
+selecting the strategies, they were tested for correctness, safety, and
+compilation time, marking a major milestone. Following this, a CLI was
+implemented to execute these strategies, and this was also completed by
+the demonstration date.
 
-An agile software development methodology was used, as seen by the time-line
-there are multiple tasks running at the same time until they are all completed
-by the demonstration. There were weekly meetings with my supervisor were a
-working state of the project was shown along with a summary of all the
-accomplishments since the previous week, and my supervisor gives suggestions on
-improvements and additions for next week. This iterative approach allowed for
-a skeleton of the tools to be quickly created for my supervisor to test.
+An agile software development methodology was used throughout the project.
+As shown in the timeline, multiple tasks ran concurrently until they were
+completed for the demonstration. Weekly meetings with my supervisor facilitated
+iterative progress, where I presented a working state of the project along with
+a summary of achievements since the previous meeting. My supervisor provided
+feedback and suggestions for improvements or additions for the following week.
+This iterative approach enabled rapid prototyping of tools that my supervisor
+could test early in development.
 
 \begin{figure}[H]
     \centering

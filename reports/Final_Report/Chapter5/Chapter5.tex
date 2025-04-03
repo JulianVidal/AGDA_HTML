@@ -17,7 +17,7 @@ order.
 
 \section{Agda Tree}
 
-Agda Tree is a command line interface that lets the user interact with the
+Agda Tree is a CLI that lets the user interact with the
 module and definition graphs. The first command designed is how the both
 dependency graphs are created. \cref{fig:Agda Create Tree Diagram} illustrates
 how the user will interact with the CLI to create the graphs. The user provides
@@ -172,7 +172,7 @@ longer a dependency of future modules. This process is visualized below on
 This strategy ensures that at each step the amount of modules to compile is
 reduced. The strategy only compiles two modules in parallel if their
 dependencies are disjoint, if such modules aren't found then the leafs are
-compiled which don't have any dependencies. Therefore, this strategy is both
+compiled which do not have any dependencies. Therefore, this strategy is both
 safe and correct, as it doesn't compile conflicting modules and compiles all
 modules in a project.
 
@@ -182,7 +182,7 @@ it can compile modules with multiple dependencies such that Agda doesn't have
 to loading interface files as often as explained in the implementation
 \cref{sub:imp disj strategy}. The disadvantage is that finding these disjoint
 modules is difficult, projects  have hundreds of modules and finding multiple
-modules that don't share dependency can't be done through brute force. Each
+modules that do not share dependency can't be done through brute force. Each
 Agda project also has different structures with Agda-unimath
 \cite{agda-unimath} having smaller independent modules while TypeTopology
 \cite{type-topology} has bigger dependent modules that make finding distinct

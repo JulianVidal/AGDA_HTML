@@ -12,7 +12,7 @@ Agda Tree extracts the definitions and relationships from an Agda project, and
 uses Agda to generate the module dependency graph then imports them into
 NetworkX. The queries outlined in \cref{tbl:Definition Graph Queries} for the
 definition graph and in \cref{tbl:Module Graph Queries} for the module graph,
-are implemented. These methods are exposed through a command line interface
+are implemented. These methods are exposed through a CLI
 that the user uses to execute those queries on their Agda projects. The python
 library argparse validates the user input. Lastly, CLI the outputs the modules to
 console, which can be piped to other utilities. The CLI will work
@@ -33,7 +33,7 @@ store information as graphs and make queries. However, Clojure requires Java,
 isn't popular, and it is more difficult to learn. This makes Python the better
 choice.
 
-Agda Tree the extracts s-expressions from an Agda project but depending on the
+Agda Tree extracts s-expressions from an Agda project but depending on the
 size of the project and the user's computer it can take more than 10 minutes as
 seen on \cref{sub:agda tree performance}. Most queries are completed in under 2
 seconds regardless of project size, but queries that require finding a path in
@@ -78,7 +78,7 @@ functional requirements, except it speeds up compilation for some Agda projects
 which is explored in \cref{sub:eval comp strat}. The functional
 requirements were described in \cref{tbl:Agda Comp Functional Requirements}.
 
-Agda Comp works in any project, it has a simple command line interface for
+Agda Comp works in any project, it has a simple CLI for
 choosing the compilation strategy. It was tested within WSL and macOS
 environment, for compatibility. The codebase is well-documented, and the
 strategies were tested for correctness and safety. Therefore, Agda Comp
@@ -89,7 +89,7 @@ Comp Non-Functional Requirements}.
 
 This approach encounters two limitations, the first is that to create the
 module dependency graph it has to compile the project. Which means that for
-Agda Comp to save time the user only makes changes that don't alter the module
+Agda Comp to save time the user only makes changes that do not alter the module
 dependency graph, such that a previous dependency graph can be re-used.
 
 The second limitation is the overhead caused by the loading of the interface
@@ -108,13 +108,14 @@ overhead.
 
 \subsection{Compilation Strategies} \label{sub:eval comp strat}
 
-The \cref{tbl:WSL comp results} and \cref{tbl:martin comp results}
-show the compilation times of each strategy. The compilation testing consisted
-of 7 strategies across 3 libraries. The three libraries picked are TypeTopology
+The \cref{tbl:WSL comp results} and \cref{tbl:martin comp results} show the
+compilation times of each strategy. The compilation testing consisted of 7
+strategies across 3 libraries. The three libraries picked are TypeTopology
 \cite{type-topology}, unimath \cite{agda-unimath} and Agda's stdlib
 \cite{stdlib}. These libraries vary in size and methodology, for example
 unimath structure is of many small independent modules while TypeTopology has
-less but longer modules.
+less but longer modules. These libraries were chosen because they vary in size
+and strategy that explore the limitations of Agda Comp.
 
 The 7 strategies tested are normal, which is the standard compilation that
 gives a baseline for the other strategies. The unsafe test, which attempts to
@@ -133,13 +134,13 @@ disjoint strategy is tested which has no parameters.
 
 \begin{table}[H]
   \centering
-  \caption{Results from WSL Testing Compilation Strategies}
+  \caption{Results from WSL Testing Compilation Strategies.}
   \label{tbl:WSL comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
       cells   = {font = \fontsize{8pt}{10pt}\selectfont},
     }
-    {seconds\\(\%)} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
+    {Time (s) \\ \% of normal} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {575\\(100\%)} & {280\\(49\%)} & {354\\(62\%)}        & {355\\(62\%)}        & {482\\(84\%)}      & {394\\(69\%)}      & {528\\(92\%)}  \\
     stdlib       & {289\\(100\%)} & {147\\(51\%)} & {265\\(92\%)}        & {243\\(84\%)}        & {309\\(107\%)}     & {261\\(90\%)}      & {289\\(100\%)} \\
     Unimath      & {459\\(100\%)} & {219\\(48\%)} & {862\\(188\%)}       & {362\\(79\%)}        & {717\\(156\%)}     & {644\\(140\%)}     & {462\\(101\%)} \\
@@ -148,13 +149,13 @@ disjoint strategy is tested which has no parameters.
 
 \begin{table}[H]
   \centering
-  \caption{Results from Martin Escardo Testing Compilation Strategies Mac Mini}
+  \caption{Results from Martin Escardo Testing Compilation Strategies Mac Mini.}
   \label{tbl:martin comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
       cells   = {font = \fontsize{8pt}{10pt}\selectfont},
     }
-    {seconds\\(\%)} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
+    {Time (s) \\ \% of normal} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {345\\(100\%)} & {172\\(50\%)} & {287\\(83\%)}        & {265\\(77\%)}        & {344\\(100\%)}     & {295\\(86\%)}      & {369\\(107\%)} \\
     stdlib       & {189\\(100\%)} & {123\\(65\%)} & {241\\(128\%)}       & {197\\(104\%)}       & {231\\(122\%)}     & {203\\(107\%)}     & {203\\(107\%)} \\
     Unimath      & {302\\(100\%)} & {168\\(56\%)} & {863\\(286\%)}       & {575\\(190\%)}       & {633\\(210\%)}     & {568\\(188\%)}     & {304\\(101\%)} \\
@@ -163,13 +164,13 @@ disjoint strategy is tested which has no parameters.
 
 \begin{table}[H]
   \centering
-  \caption{Results from MacBook Air M4 Compilation Strategies }
+  \caption{Results from MacBook Air M4 Compilation Strategies.}
   \label{tbl:mba comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
       cells   = {font = \fontsize{8pt}{10pt}\selectfont},
     }
-    seconds (\%)                  & Normal      & Unsafe     & { Level A\\2 cores} & {Level A \\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
+    {Time (s) \\ \% of normal}                  & Normal      & Unsafe     & { Level A\\2 cores} & {Level A \\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {371\\(100\%)} & {234\\(63\%)} & {331\\(89\%)}        & {298\\(80\%)}        & {366\\(99\%)}      & {334\\(90\%)}      & {340\\(92\%)}    \\
     stdlib       & {191\\(100\%)} & {134\\(70\%)} & {316\\(165\%)}       & {267\\(140\%)}       & {277\\(145\%)}     & {273\\(143\%)}     & {223\\(117\%)}   \\
     Unimath      & {335\\(100\%)} & {295\\(88\%)} & {1437\\(429\%)}      & {802\\(239\%)}       & {674\\(201\%)}     & {687\\(205\%)}     & {314\\(94\%)}    \\
@@ -181,10 +182,10 @@ specs of the machines used can be seen in \cref{tbl:WSL specs},
 \cref{tbl:martin specs} and \cref{tbl:mba specs}. TypeTopology benefitted the
 most from the compilations strategies achieving about a 40\% faster compilation
 in WSL, 23\% faster in the Mac Mini and 20\% faster in the MacBook Air.
-Although the results from the remaining Agda projects aren't as promising, with
-the macOS results showing little to no improvement in any safe strategy. The
-results also show that the compilation time also depends on the user's system,
-with WSL achieving a speed-up in level A 5 cores for all projects.
+Although the results from the remaining Agda projects aren't as promising, they
+show improvement ranging from 21 \% better to 329 \% worse. The results also
+show that the compilation time also depends on the user's system, with WSL
+achieving a speed-up in level A 5 cores for all projects.
 
 The cause in the difference in compilation improvement per project, is likely
 due to the limitation discussed in the \cref{sub:eval comp limitations}. Since

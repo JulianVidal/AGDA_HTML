@@ -131,7 +131,7 @@ adding all the key value pairs into a bigger dictionary.
 
 The dictionary built in \cref{sub:s-expression parser implementation} forms the
 definition dependency graph, with keys as nodes and values as edges. It is
-imported into the NetowrkX Python library. This library efficiently creates and
+imported into the NetworkX library. This library efficiently creates and
 queries graphs, it implements useful features and is performant. NetworkX is a
 widely used tool, so a user can become familiar with its use and
 implement their own queries. 
@@ -379,7 +379,7 @@ agda_tree definition save_tree "/tmp/definition.dot"
 The path between query finds the longest path between to definitions. NetworkX
 provides the method: \texttt{nx.all\_simple\_paths(graph, src, dst)}, were given
 two nodes it will return all the simple paths between them. Simple paths are
-paths that don't repeat nodes. After finding all the paths, it measures their
+paths that do not repeat nodes. After finding all the paths, it measures their
 lengths and returns the maximum length.
 
 \begin{lstlisting}
@@ -420,15 +420,15 @@ agda_tree module topo_sort
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
-The command line interface(CLI) uses Python, as it is a popular language that
+The CLI uses Python, as it is a popular language that
 most users already have installed and may have some experience with. Making it
 easier for users to add new queries and make the changes. 
 
-Python includes a library called argparse to create command line interfaces.
-The CLI parameters are stored in \texttt{sys.argv}, argparse parses it based on the
-defined parsers and creates help with usage messages. There is the main parser
-which contains two sub parsers, one being for the definition queries and the
-other being for the module queries. The main parser decides whether the
+Python includes a library called argparse to create CLIs. The
+user inputs are stored in \texttt{sys.argv}, argparse parses it based
+on the defined parsers and creates help with usage messages. There is the main
+parser which contains two sub parsers, one being for the definition queries and
+the other being for the module queries. The main parser decides whether the
 definition graph or module graph is used. Then it is delegated to the
 respective sub parsers.
 
@@ -743,7 +743,7 @@ meaning compiling the highest level index \texttt{index-2-0.lagda}. Agda
 compiles modules into interface \texttt{.agdai} files, the Makefile will check
 if interface files exist, if it doesn't, it attempts to build it otherwise it
 will continue to the next prerequisite. If the Makefile contains two targets
-that don't depend on each other, it will automatically attempt to compile them
+that do not depend on each other, it will automatically attempt to compile them
 in parallel. In this case \texttt{index-1-0.lagda} is compiled in parallel with
 \texttt{index-1-1.lagda}.
 
@@ -758,7 +758,7 @@ there are no prerequisites.
 
 \subsection{Command Line Interface}
 
-The command line interface (CLI) is written in Python, it is a popular language
+The CLI is written in Python, it is a popular language
 that many people already have. Similarly to Agda Tree CLI \cref{sub:Agda Tree
 CLI}, argparse for the CLI. argparse parses the user input and generates
 usage/help messages. The parser accepts the path to the modules file to compile

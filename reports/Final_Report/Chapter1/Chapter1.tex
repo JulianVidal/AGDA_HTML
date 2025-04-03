@@ -16,20 +16,20 @@ know the underlying definitions for future proofs. This creates the need for
 tools to improve this experience, such as using dependency graphs of code to
 find parts to refactor \cite{dep_grah_refactoring}.
 
-Agda is a functional programming language that used as a proof assistant,
-following the propositions as types logic system \cite{agda_docs}. Since proofs
+Agda is a functional programming language, that works as a proof assistant that
+follows the propositions-as-types logic system \cite{agda_docs}. Since proofs
 in Agda are made from scratch, defining the most fundamental types and
 operations means that projects will quickly balloon. While most of the time, it
-is possible to use high-level definitions when making a proof, knowing how
-the types are fundamentally defined is beneficial. 
+is possible to use high-level definitions when making a proof, knowing how the
+types are fundamentally defined is beneficial. 
 
 \section{Motivation}
 
-Due to the size of these projects and the complexity of the types it becomes
-difficult to fully grasp what the relationships between the definitions. This
-creates the need for a tool that can analyse Agda projects and give the user an
-easy-to-use interface to query these relationships and better understand the
-proofs. It would also benefit during refactoring which deals with code decay
+Due to the size and complexity of these projects it becomes difficult to fully
+grasp what the relationships between the definitions. This creates the need for
+a tool that can analyse Agda projects and give the user an easy-to-use
+interface to query these relationships and better understand the proofs. It
+would also benefit during refactoring which deals with code decay
 \cite{fowler2018refactoring}.
 
 This tool would make it easier to refactor modules and change the structure of the
@@ -41,7 +41,7 @@ idea on where to put their focus.
 In addition, large Agda projects have to deal with long compilation times. Agda
 is a proof assistant, during "compilation", it type-checks the entire project
 which can take 5 minutes or more depending on the computer and project.
-Normally not an issue on high-level files, as Agda will keep tracked of the
+Normally not an issue on high-level files, as Agda keeps track of the
 modified modules and only compile the modules changed and its dependents.
 
 However, low-level files with many dependents, will cause a significant portion
@@ -49,35 +49,35 @@ of the project to re-compile. This effect is particularly pronounced during
 refactoring where significant changes will be made to the structure of the
 project, causing Agda to re-check the whole project wasting time. 
 
-Agda type checks projects by going through the dependencies of each module
-sequentially. Meaning it could benefit from parallelization, as long as,
-modules are compiled safely without overlap there is potential for a speed-up.
-Therefore, A tool uses the relationship between the modules and finds modules
-that are safe to compile in parallel could lead to significant time savings.
+Agda's type-checking process checks module dependencies in sequential order.
+This presents the opportunity for parallel execution, given that modules can be
+compiled concurrently without dependency conflicts. There is potential for a
+speed-up. Therefore, a tool that finds modules which are safe to compile in
+parallel could lead to time savings.
 
 \section{Problem Statement}
 
 Agda doesn't provide a built-in tool to extract the definitions from a project,
 but there is an s-expression extractor by Andrej Bauer \cite{andrej} that
 allows for a better view of Agda's internal representation. Although,
-S-expressions aren't a well-suited data structure for querying these
-definitions. They are structured for syntax and contain other information that
-can be discarded. A better data structure would be a graph, that contains the
-definitions as nodes are their relationships as edges. A tool that could
-explore this dependency graph of definitions, would let the user get a better
-graphs of large code bases faster.
+S-expressions are not an ideal data structure for querying these definitions,
+as they are structured for syntax and contains extra unnecessary information.
+A better data structure would be a graph, that contains the definitions as
+nodes are their relationships as edges. A tool that could explore this
+dependency graph of definitions, would let the user get a better graph of large
+code bases faster.
 
 Also, Agda does have a command to create a dependency graph of the modules. For
 compilation time improvement, only modules are of interest as such an effective
 representation is already available. The challenge is what is the most
 effective way to traverse a dependency graph, concurrently, while maintaining
-safety (i.e. don't compile modules and their dependencies at the same time).
+safety (i.e. do not compile modules and their dependencies at the same time).
 Different strategies have to be tested against well-known libraries to gauge
 its effectiveness. \todo{Explain further what the challenges are}
 
 \section{Objectives}
 
-The objective of this project is to create a (Command Line Interface) CLI that
+The objective of this project is to create a Command-Line Interface (CLI) that
 generate the dependency graph from any Agda project using the s-expression
 representation \cite{andrej}. Then the user access to queries that will let the
 user explore the graph and gain insight into the Agda project. There aren't

@@ -34,22 +34,21 @@ system and project there could be no improvement.
 Currently, it is cumbersome to search for definitions as the names aren't
 intuitive and become quite long. A better approach to interact with the
 dependency graph could be a GUI where the user can save shorthands for relevant
-definition names.. The definition dependency graph also contains a large amount
+definition names. The definition dependency graph also contains a large amount
 of definitions that the user isn't interested in, finding an approach to
 reliably remove these definitions would improve user experience.
 
 While Agda Comp shows the potential of parallelizing type checking and the
 possible time savings that could be made. In its current state it can't be used
-as a drop-in replacement and could be made more efficient. To address its
-limitations, the Agda type checker itself would need to be parallelized from
-within. This would avoid the overhead of loading interface files for every
-index file compiled, all the interface files could be loaded at once while the
-type checker works in parallel. Also, to create the dependency graph the
-project is compiled which limits the usage of the tool, an option to create the
-dependency graph without type checking would help. Ideally this would be
-implemented as a part of Agda, but the source code includes import statements
-for every module so generating a module dependency graph from these
-import statements could be explored.
+as a drop-in replacement. To address its limitations, the Agda type checker
+itself would need to be parallelized from within. This would avoid the overhead
+of loading interface files for every index file compiled, all the interface
+files could be loaded at once while the type checker works in parallel. Also,
+to create the dependency graph the project is compiled which limits the usage
+of the tool, an option to create the dependency graph without type checking
+would help. Ideally this would be implemented as a part of Agda, but the source
+code includes import statements for every module so generating a module
+dependency graph from these import statements could be explored.
 
 % Generally speaking, section can take different forms - as a minimum you would
 % normally provide a brief summary of your project work and a discussion of

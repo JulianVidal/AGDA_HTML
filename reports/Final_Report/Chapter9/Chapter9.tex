@@ -102,7 +102,7 @@ wasting resources. Meanwhile, if everything was compiled in one process like
 normal it would only load the interface files once. This suggests that while
 parallelization could improve compilation time, it can't be done at the user
 level calling the Agda Type Checker multiple times. The Agda Type Checker must
-be parallelized from within, this would mean all the necessary interface files
+be parallelised from within, this would mean all the necessary interface files
 can be loaded once and the type checker can check modules in parallel with less
 overhead.
 
@@ -180,19 +180,18 @@ disjoint strategy is tested which has no parameters.
 The tables show compilation time is affected on the project structure. The
 specs of the machines used can be seen in \cref{tbl:WSL specs},
 \cref{tbl:martin specs} and \cref{tbl:mba specs}. TypeTopology benefitted the
-most from the compilations strategies achieving about a 40\% faster compilation
-in WSL, 23\% faster in the Mac Mini and 20\% faster in the MacBook Air.
-Although the results from the remaining Agda projects aren't as promising, they
-show improvement ranging from 21 \% better to 329 \% worse. The results also
-show that the compilation time also depends on the user's system, with WSL
+most from the compilations strategies achieving up to 40\% faster compilation
+in WSL. Although the results from the other Agda projects aren't promising,
+they show improvement ranging from 21 \% better to 329 \% worse. The
+compilation times appear to depend heavily on the user's system, as seen by WSL
 achieving a speed-up in level A 5 cores for all projects.
 
-The cause in the difference in compilation improvement per project, is likely
-due to the limitation discussed in the \cref{sub:eval comp limitations}. Since
-unimath has many small modules, there is a large amount of interface files that
-are constantly being loaded and unloaded when normal compilation can load all
-the interface files at once and keep them. This is a hypothesis that could be
-explored further.
+The difference in compilation time between projects, is likely due to the
+limitation discussed in the \cref{sub:eval comp limitations}. Since unimath has
+many small modules, there is a large amount of interface files that are
+constantly being loaded and unloaded while normal compilation can load all the
+interface files and keep them. This is a hypothesis that could be explored
+further.
 
 \section{Conclusion}
 

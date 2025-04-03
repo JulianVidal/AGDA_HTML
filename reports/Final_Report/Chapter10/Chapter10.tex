@@ -2,16 +2,16 @@
 
 \chapter{Conclusion}
 
-Overall, Agda Tree is a CLI tool that extracts definition dependency graphs by
-using Andrej Bauer's s-expression extractor \cite{andrej}. Parsing the
-s-expressions and importing them into a NetworkX graph. It also imports the
-module dependency graph from Agda. The CLI exposes queries on these graphs,
-that the user utilizes to better understand the code base. The CLI is
-user-friendly and easy to install for developers. Although the queries and
-accessibility are somewhat limited, depending on the size of the Agda project.
-Queries can take a significant amount of time and the Agda backend adds extra
-information that clutters the CLI output. Agda Tree achieved the project aim to
-be a tool that helps user understand large Agda codebases.
+
+Agda Tree extracts definition dependency graphs using Andrej Bauer's
+s-expression extractor \cite{andrej} and imports them into NetworkX alongside
+Agda's module dependency graph. The CLI exposes queries on these graphs, that
+the user utilizes to better understand the code base. The CLI is user-friendly
+and easy to install for developers. Although the queries and accessibility are
+somewhat limited, depending on the size of the Agda project. Queries can take a
+significant amount of time and the Agda backend adds extra information that
+clutters the CLI output. Agda Tree achieved the project aim to be a tool that
+helps user understand large Agda codebases.
 
 Agda Comp explores two strategies to compile modules in parallel, while
 maintaining safety and correctness. The first one is level sort, which sorts
@@ -31,17 +31,16 @@ system and project there could be no improvement.
 
 \section{Future work}
 
-Currently, it is cumbersome to search for definitions as the names aren't
-intuitive and become quite long. A better approach to interact with the
-dependency graph could be a GUI where the user can save shorthands for relevant
-definition names. The definition dependency graph also contains a large amount
-of definitions that the user isn't interested in, finding an approach to
-reliably remove these definitions would improve user experience.
+Definition names are verbose and unintuitive, future improvements could include
+a GUI to interact with the dependency graph where the user can save shorthands
+for relevant definition names. The definition dependency graph also contains a
+large amount of definitions that the user isn't interested in, finding an
+approach to reliably remove these definitions would improve user experience.
 
 While Agda Comp shows the potential of parallelizing type checking and the
 possible time savings that could be made. In its current state it can't be used
 as a drop-in replacement. To address its limitations, the Agda type checker
-itself would need to be parallelized from within. This would avoid the overhead
+itself would need to be parallelised from within. This would avoid the overhead
 of loading interface files for every index file compiled, all the interface
 files could be loaded at once while the type checker works in parallel. Also,
 to create the dependency graph the project is compiled which limits the usage

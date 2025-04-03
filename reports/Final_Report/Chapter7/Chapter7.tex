@@ -38,17 +38,16 @@ The performance of the queries has been measured, although, this will be highly
 dependent of the size of the graph and the Agda project. In this case
 TypeTopology was used, it is a large project with about 50,000 definitions.
 This gives a good representation of how long queries will take with most
-projects. 
+projects.
 
 \todo[inline]{Should the milliseconds be formatted differently?} Most queries
-are completed in less 20 milliseconds. The exceptions being the cycles queries,
-the indirect uses query and path between a node or a leaf query. The cycles
-query takes about 622 ms to be completed, and the indirect uses takes about
-3804 ms to be completed. These queries recursively call and traverse the whole
-graph multiple times, so this is expected. The path between two definitions
-queries can vary depending on the definitions, due to cycles and size of the
-graph the time to complete this query can go from less than a millisecond to
-impossible.
+are completed in under 20 milliseconds, except cycles queries, the indirect
+uses query and path queries. The cycles query takes about 622 ms to be
+completed, and the indirect uses takes about 3804 ms to be completed. These
+queries recursively call and traverse the whole graph multiple times, so this
+is expected. The path between two definitions queries can vary depending on the
+definitions, due to cycles and size of the graph the time to complete this
+query can go from less than a millisecond to impossible.
 
 Lastly, the create tree query takes the longest time to be completed. As it has
 to compile the entire Agda project, then parse all the s-expression files into

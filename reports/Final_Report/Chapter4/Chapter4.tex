@@ -2,12 +2,11 @@
 
 \chapter{System Requirements} \label{ch:system requirements}
 
-\todo[inline]{Should I include personas?}
-The requirements outlined in this section, provide a target for the CLI tools
-to meet, in order to be useful to its users. This outline ensures that the CLI
-tools are easy to install by any developer, they need minimal extra knowledge
-to use the tool. The interface must be intuitive and there should be little
-friction between the development workflow and its use. Also, the tools must
+\todo[inline]{Should I include personas?} The requirements outlined in this
+section, provide a target for the CLI tools to meet, in order to be useful to
+its users. This outline ensures that the CLI tools are easy to install by any
+developer, they need minimal extra knowledge to use the tool. The interface
+should be intuitive with minimal disruption to workflow. Also, the tools must
 work in a variety of environments without issues.
 
 \section{Agda Tree}
@@ -66,11 +65,11 @@ following:
         colspec={|X[1]|X[6]|X[8]|}, hlines,
     }
 ID & Name                & Description                                                                                       \\ 
-1  & Dependencies        & Get the dependencies of a definition and what definitions it uses both directly and indirectly        \\ 
-2  & Dependents          & Get the dependents of a definition, where the definition is used both directly and indirectly     \\ 
+1  & Dependencies        & Get the direct or indirect dependencies of a definition        \\ 
+2  & Dependents          & Get the direct or indirect dependents of a definition     \\ 
 3  & Leafs               & Gets the leaves of the dependency graph, which would be the definitions that have no dependencies  \\ 
-4  & Module Dependencies & Gets the modules that a definition uses both directly and indirectly                              \\ 
-5  & Module Dependants   & Gets the modules that use a definition both directly and indirectly                              \\ 
+4  & Module Dependencies & Gets the direct or indirect modules that a definition uses                              \\ 
+5  & Module Dependants   & Gets the direct or indirectmodules that use a definition                               \\ 
 6  & Path to Leaf        & The longest path from a definition to any leaf                                                    \\ 
 7  & Module Path to Leaf & The longest path from a definition to any leaf but only following the modules of the path         \\ 
 8  & Roots               & The definitions with no dependents, meaning they aren't used anywhere                             \\ 
@@ -98,8 +97,8 @@ special properties. The queries are the following:
             colspec={|X[1]|X[6]|X[8]|}, hlines,
         }
         ID & Name             & Description                                                                                   \\ 
-        1  & Dependencies     & Get the dependencies of a module and what modules it uses both directly and indirectly            \\ 
-        2  & Dependents       & Get the dependents of a module, where the module is used both directly and indirectly         \\ 
+        1  & Dependencies     & Get the direct or indirect dependencies of a module             \\ 
+        2  & Dependents       & Get the direct or indirect dependents of a module         \\ 
         3  & Leafs            & Gets the leaves of the dependency graph, which would be the modules that have no dependencies  \\ 
         4  & Path to Leaf     & The longest path from a module to any leaf                                                    \\ 
         5  & Roots            & The modules with no dependents, meaning they aren't used anywhere                             \\ 
@@ -117,8 +116,8 @@ special properties. The queries are the following:
 
 Since Agda Tree is a tool that slots into the workflow of developers, it must
 be easy to use and performant. The tool is plug-and-play, working on a variety
-of projects regardless of size. To not disrupt the developer, the queries
-respond quickly. Agda is used mainly in Unix-based systems, so this tool must
+of projects regardless of size. To not disrupt the developer, the queries must
+respond in less than 1 second. Agda is used mainly in Unix-based systems, so this tool must
 be compatible with macOS and popular Linux distributions.
 
 \begin{table}[H]
@@ -130,7 +129,7 @@ be compatible with macOS and popular Linux distributions.
         }
         ID & Name                   & Description                                                                                                 \\ 
         1  & Extraction Performance & Extracts the dependency graph in 10 minutes depending on the size of the project               \\ 
-        2  & Query Performance      & Responds to a query in under 2 seconds \\ 
+        2  & Query Performance      & Responds to a query in under 1 second \\ 
         3  & Scalability            & Allows for fast querying of large projects\\ 
         4  & Usability              & Easy to use, with intuitive commands, clear documentation, and meaningful error messages.  \\ 
         5  & Compatibility          & Works on macOS and Linux \\ 

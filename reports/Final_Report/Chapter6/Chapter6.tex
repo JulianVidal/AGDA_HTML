@@ -47,7 +47,7 @@ s-expressions \cite{andrej} which are easy to parse.
 \subsubsection{S-expression extractor}
 
 The s-expression notation is used in Lisp programming languages, it represents
-programs and data as tree-like data structures \cite{sexp}. The grammar for the
+programs and data as tree-like structures \cite{sexp}. The grammar for the
 s-expressions varies, but for this case the s-expression are of the form: \texttt{(:tag
 sexp-1 sexp-2 ... sexp-n)}. Where \texttt{sexp-n} can be a number, a string or another
 s-expression and the tag is a keyword that describes the content of the
@@ -136,17 +136,17 @@ queries graphs, it implements useful features and is performant. NetworkX is a
 widely used tool, so a user can become familiar with its use and
 implement their own queries. 
 
-\todo[inline]{Do I need to explain the code this specifically} The graph is
-first initialized with the command \texttt{nx.Digraph()}, a directional graph.
-Then the definitions are added as nodes with the command
-\texttt{graph.add\_nodes\_from}, with the keys of the dictionary passed in.
-Lastly, the edges are added with the command \texttt{graph.add\_edges\_from}
-where an array is passed in containing tuples with the definition and its
-dependency. Note that when creating the edge the definition is the first, and
-it's the dependency is second, since this is a directed graph this will cause
-the direction of the edge to be from the definition to its dependency.  Once
-generated it will be 'pickled', Pickle is a Python library that serializes Python
-objects, the trees will be serialized and stored for future use. 
+\todo[inline]{Do I need to explain the code this specifically} The directed
+graph is first in NetworkX. Then the definitions are added as nodes with the
+command \texttt{graph.add\_nodes\_from}, with the keys of the dictionary passed
+in. Lastly, the edges are added with the command
+\texttt{graph.add\_edges\_from} where an array is passed in containing tuples
+with the definition and its dependency. Note that when creating the edge the
+definition is the first, and it's the dependency is second, since this is a
+directed graph this will cause the direction of the edge to be from the
+definition to its dependency.  Once generated it will be 'pickled', Pickle is a
+Python library that serializes Python objects, the trees will be serialized and
+stored for future use. 
 
 When parsing the s-expression files, the definitions names include their module
 path along with an identifier number. Due to the way the s-expressions are
@@ -208,11 +208,9 @@ agda_tree definition nodes -c
 
 \subsubsection{Find}
 
-The find query gets all the names that match a pattern. The user provides a
-regex pattern, and the query returns all the names that match.
-There is a \texttt{-name} option, if true then it will match the pattern to the name of
-the definition if it is not set then it matches on the whole name including the
-modules the definition it is defined in.
+The find query gets all the names that match a regex pattern. There is a
+\texttt{-name} option, if true then it will match the name of the definition
+otherwise matches the whole name including its modules.
 
 \begin{lstlisting}
 agda_tree definition find "\_\+\_"
@@ -221,16 +219,8 @@ agda_tree definition find "\_\+\_" -name
 
 \subsubsection{Dependencies}
 
-The dependencies query gets all the dependencies of a definition. This means
-the theorems the definition needs to be implemented. Since this is a directed
-dependency graph and the definition's edges point towards its dependencies, the
-dependencies are the children of the definition. NetworkX provides a method for
-this: \linebreak \texttt{graph.successors(definition)}.
-
-This query must also allow for finding the indirect dependencies of a
-definition, not only the direct dependencies. NetworkX provides a method for
-this as well: \texttt{nx.descendants(graph, definition)}. This will find the
-dependencies and their children recursively.
+The dependencies query gets all dependencies (direct or indirect) of a
+definition by traversing its child nodes in the directed graph.
 
 \begin{lstlisting}
 agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -239,12 +229,9 @@ agda_tree definition dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals
 
 \subsubsection{Dependents}
 
-The dependents query gets the dependents of a definition. The dependents are
-theorems that use this definition. In this dependency graph, the dependants'
-edges point towards the definition, so the parents of a definition are its
-dependants. NetworkX provides a method to get the parents and their parents
-recursively which are \texttt{graph.predeccessor(definition)} and
-\texttt{nx.ancestors(graph, definition)} respectively.
+
+The dependents query gets all dependents (direct or indirect) of a
+definition by traversing its parent nodes in the directed graph.
 
 \begin{lstlisting}
 agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -253,22 +240,17 @@ agda_tree definition dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n
 
 \subsubsection{Leafs}
 
-The leafs query gets the definitions that have no dependencies, meaning no
-children. This can be found by looping through each node and counting its
-outward edges with the command \texttt{graph.out\_degree(node)}, if the count
-is zero they are a leaf.
+The leafs query gets the definitions that have no dependencies, meaning they do
+not have children.
 
 \begin{lstlisting}
 agda_tree definition leafs
-agda_tree definition leafs -c
 \end{lstlisting}
 
 \subsubsection{Module Dependencies}
 
-This query is exclusive to the definition graph. The module dependencies query
-will take the output of the dependencies query and only keep the module the
-modules of the dependencies. To avoid repeated modules from they are added to a
-set. This command has an option for the indirect dependencies.
+The module dependencies query gets the modules of the definitions from the
+dependencies query. This query is exclusive to the definition graph. 
 
 \begin{lstlisting}
 agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -277,10 +259,8 @@ agda_tree definition module_dependencies -i "InfinitePigeon.Addition.n-plus-zero
 
 \subsubsection{Module Dependants}
 
-This query is exclusive to the definition graph. The module dependants query
-will take the output of the dependents query and only keep the modules then add
-them to a set to remove repetition. This command has an option for indirect
-dependents.
+The module dependents query gets the modules of the definitions from the
+dependencies query. This query is exclusive to the definition graph. 
 
 \begin{lstlisting}
 agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -288,17 +268,13 @@ agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-e
 
 \subsubsection{Path To Leaf}
 
-The path to leaf query finds the longest path from a definition to a leaf. The
-leafs query is used to get the leaves of the graph, then NetworkX has a
-method \texttt{nx.all\_simple\_paths(graph, definition, leaves)} which finds all
-the simple paths between two nodes. Simple paths are paths where no vertex is
-repeated. Once all the simple paths are found, they are measured for length and
-the largest one is returned.
+The path to leaf query finds the longest path from a definition to a leaf.
+First all the simple paths are found, then they are measured for length and the
+largest one is returned.
 
-The definition dependency graph cyclic while the module dependency graph is
-acyclic, this causes a difference in performance  The definition graph also
-contains significantly more nodes than the modules graph, so the amount of
-paths grows quickly.
+The definition dependency graph is cyclic while the module dependency graph is
+acyclic, this causes a difference in performance.  The definition graph also
+significantly large, so the amount of paths grows faster.
 
 \begin{lstlisting}
 agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -306,10 +282,8 @@ agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 \subsubsection{Roots}
 
-The roots query gets the definitions that aren't used by any other theorem, it
-doesn't have parents. This is found similarly to leaves but instead of counting
-for outward edges, count the inward edges with the method \linebreak
-\texttt{graph.in\_degrees(node)} if it has none then it's a root.
+The roots query gets the definitions that have no dependents, meaning they do
+not have parents.
 
 \begin{lstlisting}
 agda_tree definition roots
@@ -317,13 +291,11 @@ agda_tree definition roots
 
 \subsubsection{Use Count}
 
-The use count query gets the number of times a definition is used. In other
-words, how many times does a definition appear as a dependency in other
-theorems. To find how many times a definition was used directly or indirectly
-is the same as counting the output of the dependents query. This query either
-accepts a \texttt{-top=n} option where it will return the top n most used
-modules or the \texttt{-d=definition} option that finds how many times a
-specific definition was used.
+The use count query gets the numbers of times a definition appear as a
+dependency (directly or indirectly). This query either accepts a
+\texttt{-top=n} option where it will return the top n most used modules or the
+\texttt{-d=definition} option that finds how many times a specific definition
+was used.
 
 \begin{lstlisting}
 agda_tree definition uses -top=10
@@ -334,10 +306,8 @@ agda_tree definition uses -d -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 \subsubsection{Module Path To Leaf}
 
-This query is exclusive to the definition graph. The module path to leaf query
-gets the modules needed to get from one definition to another. This is done
-using the path to leaf query, but only keeping the modules of the path of
-definitions, repeats are removed.
+The module path to leaf query gets the modules of the definitions from the path
+to leaf query. This query is exclusive to the definition graph.
 
 \begin{lstlisting}
 agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -345,9 +315,9 @@ agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-eq
 
 \subsubsection{Type}
 
-This query is exclusive to the definition graph. The type query gets
-the type of the definition. This data is collected during the building of the
-definition graph then stored for each node, where it is retrieved.
+The type query gets the type of the definition. This data is collected during
+the building of the definition graph. This query is exclusive to the definition
+graph. 
 
 \begin{lstlisting}
 agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n"
@@ -355,10 +325,8 @@ agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 \subsubsection{Cycles}
 
-This query is exclusive to the definition graph. The cycles query gets the
-cycles in the graph, NetworkX provides a method to find simple cycles. Simple
-cycles are cycles where nodes aren't repeated, except for the start and end
-node. The method is: \texttt{nx.simple\_cycles(graph)}.
+The cycles query gets the simple cycles in the graph. Simple cycles are cycles
+where nodes aren't repeated. This query is exclusive to the definition graph. 
 
 \begin{lstlisting}
 agda_tree definition cycles
@@ -366,9 +334,9 @@ agda_tree definition cycles
 
 \subsubsection{Save Tree}
 
-This query is exclusive to the definition graph. The save tree query converts
-the graph into the DOT format. NetworkX allows for this conversion using the
-pydot library by using the method: \texttt{nx.nx\_pydot.write\_dot(graph, path)}.
+The save tree query converts the graph into the DOT format. NetworkX allows for
+this conversion using the pydot library. This query is exclusive to the
+definition graph. 
 
 \begin{lstlisting}
 agda_tree definition save_tree "/tmp/definition.dot"
@@ -376,11 +344,8 @@ agda_tree definition save_tree "/tmp/definition.dot"
 
 \subsubsection{Path Between}
 
-The path between query finds the longest path between to definitions. NetworkX
-provides the method: \texttt{nx.all\_simple\_paths(graph, src, dst)}, were given
-two nodes it will return all the simple paths between them. Simple paths are
-paths that do not repeat nodes. After finding all the paths, it measures their
-lengths and returns the maximum length.
+The path between query finds the longest simple path between to definitions.
+Simple paths are paths that do not repeat nodes. 
 
 \begin{lstlisting}
 agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.N"
@@ -388,10 +353,9 @@ agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n"
 
 \subsubsection{Level Sort}
 
-This query is exclusive to the module graph. The level sort query sorts the
-modules into levels based on how far they are from a leaf module. This is done
-recursively, where the level of a node is based on the maximum level of its
-children plus one. This sorting is explained in \cref{sub:design level strategy}.
+The level sort query sorts the modules into levels based on how far they are
+from a leaf module. This sorting is explained in \cref{sub:design level
+strategy}. This query is exclusive to the module graph. 
 
 \begin{lstlisting}
 agda_tree module lvl_sort
@@ -399,10 +363,9 @@ agda_tree module lvl_sort
 
 \subsubsection{Topological Sort}
 
-This query is exclusive to the module graph. The topological sort query sorts
-the modules into a topological order. Topological sort orders the modules into
-list where a module only depends on previous modules in the list.
-
+The topological sort query sorts the modules topologically. Topological sort
+orders the modules into a list where a module only depends on previous modules
+in the list. This query is exclusive to the module graph. 
 
 \begin{lstlisting}
 agda_tree module topo_sort
@@ -420,9 +383,9 @@ agda_tree module topo_sort
 
 \subsection{Command Line Interface}\label{sub:Agda Tree CLI}
 
-The CLI uses Python, as it is a popular language that
-most users already have installed and may have some experience with. Making it
-easier for users to add new queries and make the changes. 
+The CLI uses Python, as it is a popular language that most users already have
+installed and may have some experience with. Making it easier for users to add
+new queries and make the changes. 
 
 Python includes a library called argparse to create CLIs. The
 user inputs are stored in \texttt{sys.argv}, argparse parses it based

@@ -88,11 +88,12 @@ compilation strategy to use.
 \pagebreak
 \subsection{Level Strategy} \label{sub:design level strategy}
 
-The level strategy sorts the modules into levels, where leaf nodes with no
-children are at level \(0\). Level \(1\) contains all the modules which only depend on
-modules at level \(0\). Level \(n\) contains all the modules that depend on levels \(n
-- 1\) or below. In other words, the level of a module is its maximum distance
-from a leaf module. This algorithm can be visualized with the \cref{subfig: lvl strat}.
+The level strategy groups modules by their maximum distance from leaf nodes,
+enabling parallel compilation within each level. Where leaf nodes with no
+children are at level \(0\). Level \(1\) contains all the modules which only
+depend on modules at level \(0\) and so on. This algorithm is visualized in
+\cref{subfig: lvl strat}.
+
 \begin{figure}[H]
   \begin{subfigure}[t]{0.45\textwidth}
     \centering
@@ -124,7 +125,7 @@ The advantage of this solution is that it can be quickly generated,
 where each module will take the maximum of the recursive call to its children
 and add one the maximum of the children's level. The disadvantage is that if a
 level has a small amount of modules there isn't an opportunity to
-parallelize the type checking. Also, there could be two modules that each
+parallelise the type checking. Also, there could be two modules that each
 depend  on 20 distinct modules that could be compiled in parallel that could
 lead to massive savings. Instead, this method would compile the 40 combined
 dependencies in previous levels, then compile the two modules in parallel. This
@@ -202,7 +203,7 @@ guarantee the optimal solution.
 
 \section{Conclusion}
 
-The diagram in \cref{fig:Agda Tree Class Diagram} show how the structure of the
+The diagram in \cref{fig:Agda Tree Class Diagram} shows how the structure of the
 program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query Diagram} also shows how the dependency graphs will be created and how the user
 will interact with CLI. This structure is important to ensure that the
 CLI can handle all the requirements and gives the project a solid foundation to

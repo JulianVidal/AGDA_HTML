@@ -85,14 +85,15 @@ compiled.
 
 Agda Tree unit tests each query, checking if a certain input returns the
 correct output. Improving maintainability and stability of the code base. The
-tests are timed, with most queries being instant except for cycles,
-path between, path to leaf and indirect uses which can take from half a second
-to unending depending on the input.  
+tests are timed, with most queries being instant except for cycles, path
+between, path to leaf and indirect uses which can take from half a second to
+indefinite depending on the input.  
 
 Agda Comp was tested on the validity of the strategies, whether the strategies
 were correct and safe. The Agda type checker doesn't give any perceivable error
 with unsafe or incomplete compilation, so it is critical to give a guarantee of
-a well done compilation. The time to create the compilation order was tested, but it is negligible compare to compilation time taking at most 50
+a well done compilation. The time to create the compilation order was tested,
+but it is negligible compare to compilation time taking at most 50
 milliseconds.
 
 % test.test_definition.TestDefinitionQueries.test_create_tree: 0.000

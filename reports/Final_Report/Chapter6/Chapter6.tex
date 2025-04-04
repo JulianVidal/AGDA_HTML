@@ -6,10 +6,10 @@ The Agda Tree creates a dependency definition graph from an Agda project and
 lets the user query this graph through a CLI. First, a subsystem  is made that
 turns Agda projects into a dependency graph is implemented. Then, a CLI is
 created that lets the user query the graph. These subsystems must meet the
-functional requirements described in \cref{tbl:Agda Tree Functional
-Requirements} and the non-functional requirements described in \cref{tbl:Agda
+functional requirements described on \cref{tbl:Agda Tree Functional
+Requirements} and the non-functional requirements described on \cref{tbl:Agda
 Tree Non-Functional Requirements}. The CLI implements all the queries described
-in \cref{tbl:Definition Graph Queries} for the definition graph and the queries
+on \cref{tbl:Definition Graph Queries} for the definition graph and the queries
 described in \cref{tbl:Module Graph Queries} for the module graph.
 
 
@@ -81,12 +81,12 @@ Non-Functional Requirements}.
 
 \subsubsection{S-expression parser}\label{sub:s-expression parser implementation}
 
-The S-expression parser extracts only the relevant information
-from Agda's s-expressions, specifically the \texttt{:entry} and \texttt{:name} tags, which
-represent definitions and their dependencies. The s-expressions
-are compiled and stored in a directory, then processed using Python's sexpdata
-library to load them into lists. These lists are traversed recursively to
-collect the required tags.
+The S-expression parser extracts only the relevant information from Agda's
+s-expressions. Specifically the \texttt{:entry} and \texttt{:name} tags, which
+represent definitions and their dependencies. The s-expressions are generated
+and stored in a directory, then processed using Python's sexpdata library to
+load them into lists. These lists are traversed recursively to collect the
+required tags.
 
 The parsing methodology involves finding all \texttt{:entry} tags, each
 representing a definition. For every \texttt{:entry}, the nested \texttt{:name}
@@ -342,7 +342,7 @@ agda_tree module topo_sort
 % \item Design on how the queries are executed using argparse
 % \end{itemize}
 
-\subsection{Command Line Interface}\label{sub:Agda Tree CLI}
+\subsection{Command-Line Interface}\label{sub:Agda Tree CLI}
 
 The CLI is implemented in Python, a widely used language that most users are
 familiar with, for easier modification by the user. Python's
@@ -630,10 +630,10 @@ files in the array. The final target includes all previous indices and is added
 to the \texttt{all:} target for complete project compilation. Initial index files
 without dependencies have no prerequisites.
 
-\subsection{Command Line Interface}
+\subsection{Command-Line Interface}
 
 
-The Command Line Interface (CLI) is implemented in Python, as most users are
+The Command-Line Interface (CLI) is implemented in Python, as most users are
 likely to have it installed and may already be familiar with it. Similar to the
 Agda Tree CLI (\cref{sub:Agda Tree CLI}), the argparse library is used to parse
 user input, validate commands, and generate usage and help messages. The parser

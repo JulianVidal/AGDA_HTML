@@ -36,7 +36,7 @@ generated automatically or by the project maintainers.
 \pagebreak
 
 \cref{fig:Agda Tree Class Diagram} is a Class Diagram, showing the classes and
-methods to operate the command line. The CLI parses the input by the user and
+methods to operate the command-line. The CLI parses the input by the user and
 delegates the query to the respective dependency graph. Each dependency graph
 allows for a different set of queries. These queries can be found in
 \cref{tbl:Definition Graph Queries} for the definition graph and in
@@ -88,11 +88,9 @@ compilation strategy to use.
 \subsection{Level Strategy} \label{sub:design level strategy}
 
 The level strategy groups modules by their maximum distance from leaf nodes,
-enabling parallel compilation within each level. Where leaf nodes with no
-children are at level \(0\). Level \(1\) contains all the modules which only
-depend on modules at level \(0\) and so on. This algorithm is visualized in
-\cref{subfig: lvl strat}.
-
+enabling parallel compilation within each level. Where leaf nodes at level
+\(0\) and Level \(n\) depends on modules \(n - 1\) or below. This algorithm is
+visualized in \cref{subfig: lvl strat}.
 \begin{figure}[H]
   \begin{subfigure}[t]{0.45\textwidth}
     \centering
@@ -111,26 +109,20 @@ depend on modules at level \(0\) and so on. This algorithm is visualized in
   \label{subfig: lvl strat}
 \end{figure}
 
-This sorting has the property that each level only depends on the levels
-below it, meaning if the below modules were already compiled the modules at the
-current level could all be compiled in parallel. The level strategy is to sort
-the modules into levels, then compile each level linearly and the modules at
-each level are compiled concurrently. This strategy also compiles every module
-in the graph as the sorting keeps all the modules in the dependency graph and
-the level strategy compiles every level. Therefore, this algorithm is both safe
-and correct.
+This strategy involves sorting modules into levels and compiling each level
+sequentially, with concurrent compilation within levels which only depend on
+previous levels. It guarantees that all modules in the dependency graph are
+compiled, making the algorithm both safe and correct.
 
-The advantage of this solution is that it can be quickly generated,
-where each module will take the maximum of the recursive call to its children
-and add one the maximum of the children's level. The disadvantage is that if a
-level has a small amount of modules there isn't an opportunity to
-parallelise the type checking. Also, there could be two modules that each
-depend  on 20 distinct modules that could be compiled in parallel that could
-lead to massive savings. Instead, this method would compile the 40 combined
-dependencies in previous levels, then compile the two modules in parallel. This
-becomes significant during implementation \cref{sub:imp lvl strategy}, as there
-is an overhead to parallelization which is exacerbated when compiling a small
-collection of modules.
+One advantage of this approach is it quickly generates the compilation order.
+However, the strategy is limited. If a level contains only a few modules,
+opportunities for parallel type-checking are low. Additionally, there are times
+when two modules with distinct dependencies could be compiled in parallel,
+leading to significant time savings with little overhead. However, this method
+would first compile all shared dependencies before compiling these two modules
+concurrently. This limitation becomes relevant during implementation
+(\cref{sub:imp lvl strategy}), as the overhead associated with parallelization
+can outweigh its benefits.
 
 
 % \begin{itemize}
@@ -144,13 +136,15 @@ collection of modules.
 \pagebreak
 \subsection{Level Disjoint Strategy} \label{sub:design disjoint strategy}
 
-The level disjoint strategy targets the weakness of the level sort strategy. It
-aims to find the largest modules that can be compiled in parallel, the largest
-module being one with many dependencies. If such modules are found, then they
-are compiled in parallel, otherwise the leaf modules are compiled and tries
-finding large modules again. Note that once a module is compiled, it is no
-longer a dependency of future modules. This process is visualized below on
-\cref{subfig:disj strat}.
+
+The level disjoint strategy targets the weakness of the level sort strategy by
+finding modules with many dependencies that can be compiled in parallel. It
+identifies disjoint modules—those with distinct dependencies—and compiles them
+concurrently. If no such modules are found, leaf nodes (modules with no
+dependencies) are compiled first, and then it repeats. Once a module is
+compiled, it no longer considered. This approach reduces the number of modules
+to compile at each step and ensures all modules are eventually compiled. The
+is illustrated in \cref{subfig:disj strat}.
 \begin{figure}[H]
   \begin{subfigure}[t]{0.5\textwidth}
     \centering
@@ -169,25 +163,20 @@ longer a dependency of future modules. This process is visualized below on
   \label{subfig:disj strat}
 \end{figure}
 
-This strategy ensures that at each step the amount of modules to compile is
-reduced. The strategy only compiles two modules in parallel if their
-dependencies are disjoint, if such modules aren't found then the leafs are
-compiled which do not have any dependencies. Therefore, this strategy is both
-safe and correct, as it doesn't compile conflicting modules and compiles all
-modules in a project.
+This strategy is both safe and correct, as it avoids compiling conflicting
+modules and guarantees that all modules in a project are compiled. It better
+manages parallelization overhead by targeting larger modules, reducing repeated
+loading of interface files during compilation. However, identifying disjoint
+modules is challenging for projects with many modules. A brute-force approach
+is impractical, so a greedy algorithm is used to approximate disjoint groups.
+This algorithm sorts modules based on their dependencies and groups them into
+buckets of disjoint modules for parallel compilation. This approach won't find
+the optimal solution and is further explained in \cref{sub:imp disj strategy}/
 
-The advantage of this approach is that it manages the overhead of
-parallelization, instead of compiling a couple of individual modules at a time
-it can compile modules with multiple dependencies such that Agda doesn't have
-to loading interface files as often as explained in the implementation
-\cref{sub:imp disj strategy}. The disadvantage is that finding these disjoint
-modules is difficult, projects  have hundreds of modules and finding multiple
-modules that do not share dependency can't be done through brute force. Each
-Agda project also has different structures with Agda-unimath
-\cite{agda-unimath} having smaller independent modules while TypeTopology
-\cite{type-topology} has bigger dependent modules that make finding distinct
-module more difficult. A greedy approach has to be taken, which doesn't
-guarantee the optimal solution.
+Despite its benefits, its benefit depends on project structure. Libraries like
+unimath \cite{agda-unimath}, which consist of many smaller independent modules,
+benefit more than libraries like TypeTopology \cite{type-topology}, which have
+larger connected modules. 
 
 % \begin{itemize}
 % \item What level disjoint does
@@ -202,15 +191,18 @@ guarantee the optimal solution.
 
 \section{Conclusion}
 
-The diagram in \cref{fig:Agda Tree Class Diagram} shows how the structure of the
-program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query Diagram} also shows how the dependency graphs will be created and how the user
-will interact with CLI. This structure is important to ensure that the
-CLI can handle all the requirements and gives the project a solid foundation to
-refer back to. 
+The diagram in \cref{fig:Agda Tree Class Diagram} shows how the structure of
+the program. \cref{fig:Agda Create Tree Diagram} and \cref{fig:Agda Tree Query
+Diagram} also shows how the dependency graphs will be created and how the user
+will interact with CLI. This structure is important to ensure that the CLI can
+handle all the requirements and gives the project a solid foundation to refer
+back to. 
 
-The functionality of Agda Comp is modelled in Figure \cref{fig:Agda Comp Diagram}, this structure allows the user to select what compilation strategy to
+The functionality of Agda Comp is modelled in Figure \cref{fig:Agda Comp
+Diagram}, this structure allows the user to select what compilation strategy to
 use and how many cores the compilation can use. Agda Comp is lets the user to
-easily apply the compilation strategies which are modelled in \cref{sub:design level strategy} and in \cref{sub:design disjoint strategy}, then are
+easily apply the compilation strategies which are modelled in \cref{sub:design
+level strategy} and in \cref{sub:design disjoint strategy}, then are
 implemented in \cref{ch:implementation}.
 
 % Communicating how you think about the composition of your system and how it

@@ -6,7 +6,7 @@
 % material, identify stakeholders, and state the aim(s) of the work. About 10\% of
 % the report.
 
-\todo[inline]{Add citations to articles about code decay and refactoring?}
+\todo[inline]{Should I add more citations to articles about code decay and refactoring?}
 \section{Background}
 
 Large codebases with years of development can be overwhelming to navigate
@@ -15,7 +15,7 @@ important for new proofs. Dependency graphs can help in navigating the code
 base and identifying areas needing refactoring\cite{dep_grah_refactoring}.
 
 Agda is a functional programming language and proof-assistant based
-propositions-as-types logic system \cite{agda_docs}. Proofs are made by
+on propositions-as-types logic system \cite{agda_docs}. Proofs are made by
 defining the most fundamental types and operations causing projects to rapidly
 expand. When making a proof, knowing how the types are fundamentally defined is
 helpful, but this information isn't readily available.
@@ -31,10 +31,10 @@ unused definitions can be removed, and highly dependent modules split into
 smaller parts. 
 
 Additionally, large Agda projects face long compilation times due to sequential
-type-checking of modules. While Agda optimizes high-level files by tracking
-modified modules, changes in low-level files with many dependents cause
-a large recompilation. This issue is particularly pronounced during
-refactoring, where structural changes lead to unnecessary re-checks. 
+type-checking of modules. Changes to high-level modules aren't a problem but
+low-level modules when modified will re-compile all their dependents. This
+issue worsens during refactoring, where structural changes lead to unnecessary
+re-checks. 
 
 Agda's sequential type-checking gives an opportunity for parallel compilation.
 Modules without dependency conflicts can be compiled concurrently, potentially
@@ -50,16 +50,16 @@ into dependency graphs for the user to explore for better codebase navigation.
 
 To compile modules safely a module dependency graph is need which Agda already
 provides. The challenge is safely traversing the graph concurrently. Different
-strategies have to be tested against well-known libraries to gauge its
-effectiveness. \todo{Explain further what the challenges are}
+strategies have to be tested against well-known libraries to gauge their
+effectiveness. 
 
 \section{Objectives}
 
 The objective of this project is to create a Command-Line Interface (CLI) that
 generate the dependency graph from any Agda project using the s-expression
-representation \cite{andrej}. Then the user access to queries that will let the
-user explore the graph and gain insight into the Agda project. There aren't
-any tools currently that have these features. 
+representation \cite{andrej}. Then the user has access to queries that lets
+them explore the graph and gain insight into the Agda project. There aren't any
+tools currently that have these features. 
 
 The second objective is to build a CLI tool that reduces compilation time. By
 automatically generating the module dependency graph from an Agda project.
@@ -71,10 +71,9 @@ compiling the entire project.
 
 First, there will be an exploration of related works pertaining to using graphs
 for code analysis. As well as, an explanation of s-expressions, other instances
-of parallel computation and describing the scheduling problem. \todo{do i need
-to explain the scheduling problem, how thoroughly?}. Second, the requirements
-and overall design of the CLI tools will be own, along with an explanation of
-what strategic are going to be employed for compilation. Third, an explanation
-of the implementation of the designed systems. Fourth, an evaluation of the
-tools and the performance of the compilation strategies. Lastly, an overview of
-the results, limitations and future improvements.
+of parallel computation and describing the scheduling problem. Second, the
+requirements and overall design of the CLI tools will be own, along with an
+explanation of what strategic are going to be employed for compilation. Third,
+an explanation of the implementation of the designed systems. Fourth, an
+evaluation of the tools and the performance of the compilation strategies.
+Lastly, an overview of the results, limitations and future improvements.

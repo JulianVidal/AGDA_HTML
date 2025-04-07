@@ -22,4 +22,4 @@ This project uses third-party libraries under the following licenses:
 - set-data: BSD 2-Clause License
 - pydot: MIT License
 
-See the [License](./LICENSE.md)  file for details.
+See the [License](./LICENSE)  file for details.

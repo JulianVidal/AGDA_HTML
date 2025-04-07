@@ -14,9 +14,12 @@ requires-python = ">=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
+    "License :: OSI Approved :: BSD License",
+    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
 ]
 license = "MIT"
-license-files = ["LICEN[CS]E*"]
+license-files = ["LICEN[CS]E*", "README.md", "ATTRIBUTIONS"]
 dependencies = [
     "networkx",
     "tqdm",

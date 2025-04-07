@@ -1512,3 +1512,13 @@ Maybe remove sort code, add to appendix.
 Use printer font for commands and file names, computer related names.
 
 Remind to read from testing section and beyond.
+
+
+# 23 - Pre-Meeting Report
+
+Completed and sent draft of dissertation with previous week's suggestions. Didn't have any new information
+and many parts were re-written to reduce word count.
+
+# 23 - Post-Meeting Report
+
+# 23 - Notes

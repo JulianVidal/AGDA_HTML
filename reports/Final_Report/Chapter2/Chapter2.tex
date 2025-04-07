@@ -2,10 +2,6 @@
 
 \chapter{Literature Review}
 
-% \todo[inline]{Add literature about code decay?}
-% \todo[inline]{Explain what dependency graphs are?}
-% \todo[inline]{Extend related works?}
-
 Common code representation graphs include Abstract Syntax Trees (AST), Control
 Flow Graphs (CFG), and Data Flow Graphs (DFG). These representations encode the
 behaviour of code and help with tasks like code vulnerability detection
@@ -53,10 +49,6 @@ assistant it helps with proving theorems which doesn't fit with call graphs.
 
 \section{Parallel Compilation}
 
-% \todo[inline]{Add section explaining DAGs?}
-
-\todo[inline]{Is there any related work that I could add?}
-
 Type-checking is a computationally expensive sequential task that hinders
 workflow during development, so parallelizing could lead to a speed-up like in
 other applications. Parallel type-checking aims to type-check different parts
@@ -76,8 +68,6 @@ itself, rather, find independent modules that can be type checked together.
 This aligns more closely with the following paper that explores reducing FPGA
 compile time by changing from a monolithic compilation style to compiling
 separate blocks in parallel \cite{FPGA}.
-
-\todo[inline]{Add section explaining scheduling problem?}
 
 Fundamentally the compilation problem in this project is a scheduling problem,
 which is NP-complete\cite{scheduling}. This means that there many algorithms

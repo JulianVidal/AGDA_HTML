@@ -31,10 +31,7 @@ test the dependencies query the definition \texttt{ InfinitePigeon.Addition.
 n-plus-zero-equals-n} is passed in, and the output is
 checked given an expected response. This is done for each query, along with
 each of their options. So, the dependencies query there is also a unit test
-for the indirect option. Integration testing while possible, isn't necessary as
-the CLI parsers are generated from the query functions. So the CLI and the
-queries do not need to be tested for their integration as the CLI is based of
-the queries directly. \todo{Is it necessary to say integration testing wasn't done}
+for the indirect option.
 
 \section{Agda Tree Performance} \label{sub:agda tree performance}
 
@@ -44,10 +41,9 @@ TypeTopology was used, it is a large project with about 50,000 definitions.
 This gives a good representation of how long queries will take with most
 projects.
 
-\todo[inline]{Should the milliseconds be formatted differently?} Most queries
-are completed in under 20 milliseconds, except cycles queries, the indirect
-uses query and path queries. The cycles query takes about 622 ms to be
-completed, and the indirect uses takes about 3804 ms to be completed. These
+Most queries are completed in under 20ms (milliseconds), except cycles queries,
+the indirect uses query and path queries. The cycles query takes about 622ms to
+be completed, and the indirect uses takes about 3804ms to be completed. These
 queries recursively call and traverse the whole graph multiple times, so this
 is expected. The path between two definitions queries can vary depending on the
 definitions, due to cycles and size of the graph the time to complete this

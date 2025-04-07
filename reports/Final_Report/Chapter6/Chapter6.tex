@@ -144,7 +144,6 @@ Most queries are the same between the definition graph and the module graph,
 but the module graph is acyclic giving it different properties. These queries
 can be explored in further detail in its repository \cite{agda_html}.
 
-\todo[inline]{Should I remove some queries}
 
 \subsubsection{Create Tree}
 
@@ -152,9 +151,12 @@ The create tree command will create the dependency graph for either definitions
 or modules. It will perform the parsing and extraction automatically and save
 the graph to the home directory or the path of option \texttt{-o}.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition create_tree "source/AllModulesIndex.lagda" -o=~/.agda_tree/def_tree.pickle
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Nodes}
 
@@ -162,10 +164,13 @@ The nodes query gets all the nodes in the graph, it returns a list with all the
 definition names. For the \texttt{-c} option it will return the amount of nodes
 in the graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition nodes
 agda_tree definition nodes -c
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Find}
 
@@ -173,20 +178,27 @@ The find query gets all the names that match a regex pattern. There is a
 \texttt{-name} option, if true then it will match the name of the definition
 otherwise matches the whole name including its modules.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition find "\_\+\_"
 agda_tree definition find "\_\+\_" -name
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Dependencies}
 
 The dependencies query gets all dependencies (direct or indirect) of a
 definition by traversing its child nodes in the directed graph.
 
+
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
 agda_tree definition dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Dependents}
 
@@ -194,38 +206,50 @@ agda_tree definition dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals
 The dependents query gets all dependents (direct or indirect) of a
 definition by traversing its parent nodes in the directed graph.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition dependents "InfinitePigeon.Addition.n-plus-zero-equals-n"
 agda_tree definition dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Leafs}
 
 The leafs query gets the definitions that have no dependencies, meaning they do
 not have children.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition leafs
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Module Dependencies}
 
 The module dependencies query gets the modules of the definitions from the
 dependencies query. This query is exclusive to the definition graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition module_dependencies "InfinitePigeon.Addition.n-plus-zero-equals-n"
 agda_tree definition module_dependencies -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Module Dependants}
 
 The module dependents query gets the modules of the definitions from the
 dependencies query. This query is exclusive to the definition graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition module_dependents -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Path To Leaf}
 
@@ -237,18 +261,24 @@ The definition dependency graph is cyclic while the module dependency graph is
 acyclic, this causes a difference in performance.  The definition graph also
 significantly large, so the amount of paths grows faster.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Roots}
 
 The roots query gets the definitions that have no dependents, meaning they do
 not have parents.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition roots
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Use Count}
 
@@ -258,21 +288,27 @@ dependency (directly or indirectly). This query either accepts a
 \texttt{-d=definition} option that finds how many times a specific definition
 was used.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition uses -top=10
 agda_tree definition uses -i -top=10
 agda_tree definition uses -d "InfinitePigeon.Addition.n-plus-zero-equals-n"
 agda_tree definition uses -d -i "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Module Path To Leaf}
 
 The module path to leaf query gets the modules of the definitions from the path
 to leaf query. This query is exclusive to the definition graph.
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition module_path_to_leaf "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Type}
 
@@ -280,18 +316,24 @@ The type query gets the type of the definition. This data is collected during
 the building of the definition graph. This query is exclusive to the definition
 graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition type "InfinitePigeon.Addition.n-plus-zero-equals-n"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Cycles}
 
 The cycles query gets the simple cycles in the graph. Simple cycles are cycles
 where nodes aren't repeated. This query is exclusive to the definition graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition cycles
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Save Tree}
 
@@ -299,18 +341,24 @@ The save tree query converts the graph into the DOT format. NetworkX allows for
 this conversion using the pydot library. This query is exclusive to the
 definition graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition save_tree "/tmp/definition.dot"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Path Between}
 
 The path between query finds the longest simple path between to definitions.
 Simple paths are paths that do not repeat nodes. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree definition path_between "InfinitePigeon.Addition.n-plus-zero-equals-n" "MLTT.Natural-Numbers-Type.N"
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Level Sort}
 
@@ -318,9 +366,12 @@ The level sort query sorts the modules into levels based on how far they are
 from a leaf module. This sorting is explained in \cref{sub:design level
 strategy}. This query is exclusive to the module graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree module lvl_sort
 \end{lstlisting}
+\end{minipage}
 
 \subsubsection{Topological Sort}
 
@@ -328,9 +379,12 @@ The topological sort query sorts the modules topologically. Topological sort
 orders the modules into a list where a module only depends on previous modules
 in the list. This query is exclusive to the module graph. 
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_tree module topo_sort
 \end{lstlisting}
+\end{minipage}
 
 % \begin{itemize}
 % \item Explain how each query is implemented 
@@ -358,32 +412,96 @@ extracting their names, parameters, and documentation. Positional parameters
 become required inputs, while optional parameters are specified with flags.
 This approach ensures that adding or modifying queries only requires changes to
 the respective function, with no need to manually update the CLI. Agda Tree's
-help messages can be seen in \cref{code:definition help} and \cref{code:module
-help}.
+definition and module help messages can be seen in \cref{code:definition help}
+and \cref{code:module help} respectively.
 
-For example the function:
-
-\begin{lstlisting}
-def dependencies(g, d, indirect=False):
-    """Definitions that definition d depends on, -indirect will find the
-    indirect dependencies"""
-\end{lstlisting}
-
-becomes:
-
-\begin{lstlisting}
-agda_tree definition dependencies -h
-
-usage: agda_tree definition dependencies [-h] [-g G] [-indirect] d
+\noindent
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={Agda Tree Definition Help Message},label={code:definition help}]
+usage: agda_tree definition [-h]
+                            {create_tree,cycles,dependencies,
+                            dependents, find,leafs,
+                            module_dependencies,module_dependents,
+                            module_path_to_leaf,nodes,path_between,
+                            path_to_leaf, roots,save_tree,type,uses}
+                            ...
 
 positional arguments:
-  d           Definition name
+  {create_tree,cycles,dependencies,dependents,
+  find,leafs,module_dependencies,module_dependents,
+  module_path_to_leaf,nodes,path_between,path_to_leaf,
+  roots,save_tree,type,uses}
+    create_tree         Creates definition dependency tree from file, 
+                        -output option to set the path 
+                        to store the tree
+    cycles              Cycles in graph
+    dependencies        Definitions that definition d depends on,
+                        -indirect will find the indirect dependencies
+    dependents          Definitions that depend on definition d,
+                        -indirect finds the indirect dependents
+    find                Find definition through regex
+    leafs               Definitions with no dependencies
+    module_dependencies
+                        Module dependencies of definition d, 
+                        -indirect finds the indirect 
+                        module dependencies
+    module_dependents   Modules that depend on definition d, 
+                        -indirect also gets the indirect 
+                        module dependents
+    module_path_to_leaf
+                        Longest path from definition d to any leaf only
+                        counting modules
+    nodes               List of definitions, if -c flag is set returns 
+                        the number of nodes
+    path_between        Longest path between two definitions src 
+                        and dst
+    path_to_leaf        Longest path from defintion d to any leaf
+    roots               Definitions that aren't used
+    save_tree           Save definition graph as pydot
+    type                Types of definition d
+    uses                Counts amount of uses per definition, 
+                        sorted in descending order, if -d is passed 
+                        in a definitino it will return the uses 
+                        of that definition
 
 options:
-  -h, --help  show this help message and exit
-  -g G        Path to tree (Default: ~/.agda\_tree/def\_tree.pickle)
-  -indirect   Get indirectly connected nodes
+  -h, --help            show this help message and exit
 \end{lstlisting}
+\end{minipage}
+
+\noindent
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={Agda Tree Module Help Message},label={code:module help}]
+usage: agda_tree module [-h]
+                        {complex_modules,create_tree,dependencies,
+                        dependents,find,leafs,lvl_sort,nodes,
+                        path_between,path_to_leaf,roots,topo_sort,
+                        uses} ...
+
+positional arguments:
+  {complex_modules,create_tree,dependencies,
+  dependents,find,leafs,lvl_sort,nodes,
+  path_between,path_to_leaf,roots,topo_sort,
+  uses}
+    complex_modules     Get the top modules that have the most dependents
+    create_tree         Creates modules dependency tree from file
+    dependencies        Modules that module m imports
+    dependents          Modules that import module m
+    find                Find module through regex
+    leafs               Modules with no imports
+    lvl_sort            Level sort
+    nodes               List of modules
+    path_between        Longest path between two modules src and dst
+    path_to_leaf        Longest path from module m to any leaf
+    roots               Modules that aren't imported
+    topo_sort           Topological sort
+    uses                Counts how many times a module is imported, sorted
+                        in descending order
+
+options:
+  -h, --help            show this help message and exit
+\end{lstlisting}
+\end{minipage}
 
 Once user input is validated, the CLI loads the appropriate graph (definition
 or module) and executes the query. Using the query name the respective function
@@ -463,6 +581,8 @@ modules that are compiled together. If two indices have disjoint
 dependencies, they can be compiled in parallel. The array specifies the
 compilation order by grouping indices into sequential phases. For example:
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 [
   [[module1, module2], [module3, module4]],  # Phase 0
@@ -470,6 +590,7 @@ compilation order by grouping indices into sequential phases. For example:
   [[module6, module7]]                       # Phase 2
 ]
 \end{lstlisting}
+\end{minipage}
 
 In this example, \texttt{module1} and \texttt{module2} are compiled together in one index file,
 while \texttt{module3} and \texttt{module4} are grouped into another index file. Both index files
@@ -490,11 +611,39 @@ The level strategy, as explained in \cref{sub:design level strategy}, orders
 modules into levels based on their maximum distance from a leaf node.
 Dependencies in previous the levels are compiled before modules in the next
 levels. This guarantees safe parallel compilation within each level. The
-algorithm works recursively as shown in \cref{code:lvl sort}. Once sorted,
+algorithm works recursively as shown below in \cref{code:lvl sort}. Once sorted,
 modules at the same level are grouped into index files, where each index file
 can be compiled concurrently. This array is then used to generate a Makefile
 that runs the compilation sequence, as explained in
 \cref{sub:build_make_index}.
+
+\noindent
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={Level Sort Algorithm},label={code:lvl sort}]
+def depth(g, node, mem):
+    if node in mem:
+        return mem
+
+    children = list(g.successors(node))
+    if len(children) == 0:
+        mem[node] = 0
+        return mem
+
+    for c in children:
+        m = depth(g, c, mem)
+        mem |= m
+        mem[node] = max(mem.get(node, 0), mem[c])
+    mem[node] += 1
+
+    return mem
+
+def depths(g):
+    m = {}
+    for n in g.nodes:
+        m |= depth(g, n, m)
+    return m
+\end{lstlisting}
+\end{minipage}
 
 When Agda type-checks a module, it reloads the dependency's interface files
 which could be large. To avoid reloading these files, the strategy groups
@@ -574,6 +723,8 @@ checker. These flags vary between projects and are extracted from an index file
 provided by the user. Below is an example of an index file from the
 TypeTopology project:
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
     
 Generated Index file
@@ -586,6 +737,7 @@ Generated Index file
     import Various.UnivalenceFromScratch
 \end{code}
 \end{lstlisting}
+\end{minipage}
 
 Index files are named according to their compilation order. For instance,
 \texttt{index-0-0} and \texttt{index-0-1} represent files compiled first in parallel, followed by
@@ -603,6 +755,8 @@ before dependent targets.
 
 Example:
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 all: _build/2.7.0.1/agda/source/index-1-2.agdai 
 
@@ -618,10 +772,11 @@ _build/2.7.0.1/agda/source/index-1-1.agdai: _build/2.7.0.1/agda/source/index-0-0
 _build/2.7.0.1/agda/source/index-2-0.agdai: _build/2.7.0.1/agda/source/index-1-0.agdai _build/2.7.0.1/agda/source/index-1-1.agdai _build/2.7.0.1/agda/source/index-1-2.agdai _build/2.7.0.1/agda/source/index-1-3.agdai 
 	agda ./source/index-2-0.lagda
 \end{lstlisting}
+\end{minipage}
 
 If two targets do not share dependencies, they are compiled in parallel
 automatically by the Makefile. For instance, \texttt{index-1-0.lagda}
-and \texttt{index-1-1.lagda} can be compiled together.
+and \\\texttt{index-1-1.lagda} can be compiled together.
 
 The Makefile is generated based on the output of the chosen compilation
 strategy. Each index file corresponds to a target named after its position in
@@ -632,7 +787,6 @@ without dependencies have no prerequisites.
 
 \subsection{Command-Line Interface}
 
-
 The Command-Line Interface (CLI) is implemented in Python, as most users are
 likely to have it installed and may already be familiar with it. Similar to the
 Agda Tree CLI (\cref{sub:Agda Tree CLI}), the argparse library is used to parse
@@ -640,7 +794,39 @@ user input, validate commands, and generate usage and help messages. The parser
 accepts the path to the module file to compile as a positional parameter while
 allowing additional options to customize the compilation process, such as
 selecting a strategy. The help message detailing these options is displayed in
-\cref{code:agda comp help}.
+\cref{code:agda comp help} below.
+
+\noindent
+\begin{minipage}{\textwidth}
+\begin{lstlisting}[caption={Agda Comp Help Message},label={code:agda comp help}]
+usage: agda_comp [-h] [-c] [-j JOBS] [-s {level,levelb,normal,unsafe,disjoint}] module
+
+Fast Agda type checker
+
+positional arguments:
+  module                Path to module to compile
+
+options:
+  -h, --help            show this help message and exit
+  -c, --clean           Create dot file even if it already exists
+  -j, --jobs JOBS       Cores that can be used
+  -s, --strategy {level,levelb,normal,unsafe,disjoint}
+			The strategy that will determine the compilation order,
+			the choices are: level: Sorts modules into levels, each
+			level increses the length to a leaf, lvl 5 are the
+			modules that 5 modules away from a leaf. Each level is
+			then split into 4 files or the value given by --jobs
+			levelb: Sorts modules by levels like in 'level' but
+			instead each level is separated into n files with
+			--jobs modules each normal: Normal compilation unsafe:
+			Tries to compile all the modules with 4 concurrent
+			index files or --jobs files disjoint: Finds the biggest
+			modules that are disjoint, if none are found the leaves
+			are removed then repeats
+\end{lstlisting}
+\end{minipage}
+
+
 
 The CLI provides three main options: \texttt{clean,} \texttt{jobs,} and
 \texttt{strategy.} By default, the tool reuses the existing module dependency
@@ -669,9 +855,12 @@ For example, to compile TypeTopology using two cores, deleting previously
 compiled modules, regenerating the module dependency graph, and applying the
 Level B strategy, the following command can be used:
 
+\noindent
+\begin{minipage}{\textwidth}
 \begin{lstlisting}
 agda_comp -j=2 -c  --strategy=levelb "/tmp/TypeTopology/source/AllModulesIndex.lagda"
 \end{lstlisting}
+\end{minipage}
 
 \subsection{Installation}
 

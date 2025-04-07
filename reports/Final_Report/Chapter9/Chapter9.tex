@@ -18,7 +18,7 @@ library argparse validates the user input. Lastly, CLI the outputs the modules t
 console, which can be piped to other utilities. The CLI will work
 with any Agda project.
 
-At first, HTML files that Agda generates were explored instead of
+At first, the HTML files that Agda generates natively were explored instead of
 s-expressions. These HTML files display and format the code with colours and
 links. Styling the text differently depending on if it was a definition,
 keyword, type, or operator. Also, the definitions were hyperlinks that linked
@@ -130,15 +130,13 @@ disjoint strategy is tested which has no parameters.
 % Tested on Agda 2.0.17, WSL has 16GB of ram with 8 performance cores at 5.4 GHz.
 % Macos tested on Agda 2.0.17 has nGB of ram with n cores and n GHz.
 
-\todo[inline]{Should I add the tables here, or move some to the appendix?}
-
 \begin{table}[H]
   \centering
   \caption{Results from WSL Testing Compilation Strategies.}
   \label{tbl:WSL comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
     }
     {Time (s) \\ \% of normal} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {575\\(100\%)} & {280\\(49\%)} & {354\\(62\%)}        & {355\\(62\%)}        & {482\\(84\%)}      & {394\\(69\%)}      & {528\\(92\%)}  \\
@@ -153,7 +151,7 @@ disjoint strategy is tested which has no parameters.
   \label{tbl:martin comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
     }
     {Time (s) \\ \% of normal} & Normal      & Unsafe     & {Level A\\2 cores} & {Level A\\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {345\\(100\%)} & {172\\(50\%)} & {287\\(83\%)}        & {265\\(77\%)}        & {344\\(100\%)}     & {295\\(86\%)}      & {369\\(107\%)} \\
@@ -168,7 +166,7 @@ disjoint strategy is tested which has no parameters.
   \label{tbl:mba comp results}
   \begin{tblr}{
       colspec={|Q[m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|Q[c, m]|}, hlines,
-      cells   = {font = \fontsize{8pt}{10pt}\selectfont},
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
     }
     {Time (s) \\ \% of normal}                  & Normal      & Unsafe     & { Level A\\2 cores} & {Level A \\5 cores} & {Level B\\2 cap} & {Level B\\4 cap} & Disjoint    \\
     TypeTopology & {371\\(100\%)} & {234\\(63\%)} & {331\\(89\%)}        & {298\\(80\%)}        & {366\\(99\%)}      & {334\\(90\%)}      & {340\\(92\%)}    \\
@@ -177,14 +175,62 @@ disjoint strategy is tested which has no parameters.
   \end{tblr}
 \end{table}
 
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for WSL 13900hx}
+  \label{tbl:WSL specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
+    }
+    Max Clock (GHz)               & 5.4         \\
+    CPU P-cores                   & 8           \\
+    CPU E-Cores                   & 16          \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
 
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for Mac Mini M4}
+  \label{tbl:martin specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
+    }
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 24          \\
+    Cooling                       & Active      \\
+  \end{tblr}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Computer Specifications for MacBook Air M4}
+  \label{tbl:mba specs}
+  \begin{tblr}{
+      colspec={|Q[m]|Q[c, m]|}, hlines,
+      cells   = {font = \fontsize{7pt}{10pt}\selectfont},
+    }
+    Max Clock (GHz)               & 4.4         \\
+    CPU P-cores                   & 4           \\
+    CPU E-Cores                   & 6           \\
+    RAM (GB)                      & 16          \\
+    Cooling                       & Passive     \\
+  \end{tblr}
+\end{table}
 
 The specs of the machines used can be seen in \cref{tbl:WSL specs},
 \cref{tbl:martin specs} and \cref{tbl:mba specs}. TypeTopology benefitted the
 most from the compilations strategies achieving up to 40\% faster compilation
 in WSL. Although the results from the other Agda projects aren't promising,
 they show improvement ranging from 21 \% better to 329 \% worse. The
-compilation times appear to depend heavily on the user's system.
+compilation times appear to depend heavily on the user's system. Also, the
+unsafe strategy shows improvements in all tests which shows potential for
+time savings.
 
 The difference in compilation time between projects, is likely due to the
 limitation discussed in the \cref{sub:eval comp limitations}. Since unimath has
@@ -206,7 +252,8 @@ compiles the project in parallel by using different strategies. Although, the
 effectiveness of those strategies varies depending on the system and the Agda
 project. There is a limitation where creating the module dependency graph
 compiles the project. Meaning this tool is used when the user makes a change
-that doesn't alter the module dependency graph, limiting its scope.
+that doesn't alter the module dependency graph, limiting its scope. Lastly, the
+unsafe strategy showed promise of possible time savings.
 
 
 % \begin{itemize}

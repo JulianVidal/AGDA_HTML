@@ -1516,9 +1516,36 @@ Remind to read from testing section and beyond.
 
 # 23 - Pre-Meeting Report
 
-Completed and sent draft of dissertation with previous week's suggestions. Didn't have any new information
-and many parts were re-written to reduce word count.
+Completed and sent draft of dissertation with previous week's suggestions.
+Didn't add new information and many parts were re-written to reduce word
+count.
 
 # 23 - Post-Meeting Report
 
+Looked over the to-do notes in the dissertation, the last two should be done.
+That being formatting milliseconds properly and moving the appendix content to
+their respective sections. There are no other issues to address, just make sure
+the grammar is correct and upload the document.
+
 # 23 - Notes
+
+- [x] Format milliseconds
+- [x] Move content from appendix to main document
+- [x] make sure tables have the same font
+- [x] add a sentence about unsafe test showing there is potential.
+- [ ] Move repo to gitlab
+
+Tool can be used to find out about typetopology
+
+No to adding copmilation related works, no to adding scheduling problem
+section, personas aren't neccesary, no need for personas, tables should have
+consitent font, bettwer to keep queries, don't worry about the integration
+test, put ms together withthe number when showing milliseconds,secods in
+bracket next to abbrevation for the first use,  keep results table in the main
+document not in appendix, maybe jjust move stuff from the appendix to the main
+document, run it thorugh spell checker, commandline detex command to remove
+latex commands, ispell us used in the detex output, complete the last two todos.
+
+
+There is a module that shouldn't be used by any other module, when the module is changed, it recompils everything, find which definition uses that module.
+

@@ -2,6 +2,26 @@
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 
+When dealing with large Agda projects it becomes difficult to navigate the
+project and slower to type-check. This paper addresses these issues with two
+CLI tools. Agda Tree which constructs dependency graphs from Agda definitions
+to help with code navigation and Agda Comp, which aims to optimize compilation
+time by parallelizing the type-checker using module dependency graphs. Agda
+Tree uses Andrej Bauer's s-expression extractor to generate the definition
+dependency graph and Agda's built-in command to generate the module dependency
+graph. The CLI lets developers query these relationships to better understand
+codebase. Agda Comp applies two strategies, level sort and disjoint level, to
+parallelize the module compilation while ensuring safety and correctness
+according to the module dependency graph.
+
+The evaluation shows that Agda Tree extracts dependency graphs from Agda
+projects like TypeTopology, but the performance of the queries depends on the
+size of the project. Agda Comp achieves compilation improvements of up to 38\%
+depending on the user's system, and project size and structure. However, the
+overhead of reloading Agda's interface files limits the gains in most
+scenarios.
+
+
 % Usually 100-300 words stating the salient points of the report. It should help your reader
 % to decide whether the report is relevant to her or his interests.
 %

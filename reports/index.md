@@ -1549,3 +1549,4 @@ latex commands, ispell us used in the detex output, complete the last two todos.
 
 There is a module that shouldn't be used by any other module, when the module is changed, it recompils everything, find which definition uses that module.
 
+new version changed title and added abstract.

@@ -2,7 +2,7 @@
 
 \chapter{Implementation} \label{ch:implementation}
 
-The Agda Tree creates a dependency definition graph from an Agda project and
+Agda Tree\cite{agda_html} creates a dependency definition graph from an Agda project and
 lets the user query this graph through a CLI. First, a subsystem  is made that
 turns Agda projects into a dependency graph is implemented. Then, a CLI is
 created that lets the user query the graph. These subsystems must meet the
@@ -559,7 +559,7 @@ definition dependency graphs.
 
 \section{Agda Comp}
 
-Agda Comp automatically creates the module dependency graph as described in
+Agda Comp\cite{agda_html} automatically creates the module dependency graph as described in
 \cref{sub: Building Module Tree}, using Agda's built-in command. The graph is
 passed into a strategy, that will return the order in which to compile
 the modules. Given this order, a 'make generator' sub-system creates the index

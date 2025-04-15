@@ -2,15 +2,19 @@
 
 \chapter{Implementation} \label{ch:implementation}
 
-Agda Tree\cite{agda_html} creates a dependency definition graph from an Agda project and
-lets the user query this graph through a CLI. First, a subsystem  is made that
-turns Agda projects into a dependency graph is implemented. Then, a CLI is
-created that lets the user query the graph. These subsystems must meet the
-functional requirements described on \cref{tbl:Agda Tree Functional
-Requirements} and the non-functional requirements described on \cref{tbl:Agda
-Tree Non-Functional Requirements}. The CLI implements all the queries described
-on \cref{tbl:Definition Graph Queries} for the definition graph and the queries
-described in \cref{tbl:Module Graph Queries} for the module graph.
+The code for this chapter can be found at \cite{agda_html}. Agda Tree creates a
+dependency definition graph from an Agda project and lets the user query this
+graph through a CLI. This system must meet the functional requirements
+described on \cref{tbl:Agda Tree Functional Requirements} and the
+non-functional requirements described on \cref{tbl:Agda Tree Non-Functional
+Requirements}. The CLI implements all the queries described on
+\cref{tbl:Definition Graph Queries} for the definition graph and the queries
+described in \cref{tbl:Module Graph Queries} for the module graph. Agda Comp
+uses the module dependency graph to execute a strategy that returns the
+compilation order of the modules. It then compiles the project using that
+order. This system must meet the functional requirements described on
+\ref{tbl:Agda Comp Functional Requirements} and the non-functional requirements
+described on \ref{tbl:Agda Comp Non-Functional Requirements}.
 
 
 
@@ -28,7 +32,7 @@ described in \cref{tbl:Module Graph Queries} for the module graph.
 
 \section{Agda Tree}
 
-Agda Tree uses the s-expression extractor \cite{andrej} to get the definitions
+Agda Tree \cite{agda_html} uses the s-expression extractor \cite{andrej} to get the definitions
 and relationships from the project. These s-expressions are parsed and
 converted into a definition dependency graph. Which is then exposed through a
 CLI that the user can query. Agda already includes a command to generate the
